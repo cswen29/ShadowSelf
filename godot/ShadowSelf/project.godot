@@ -11,12 +11,17 @@ config_version=5
 [application]
 
 config/name="ShadowSelf"
+run/main_scene="res://game_manager.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="ShadowSelf"
+
+[editor]
+
+movie_writer/movie_file="D:/Documents/GODOT/game jams/pirate#15/ShadowSelf/out/movie.avi"
 
 [rendering]
 
