@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cwtcvtal3680p" path="res://Character/temp_art.png" id="2_51oac"]
 
 [sub_resource type="Curve" id="Curve_lcv50"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0526316, 0.791209), 0.0, 0.0, 0, 0, Vector2(0.494737, 0.373626), 0.0, 0.0, 0, 0, Vector2(0.942105, 0.78022), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0631579, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.494737, 0.241758), 0.0, 0.0, 0, 0, Vector2(0.963158, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 5
 
 [sub_resource type="Gradient" id="Gradient_qpu3b"]
