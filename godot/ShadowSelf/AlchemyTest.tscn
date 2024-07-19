@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://h7dwpfsp4x6a"]
+
+[ext_resource type="PackedScene" uid="uid://dq4nbmlfc81ay" path="res://Character/character_main_body.tscn" id="1_ijl1n"]
+[ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Character/player_body_test.tscn" id="2_m0565"]
+[ext_resource type="PackedScene" uid="uid://c5ejqcgvvlcpf" path="res://CollectableObject/collectable_thing.tscn" id="3_dbci1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterMainBody" parent="." instance=ExtResource("1_ijl1n")]
+position = Vector2(286, 343)
+
+[node name="PlayerBodyTest" parent="." instance=ExtResource("2_m0565")]
+
+[node name="CollectableThing" parent="." instance=ExtResource("3_dbci1")]
+position = Vector2(691, 387)
