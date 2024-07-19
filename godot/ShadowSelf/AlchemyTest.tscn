@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://h7dwpfsp4x6a"]
+
+[ext_resource type="PackedScene" uid="uid://dq4nbmlfc81ay" path="res://Character/character_main_body.tscn" id="1_ijl1n"]
+[ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Character/player_body_test.tscn" id="2_m0565"]
+[ext_resource type="Script" path="res://CollectableObject/ResourceControl.gd" id="3_altp5"]
+[ext_resource type="PackedScene" uid="uid://c5ejqcgvvlcpf" path="res://CollectableObject/collectable_thing.tscn" id="3_dbci1"]
+[ext_resource type="Script" path="res://Resources/AlchemyResource.gd" id="5_78jge"]
+
+[sub_resource type="Resource" id="Resource_us8s2"]
+script = ExtResource("5_78jge")
+type = 1
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterMainBody" parent="." instance=ExtResource("1_ijl1n")]
+position = Vector2(286, 343)
+collision_layer = 2
+collision_mask = 2
+
+[node name="PlayerBodyTest" parent="." instance=ExtResource("2_m0565")]
+
+[node name="ResourceControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_altp5")
+
+[node name="CollectableThing" parent="ResourceControl" instance=ExtResource("3_dbci1")]
+position = Vector2(831, 464)
+scale = Vector2(0.492688, 0.448313)
+resource = SubResource("Resource_us8s2")
+
+[node name="CollectableThing2" parent="ResourceControl" instance=ExtResource("3_dbci1")]
+position = Vector2(983, 421)
+scale = Vector2(0.542704, 0.483716)
+resource = SubResource("Resource_us8s2")
