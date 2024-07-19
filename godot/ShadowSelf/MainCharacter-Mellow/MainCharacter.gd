@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-@export var speed : int = 60.0
+@export var speed : float = 60.0
 var playerHasSelectedDirection : bool = false
 var canSelectDirection : bool = true
+@onready var floaty = $"../PlayerBodyTest"
+@onready var line = $Line2D
+var distance
 
 func _input(event):
 	if (event is InputEventMouseButton) and canSelectDirection:
@@ -33,7 +36,7 @@ func _on_wander_timeout():
 		var randomDirection = randi() % 2
 		
 		#random distance to walk
-		var distance : int = randi_range(50, 200)
+		var wander_distance : int = randi_range(50, 200)
 		
 		#current position of the character scene
 		var pos : Vector2 = self.position
@@ -42,11 +45,20 @@ func _on_wander_timeout():
 			0: # left
 				tween.tween_property($Sprite2D, "flip_h", true, 0.5) # flip the sprite
 				# move the character in the x axis for a random ammount of pixels. duration is dependent on the distance. Start slow, go faster in the middle, end slow 
-				tween.tween_property(self, "position", Vector2(pos.x - distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(self, "position", Vector2(pos.x - wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
 			
 			1: #right
 				tween.tween_property($Sprite2D, "flip_h", false, 0.5)
-				tween.tween_property(self, "position", Vector2(pos.x + distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(self, "position", Vector2(pos.x + wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
 	
 		await tween.finished
 		canSelectDirection = true
+
+func _physics_process(_delta):
+	distance = abs(self.global_position.x - floaty.global_position.x) + abs(self.global_position.y - floaty.global_position.y)
+	if distance >= 800:
+		line.hide()
+	else:
+		line.show()
+	line.width=20
+	line.width=line.width+(-distance/50)

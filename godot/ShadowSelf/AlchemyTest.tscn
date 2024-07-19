@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://h7dwpfsp4x6a"]
 
-[ext_resource type="PackedScene" uid="uid://dq4nbmlfc81ay" path="res://Character/character_main_body.tscn" id="1_ijl1n"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="1_wvs2v"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Character/player_body_test.tscn" id="2_m0565"]
 [ext_resource type="Script" path="res://CollectableObject/ResourceControl.gd" id="3_altp5"]
 [ext_resource type="PackedScene" uid="uid://c5ejqcgvvlcpf" path="res://CollectableObject/collectable_thing.tscn" id="3_dbci1"]
@@ -12,10 +12,8 @@ type = 1
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterMainBody" parent="." instance=ExtResource("1_ijl1n")]
-position = Vector2(286, 343)
-collision_layer = 2
-collision_mask = 2
+[node name="MainCharacter" parent="." instance=ExtResource("1_wvs2v")]
+position = Vector2(303, 530)
 
 [node name="PlayerBodyTest" parent="." instance=ExtResource("2_m0565")]
 
@@ -25,6 +23,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_altp5")
+metadata/_edit_use_anchors_ = true
 
 [node name="CollectableThing" parent="ResourceControl" instance=ExtResource("3_dbci1")]
 position = Vector2(831, 464)
