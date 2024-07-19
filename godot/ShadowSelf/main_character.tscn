@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=8 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="2_7stfq"]
+[ext_resource type="Shader" path="res://headache.gdshader" id="3_e38hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t0oep"]
+frequency = 0.003
+offset = Vector3(974.36, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wyqw2"]
+noise = SubResource("FastNoiseLite_t0oep")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dxa1"]
+shader = ExtResource("3_e38hu")
+shader_parameter/scroll_up = Vector2(-4, 2)
+shader_parameter/scroll_down = Vector2(4, -2)
+shader_parameter/distortion_strength = 0.00500005
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
 
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_sbunj")
@@ -21,5 +36,13 @@ texture = ExtResource("2_7stfq")
 [node name="Wander" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_6dxa1")
+offset_left = -20.0
+offset_top = -85.0
+offset_right = 24.0
+offset_bottom = -53.0
 
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]
