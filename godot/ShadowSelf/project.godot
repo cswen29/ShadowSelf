@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="ShadowSelf"
-run/main_scene="res://game_manager.tscn"
+run/main_scene="res://start_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [dotnet]
 
