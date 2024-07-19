@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://chc8vdcv10ghi"]
 
-[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://main_character.tscn" id="1_1nqgx"]
-[ext_resource type="Shader" path="res://blur.gdshader" id="1_klv4t"]
+[ext_resource type="Shader" path="res://FirstLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="3_eno3n"]
 [ext_resource type="Texture2D" uid="uid://ctb4go2bmpagr" path="res://icon.svg" id="3_lq4qc"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="4_6olqb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7imr"]
-shader = ExtResource("1_klv4t")
+shader = ExtResource("1_ghnme")
 shader_parameter/amount = 3.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_siws0"]
@@ -3749,7 +3749,7 @@ offset_right = 1595.0
 offset_bottom = 1194.0
 color = Color(0.105882, 0.0117647, 0.188235, 0.4)
 
-[node name="MainCharacter" parent="." instance=ExtResource("1_1nqgx")]
+[node name="MainCharacter" parent="." instance=ExtResource("4_6olqb")]
 position = Vector2(547, 694)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
