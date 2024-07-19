@@ -28,7 +28,7 @@ project/assembly_name="ShadowSelf"
 
 [editor]
 
-movie_writer/movie_file="D:/Documents/GODOT/game jams/pirate#15/ShadowSelf/out/movie.avi"
+movie_writer/movie_file="out/recording.avi"
 
 [rendering]
 

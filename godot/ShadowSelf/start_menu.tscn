@@ -27,6 +27,7 @@ text = "Tutorial
 "
 
 [node name="Tutorial" type="ColorRect" parent="."]
+visible = false
 offset_left = 167.0
 offset_top = 74.0
 offset_right = 1403.0
