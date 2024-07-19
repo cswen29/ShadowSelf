@@ -27,9 +27,11 @@ offset_bottom = 40.0
 script = ExtResource("3_altp5")
 
 [node name="CollectableThing" parent="ResourceControl" instance=ExtResource("3_dbci1")]
-position = Vector2(691, 387)
+position = Vector2(831, 464)
+scale = Vector2(0.492688, 0.448313)
 resource = SubResource("Resource_us8s2")
 
 [node name="CollectableThing2" parent="ResourceControl" instance=ExtResource("3_dbci1")]
-position = Vector2(691, 387)
+position = Vector2(983, 421)
+scale = Vector2(0.542704, 0.483716)
 resource = SubResource("Resource_us8s2")
