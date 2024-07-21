@@ -7,6 +7,7 @@ extends Sprite2D
 @onready var label: Label = $LabelCounter
 @onready var n = control.inventory.count("Serotonin")
 var is_hidden:bool = false
+var hover_me:bool = false
 
 func _ready():
 	if resource.type == 0:
@@ -32,3 +33,6 @@ func update_label():
 	else:
 		self.show()
 	label.text = str(n)
+
+func _on_area_2d_mouse_entered():
+	hover_me = true

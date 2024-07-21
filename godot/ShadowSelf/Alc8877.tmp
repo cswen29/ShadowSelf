@@ -25,7 +25,9 @@ size = Vector2(57, 58)
 [node name="Node2D" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_wvs2v")]
-position = Vector2(383, 403)
+position = Vector2(303, 530)
+collision_layer = 2
+collision_mask = 2
 
 [node name="PlayerBodyTest" parent="." instance=ExtResource("2_m0565")]
 
