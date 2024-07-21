@@ -26,7 +26,7 @@ func despawnMinigame():
 			
 func animateSpawn():
 	var tween : Tween = create_tween().set_parallel(true)
-	tween.tween_property($MainCharacter/Camera2D, "offset", Vector2(-500, -450), 3)
+	tween.tween_property($MainCharacter/Camera2D, "offset", Vector2(500, -410), 3)
 	tween.tween_property($MainCharacter/Camera2D, "zoom", Vector2(1.3,1.3), 3)
 	await tween.finished
 	

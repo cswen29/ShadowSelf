@@ -1,7 +1,7 @@
 extends Line2D
 
 var queue:Array
-@onready var player = $"../../PlayerBodyTest"
+@onready var player = $"../PlayerBodyTest"
 @onready var constant = $".."
 
 func _process(_delta):

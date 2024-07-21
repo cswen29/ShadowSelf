@@ -1,14 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cma0bkevj2j4y"]
-
+[gd_scene load_steps=38 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://baepqyopsto26" path="res://assets/walk_cycle_background.PNG" id="3_7kkqu"]
 [ext_resource type="Shader" path="res://MainCharacter-Mellow/headache.gdshader" id="3_e38hu"]
-
 [ext_resource type="Texture2D" uid="uid://bqjf4baliqrnc" path="res://assets/walk_cycle.PNG" id="4_6r7qm"]
-
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="4_yud37"]
-
+[ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="5_ykhww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
@@ -222,7 +219,6 @@ point_count = 5
 offsets = PackedFloat32Array(0, 0.553333, 1)
 colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
 
-
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_sbunj")
 
@@ -234,13 +230,13 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fljcm")
 
 [node name="Headache" type="ColorRect" parent="."]
+visible = false
 top_level = true
 material = SubResource("ShaderMaterial_6dxa1")
 offset_left = -20.0
 offset_top = -85.0
 offset_right = 24.0
 offset_bottom = -53.0
-
 
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.956863, 1, 1, 1)
@@ -257,6 +253,9 @@ frame_progress = 0.0896464
 [node name="Wander" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="PlayerBodyTest" parent="." instance=ExtResource("5_ykhww")]
+position = Vector2(-1, -7)
 
 [node name="ShadowLink" type="Line2D" parent="."]
 top_level = true
