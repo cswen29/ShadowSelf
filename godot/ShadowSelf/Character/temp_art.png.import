@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4tsw4q1sy7bu"
-path="res://.godot/imported/shadow_blink_eye.PNG-8046cf97df72ce4e96f161b5c40d4de0.ctex"
+uid="uid://cwtcvtal3680p"
+path="res://.godot/imported/temp_art.png-09e2f2b94d3f1aa63120f1516a0ea7bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shadow_blink_eye.PNG"
-dest_files=["res://.godot/imported/shadow_blink_eye.PNG-8046cf97df72ce4e96f161b5c40d4de0.ctex"]
+source_file="res://Character/temp_art.png"
+dest_files=["res://.godot/imported/temp_art.png-09e2f2b94d3f1aa63120f1516a0ea7bd.ctex"]
 
 [params]
 

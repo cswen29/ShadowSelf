@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq4nbmlfc81ay"]
+
+[ext_resource type="Script" path="res://Character/TetherTest.gd" id="1_4rc8d"]
+[ext_resource type="Script" path="res://Character/character_main_body.gd" id="1_sxy7m"]
+[ext_resource type="Texture2D" uid="uid://cwtcvtal3680p" path="res://Character/temp_art.png" id="2_51oac"]
+
+[sub_resource type="Curve" id="Curve_lcv50"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0631579, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.494737, 0.241758), 0.0, 0.0, 0, 0, Vector2(0.963158, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_qpu3b"]
+offsets = PackedFloat32Array(0, 0.553333, 1)
+colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rglx3"]
+size = Vector2(20, 106)
+
+[node name="CharacterMainBody" type="CharacterBody2D"]
+script = ExtResource("1_sxy7m")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width_curve = SubResource("Curve_lcv50")
+gradient = SubResource("Gradient_qpu3b")
+script = ExtResource("1_4rc8d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rglx3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_51oac")
