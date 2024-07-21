@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bl5tn3x1pkq82"]
 
-[ext_resource type="Script" path="res://Character/PlayerBodyTest.gd" id="1_fbo1d"]
-[ext_resource type="Texture2D" uid="uid://cwtcvtal3680p" path="res://Character/temp_art.png" id="2_ayb8w"]
+[ext_resource type="Script" path="res://Shadow/Shadow.gd" id="1_fbo1d"]
+[ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="2_0hfrm"]
 [ext_resource type="PackedScene" uid="uid://d2b1q67cphll2" path="res://ShadowTrail/ShadowTrailScene.tscn" id="3_45t55"]
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailExtension.gd" id="4_x1i1o"]
 
@@ -15,7 +15,7 @@ script = ExtResource("1_fbo1d")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1.68085e-05)
 scale = Vector2(0.075, 0.0227273)
-texture = ExtResource("2_ayb8w")
+texture = ExtResource("2_0hfrm")
 
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
 top_level = true
