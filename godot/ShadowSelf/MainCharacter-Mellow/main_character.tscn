@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="2_7stfq"]
 [ext_resource type="Shader" path="res://MainCharacter-Mellow/headache.gdshader" id="3_e38hu"]
-[ext_resource type="Script" path="res://Character/TetherTest.gd" id="4_yud37"]
+[ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="4_yud37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
@@ -53,7 +53,7 @@ offset_top = -85.0
 offset_right = 24.0
 offset_bottom = -53.0
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="ShadowLink" type="Line2D" parent="."]
 top_level = true
 z_index = -1
 width_curve = SubResource("Curve_4a4k4")
