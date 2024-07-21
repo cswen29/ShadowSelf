@@ -18,6 +18,7 @@ func _ready():
 
 func _on_area_2d_mouse_entered():
 	control.inventory.append(obj_name.text)
+	control.update_counter()
 	print(control.inventory)
 	hide_me()
 

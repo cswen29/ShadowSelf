@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=11 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="2_7stfq"]
 [ext_resource type="Shader" path="res://MainCharacter-Mellow/headache.gdshader" id="3_e38hu"]
+[ext_resource type="Script" path="res://Character/TetherTest.gd" id="4_yud37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
@@ -21,9 +22,16 @@ shader_parameter/scroll_down = Vector2(4, -2)
 shader_parameter/distortion_strength = 0.00500005
 shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
 
+[sub_resource type="Curve" id="Curve_4a4k4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0631579, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.494737, 0.241758), 0.0, 0.0, 0, 0, Vector2(0.963158, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_db8j7"]
+offsets = PackedFloat32Array(0, 0.553333, 1)
+colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
+
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_sbunj")
-speed = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -44,5 +52,12 @@ offset_left = -20.0
 offset_top = -85.0
 offset_right = 24.0
 offset_bottom = -53.0
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = -1
+width_curve = SubResource("Curve_4a4k4")
+gradient = SubResource("Gradient_db8j7")
+script = ExtResource("4_yud37")
 
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]

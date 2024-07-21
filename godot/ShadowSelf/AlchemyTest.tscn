@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://h7dwpfsp4x6a"]
+[gd_scene load_steps=10 format=3 uid="uid://h7dwpfsp4x6a"]
 
-[ext_resource type="PackedScene" uid="uid://dq4nbmlfc81ay" path="res://Character/character_main_body.tscn" id="1_ijl1n"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="1_wvs2v"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Character/player_body_test.tscn" id="2_m0565"]
 [ext_resource type="Script" path="res://CollectableObject/ResourceControl.gd" id="3_altp5"]
 [ext_resource type="PackedScene" uid="uid://c5ejqcgvvlcpf" path="res://CollectableObject/collectable_thing.tscn" id="3_dbci1"]
 [ext_resource type="Script" path="res://Resources/AlchemyResource.gd" id="5_78jge"]
+[ext_resource type="PackedScene" uid="uid://0vfku66itbm" path="res://CollectableObject/collectable_counter.tscn" id="6_gry6q"]
+[ext_resource type="Resource" uid="uid://831jhfnp0w2q" path="res://CollectableObject/SeroResource.tres" id="7_mpoj4"]
+[ext_resource type="Resource" uid="uid://b76658u1411la" path="res://CollectableObject/EndoResource.tres" id="8_7v5tl"]
 
 [sub_resource type="Resource" id="Resource_us8s2"]
 script = ExtResource("5_78jge")
@@ -12,8 +15,8 @@ type = 1
 
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterMainBody" parent="." instance=ExtResource("1_ijl1n")]
-position = Vector2(286, 343)
+[node name="MainCharacter" parent="." instance=ExtResource("1_wvs2v")]
+position = Vector2(303, 530)
 collision_layer = 2
 collision_mask = 2
 
@@ -25,6 +28,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_altp5")
+metadata/_edit_use_anchors_ = true
 
 [node name="CollectableThing" parent="ResourceControl" instance=ExtResource("3_dbci1")]
 position = Vector2(831, 464)
@@ -35,3 +39,16 @@ resource = SubResource("Resource_us8s2")
 position = Vector2(983, 421)
 scale = Vector2(0.542704, 0.483716)
 resource = SubResource("Resource_us8s2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SeroCounter" parent="CanvasLayer" instance=ExtResource("6_gry6q")]
+position = Vector2(368, 794)
+
+[node name="DopaCounter" parent="CanvasLayer" instance=ExtResource("6_gry6q")]
+position = Vector2(800, 794)
+resource = ExtResource("7_mpoj4")
+
+[node name="EndoCounter" parent="CanvasLayer" instance=ExtResource("6_gry6q")]
+position = Vector2(1232, 794)
+resource = ExtResource("8_7v5tl")
