@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h7dwpfsp4x6a"]
+[gd_scene load_steps=13 format=3 uid="uid://h7dwpfsp4x6a"]
 
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="1_wvs2v"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="2_m0565"]
@@ -16,6 +16,12 @@ type = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c626c"]
 size = Vector2(60, 59)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8ote"]
+size = Vector2(58, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0exq4"]
+size = Vector2(57, 58)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_wvs2v")]
@@ -23,7 +29,7 @@ position = Vector2(383, 403)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Shadow" parent="." instance=ExtResource("2_m0565")]
+[node name="PlayerBodyTest" parent="." instance=ExtResource("2_m0565")]
 
 [node name="ResourceControl" type="Control" parent="."]
 layout_mode = 3
@@ -66,17 +72,12 @@ debug_color = Color(0.322339, 0.531296, 0, 0.42)
 [node name="AlchDrop2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlchDrop2"]
-position = Vector2(800, 66)
-shape = SubResource("RectangleShape2D_c626c")
-debug_color = Color(0, 0.435044, 0.959359, 0.42)
+position = Vector2(797, 67)
+shape = SubResource("RectangleShape2D_r8ote")
 
 [node name="AlchDrop3" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlchDrop3"]
-position = Vector2(1230, 66)
-shape = SubResource("RectangleShape2D_c626c")
-debug_color = Color(0.612541, 0, 0.150378, 0.42)
-
-[connection signal="mouse_entered" from="AlchDrop1" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
-[connection signal="mouse_entered" from="AlchDrop2" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
-[connection signal="mouse_entered" from="AlchDrop3" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
+position = Vector2(1229, 67)
+shape = SubResource("RectangleShape2D_0exq4")
+debug_color = Color(1, 0.00239956, 0.0749063, 0.42)

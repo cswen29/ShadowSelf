@@ -36,3 +36,6 @@ func update_label():
 
 func _on_area_2d_mouse_entered():
 	hover_me = true
+
+func _on_area_2d_mouse_exited():
+	hover_me = false
