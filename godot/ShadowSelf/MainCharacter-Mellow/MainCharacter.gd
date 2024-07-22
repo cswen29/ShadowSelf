@@ -2,24 +2,20 @@ class_name Player extends CharacterBody2D
 
 @export var speed : float = 60.0
 var playerHasSelectedDirection : bool = false
-var canSelectDirection : bool = true
 var canMove : bool = true
-@onready var floaty = $PlayerBodyTest
-@onready var line = $ShadowLink
-var distance
-var idle:bool = true
 
-func _ready():
+func _ready() -> void:
 	playIdle()
 		
-func _input(event):
-	if (event is InputEventMouseButton) and canSelectDirection and canMove:
+func _process(delta)-> void:
+	GlobalVariables.player_pos = global_position
+	
+func _input(event)-> void:
+	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:
 		playerHasSelectedDirection = true
 		
 		var tween = create_tween()
 		var pos = Vector2(get_global_mouse_position().x, self.position.y)
-		print("mouse in: %s" % pos.x)
-		print("player in: %s" % self.position.x)
 		if pos.x < self.position.x:
 			flipSprites(true) # flip the sprite
 		else:
@@ -30,12 +26,10 @@ func _input(event):
 		await tween.finished
 		playIdle()
 		playerHasSelectedDirection = false
-		
 
 # every 5 seconds, character will start wandering around
-func _on_wander_timeout():
+func _on_wander_timeout()-> void:
 		if !playerHasSelectedDirection and canMove:
-			canSelectDirection = false
 			#create tween
 			var tween : Tween= create_tween()
 			
@@ -61,18 +55,17 @@ func _on_wander_timeout():
 			playWalkCycle()
 			await tween.finished
 			playIdle()
-			canSelectDirection = true
 
-func playIdle():
+func playIdle()-> void:
 	await get_tree().create_timer(0.3).timeout
 	$SpriteOutline.play("idle")
 	$SpriteColor.play("idle")	
 
-func playWalkCycle():
+func playWalkCycle()-> void:
 	await get_tree().create_timer(0.3).timeout
 	$SpriteOutline.play("walk_cycle")
 	$SpriteColor.play("walk_cycle")	
 	
-func flipSprites(val: bool):
+func flipSprites(val: bool)-> void:
 	$SpriteOutline.flip_h = val
 	$SpriteColor.flip_h = val

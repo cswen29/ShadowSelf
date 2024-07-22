@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgew0"]
 radius = 20.025
 
-[node name="PlayerBodyTest" type="CharacterBody2D"]
+[node name="Shadow" type="CharacterBody2D"]
 position = Vector2(624, 307)
 script = ExtResource("1_fbo1d")
 
