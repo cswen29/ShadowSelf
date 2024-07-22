@@ -13,7 +13,7 @@ func spawnMinigame(minigame_scene: PackedScene)-> void:
 	mainCharacter.canMove = false
 	var minigame = minigame_scene.instantiate() as Minigame
 	minigame.minigameIsFinished.connect($".".despawnMinigame.bind())
-	add_child(minigame)
+	call_deferred("add_child", minigame)
 	animateSpawn()
 	
 func despawnMinigame()-> void:

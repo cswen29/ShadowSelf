@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=8 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="2_5ot7v"]
@@ -7,15 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="5_e6ts6"]
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="6_7u0f6"]
 
-[sub_resource type="Curve" id="Curve_it277"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0631579, 0.648352), 0.0, 0.0, 0, 0, Vector2(0.494737, 0.241758), 0.0, 0.0, 0, 0, Vector2(0.963158, 0.637363), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 5
-
 [sub_resource type="Gradient" id="Gradient_kmujt"]
 offsets = PackedFloat32Array(0, 0.553333, 1)
 colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
 
 [node name="GameManager" type="Node2D"]
+top_level = true
 script = ExtResource("1_dtxwn")
 room_level_scene = ExtResource("2_o2qej")
 outside_level_scene = ExtResource("3_302gr")
@@ -25,16 +22,17 @@ position = Vector2(4, -82)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
 position = Vector2(-3, 0)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)
-top_level = true
+visibility_layer = 2
 position = Vector2(-1, -7)
 motion_mode = 1
 
 [node name="ShadowLink" type="Line2D" parent="."]
 top_level = true
-z_index = -1
-width_curve = SubResource("Curve_it277")
 gradient = SubResource("Gradient_kmujt")
+begin_cap_mode = 2
+end_cap_mode = 2
 script = ExtResource("6_7u0f6")

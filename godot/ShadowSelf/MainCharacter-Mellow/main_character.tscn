@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=35 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://baepqyopsto26" path="res://assets/walk_cycle_background.PNG" id="3_7kkqu"]
@@ -7,20 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t0oep"]
-frequency = 0.003
-offset = Vector3(974.36, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wyqw2"]
-noise = SubResource("FastNoiseLite_t0oep")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dxa1"]
-shader = ExtResource("3_e38hu")
-shader_parameter/scroll_up = Vector2(-4, 2)
-shader_parameter/scroll_down = Vector2(4, -2)
-shader_parameter/distortion_strength = 0.00500005
-shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftsdq"]
 atlas = ExtResource("3_7kkqu")
@@ -209,7 +195,25 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t0oep"]
+seed = 3
+frequency = 0.0158
+offset = Vector3(974.36, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wyqw2"]
+noise = SubResource("FastNoiseLite_t0oep")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dxa1"]
+shader = ExtResource("3_e38hu")
+shader_parameter/scroll_up = Vector2(-4, 2)
+shader_parameter/scroll_down = Vector2(4, -2)
+shader_parameter/distortion_strength = 0.00200005
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wrw12"]
+
 [node name="MainCharacter" type="CharacterBody2D"]
+top_level = true
 script = ExtResource("1_sbunj")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -219,29 +223,47 @@ collision_mask = 3
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fljcm")
 
-[node name="Headache" type="ColorRect" parent="."]
-visible = false
-top_level = true
-material = SubResource("ShaderMaterial_6dxa1")
-offset_left = -20.0
-offset_top = -85.0
-offset_right = 24.0
-offset_bottom = -53.0
-
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.956863, 1, 1, 1)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_vnmyr")
-animation = &"idle"
+animation = &"walk_cycle"
+frame_progress = 0.219837
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+position = Vector2(-0.249997, 0)
+scale = Vector2(0.100505, 0.1)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
-frame_progress = 0.0896464
+frame_progress = 0.161407
+
+[node name="Distortion" type="ColorRect" parent="SpriteOutline"]
+material = SubResource("ShaderMaterial_6dxa1")
+offset_left = -545.0
+offset_top = -860.0
+offset_right = 560.0
+offset_bottom = 880.0
 
 [node name="Wander" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -1.0
+offset_top = -108.0
+offset_right = 39.0
+offset_bottom = -85.0
+text = "!
+"
+label_settings = SubResource("LabelSettings_wrw12")
+
+[node name="IdleText" type="Label" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = -113.0
+offset_right = 34.0
+offset_bottom = -90.0
+text = "..."
 
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]

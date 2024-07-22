@@ -7,11 +7,13 @@ var canMove : bool = true
 func _ready() -> void:
 	playIdle()
 		
-func _process(delta)-> void:
+func _process(_delta)-> void:
 	GlobalVariables.player_pos = global_position
 	
 func _input(event)-> void:
 	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:
+		$Label.show()
+		$IdleText.hide()
 		playerHasSelectedDirection = true
 		
 		var tween = create_tween()
@@ -26,10 +28,12 @@ func _input(event)-> void:
 		await tween.finished
 		playIdle()
 		playerHasSelectedDirection = false
+		$Label.hide()
 
 # every 5 seconds, character will start wandering around
 func _on_wander_timeout()-> void:
 		if !playerHasSelectedDirection and canMove:
+			$IdleText.show()
 			#create tween
 			var tween : Tween= create_tween()
 			
@@ -55,6 +59,7 @@ func _on_wander_timeout()-> void:
 			playWalkCycle()
 			await tween.finished
 			playIdle()
+			$IdleText.hide()
 
 func playIdle()-> void:
 	await get_tree().create_timer(0.3).timeout

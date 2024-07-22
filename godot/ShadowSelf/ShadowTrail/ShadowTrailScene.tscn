@@ -1,16 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2b1q67cphll2"]
+[gd_scene load_steps=3 format=3 uid="uid://d2b1q67cphll2"]
 
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailScript.gd" id="1_53mq0"]
-
-[sub_resource type="Curve" id="Curve_pqyap"]
-_data = [Vector2(0, 0.879121), 0.0, 0.0, 0, 0, Vector2(1, 0.076923), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_u20e1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [node name="Sprite2D" type="Line2D"]
-width_curve = SubResource("Curve_pqyap")
 gradient = SubResource("Gradient_u20e1")
 script = ExtResource("1_53mq0")
 max_length = 20
