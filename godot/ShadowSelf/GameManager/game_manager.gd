@@ -14,7 +14,7 @@ func spawnMinigame(minigame_scene: PackedScene)-> void:
 	await animateSpawn()
 	var minigame = minigame_scene.instantiate() as Minigame
 	minigame.minigameIsFinished.connect($".".despawnMinigame.bind())
-	minigame.global_position = GlobalVariables.player_pos + Vector2(0, -800)
+	minigame.global_position = GlobalVariables.character_pos + Vector2(0, -800)
 	minigame.scale = Vector2(2,2)
 	call_deferred("add_child", minigame)
 

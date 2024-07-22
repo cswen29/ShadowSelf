@@ -8,7 +8,7 @@ func _ready() -> void:
 	playIdle()
 		
 func _process(_delta)-> void:
-	GlobalVariables.player_pos = global_position
+	GlobalVariables.character_pos = global_position
 	
 func _input(event)-> void:
 	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:

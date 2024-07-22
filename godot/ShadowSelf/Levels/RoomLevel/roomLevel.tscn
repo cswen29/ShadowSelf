@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=15 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://tkb5tcrre2po" path="res://assets/temp_room_background.jpg" id="3_5jwkr"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="3_eno3n"]
 [ext_resource type="Texture2D" uid="uid://ctb4go2bmpagr" path="res://icon.svg" id="3_lq4qc"]
+[ext_resource type="Texture2D" uid="uid://c55vrim3xbjth" path="res://assets/bedroom_window.PNG" id="6_0fpg7"]
+[ext_resource type="Texture2D" uid="uid://rcwutehgj73m" path="res://assets/bg_v1.PNG" id="6_mdj5e"]
 [ext_resource type="Texture2D" uid="uid://cx76lesuyajae" path="res://assets/chandelier-png-file-3.png" id="7_i31rx"]
+[ext_resource type="Texture2D" uid="uid://b8hxos7vpq4mr" path="res://assets/floor_v1.PNG" id="8_t8tkn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7imr"]
 shader = ExtResource("1_ghnme")
@@ -3656,45 +3659,6 @@ position = Vector2(41, 7)
 script = ExtResource("1_tt24w")
 minigame_scene = ExtResource("2_uh3le")
 
-[node name="Borders" type="ColorRect" parent="."]
-offset_left = -4065.0
-offset_top = -2461.0
-offset_right = -4000.0
-offset_bottom = -2399.0
-scale = Vector2(133.218, 62.8239)
-color = Color(0, 0, 0, 1)
-
-[node name="Backgrounds" type="Node2D" parent="."]
-position = Vector2(850, 216)
-
-[node name="BackGroundQ1" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(18, -108)
-texture = ExtResource("3_5jwkr")
-
-[node name="BackGroundQ2" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-2481, -108)
-texture = ExtResource("3_5jwkr")
-flip_h = true
-
-[node name="BackGroundQ3" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(-2481, -1188)
-texture = ExtResource("3_5jwkr")
-flip_h = true
-flip_v = true
-
-[node name="BackGroundQ4" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(18, -1187)
-texture = ExtResource("3_5jwkr")
-flip_v = true
-
-[node name="Darken" type="ColorRect" parent="Backgrounds"]
-offset_left = -3738.0
-offset_top = -1726.0
-offset_right = 330.0
-offset_bottom = 466.0
-scale = Vector2(1.232, 1.00019)
-color = Color(0.0180224, 0.00114091, 0.0250056, 0.45098)
-
 [node name="Blur" type="ColorRect" parent="."]
 visible = false
 top_level = true
@@ -3720,8 +3684,9 @@ layer_0/tile_data = PackedInt32Array(3604481, 524288, 41, 3604482, 524288, 41, 3
 
 [node name="DoorToOutside" type="Sprite2D" parent="."]
 modulate = Color(0.141176, 0, 0, 1)
-position = Vector2(1042, -146)
-scale = Vector2(0.82878, 2.21874)
+top_level = true
+position = Vector2(1871, 16)
+scale = Vector2(2.89095, 3.90624)
 texture = ExtResource("3_lq4qc")
 
 [node name="DoorArea" type="Area2D" parent="DoorToOutside"]
@@ -3732,8 +3697,10 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_fc7b0")
 
 [node name="Item" type="Sprite2D" parent="."]
-position = Vector2(-953, -51)
-scale = Vector2(0.546875, 0.492188)
+top_level = true
+z_index = 1
+position = Vector2(-871, 9.74998)
+scale = Vector2(1.82812, 1.44141)
 texture = ExtResource("3_lq4qc")
 
 [node name="ItemArea" type="Area2D" parent="Item"]
@@ -3747,12 +3714,14 @@ shape = SubResource("CircleShape2D_fc7b0")
 position = Vector2(-41, -7)
 
 [node name="-1" type="CanvasLayer" parent="Layers"]
-layer = -1
+layer = 0
 follow_viewport_enabled = true
-follow_viewport_scale = 0.9
+follow_viewport_scale = 0.95
 
 [node name="0" type="CanvasLayer" parent="Layers"]
 layer = 0
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
 
 [node name="1" type="CanvasLayer" parent="Layers"]
 follow_viewport_enabled = true
@@ -3761,16 +3730,79 @@ follow_viewport_scale = 1.3
 [node name="Chandelier-png-file-4" type="Sprite2D" parent="Layers/1"]
 modulate = Color(0, 0, 0, 0.345098)
 top_level = true
-position = Vector2(-1203.08, -581.539)
+position = Vector2(-1392.31, -939.231)
 scale = Vector2(0.472044, 0.358165)
 texture = ExtResource("7_i31rx")
 
 [node name="Chandelier-png-file-3" type="Sprite2D" parent="Layers/1"]
 modulate = Color(0, 0, 0, 0.345098)
 top_level = true
-position = Vector2(705.385, -590.769)
+position = Vector2(553.077, -973.077)
 scale = Vector2(0.472044, 0.358165)
 texture = ExtResource("7_i31rx")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(834, -32)
+
+[node name="BackGroundQ1" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(18, -108)
+texture = ExtResource("6_mdj5e")
+
+[node name="BackGroundQ2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-2481, -108)
+texture = ExtResource("6_mdj5e")
+flip_h = true
+
+[node name="BackGroundQ3" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-2481, -1188)
+texture = ExtResource("3_5jwkr")
+flip_h = true
+flip_v = true
+
+[node name="BackGroundQ4" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(18, -1187)
+texture = ExtResource("3_5jwkr")
+flip_v = true
+
+[node name="BedroomWindow" type="Sprite2D" parent="Backgrounds"]
+z_index = 1
+position = Vector2(383, -247)
+texture = ExtResource("6_0fpg7")
+flip_h = true
+
+[node name="BedroomWindow2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-116, -246)
+texture = ExtResource("6_0fpg7")
+
+[node name="BedroomWindow1" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-3285, -265)
+texture = ExtResource("6_0fpg7")
+
+[node name="Darken" type="ColorRect" parent="Backgrounds"]
+offset_left = -3738.0
+offset_top = -1726.0
+offset_right = 330.0
+offset_bottom = 466.0
+scale = Vector2(1.232, 1.00019)
+color = Color(0.0180224, 0.00114091, 0.0250056, 0.45098)
+
+[node name="FloorV2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-2487, 115)
+texture = ExtResource("8_t8tkn")
+flip_h = true
+
+[node name="FloorV1" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(13, 116)
+texture = ExtResource("8_t8tkn")
+
+[node name="Borders" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -3893.0
+offset_top = -2170.0
+offset_right = -3828.0
+offset_bottom = -2108.0
+scale = Vector2(133.218, 62.8239)
+color = Color(0, 0, 0, 1)
 
 [connection signal="area_entered" from="DoorToOutside/DoorArea" to="." method="_on_door_area_area_entered"]
 [connection signal="area_entered" from="Item/ItemArea" to="." method="_on_item_area_area_entered"]
