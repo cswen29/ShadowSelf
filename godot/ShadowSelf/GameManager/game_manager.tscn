@@ -18,11 +18,12 @@ room_level_scene = ExtResource("2_o2qej")
 outside_level_scene = ExtResource("3_302gr")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_5ot7v")]
-position = Vector2(4, -82)
+position = Vector2(-12, 53)
+scale = Vector2(1.45, 1.45)
 
 [node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-position = Vector2(-3, 0)
-zoom = Vector2(0.9, 0.9)
+position = Vector2(124.667, -118)
+zoom = Vector2(0.8, 0.8)
 
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)

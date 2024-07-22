@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=12 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://tkb5tcrre2po" path="res://assets/temp_room_background.jpg" id="3_5jwkr"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="3_eno3n"]
 [ext_resource type="Texture2D" uid="uid://ctb4go2bmpagr" path="res://icon.svg" id="3_lq4qc"]
+[ext_resource type="Texture2D" uid="uid://cx76lesuyajae" path="res://assets/chandelier-png-file-3.png" id="7_i31rx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7imr"]
 shader = ExtResource("1_ghnme")
@@ -3663,9 +3664,36 @@ offset_bottom = -2399.0
 scale = Vector2(133.218, 62.8239)
 color = Color(0, 0, 0, 1)
 
-[node name="BackGround" type="Sprite2D" parent="."]
-position = Vector2(22, -103)
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(850, 216)
+
+[node name="BackGroundQ1" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(18, -108)
 texture = ExtResource("3_5jwkr")
+
+[node name="BackGroundQ2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-2481, -108)
+texture = ExtResource("3_5jwkr")
+flip_h = true
+
+[node name="BackGroundQ3" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(-2481, -1188)
+texture = ExtResource("3_5jwkr")
+flip_h = true
+flip_v = true
+
+[node name="BackGroundQ4" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(18, -1187)
+texture = ExtResource("3_5jwkr")
+flip_v = true
+
+[node name="Darken" type="ColorRect" parent="Backgrounds"]
+offset_left = -3738.0
+offset_top = -1726.0
+offset_right = 330.0
+offset_bottom = 466.0
+scale = Vector2(1.232, 1.00019)
+color = Color(0.0180224, 0.00114091, 0.0250056, 0.45098)
 
 [node name="Blur" type="ColorRect" parent="."]
 visible = false
@@ -3681,15 +3709,6 @@ offset_right = 1216.0
 offset_bottom = 311.0
 scale = Vector2(0.851674, 0.780779)
 metadata/_edit_use_anchors_ = true
-
-[node name="Darken" type="ColorRect" parent="."]
-top_level = true
-offset_left = -1187.0
-offset_top = -646.0
-offset_right = 844.0
-offset_bottom = 462.0
-scale = Vector2(1.232, 1.00019)
-color = Color(0, 0.0117647, 0, 0.45098)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -3713,7 +3732,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_fc7b0")
 
 [node name="Item" type="Sprite2D" parent="."]
-position = Vector2(234, -58)
+position = Vector2(-953, -51)
 scale = Vector2(0.546875, 0.492188)
 texture = ExtResource("3_lq4qc")
 
@@ -3723,6 +3742,35 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item/ItemArea"]
 shape = SubResource("CircleShape2D_fc7b0")
+
+[node name="Layers" type="Sprite2D" parent="."]
+position = Vector2(-41, -7)
+
+[node name="-1" type="CanvasLayer" parent="Layers"]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="0" type="CanvasLayer" parent="Layers"]
+layer = 0
+
+[node name="1" type="CanvasLayer" parent="Layers"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.3
+
+[node name="Chandelier-png-file-4" type="Sprite2D" parent="Layers/1"]
+modulate = Color(0, 0, 0, 0.345098)
+top_level = true
+position = Vector2(-1203.08, -581.539)
+scale = Vector2(0.472044, 0.358165)
+texture = ExtResource("7_i31rx")
+
+[node name="Chandelier-png-file-3" type="Sprite2D" parent="Layers/1"]
+modulate = Color(0, 0, 0, 0.345098)
+top_level = true
+position = Vector2(705.385, -590.769)
+scale = Vector2(0.472044, 0.358165)
+texture = ExtResource("7_i31rx")
 
 [connection signal="area_entered" from="DoorToOutside/DoorArea" to="." method="_on_door_area_area_entered"]
 [connection signal="area_entered" from="Item/ItemArea" to="." method="_on_item_area_area_entered"]

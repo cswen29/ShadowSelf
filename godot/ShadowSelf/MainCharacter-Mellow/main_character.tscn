@@ -232,14 +232,14 @@ modulate = Color(0.956863, 1, 1, 1)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_vnmyr")
 animation = &"walk_cycle"
-frame_progress = 0.264522
+frame_progress = 0.124562
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.249997, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
-frame_progress = 0.215207
+frame_progress = 0.647346
 
 [node name="Distortion" type="ColorRect" parent="SpriteOutline"]
 material = SubResource("ShaderMaterial_6dxa1")

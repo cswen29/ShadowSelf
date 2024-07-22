@@ -11,13 +11,13 @@ func _ready()-> void:
 #region spawn/despawn minigames
 func spawnMinigame(minigame_scene: PackedScene)-> void:
 	mainCharacter.canMove = false
+	await animateSpawn()
 	var minigame = minigame_scene.instantiate() as Minigame
 	minigame.minigameIsFinished.connect($".".despawnMinigame.bind())
+	minigame.global_position = GlobalVariables.player_pos + Vector2(0, -800)
+	minigame.scale = Vector2(2,2)
 	call_deferred("add_child", minigame)
-	
-	var minigame_position : Vector2 = minigame.position
-	animateSpawn(minigame_position)
-	
+
 func despawnMinigame()-> void:
 	mainCharacter.canMove = true
 	for idx in self.get_children():
@@ -26,13 +26,13 @@ func despawnMinigame()-> void:
 			
 	animateDespawn()
 			
-func animateSpawn(minigame_position: Vector2)-> void:
+func animateSpawn()-> void:
 	$Shadow.hide()
 	$ShadowLink.hide()
 	var cameraZoom = $MainCharacter/Camera2D.zoom
 	var tween : Tween = create_tween().set_parallel(true)
-	tween.tween_property($MainCharacter/Camera2D, "offset", minigame_position, 3)
-	tween.tween_property($MainCharacter/Camera2D, "zoom", cameraZoom - Vector2(0.2, 0.2), 3)
+	tween.tween_property($MainCharacter/Camera2D, "offset", Vector2(10, -480), 4.2)
+	tween.tween_property($MainCharacter/Camera2D, "zoom", cameraZoom - Vector2(0.2, 0.2), 4.2)
 	await tween.finished
 	
 func animateDespawn()-> void:
