@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=36 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_sbunj"]
 [ext_resource type="Texture2D" uid="uid://baepqyopsto26" path="res://assets/walk_cycle_background.PNG" id="3_7kkqu"]
@@ -211,6 +211,10 @@ shader_parameter/distortion_strength = 0.00200005
 shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
 
 [sub_resource type="LabelSettings" id="LabelSettings_wrw12"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o3xu"]
+font_size = 30
 
 [node name="MainCharacter" type="CharacterBody2D"]
 top_level = true
@@ -225,17 +229,17 @@ shape = SubResource("RectangleShape2D_fljcm")
 
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.956863, 1, 1, 1)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_vnmyr")
 animation = &"walk_cycle"
-frame_progress = 0.219837
+frame_progress = 0.264522
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.249997, 0)
-scale = Vector2(0.100505, 0.1)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
-frame_progress = 0.161407
+frame_progress = 0.215207
 
 [node name="Distortion" type="ColorRect" parent="SpriteOutline"]
 material = SubResource("ShaderMaterial_6dxa1")
@@ -250,20 +254,21 @@ autostart = true
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -1.0
-offset_top = -108.0
-offset_right = 39.0
-offset_bottom = -85.0
+offset_left = 13.0
+offset_top = -257.0
+offset_right = 53.0
+offset_bottom = -215.0
 text = "!
 "
 label_settings = SubResource("LabelSettings_wrw12")
 
 [node name="IdleText" type="Label" parent="."]
 visible = false
-offset_left = -6.0
-offset_top = -113.0
-offset_right = 34.0
-offset_bottom = -90.0
+offset_left = 11.0
+offset_top = -260.0
+offset_right = 51.0
+offset_bottom = -218.0
 text = "..."
+label_settings = SubResource("LabelSettings_6o3xu")
 
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]
