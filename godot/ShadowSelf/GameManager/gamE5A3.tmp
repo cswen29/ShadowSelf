@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsum04ea77i7d"]
+
+[ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="2_5ot7v"]
+[ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
+[ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_dtxwn")
+room_level_scene = ExtResource("2_o2qej")
+outside_level_scene = ExtResource("3_302gr")
+
+[node name="MainCharacter" parent="." instance=ExtResource("2_5ot7v")]
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+zoom = Vector2(1.5, 1.5)

@@ -8,7 +8,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgew0"]
 radius = 20.025
 
-[node name="PlayerBodyTest" type="CharacterBody2D"]
+[node name="Shadow" type="CharacterBody2D"]
+top_level = true
 position = Vector2(624, 307)
 script = ExtResource("1_fbo1d")
 
@@ -19,7 +20,6 @@ texture = ExtResource("2_0hfrm")
 
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
 top_level = true
-z_index = -1
 width = 30.0
 script = ExtResource("4_x1i1o")
 max_length = 30

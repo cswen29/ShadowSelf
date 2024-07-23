@@ -1,55 +1,39 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D 
 
 @export var speed : float = 60.0
 var playerHasSelectedDirection : bool = false
-var canSelectDirection : bool = true
-@onready var floaty = $"../PlayerBodyTest"
-@onready var line = $Line2D
-var distance
-var idle:bool = true
+var canMove : bool = true
 
-func _input(event):
-	if idle:
-		if (event is InputEventMouseButton) and canSelectDirection:
-			playerHasSelectedDirection = true
-			self.modulate = Color.AQUA
-			var tween = create_tween()
-			var pos = Vector2(event.position.x, self.position.y)
-			
-			if pos.x < self.position.x:
-				tween.tween_property($Sprite2D, "flip_h", true, 1) # flip the sprite
-			else:
-				tween.tween_property($Sprite2D, "flip_h", false, 1) # dont flip the sprite
-				
-			tween.tween_property(self, "position", pos, 4).set_ease(Tween.EASE_IN_OUT)
-			await tween.finished
-			self.modulate = Color.WHITE
-			playerHasSelectedDirection = false
-	if event.is_action_pressed("ui_left"):
-		idle = false
-		await get_tree().create_timer(5.0).timeout
-		idle = true
-	if event.is_action_pressed("ui_right"):
-		idle = false
-		await get_tree().create_timer(5.0).timeout
-		idle = true
-	if event.is_action_pressed("ui_up"):
-		idle = false
-		await get_tree().create_timer(5.0).timeout
-		idle = true
-	if event.is_action_pressed("ui_down"):
-		idle = false
-		await get_tree().create_timer(5.0).timeout
-		idle = true
-	velocity = Input.get_vector("ui_left","ui_right","ui_up","ui_down")*300
-	move_and_slide()
+func _ready() -> void:
+	playIdle()
+		
+func _process(_delta)-> void:
+	GlobalVariables.character_pos = global_position
+	
+func _input(event)-> void:
+	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:
+		$Label.show()
+		$IdleText.hide()
+		playerHasSelectedDirection = true
+		
+		var tween = create_tween()
+		var pos = Vector2(get_global_mouse_position().x, self.position.y)
+		if pos.x < self.position.x:
+			flipSprites(true) # flip the sprite
+		else:
+			flipSprites(false) # dont flip the sprite
+		
+		playWalkCycle()
+		tween.tween_property(self, "position", pos, 4).set_ease(Tween.EASE_IN_OUT)
+		await tween.finished
+		playIdle()
+		playerHasSelectedDirection = false
+		$Label.hide()
 
 # every 5 seconds, character will start wandering around
-func _on_wander_timeout():
-	if idle:
-		if !playerHasSelectedDirection:
-			
-			canSelectDirection = false
+func _on_wander_timeout()-> void:
+		if !playerHasSelectedDirection and canMove:
+			$IdleText.show()
 			#create tween
 			var tween : Tween= create_tween()
 			
@@ -64,22 +48,29 @@ func _on_wander_timeout():
 
 			match(randomDirection):
 				0: # left
-					tween.tween_property($Sprite2D, "flip_h", true, 0.5) # flip the sprite
+					flipSprites(true)
 					# move the character in the x axis for a random ammount of pixels. duration is dependent on the distance. Start slow, go faster in the middle, end slow 
 					tween.tween_property(self, "position", Vector2(pos.x - wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
-				
+					
 				1: #right
-					tween.tween_property($Sprite2D, "flip_h", false, 0.5)
+					flipSprites(false)
 					tween.tween_property(self, "position", Vector2(pos.x + wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
-		
+			
+			playWalkCycle()
 			await tween.finished
-			canSelectDirection = true
+			playIdle()
+			$IdleText.hide()
 
-func _physics_process(_delta):
-	distance = abs(self.global_position.x - floaty.global_position.x) + abs(self.global_position.y - floaty.global_position.y)
-	if distance >= 800:
-		line.hide()
-	else:
-		line.show()
-	line.width=20
-	line.width=line.width+(-distance/50)
+func playIdle()-> void:
+	await get_tree().create_timer(0.3).timeout
+	$SpriteOutline.play("idle")
+	$SpriteColor.play("idle")	
+
+func playWalkCycle()-> void:
+	await get_tree().create_timer(0.3).timeout
+	$SpriteOutline.play("walk_cycle")
+	$SpriteColor.play("walk_cycle")	
+	
+func flipSprites(val: bool)-> void:
+	$SpriteOutline.flip_h = val
+	$SpriteColor.flip_h = val
