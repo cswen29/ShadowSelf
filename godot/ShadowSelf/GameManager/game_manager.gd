@@ -3,10 +3,17 @@ extends Node2D
 @export var room_level_scene : PackedScene
 @export var outside_level_scene : PackedScene
 @onready var mainCharacter = $MainCharacter as Player
+@onready var camera = $Camera2D
+@onready var pause_menu = $Camera2D/PauseMenu
+var paused: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
 	changeLevelToRoom()
+
+func _process(delta)-> void:
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 
 #region spawn/despawn minigames
 func spawnMinigame(minigame_scene: PackedScene)-> void:
@@ -75,3 +82,20 @@ func changeLevelToRoom()-> void:
 	await get_tree().create_timer(6).timeout
 	mainCharacter.canMove = true
 #endregion
+
+func pauseMenu():
+	print("pause")
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
+
+func _on_pause_menu_resume(): 
+	pauseMenu()
+
+func _on_pause_menu_quit():
+	get_tree().quit()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=9 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="2_5ot7v"]
 [ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
 [ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
+[ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu.tscn" id="5_8j6s4"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="5_e6ts6"]
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="6_7u0f6"]
 
@@ -37,6 +38,13 @@ limit_bottom = 1015
 limit_smoothed = true
 editor_draw_limits = true
 
+[node name="PauseMenu" parent="Camera2D" instance=ExtResource("5_8j6s4")]
+offset_left = 405.92
+offset_top = -355.651
+offset_right = 405.92
+offset_bottom = -355.651
+scale = Vector2(5.04, 3.04)
+
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 2
@@ -49,3 +57,6 @@ gradient = SubResource("Gradient_kmujt")
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("6_7u0f6")
+
+[connection signal="quit" from="Camera2D/PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="resume" from="Camera2D/PauseMenu" to="." method="_on_pause_menu_resume"]

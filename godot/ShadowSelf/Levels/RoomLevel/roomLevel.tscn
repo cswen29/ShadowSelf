@@ -64,7 +64,7 @@ shape = SubResource("CircleShape2D_fc7b0")
 [node name="Item" type="Sprite2D" parent="."]
 top_level = true
 z_index = 1
-position = Vector2(553, 174)
+position = Vector2(-937, -258)
 scale = Vector2(1.82812, 1.44141)
 texture = ExtResource("3_lq4qc")
 
