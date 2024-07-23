@@ -18,12 +18,24 @@ room_level_scene = ExtResource("2_o2qej")
 outside_level_scene = ExtResource("3_302gr")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_5ot7v")]
-z_index = 2
-position = Vector2(844, 298)
-scale = Vector2(1.45, 1.45)
+z_index = 1
+position = Vector2(547, 381)
+scale = Vector2(1.8, 1.8)
 
-[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-position = Vector2(127.586, -112.414)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
+position = Vector2(32.4138, -153.793)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(605.345, 104.172)
+scale = Vector2(1.8, 1.8)
+zoom = Vector2(0.8, 0.8)
+limit_left = -350
+limit_top = -680
+limit_right = 2770
+limit_bottom = 1015
+limit_smoothed = true
+editor_draw_limits = true
 
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)

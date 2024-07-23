@@ -11687,7 +11687,8 @@ physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_iqw2l")
 
 [node name="1stMinigame" type="Node2D"]
-position = Vector2(-221, -234)
+position = Vector2(202, -169)
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_17j8p")
 
 [node name="ColorRect" type="ColorRect" parent="."]
