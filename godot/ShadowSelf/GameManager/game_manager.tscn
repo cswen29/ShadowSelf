@@ -39,11 +39,13 @@ limit_smoothed = true
 editor_draw_limits = true
 
 [node name="PauseMenu" parent="Camera2D" instance=ExtResource("5_8j6s4")]
-offset_left = 405.92
-offset_top = -355.651
-offset_right = 405.92
-offset_bottom = -355.651
-scale = Vector2(5.04, 3.04)
+visible = false
+z_index = 2
+offset_left = -170.747
+offset_top = -347.874
+offset_right = -170.747
+offset_bottom = -347.874
+scale = Vector2(1.94315, 1.65469)
 
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)
