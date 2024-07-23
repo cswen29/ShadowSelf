@@ -19,11 +19,10 @@ size = Vector2(60, 59)
 [node name="Node2D" type="Node2D"]
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_wvs2v")]
-position = Vector2(383, 403)
-collision_layer = 2
-collision_mask = 2
+position = Vector2(417, 353)
 
 [node name="Shadow" parent="." instance=ExtResource("2_m0565")]
+position = Vector2(1308, 678)
 
 [node name="ResourceControl" type="Control" parent="."]
 layout_mode = 3
@@ -78,5 +77,3 @@ shape = SubResource("RectangleShape2D_c626c")
 debug_color = Color(0.612541, 0, 0.150378, 0.42)
 
 [connection signal="mouse_entered" from="AlchDrop1" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
-[connection signal="mouse_entered" from="AlchDrop2" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
-[connection signal="mouse_entered" from="AlchDrop3" to="Shadow" method="_on_alch_drop_1_mouse_entered"]
