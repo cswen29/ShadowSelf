@@ -84,7 +84,6 @@ func changeLevelToRoom()-> void:
 #endregion
 
 func pauseMenu():
-	print("pause")
 	if paused:
 		pause_menu.hide()
 		Engine.time_scale = 1
