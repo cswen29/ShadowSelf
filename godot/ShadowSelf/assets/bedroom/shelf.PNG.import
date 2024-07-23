@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8hxos7vpq4mr"
-path="res://.godot/imported/floor_v1.PNG-c87442eda6c5a6927c174e8d5195b9e0.ctex"
+uid="uid://bpn0vrbpy4ay4"
+path="res://.godot/imported/shelf.PNG-3d346efc1fab1818f5932bf1f13b0399.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/floor_v1.PNG"
-dest_files=["res://.godot/imported/floor_v1.PNG-c87442eda6c5a6927c174e8d5195b9e0.ctex"]
+source_file="res://assets/bedroom/shelf.PNG"
+dest_files=["res://.godot/imported/shelf.PNG-3d346efc1fab1818f5932bf1f13b0399.ctex"]
 
 [params]
 
