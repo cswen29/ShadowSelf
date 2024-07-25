@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=21 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
-[ext_resource type="PackedScene" uid="uid://bni8htn0chjok" path="res://Minigames/1st/minigame.tscn" id="2_uh3le"]
+[ext_resource type="PackedScene" uid="uid://bni8htn0chjok" path="res://Minigames/1st/minigame.tscn" id="2_sdi77"]
 [ext_resource type="Texture2D" uid="uid://tkb5tcrre2po" path="res://assets/temp_room_background.jpg" id="3_5jwkr"]
 [ext_resource type="Texture2D" uid="uid://ctb4go2bmpagr" path="res://icon.svg" id="3_lq4qc"]
 [ext_resource type="Texture2D" uid="uid://dbietylry3x51" path="res://assets/bedroom/bookshelf.PNG" id="7_c3t54"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c55vrim3xbjth" path="res://assets/bedroom/bedroom_window.PNG" id="9_dwtuh"]
 [ext_resource type="Texture2D" uid="uid://ul75ogug7d0y" path="res://assets/bedroom/bed.PNG" id="9_f47db"]
 [ext_resource type="Texture2D" uid="uid://b8hxos7vpq4mr" path="res://assets/bedroom/floor_v1.PNG" id="11_5kcwy"]
+[ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="15_cw4hq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7imr"]
 shader = ExtResource("1_ghnme")
@@ -22,14 +23,21 @@ shader_parameter/amount = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fc7b0"]
 radius = 74.8501
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_pl65e"]
-a = Vector2(-0.995636, -120.135)
-b = Vector2(-3.186, 51.8591)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6780j"]
+size = Vector2(199, 660)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc8fs"]
+radius = 306.0
+height = 1373.04
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xfoct"]
+a = Vector2(-0.81543, 234.814)
+b = Vector2(4.07788, -216.576)
 
 [node name="RoomLevel" type="Node2D"]
 position = Vector2(41, 7)
 script = ExtResource("1_tt24w")
-minigame_scene = ExtResource("2_uh3le")
+minigame_scene = ExtResource("2_sdi77")
 
 [node name="Blur" type="ColorRect" parent="."]
 visible = false
@@ -46,25 +54,10 @@ offset_bottom = 311.0
 scale = Vector2(0.851674, 0.780779)
 metadata/_edit_use_anchors_ = true
 
-[node name="DoorToOutside" type="Sprite2D" parent="."]
-modulate = Color(0.141176, 0, 0, 1)
-top_level = true
-position = Vector2(2344, 200)
-scale = Vector2(2.89095, 3.90624)
-texture = ExtResource("3_lq4qc")
-
-[node name="DoorArea" type="Area2D" parent="DoorToOutside"]
-position = Vector2(-2.07544, -0.768002)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToOutside/DoorArea"]
-shape = SubResource("CircleShape2D_fc7b0")
-
 [node name="Item" type="Sprite2D" parent="."]
 top_level = true
 z_index = 1
-position = Vector2(-937, -258)
+position = Vector2(-206, 519)
 scale = Vector2(1.82812, 1.44141)
 texture = ExtResource("3_lq4qc")
 
@@ -96,13 +89,15 @@ layer = -1
 follow_viewport_enabled = true
 follow_viewport_scale = 0.9
 
-[node name="Mirror" type="Sprite2D" parent="Layers/-1"]
-position = Vector2(926.667, 262.222)
-texture = ExtResource("7_x3egs")
-
 [node name="Hamper" type="Sprite2D" parent="Layers/-1"]
 position = Vector2(1240, 545.556)
 texture = ExtResource("8_ru4gf")
+
+[node name="Mirror" type="Sprite2D" parent="Layers/-1"]
+visible = false
+position = Vector2(896.111, 275)
+scale = Vector2(1.10155, 1.10133)
+texture = ExtResource("7_x3egs")
 
 [node name="Bed" type="Sprite2D" parent="Layers/-1"]
 position = Vector2(1890, 450)
@@ -117,7 +112,8 @@ position = Vector2(400, 348.462)
 texture = ExtResource("7_c3t54")
 
 [node name="Door" type="Sprite2D" parent="Layers/1"]
-position = Vector2(2261.54, 208.462)
+visible = false
+position = Vector2(2236.92, 290)
 texture = ExtResource("8_dtxq7")
 
 [node name="Backgrounds" type="CanvasLayer" parent="."]
@@ -167,10 +163,10 @@ texture = ExtResource("9_dwtuh")
 
 [node name="Darken" type="ColorRect" parent="Backgrounds"]
 visible = false
-offset_left = -3738.0
-offset_top = -1726.0
-offset_right = 330.0
-offset_bottom = 466.0
+offset_left = -1608.0
+offset_top = -1091.0
+offset_right = 2460.0
+offset_bottom = 1101.0
 scale = Vector2(1.232, 1.00019)
 color = Color(0.0180224, 0.00114091, 0.0250056, 0.45098)
 
@@ -205,20 +201,46 @@ offset_bottom = 1430.0
 scale = Vector2(133.218, 62.8239)
 color = Color(0, 0, 0, 1)
 
-[node name="RightBorder" type="Area2D" parent="."]
-position = Vector2(1941, 628)
-scale = Vector2(3.34202, 2.07766)
+[node name="Mirror" parent="." instance=ExtResource("15_cw4hq")]
+position = Vector2(885.667, 254.111)
+texture = ExtResource("7_x3egs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBorder"]
-scale = Vector2(1.50269, 3.13702)
-shape = SubResource("SegmentShape2D_pl65e")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Area2D" index="0"]
+position = Vector2(-4.16669, 13.8889)
+shape = SubResource("RectangleShape2D_6780j")
 
-[node name="LeftBorder" type="Area2D" parent="."]
-position = Vector2(279, 617)
-scale = Vector2(-5.63532, 6.22135)
+[node name="Door" parent="." instance=ExtResource("15_cw4hq")]
+top_level = true
+z_index = 2
+position = Vector2(2563, 366)
+scale = Vector2(1.22616, 1.31593)
+texture = ExtResource("8_dtxq7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder"]
-shape = SubResource("SegmentShape2D_pl65e")
+[node name="Area2D" parent="Door" index="0"]
+position = Vector2(-179.231, 0)
 
-[connection signal="area_entered" from="DoorToOutside/DoorArea" to="." method="_on_door_area_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" index="0"]
+position = Vector2(220.008, 7.59915)
+scale = Vector2(0.594823, 0.651971)
+shape = SubResource("CapsuleShape2D_hc8fs")
+
+[node name="Area2D2" type="Area2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D2"]
+position = Vector2(-848.173, 136.785)
+shape = SubResource("SegmentShape2D_xfoct")
+
+[node name="Area2D3" type="Area2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D3"]
+position = Vector2(-1154.82, 136.785)
+shape = SubResource("SegmentShape2D_xfoct")
+
 [connection signal="area_entered" from="Item/ItemArea" to="." method="_on_item_area_area_entered"]
+[connection signal="input_event" from="Mirror/Area2D" to="." method="_on_mirror_input_event"]
+[connection signal="input_event" from="Door/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="Door/Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="area_entered" from="Door/Area2D3" to="." method="_on_middle_area_entered"]
+
+[editable path="Mirror"]
+[editable path="Door"]

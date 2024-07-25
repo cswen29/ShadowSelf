@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsum04ea77i7d"]
+
+[ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="2_5ot7v"]
+[ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
+[ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
+[ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://alchemy.tscn" id="4_013vd"]
+[ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu.tscn" id="5_8j6s4"]
+[ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="5_e6ts6"]
+[ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="6_7u0f6"]
+[ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://prompt.tscn" id="6_qehf4"]
+
+[sub_resource type="Gradient" id="Gradient_kmujt"]
+offsets = PackedFloat32Array(0, 0.553333, 1)
+colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
+
+[node name="GameManager" type="Node2D"]
+top_level = true
+script = ExtResource("1_dtxwn")
+room_level_scene = ExtResource("2_o2qej")
+outside_level_scene = ExtResource("3_302gr")
+
+[node name="MainCharacter" parent="." instance=ExtResource("2_5ot7v")]
+z_index = 1
+position = Vector2(543, 381)
+scale = Vector2(1.8, 1.8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
+position = Vector2(32.4138, -153.793)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Prompt" parent="MainCharacter" instance=ExtResource("6_qehf4")]
+visible = false
+offset_left = -38.3334
+offset_top = -374.444
+offset_right = -38.3334
+offset_bottom = -374.444
+scale = Vector2(1.89519, 1.77594)
+
+[node name="Alchemy" parent="MainCharacter" instance=ExtResource("4_013vd")]
+visible = false
+offset_left = -293.333
+offset_top = -457.222
+offset_right = -293.333
+offset_bottom = -457.222
+scale = Vector2(1.59892, 2.102)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainCharacter"]
+layer = 5
+
+[node name="PauseMenu" parent="MainCharacter/CanvasLayer" instance=ExtResource("5_8j6s4")]
+visible = false
+z_index = 2
+layout_direction = 1
+anchors_preset = -1
+offset_left = 362.0
+offset_top = 23.0
+offset_right = 362.0
+offset_bottom = 23.0
+scale = Vector2(3.25002, 2.48389)
+mouse_force_pass_scroll_events = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(601.345, 104.173)
+scale = Vector2(1.8, 1.8)
+zoom = Vector2(0.8, 0.8)
+limit_left = -350
+limit_top = -680
+limit_right = 2770
+limit_bottom = 1015
+limit_smoothed = true
+editor_draw_limits = true
+
+[node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 2
+position = Vector2(945, -220)
+scale = Vector2(0.441017, 0.38526)
+motion_mode = 1
+
+[node name="ShadowLink" type="Line2D" parent="."]
+top_level = true
+gradient = SubResource("Gradient_kmujt")
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("6_7u0f6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -8798.0
+offset_top = -4861.0
+offset_right = -8790.0
+offset_bottom = -4853.0
+scale = Vector2(2454.16, 1196.89)
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[connection signal="no" from="MainCharacter/Prompt" to="." method="_on_prompt_no"]
+[connection signal="yes" from="MainCharacter/Prompt" to="." method="_on_prompt_yes"]
+[connection signal="quit" from="MainCharacter/Alchemy" to="." method="_on_alchemy_quit"]
+[connection signal="quit" from="MainCharacter/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="resume" from="MainCharacter/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_resume"]
+
+[editable path="MainCharacter/Prompt"]
+[editable path="MainCharacter/CanvasLayer/PauseMenu"]

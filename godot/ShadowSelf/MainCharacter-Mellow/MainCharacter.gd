@@ -24,7 +24,7 @@ func _input(event)-> void:
 			flipSprites(false) # dont flip the sprite
 		
 		playWalkCycle()
-		tween.tween_property(self, "position", pos, 4).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(self, "position", pos, 3.2).set_ease(Tween.EASE_IN_OUT)
 		await tween.finished
 		playIdle()
 		playerHasSelectedDirection = false
@@ -41,7 +41,7 @@ func _on_wander_timeout()-> void:
 			var randomDirection = randi() % 2
 			
 			#random distance to walk
-			var wander_distance : int = randi_range(50, 200)
+			var wander_distance : int = randi_range(50, 400)
 			
 			#current position of the character scene
 			var pos : Vector2 = self.position
@@ -50,11 +50,11 @@ func _on_wander_timeout()-> void:
 				0: # left
 					flipSprites(true)
 					# move the character in the x axis for a random ammount of pixels. duration is dependent on the distance. Start slow, go faster in the middle, end slow 
-					tween.tween_property(self, "position", Vector2(pos.x - wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
+					tween.tween_property(self, "position", Vector2(pos.x - wander_distance, pos.y), 1.4).set_ease(Tween.EASE_IN_OUT)
 					
 				1: #right
 					flipSprites(false)
-					tween.tween_property(self, "position", Vector2(pos.x + wander_distance, pos.y), 2).set_ease(Tween.EASE_IN_OUT)
+					tween.tween_property(self, "position", Vector2(pos.x + wander_distance, pos.y), 1.4).set_ease(Tween.EASE_IN_OUT)
 			
 			playWalkCycle()
 			await tween.finished

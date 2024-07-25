@@ -1,22 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl5tn3x1pkq82"]
+[gd_scene load_steps=7 format=3 uid="uid://bl5tn3x1pkq82"]
 
 [ext_resource type="Script" path="res://Shadow/Shadow.gd" id="1_fbo1d"]
-[ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="2_0hfrm"]
+[ext_resource type="Texture2D" uid="uid://c4yk0muq1l5mx" path="res://assets/circle-clipart-black.png" id="2_tbokp"]
 [ext_resource type="PackedScene" uid="uid://d2b1q67cphll2" path="res://ShadowTrail/ShadowTrailScene.tscn" id="3_45t55"]
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailExtension.gd" id="4_x1i1o"]
+[ext_resource type="PackedScene" uid="uid://b5bjsidrxt43g" path="res://assets/Blink/Blink.tscn" id="5_i6oja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgew0"]
-radius = 20.025
+radius = 189.214
 
 [node name="Shadow" type="CharacterBody2D"]
 top_level = true
-position = Vector2(624, 307)
+z_index = 15
 script = ExtResource("1_fbo1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 1.68085e-05)
-scale = Vector2(0.075, 0.0227273)
-texture = ExtResource("2_0hfrm")
+position = Vector2(3.99998, -7)
+scale = Vector2(0.690217, 0.677174)
+texture = ExtResource("2_tbokp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-26, -16)
+shape = SubResource("CircleShape2D_rgew0")
 
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
 top_level = true
@@ -24,5 +29,7 @@ width = 30.0
 script = ExtResource("4_x1i1o")
 max_length = 30
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rgew0")
+[node name="Blink" parent="." instance=ExtResource("5_i6oja")]
+position = Vector2(0, -2)
+
+[editable path="Blink"]

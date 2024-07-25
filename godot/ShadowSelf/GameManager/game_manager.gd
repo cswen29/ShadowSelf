@@ -2,17 +2,28 @@ extends Node2D
 
 @export var room_level_scene : PackedScene
 @export var outside_level_scene : PackedScene
+@export var item_pickup : PackedScene
 @onready var mainCharacter = $MainCharacter as Player
 @onready var camera = $Camera2D
-@onready var pause_menu = $Camera2D/PauseMenu
+@onready var pause_menu = $MainCharacter/CanvasLayer/PauseMenu
+@onready var pickup = $MainCharacter/CanvasLayer/ItemPickUp
+@onready var alchemy = $MainCharacter/CanvasLayer/Alchemy
+@onready var shadow = $Shadow
+@onready var prompt = $MainCharacter/CanvasLayer/Prompt
+@onready var prompt_yes = $MainCharacter/CanvasLayer/Prompt/Yes
+@onready var prompt_no = $MainCharacter/CanvasLayer/Prompt/No
+@onready var prompt_label = $MainCharacter/CanvasLayer/Prompt/Label
+@onready var inventory = $MainCharacter/CanvasLayer/Inventory
 var paused: bool = false
+var alchemyToggled: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
 	changeLevelToRoom()
+	prompt.hide()	
 
 func _process(_delta)-> void:
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") and !alchemyToggled:
 		pauseMenu()
 
 #region spawn/despawn minigames
@@ -23,11 +34,11 @@ func spawnMinigame(minigame_scene: PackedScene)-> void:
 	minigame.minigameIsFinished.connect($".".despawnMinigame.bind())
 	minigame.global_position = GlobalVariables.character_pos + Vector2(0, -800)
 
-	call_deferred("add_child", minigame)
+	mainCharacter.add_child(minigame)
 
 func despawnMinigame()-> void:
 	mainCharacter.canMove = true
-	for idx in self.get_children():
+	for idx in $MainCharacter.get_children():
 		if idx is Minigame:
 			idx.queue_free()	
 			
@@ -56,16 +67,26 @@ func animateDespawn()-> void:
 #region change levels
 func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
+	var tween : Tween = create_tween()
+	
+	$CanvasLayer/ColorRect.modulate = Color.BLACK
+	tween.tween_property($CanvasLayer/ColorRect, "color", Color.BLACK, 2)
+	await tween.finished
 	var level = outside_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
 	level.goInside.connect($".".changeLevelToRoom.bind())
+	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
 	
 	for idx in self.get_children():
 		if idx is RoomLevel:
 			idx.queue_free()	
+
+	await get_tree().create_timer(1.0).timeout
+	tween = create_tween()
+	tween.tween_property($CanvasLayer/ColorRect, "color", Color.TRANSPARENT, 4)
 	
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(1).timeout
 	mainCharacter.canMove = true
 	
 func changeLevelToRoom()-> void:
@@ -73,18 +94,20 @@ func changeLevelToRoom()-> void:
 	var level = room_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
 	level.goOutside.connect($".".changeLevelToOutside.bind())
+	level.prompt.connect($".".spawnPrompt.bind())
+	level.findItem.connect($".".itemPickedUp.bind())
 	add_child(level)
 	
 	for idx in self.get_children():
 		if idx is OutsideLevel:
 			idx.queue_free()	
 	
-	await get_tree().create_timer(6).timeout
+	await get_tree().create_timer(4).timeout
 	mainCharacter.canMove = true
 #endregion
 
 func pauseMenu():
-	if paused:
+	if GlobalVariables.paused:
 		pause_menu.hide()
 		Engine.time_scale = 1
 	else:
@@ -92,9 +115,100 @@ func pauseMenu():
 		Engine.time_scale = 0
 		
 	paused = !paused
+	GlobalVariables.paused = paused
+	inventory.hide()
 
 func _on_pause_menu_resume(): 
 	pauseMenu()
 
+
 func _on_pause_menu_quit():
 	get_tree().quit()
+
+func spawnPrompt(stri : String, object: String):
+	if mainCharacter.canMove:
+		GlobalVariables.paused = true
+		prompt.name = object
+		if prompt.name  == "door":
+			prompt_no.hide()
+			prompt_yes.text = "Ok"
+		
+		prompt_label.text = stri 
+		prompt.show()
+		Engine.time_scale = 0.0
+		
+func _on_prompt_yes():
+	prompt.hide()
+	GlobalVariables.paused = false
+	Engine.time_scale = 1.0
+
+	if prompt.name == "mirror":
+		alchemyToggle()
+	
+	if prompt.name == "outside":
+		changeLevelToOutside()
+
+func _on_prompt_no():
+	if prompt.visible:
+		prompt.hide()
+		GlobalVariables.paused = false
+		Engine.time_scale = 1
+
+func alchemyToggle():
+	if alchemyToggled:
+		alchemy.hide()
+		shadow.show()
+		mainCharacter.canMove = true
+		Engine.time_scale = 1
+		GlobalVariables.paused = false
+	else:
+		mainCharacter.canMove = false
+		spawnAlchemyMenu()
+		GlobalVariables.paused = true
+		
+	alchemyToggled = !alchemyToggled
+
+func _on_alchemy_quit():
+	alchemyToggle()
+
+func spawnAlchemyMenu():
+	alchemy.modulate = Color.TRANSPARENT
+	alchemy.show()
+	alchemy.update_sprites()
+	shadow.hide()
+	var tween : Tween = create_tween()
+	tween.tween_property(alchemy, "modulate", Color.WHITE, 2)
+	await tween.finished
+
+func itemPickedUp(item: String):
+	if item not in GlobalVariables.inventory:
+		GlobalVariables.inventory.push_front(item)
+	
+	pickup.itemName = item
+	pickup.set_sprite()
+	pickup.show()
+	Engine.time_scale = 0.0
+
+func closePickUpFunc():
+	pickup.hide()
+	Engine.time_scale = 1.0
+
+func _on_pause_menu_show_inventory():
+	toggleInventory()
+	
+func toggleInventory():
+	if !inventory.visible:
+		inventory.update_sprites()
+		inventory.show()
+	else:
+		inventory.hide()
+
+
+func _on_alchemy_give_nostalgia():
+	itemPickedUp("NostalgicMemory")
+
+func _on_alchemy_give_reality():	
+	itemPickedUp("RealityMemory")
+
+func _on_alchemy_give_responsability():	
+	itemPickedUp("ResponsabilityMemory")
