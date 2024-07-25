@@ -6,6 +6,8 @@
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [node name="Sprite2D" type="Line2D"]
+z_index = -1
+width = 20.0
 gradient = SubResource("Gradient_u20e1")
 script = ExtResource("1_53mq0")
-max_length = 20
+max_length = 40

@@ -1,10 +1,10 @@
 extends Sprite2D
 
-@onready var animation_player = $AnimationPlayer
+@onready var animation = $AnimatedSprite2D
 
 func _ready():
-	var playspeed = randf_range(2.0,5.0)
-	print(playspeed)
-	animation_player.play("blink_anim",-1,playspeed)
-	await get_tree().create_timer(randf_range(1.0,3.0)).timeout
-	animation_player.play("blink_anim",-1,playspeed)
+	animation.play("blink")
+
+func _physics_process(_delta)-> void:
+	var tween = create_tween()
+	tween.tween_property(self,"global_position",get_global_mouse_position(),0.17)

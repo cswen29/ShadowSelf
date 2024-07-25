@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqj65qhuqg01"]
+
+[ext_resource type="Script" path="res://GameManager/Prompt/prompt.gd" id="1_i0roy"]
+
+[node name="Prompt" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = -1812.0
+offset_bottom = -1015.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0roy")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 92.0
+offset_bottom = 51.0
+color = Color(0.219608, 0.219608, 0.219608, 0.619608)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Go outside?"
+
+[node name="No" type="Button" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 33.0
+offset_right = 40.0
+offset_bottom = 64.0
+scale = Vector2(0.764347, 0.484506)
+text = "No"
+
+[node name="Yes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 32.0
+offset_right = 100.0
+offset_bottom = 65.0
+scale = Vector2(0.610018, 0.471725)
+text = "Yes"
+
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]

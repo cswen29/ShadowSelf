@@ -1,0 +1,147 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxsqgdawdvfeg"]
+
+[ext_resource type="Script" path="res://GameManager/pause_menu/pause_menu.gd" id="1_hmed1"]
+
+[node name="PauseMenu" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -181.0
+offset_right = 6.0
+offset_bottom = -181.0
+scale = Vector2(1.00473, 0.616159)
+script = ExtResource("1_hmed1")
+
+[node name="Darken" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 3372.06
+offset_top = -2053.04
+offset_right = 3759.06
+offset_bottom = -1768.04
+scale = Vector2(-15.6275, 16.0015)
+mouse_filter = 1
+color = Color(0, 0, 0, 0.411765)
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 387.0
+offset_bottom = 285.0
+mouse_filter = 1
+color = Color(0.32549, 1, 1, 0.286275)
+
+[node name="Music" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 90.5716
+offset_top = -1.62296
+offset_right = 90.5716
+offset_bottom = -1.62296
+
+[node name="Music" type="Label" parent="Music"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 46.0
+offset_right = 162.0
+offset_bottom = 69.0
+text = "Music
+"
+
+[node name="SliderMusic" type="ColorRect" parent="Music"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 76.0
+offset_right = 205.0
+offset_bottom = 105.0
+color = Color(0.678431, 1, 1, 1)
+
+[node name="MoreVolumeMusic" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 77.0
+offset_right = 287.0
+offset_bottom = 108.0
+text = "More
+"
+
+[node name="LessVolumeMusic" type="Button" parent="Music"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 76.0
+offset_right = 51.0
+offset_bottom = 107.0
+text = "Less"
+
+[node name="Effects" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 90.5716
+offset_top = -1.62296
+offset_right = 90.5716
+offset_bottom = -1.62296
+
+[node name="Effects" type="Label" parent="Effects"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 134.0
+offset_right = 164.0
+offset_bottom = 157.0
+text = "Effects
+"
+
+[node name="SliderEffects" type="ColorRect" parent="Effects"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 162.0
+offset_right = 206.0
+offset_bottom = 191.0
+color = Color(0.85098, 1, 1, 1)
+
+[node name="LessVolumeEffects" type="Button" parent="Effects"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 163.0
+offset_right = 48.0
+offset_bottom = 194.0
+text = "Less
+"
+
+[node name="MoreVolumeEffects" type="Button" parent="Effects"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 161.0
+offset_right = 285.0
+offset_bottom = 192.0
+text = "More
+"
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 0
+offset_left = 137.572
+offset_top = 231.377
+offset_right = 209.572
+offset_bottom = 262.377
+text = "RESUME"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 261.572
+offset_top = 231.377
+offset_right = 308.572
+offset_bottom = 262.377
+text = "QUIT"
+
+[node name="InventoryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 15.9247
+offset_top = 108.738
+offset_right = 98.9247
+offset_bottom = 139.738
+scale = Vector2(0.628924, 2.02754)
+text = "Inventory"
+
+[connection signal="pressed" from="Music/MoreVolumeMusic" to="." method="_on_more_volume_music_pressed"]
+[connection signal="pressed" from="Music/LessVolumeMusic" to="." method="_on_less_volume_music_pressed"]
+[connection signal="pressed" from="Effects/LessVolumeEffects" to="." method="_on_less_volume_effects_pressed"]
+[connection signal="pressed" from="Effects/MoreVolumeEffects" to="." method="_on_more_volume_effects_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]

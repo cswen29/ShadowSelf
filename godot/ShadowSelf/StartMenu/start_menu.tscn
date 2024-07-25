@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cefn6enxkfjgd"]
+[gd_scene load_steps=5 format=3 uid="uid://cefn6enxkfjgd"]
 
 [ext_resource type="Script" path="res://StartMenu/start_menu.gd" id="1_r4q08"]
 [ext_resource type="PackedScene" uid="uid://bsum04ea77i7d" path="res://GameManager/game_manager.tscn" id="2_3oj04"]
+[ext_resource type="AudioStream" uid="uid://cecb0snemuq33" path="res://assets/audio/mx_layer1_draft1.wav" id="3_g105t"]
+[ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="4_tamdd"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_r4q08")
@@ -28,6 +30,14 @@ offset_bottom = 807.0
 text = "Tutorial
 "
 
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 1062.0
+offset_top = 768.0
+offset_right = 1187.0
+offset_bottom = 807.0
+text = "Settings
+"
+
 [node name="Tutorial" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 167.0
@@ -36,5 +46,20 @@ offset_right = 1403.0
 offset_bottom = 677.0
 color = Color(0.231373, 1, 1, 1)
 
+[node name="Layer1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g105t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("4_tamdd")]
+visible = false
+offset_left = 296.0
+offset_top = 55.0
+offset_right = 296.0
+offset_bottom = 55.0
+scale = Vector2(3.34526, 2.89017)
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -1,0 +1,134 @@
+[gd_scene load_steps=5 format=3 uid="uid://baedkoi5gumm8"]
+
+[ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
+[ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="2_jlh0i"]
+[ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="3_p2v7i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1bi3"]
+font_size = 19
+font_color = Color(1, 0, 1, 1)
+
+[node name="Alchemy" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.00006
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.91281, 3.07114)
+mouse_filter = 2
+script = ExtResource("1_5ve35")
+
+[node name="Inventory" parent="." instance=ExtResource("2_jlh0i")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 879.0
+offset_top = -5.0
+offset_right = 879.0
+offset_bottom = -5.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(1.65955, 1.53952)
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(11.1368, 5.73404)
+mouse_filter = 2
+color = Color(1, 1, 0, 1)
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 322.562
+offset_top = 194.39
+offset_right = 433.562
+offset_bottom = 225.39
+text = "Quit alchemy"
+
+[node name="Refresh" type="Button" parent="."]
+layout_mode = 0
+offset_left = 170.953
+offset_top = 193.739
+offset_right = 307.953
+offset_bottom = 224.739
+scale = Vector2(0.961561, 1.04733)
+text = "Refresh"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.2065
+offset_top = 36.7942
+offset_right = 191.206
+offset_bottom = 63.7942
+scale = Vector2(2.41025, 1.06829)
+text = "_____ + ______ = ?????"
+label_settings = SubResource("LabelSettings_q1bi3")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 85.0
+offset_right = 280.0
+offset_bottom = 112.0
+scale = Vector2(1.54781, 1.09902)
+text = "_____ + ______ + _________ = ?????"
+label_settings = SubResource("LabelSettings_q1bi3")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.41021
+offset_top = 145.223
+offset_right = 359.41
+offset_bottom = 172.223
+scale = Vector2(1.18418, 0.981157)
+text = "_____ + ______ + ________ + _________= ?????"
+label_settings = SubResource("LabelSettings_q1bi3")
+
+[node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(38.1637, 19.5367)
+scale = Vector2(1.22637, 0.74054)
+
+[node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(195.524, 22.1416)
+scale = Vector2(1.02593, 0.751083)
+
+[node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(14.6381, 75.2164)
+scale = Vector2(1.204, 0.756503)
+
+[node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(118.673, 77.17)
+scale = Vector2(1.0651, 0.682085)
+
+[node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(243.098, 71.9602)
+scale = Vector2(1.0651, 0.682085)
+
+[node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(18.2976, 133.827)
+scale = Vector2(1.0651, 0.682085)
+
+[node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(103.513, 134.152)
+scale = Vector2(1.0651, 0.682085)
+
+[node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(188.205, 141.641)
+scale = Vector2(1.0651, 0.682085)
+
+[node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
+position = Vector2(299.036, 134.803)
+scale = Vector2(1.0651, 0.682085)
+
+[connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqdi6djivahcu"]
+
+[ext_resource type="Script" path="res://GameManager/Item/Item.gd" id="1_b5jvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6dv8l"]
+radius = 1257.92
+
+[sub_resource type="LabelSettings" id="LabelSettings_5i7iy"]
+font_size = 4000
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jgap"]
+font_size = 1000
+font_color = Color(1, 0.552941, 1, 1)
+
+[node name="Item" type="Sprite2D"]
+scale = Vector2(0.00759029, 0.00819266)
+script = ExtResource("1_b5jvv")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_6dv8l")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -700.0
+offset_top = 300.0
+offset_right = 6696.0
+offset_bottom = 5748.0
+scale = Vector2(0.205929, 0.174736)
+label_settings = SubResource("LabelSettings_5i7iy")
+
+[node name="Description" type="Label" parent="."]
+offset_left = 500.0
+offset_top = -1700.0
+offset_right = 2349.0
+offset_bottom = -338.0
+label_settings = SubResource("LabelSettings_1jgap")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
