@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=9 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter-Mellow/main_character.tscn" id="2_5ot7v"]
 [ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
 [ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
+[ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu.tscn" id="5_8j6s4"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="5_e6ts6"]
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="6_7u0f6"]
 
@@ -18,12 +19,33 @@ room_level_scene = ExtResource("2_o2qej")
 outside_level_scene = ExtResource("3_302gr")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_5ot7v")]
-z_index = 2
-position = Vector2(844, 298)
-scale = Vector2(1.45, 1.45)
+z_index = 1
+position = Vector2(547, 381)
+scale = Vector2(1.8, 1.8)
 
-[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
-position = Vector2(127.586, -112.414)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
+position = Vector2(32.4138, -153.793)
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(605.345, 104.172)
+scale = Vector2(1.8, 1.8)
+zoom = Vector2(0.8, 0.8)
+limit_left = -350
+limit_top = -680
+limit_right = 2770
+limit_bottom = 1015
+limit_smoothed = true
+editor_draw_limits = true
+
+[node name="PauseMenu" parent="Camera2D" instance=ExtResource("5_8j6s4")]
+visible = false
+z_index = 2
+offset_left = -170.747
+offset_top = -347.874
+offset_right = -170.747
+offset_bottom = -347.874
+scale = Vector2(1.94315, 1.65469)
 
 [node name="Shadow" parent="." instance=ExtResource("5_e6ts6")]
 modulate = Color(0, 0, 0, 1)
@@ -37,3 +59,6 @@ gradient = SubResource("Gradient_kmujt")
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("6_7u0f6")
+
+[connection signal="quit" from="Camera2D/PauseMenu" to="." method="_on_pause_menu_quit"]
+[connection signal="resume" from="Camera2D/PauseMenu" to="." method="_on_pause_menu_resume"]
