@@ -8,7 +8,7 @@ func _on_door_area_area_entered(_area)-> void:
 	tween.tween_property($".", "modulate", Color.TRANSPARENT, 3)
 	await tween.finished
 	
-	goInside.emit()
+	goInside.emit(false)
 
 func spawnPrompt():
 	pass
