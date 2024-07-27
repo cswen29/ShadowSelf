@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5bjsidrxt43g"]
+
+[ext_resource type="Texture2D" uid="uid://ds0hfk510e0gh" path="res://assets/shadow/shadow_blink_eye.PNG" id="2_oe0v1"]
+[ext_resource type="Script" path="res://Blink/Blink.gd" id="2_yv8sv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy86i"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne3gs"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms73u"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikf4g"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svg5m"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_742q7"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6xkk"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw23q"]
+atlas = ExtResource("2_oe0v1")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctwmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy86i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne3gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms73u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikf4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svg5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_742q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6xkk")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_cw23q")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 5.0
+}]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(704, 420)
+hframes = 4
+vframes = 2
+script = ExtResource("2_yv8sv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ctwmu")
+animation = &"blink"
+frame_progress = 0.169074

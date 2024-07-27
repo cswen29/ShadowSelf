@@ -2,39 +2,40 @@
 
 [ext_resource type="Script" path="res://GameManager/Item/Item.gd" id="1_b5jvv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6dv8l"]
-radius = 1257.92
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr2lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5i7iy"]
-font_size = 4000
+font_size = 200
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jgap"]
-font_size = 1000
+font_size = 100
 font_color = Color(1, 0.552941, 1, 1)
 
 [node name="Item" type="Sprite2D"]
-scale = Vector2(0.00759029, 0.00819266)
+scale = Vector2(0.38, 0.38)
 script = ExtResource("1_b5jvv")
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.151316, 0.100091)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(0.2, 0.2)
-shape = SubResource("CircleShape2D_6dv8l")
+scale = Vector2(31.3613, 48.6748)
+shape = SubResource("RectangleShape2D_kr2lv")
 
 [node name="Name" type="Label" parent="."]
-offset_left = -700.0
-offset_top = 300.0
-offset_right = 6696.0
-offset_bottom = 5748.0
-scale = Vector2(0.205929, 0.174736)
+offset_left = -47.3684
+offset_top = 78.9474
+offset_right = 7348.63
+offset_bottom = 5526.95
+scale = Vector2(0.122507, 0.121382)
 label_settings = SubResource("LabelSettings_5i7iy")
 
 [node name="Description" type="Label" parent="."]
-offset_left = 500.0
-offset_top = -1700.0
-offset_right = 2349.0
-offset_bottom = -338.0
+offset_left = -107.895
+offset_top = -152.632
+offset_right = 3396.11
+offset_bottom = 1209.37
+scale = Vector2(0.424434, 0.460665)
 label_settings = SubResource("LabelSettings_1jgap")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

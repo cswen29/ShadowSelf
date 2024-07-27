@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwa5uay46y3sg"
-path="res://.godot/imported/flowers.png-efb75e0b3e8f53282cf3fb0cb3e00c94.ctex"
+uid="uid://em4nee6mfbtm"
+path="res://.godot/imported/IMG_0155.PNG-2ddd9db823f51482838224f000d0ea80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/flowers.png"
-dest_files=["res://.godot/imported/flowers.png-efb75e0b3e8f53282cf3fb0cb3e00c94.ctex"]
+source_file="res://Blink/IMG_0155.PNG"
+dest_files=["res://.godot/imported/IMG_0155.PNG-2ddd9db823f51482838224f000d0ea80.ctex"]
 
 [params]
 

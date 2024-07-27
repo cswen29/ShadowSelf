@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://celb02tbtt4ef"
-path="res://.godot/imported/thought-bubble-transparent-drawn-6.png-0d12ef0e167da73b22dbd8f6a6690779.ctex"
+uid="uid://dyshy1s8nrspp"
+path="res://.godot/imported/PictureOfFamily.png-c173a6bb5001b3f982eee60e365e3755.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/thought-bubble-transparent-drawn-6.png"
-dest_files=["res://.godot/imported/thought-bubble-transparent-drawn-6.png-0d12ef0e167da73b22dbd8f6a6690779.ctex"]
+source_file="res://assets/inventory/PictureOfFamily.png"
+dest_files=["res://.godot/imported/PictureOfFamily.png-c173a6bb5001b3f982eee60e365e3755.ctex"]
 
 [params]
 

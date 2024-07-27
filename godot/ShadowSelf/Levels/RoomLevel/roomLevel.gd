@@ -12,7 +12,7 @@ signal findItem
 func _ready():
 	var tween : Tween = create_tween()
 	$".".modulate = Color.TRANSPARENT
-	door.modulate = Color.TRANSPARENT
+	door.modulate = Color("e0dfd8")
 	tween.tween_property($".", "modulate", Color.WHITE, 3)
 	await tween.finished
 
@@ -39,8 +39,8 @@ func _on_mirror_input_event(_viewport, event, _shape_idx):
 
 func _on_area_2d_2_area_entered(_area):
 	var tween : Tween = create_tween()
-	tween.tween_property(door, "modulate", Color.WHITE, 3)
+	tween.tween_property(door, "modulate", Color.WHITE, 1)
 
 func _on_middle_area_entered(_area):
 	var tween : Tween = create_tween()
-	tween.tween_property(door, "modulate", Color.TRANSPARENT, 3)
+	tween.tween_property(door, "modulate", Color.TRANSPARENT, 2)

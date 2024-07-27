@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tkb5tcrre2po"
-path="res://.godot/imported/temp_room_background.jpg-5afb1486f5e62b9f3fcac78e8ed9e45a.ctex"
+uid="uid://ckw25ixpjta2h"
+path="res://.godot/imported/CollegeLetter.png-b5bc28482c14b6dc79405f99e4202c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_room_background.jpg"
-dest_files=["res://.godot/imported/temp_room_background.jpg-5afb1486f5e62b9f3fcac78e8ed9e45a.ctex"]
+source_file="res://assets/inventory/CollegeLetter.png"
+dest_files=["res://.godot/imported/CollegeLetter.png-b5bc28482c14b6dc79405f99e4202c1a.ctex"]
 
 [params]
 

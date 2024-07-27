@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://tp4ehyw7smy8"]
+[gd_scene load_steps=10 format=3 uid="uid://tp4ehyw7smy8"]
 
 [ext_resource type="Script" path="res://GameManager/Inventory/inventory.gd" id="1_algll"]
 [ext_resource type="PackedScene" uid="uid://dqdi6djivahcu" path="res://GameManager/Item/item.tscn" id="2_nrd52"]
-[ext_resource type="Texture2D" uid="uid://tkb5tcrre2po" path="res://assets/temp_room_background.jpg" id="3_wnulq"]
-[ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="4_owjww"]
+[ext_resource type="PackedScene" uid="uid://csxc1qnwe173s" path="res://GameManager/Inventory/inventory_spot.tscn" id="3_3ca6m"]
+[ext_resource type="Texture2D" uid="uid://bxnj5a4uk4qa6" path="res://assets/inventory/Gameboy.png" id="4_fwe6x"]
+[ext_resource type="Texture2D" uid="uid://c4clnbw4p61u7" path="res://assets/inventory/BridgePebbles.png" id="5_b41et"]
+[ext_resource type="Texture2D" uid="uid://dq8nvrps6mla8" path="res://assets/inventory/IceCream.png" id="6_b5y6v"]
+[ext_resource type="Texture2D" uid="uid://ckw25ixpjta2h" path="res://assets/inventory/CollegeLetter.png" id="7_wgv6i"]
+[ext_resource type="Texture2D" uid="uid://dyshy1s8nrspp" path="res://assets/inventory/PictureOfFamily.png" id="8_w2mmj"]
+[ext_resource type="Texture2D" uid="uid://bwa5uay46y3sg" path="res://assets/inventory/Flower.png" id="9_aknkq"]
 
 [node name="Inventory" type="Control"]
 top_level = true
@@ -32,163 +37,144 @@ color = Color(0, 0, 1, 1)
 [node name="Future" type="Node2D" parent="."]
 
 [node name="PhoneCall" parent="Future" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(67, 121)
-scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
+position = Vector2(385.332, 376.198)
+scale = Vector2(0.395, 0.395)
 skip = true
 
 [node name="Watch" parent="Future" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(173, 54)
-scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
+position = Vector2(364.39, 215.999)
+scale = Vector2(0.395, 0.395)
 skip = true
 
 [node name="ResponsabilityMemory" parent="Future" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(405, 156)
-scale = Vector2(0.0434, 0.0485185)
-texture = ExtResource("3_wnulq")
+position = Vector2(537.511, 79.1996)
+scale = Vector2(0.395, 0.395)
 skip = true
 
-[node name="Future1" parent="Future" instance=ExtResource("4_owjww")]
-position = Vector2(37, 94)
-scale = Vector2(1.5, 1.5)
+[node name="Future1" parent="Future" instance=ExtResource("3_3ca6m")]
+position = Vector2(333.675, 187.199)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Future2" parent="Future" instance=ExtResource("4_owjww")]
-position = Vector2(145, 28)
-scale = Vector2(1.5, 1.5)
+[node name="Future2" parent="Future" instance=ExtResource("3_3ca6m")]
+position = Vector2(356.014, 345.598)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Future3" parent="Future" instance=ExtResource("4_owjww")]
-position = Vector2(379, 125)
-scale = Vector2(1.5, 1.5)
-occupied = true
+[node name="Future3" parent="Future" instance=ExtResource("3_3ca6m")]
+position = Vector2(508.192, 50.3998)
+scale = Vector2(1.56, 1.56)
 
 [node name="Past" type="Node2D" parent="."]
 
 [node name="Gameboy" parent="Past" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(168, 223)
-scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
+position = Vector2(61.4298, 52.1998)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("4_fwe6x")
 skip = true
 
 [node name="Bridge" parent="Past" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(286, 240)
-scale = Vector2(0.0518, 0.0531482)
-texture = ExtResource("3_wnulq")
+position = Vector2(231.758, 215.999)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("5_b41et")
 skip = true
 
 [node name="Tree" parent="Past" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(504, 295)
-scale = Vector2(0.039, 0.0346296)
-texture = ExtResource("3_wnulq")
+position = Vector2(96.3331, 219.599)
+scale = Vector2(0.395, 0.395)
 skip = true
 
 [node name="NostalgicMemory" parent="Past" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(270, 132)
-scale = Vector2(0.0434, 0.0485185)
-texture = ExtResource("3_wnulq")
+position = Vector2(531.926, 226.799)
+scale = Vector2(0.395, 0.395)
 skip = true
 
-[node name="Past1" parent="Past" instance=ExtResource("4_owjww")]
-position = Vector2(136, 199)
-scale = Vector2(1.5, 1.5)
+[node name="Past1" parent="Past" instance=ExtResource("3_3ca6m")]
+position = Vector2(32.1111, 28.7999)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Past2" parent="Past" instance=ExtResource("4_owjww")]
-position = Vector2(255, 215)
-scale = Vector2(1.5, 1.5)
+[node name="Past2" parent="Past" instance=ExtResource("3_3ca6m")]
+position = Vector2(199.647, 188.999)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Past3" parent="Past" instance=ExtResource("4_owjww")]
-position = Vector2(474, 269)
-scale = Vector2(1.5, 1.5)
+[node name="Past3" parent="Past" instance=ExtResource("3_3ca6m")]
+position = Vector2(69.8066, 188.999)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Past4" parent="Past" instance=ExtResource("4_owjww")]
-position = Vector2(242, 104)
-scale = Vector2(1.5, 1.5)
+[node name="Past4" parent="Past" instance=ExtResource("3_3ca6m")]
+position = Vector2(505.4, 199.799)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
 [node name="Present" type="Node2D" parent="."]
 
 [node name="IceCream" parent="Present" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
 position = Vector2(183, 331)
-scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("6_b5y6v")
 skip = true
 
 [node name="CollegeLetter" parent="Present" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(535, 167)
-scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
+position = Vector2(223.381, 59.3997)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wgv6i")
 skip = true
 
 [node name="PictureOfFamily" parent="Present" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(476, 54)
-scale = Vector2(0.0246, 0.0225926)
-texture = ExtResource("3_wnulq")
+position = Vector2(376.956, 71.9997)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("8_w2mmj")
 skip = true
 
 [node name="Flower" parent="Present" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(63, 292)
-scale = Vector2(0.0274, 0.0346296)
-texture = ExtResource("3_wnulq")
+position = Vector2(62.826, 354.598)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("9_aknkq")
 skip = true
 
 [node name="RealityMemory" parent="Present" instance=ExtResource("2_nrd52")]
-visible = false
 z_index = 1
-position = Vector2(370, 344)
-scale = Vector2(0.0400389, 0.0539459)
-texture = ExtResource("3_wnulq")
+position = Vector2(533.322, 365.398)
+scale = Vector2(0.395, 0.395)
 skip = true
 
-[node name="Present1" parent="Present" instance=ExtResource("4_owjww")]
-position = Vector2(41, 268)
-scale = Vector2(1.5, 1.5)
+[node name="Present1" parent="Present" instance=ExtResource("3_3ca6m")]
+position = Vector2(196.855, 30.5999)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Present2" parent="Present" instance=ExtResource("4_owjww")]
-position = Vector2(162, 308)
-scale = Vector2(1.5, 1.5)
+[node name="Present2" parent="Present" instance=ExtResource("3_3ca6m")]
+position = Vector2(346.241, 43.1998)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Present3" parent="Present" instance=ExtResource("4_owjww")]
-position = Vector2(453, 28)
-scale = Vector2(1.5, 1.5)
+[node name="Present3" parent="Present" instance=ExtResource("3_3ca6m")]
+position = Vector2(153.574, 307.799)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Present4" parent="Present" instance=ExtResource("4_owjww")]
-position = Vector2(500, 141)
-scale = Vector2(1.5, 1.5)
+[node name="Present4" parent="Present" instance=ExtResource("3_3ca6m")]
+position = Vector2(30.7149, 331.199)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
-[node name="Present5" parent="Present" instance=ExtResource("4_owjww")]
-position = Vector2(339, 314)
-scale = Vector2(1.5, 1.5)
+[node name="Present5" parent="Present" instance=ExtResource("3_3ca6m")]
+position = Vector2(504.003, 338.398)
+scale = Vector2(1.56, 1.56)
 occupied = true
 
 [connection signal="checkCombinations" from="Future/PhoneCall" to="." method="check_combinations"]

@@ -149,6 +149,7 @@ position = Vector2(-418, 61)
 shape = SubResource("RectangleShape2D_6780j")
 
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
+modulate = Color(0.8799, 0.874454, 0.846633, 1)
 top_level = true
 z_index = 2
 position = Vector2(2587, 209)

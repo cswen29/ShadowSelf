@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4yk0muq1l5mx" path="res://assets/circle-clipart-black.png" id="2_tbokp"]
 [ext_resource type="PackedScene" uid="uid://d2b1q67cphll2" path="res://ShadowTrail/ShadowTrailScene.tscn" id="3_45t55"]
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailExtension.gd" id="4_x1i1o"]
-[ext_resource type="PackedScene" uid="uid://b5bjsidrxt43g" path="res://assets/Blink/Blink.tscn" id="5_i6oja"]
+[ext_resource type="PackedScene" uid="uid://b5bjsidrxt43g" path="res://Blink/Blink.tscn" id="5_i6oja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgew0"]
 radius = 189.214

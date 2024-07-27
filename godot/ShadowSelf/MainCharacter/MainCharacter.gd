@@ -9,6 +9,8 @@ func _ready() -> void:
 		
 func _process(_delta)-> void:
 	GlobalVariables.character_pos = global_position
+	$SpriteColor.modulate = Color("5e5e5e")
+	print(global_position)
 	
 func _input(event)-> void:
 	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:
