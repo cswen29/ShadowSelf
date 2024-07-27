@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4clnbw4p61u7"
-path="res://.godot/imported/pebbles.png-80bedbf776a87b92cbb8dd7d326de4b9.ctex"
+uid="uid://bwa5uay46y3sg"
+path="res://.godot/imported/Flower.png-d258ac1e4ede776d6aa9dedbaf8b33af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/pebbles.png"
-dest_files=["res://.godot/imported/pebbles.png-80bedbf776a87b92cbb8dd7d326de4b9.ctex"]
+source_file="res://assets/inventory/Flower.png"
+dest_files=["res://.godot/imported/Flower.png-d258ac1e4ede776d6aa9dedbaf8b33af.ctex"]
 
 [params]
 

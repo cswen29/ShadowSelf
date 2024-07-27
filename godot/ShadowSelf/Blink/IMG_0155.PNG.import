@@ -2,26 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:godot/ShadowSelf/Blink/IMG_0155.PNG.import
-uid="uid://b7wp84pxelqt1"
+uid="uid://em4nee6mfbtm"
 path="res://.godot/imported/IMG_0155.PNG-2ddd9db823f51482838224f000d0ea80.ctex"
-========
-uid="uid://4tsw4q1sy7bu"
-path="res://.godot/imported/shadow_blink_eye.PNG-d818475ad541ffc0f77257bf3ee41afd.ctex"
->>>>>>>> main:godot/ShadowSelf/assets/shadow/shadow_blink_eye.PNG.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:godot/ShadowSelf/Blink/IMG_0155.PNG.import
 source_file="res://Blink/IMG_0155.PNG"
 dest_files=["res://.godot/imported/IMG_0155.PNG-2ddd9db823f51482838224f000d0ea80.ctex"]
-========
-source_file="res://assets/shadow/shadow_blink_eye.PNG"
-dest_files=["res://.godot/imported/shadow_blink_eye.PNG-d818475ad541ffc0f77257bf3ee41afd.ctex"]
->>>>>>>> main:godot/ShadowSelf/assets/shadow/shadow_blink_eye.PNG.import
 
 [params]
 

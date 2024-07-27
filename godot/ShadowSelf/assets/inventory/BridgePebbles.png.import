@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwa5uay46y3sg"
-path="res://.godot/imported/flowers.png-efb75e0b3e8f53282cf3fb0cb3e00c94.ctex"
+uid="uid://c4clnbw4p61u7"
+path="res://.godot/imported/BridgePebbles.png-dbbaf0ad0c68adeca33a5d29f20fec10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/flowers.png"
-dest_files=["res://.godot/imported/flowers.png-efb75e0b3e8f53282cf3fb0cb3e00c94.ctex"]
+source_file="res://assets/inventory/BridgePebbles.png"
+dest_files=["res://.godot/imported/BridgePebbles.png-dbbaf0ad0c68adeca33a5d29f20fec10.ctex"]
 
 [params]
 

@@ -5,13 +5,13 @@ class_name AlchemySpot extends StaticBody2D
 var itemCategory
 
 func _ready():
-	modulate = Color(Color.MEDIUM_PURPLE, 0.7)
+	modulate = Color(Color.WHITE, 1)
 
 func _process(delta):
 	if GlobalVariables.isDragging:
 		modulate = Color(Color.MEDIUM_PURPLE, 0.5)
 	else:
-		modulate = Color(Color.MEDIUM_PURPLE, 0.2)
+		modulate = Color(Color.WHITE)
 	
 
 func updateSprite():

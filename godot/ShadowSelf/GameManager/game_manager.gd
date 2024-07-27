@@ -20,7 +20,8 @@ var alchemyToggled: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
-	changeLevelToRoom()
+	#changeLevelToRoom()
+	changeLevelToOutside()
 	prompt.hide()	
 
 func _process(_delta)-> void:
@@ -68,6 +69,7 @@ func animateDespawn()-> void:
 #region change levels
 func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
+	mainCharacter.global_position = Vector2(200, 500)
 	var tween : Tween = create_tween()
 	
 	fade_to_black.modulate = Color.BLACK

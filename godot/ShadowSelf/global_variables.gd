@@ -4,14 +4,14 @@ var character_pos : Vector2
 var volume_music : float = 0.5
 var volume_effects: float = 0.5
 
-var inventory: Array = ["Watch", "PhoneCall"]
+var inventory: Array = ["Watch", "PhoneCall", "Gameboy"]
 var trees_unlocked: Array = []
 var paused : bool = false
 var isDragging: bool = false
 
 var itemAttr : Dictionary = {
 	"Gameboy": ["These things are so outdated now.", "So many fond memories growing up with this.", "Past"],
-	"Bridge": ["An old rusty bridge.", "We used to throw rocks here.\nDad could make the rocks skip 7 times in the water.", "Past"],
+	"BridgePebbles": ["An old rusty bridge.", "We used to throw rocks here.\nDad could make the rocks skip 7 times in the water.", "Past"],
 	"Tree": ["A tree with a swing.", "We used to play here.\nIt was like flying.",  "Past"],
 	"NostalgicMemory": ["", "I miss them.", "Past"],
 	"PhoneCall": ["My uncle is complaining about my younger sister again.", "TAKE RESPONSIBILITY.",  "Future"],
