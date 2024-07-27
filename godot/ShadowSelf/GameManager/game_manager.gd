@@ -69,8 +69,8 @@ func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
 	var tween : Tween = create_tween()
 	
-	$CanvasLayer/ColorRect.modulate = Color.BLACK
-	tween.tween_property($CanvasLayer/ColorRect, "color", Color.BLACK, 2)
+	$Darken/ColorRect.modulate = Color.BLACK
+	tween.tween_property($Darken/ColorRect, "color", Color.BLACK, 2)
 	await tween.finished
 	var level = outside_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
