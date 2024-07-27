@@ -14,6 +14,7 @@ extends Node2D
 @onready var prompt_no = $MainCharacter/CanvasLayer/Prompt/No
 @onready var prompt_label = $MainCharacter/CanvasLayer/Prompt/Label
 @onready var inventory = $MainCharacter/CanvasLayer/Inventory
+@onready var fade_to_black = $Darken/ColorRect
 var paused: bool = false
 var alchemyToggled: bool = false
 
@@ -69,8 +70,8 @@ func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
 	var tween : Tween = create_tween()
 	
-	$CanvasLayer/ColorRect.modulate = Color.BLACK
-	tween.tween_property($CanvasLayer/ColorRect, "color", Color.BLACK, 2)
+	fade_to_black.modulate = Color.BLACK
+	tween.tween_property(fade_to_black, "color", Color.BLACK, 2)
 	await tween.finished
 	var level = outside_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
@@ -84,10 +85,14 @@ func changeLevelToOutside()-> void:
 
 	await get_tree().create_timer(1.0).timeout
 	tween = create_tween()
-	tween.tween_property($CanvasLayer/ColorRect, "color", Color.TRANSPARENT, 4)
+	tween.tween_property(fade_to_black, "color", Color.TRANSPARENT, 4)
 	
 	await get_tree().create_timer(1).timeout
 	mainCharacter.canMove = true
+	
+	#TODO
+	#center screen
+	#make character smaller
 	
 func changeLevelToRoom()-> void:
 	mainCharacter.canMove = false
@@ -132,6 +137,9 @@ func spawnPrompt(stri : String, object: String):
 		if prompt.name  == "door":
 			prompt_no.hide()
 			prompt_yes.text = "Ok"
+		else:
+			prompt_no.show()
+			prompt_yes.text = "Yes"
 		
 		prompt_label.text = stri 
 		prompt.show()
@@ -206,9 +214,13 @@ func toggleInventory():
 
 func _on_alchemy_give_nostalgia():
 	itemPickedUp("NostalgicMemory")
+	GlobalVariables.trees_unlocked.push_back("Past")
 
 func _on_alchemy_give_reality():	
 	itemPickedUp("RealityMemory")
+	GlobalVariables.trees_unlocked.push_back("Present")
 
 func _on_alchemy_give_responsability():	
 	itemPickedUp("ResponsabilityMemory")
+	GlobalVariables.trees_unlocked.push_back("Future")
+
