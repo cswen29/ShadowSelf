@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://cma0bkevj2j4y"]
 
-[ext_resource type="Script" path="res://MainCharacter-Mellow/MainCharacter.gd" id="1_kimwa"]
+[ext_resource type="Script" path="res://MainCharacter/MainCharacter.gd" id="1_kimwa"]
 [ext_resource type="Texture2D" uid="uid://baepqyopsto26" path="res://assets/walk_cycle_background.PNG" id="2_14do7"]
 [ext_resource type="Texture2D" uid="uid://bqjf4baliqrnc" path="res://assets/walk_cycle.PNG" id="3_r4hrc"]
-[ext_resource type="Shader" path="res://MainCharacter-Mellow/headache.gdshader" id="4_hp7jk"]
+[ext_resource type="Shader" path="res://MainCharacter/headache.gdshader" id="4_hp7jk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)

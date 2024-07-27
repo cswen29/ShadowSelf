@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b5bjsidrxt43g"]
 
 [ext_resource type="Texture2D" uid="uid://4tsw4q1sy7bu" path="res://assets/shadow_blink_eye.PNG" id="1_3gv21"]
-[ext_resource type="Script" path="res://assets/Blink/Blink.gd" id="2_yv8sv"]
+[ext_resource type="Script" path="res://Blink/Blink.gd" id="2_yv8sv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yy0g4"]
 atlas = ExtResource("1_3gv21")

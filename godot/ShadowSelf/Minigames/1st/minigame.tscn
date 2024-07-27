@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bni8htn0chjok"]
+[gd_scene load_steps=7 format=3 uid="uid://bni8htn0chjok"]
 
 [ext_resource type="Script" path="res://Minigames/1st/minigame.gd" id="1_17j8p"]
 [ext_resource type="Script" path="res://Minigames/1st/minigameMovement.gd" id="2_gsdim"]
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="3_qka0j"]
-[ext_resource type="Texture2D" uid="uid://celb02tbtt4ef" path="res://assets/thought-bubble-transparent-drawn-6.png" id="4_ic2it"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_quvou"]
 size = Vector2(23, 70)
@@ -11716,7 +11715,6 @@ script = ExtResource("2_gsdim")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(3.99998, -1)
 scale = Vector2(0.0643939, 0.0465909)
-texture = ExtResource("3_qka0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(3.5, 1)
@@ -11732,4 +11730,3 @@ layer_0/tile_data = PackedInt32Array(1769503, 1048576, 29, 1835039, 1048576, 29,
 show_behind_parent = true
 position = Vector2(99, 182)
 scale = Vector2(0.340866, 0.347521)
-texture = ExtResource("4_ic2it")

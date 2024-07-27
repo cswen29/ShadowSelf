@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tp4ehyw7smy8"]
+[gd_scene load_steps=4 format=3 uid="uid://tp4ehyw7smy8"]
 
 [ext_resource type="Script" path="res://GameManager/Inventory/inventory.gd" id="1_algll"]
 [ext_resource type="PackedScene" uid="uid://dqdi6djivahcu" path="res://GameManager/Item/item.tscn" id="2_nrd52"]
-[ext_resource type="Texture2D" uid="uid://tkb5tcrre2po" path="res://assets/temp_room_background.jpg" id="3_wnulq"]
 [ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="4_owjww"]
 
 [node name="Inventory" type="Control"]
@@ -36,7 +35,6 @@ visible = false
 z_index = 1
 position = Vector2(67, 121)
 scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Watch" parent="Future" instance=ExtResource("2_nrd52")]
@@ -44,7 +42,6 @@ visible = false
 z_index = 1
 position = Vector2(173, 54)
 scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="ResponsabilityMemory" parent="Future" instance=ExtResource("2_nrd52")]
@@ -52,7 +49,6 @@ visible = false
 z_index = 1
 position = Vector2(405, 156)
 scale = Vector2(0.0434, 0.0485185)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Future1" parent="Future" instance=ExtResource("4_owjww")]
@@ -77,7 +73,6 @@ visible = false
 z_index = 1
 position = Vector2(168, 223)
 scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Bridge" parent="Past" instance=ExtResource("2_nrd52")]
@@ -85,7 +80,6 @@ visible = false
 z_index = 1
 position = Vector2(286, 240)
 scale = Vector2(0.0518, 0.0531482)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Tree" parent="Past" instance=ExtResource("2_nrd52")]
@@ -93,7 +87,6 @@ visible = false
 z_index = 1
 position = Vector2(504, 295)
 scale = Vector2(0.039, 0.0346296)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="NostalgicMemory" parent="Past" instance=ExtResource("2_nrd52")]
@@ -101,7 +94,6 @@ visible = false
 z_index = 1
 position = Vector2(270, 132)
 scale = Vector2(0.0434, 0.0485185)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Past1" parent="Past" instance=ExtResource("4_owjww")]
@@ -131,7 +123,6 @@ visible = false
 z_index = 1
 position = Vector2(183, 331)
 scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="CollegeLetter" parent="Present" instance=ExtResource("2_nrd52")]
@@ -139,7 +130,6 @@ visible = false
 z_index = 1
 position = Vector2(535, 167)
 scale = Vector2(0.035, 0.0401852)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="PictureOfFamily" parent="Present" instance=ExtResource("2_nrd52")]
@@ -147,7 +137,6 @@ visible = false
 z_index = 1
 position = Vector2(476, 54)
 scale = Vector2(0.0246, 0.0225926)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Flower" parent="Present" instance=ExtResource("2_nrd52")]
@@ -155,7 +144,6 @@ visible = false
 z_index = 1
 position = Vector2(63, 292)
 scale = Vector2(0.0274, 0.0346296)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="RealityMemory" parent="Present" instance=ExtResource("2_nrd52")]
@@ -163,7 +151,6 @@ visible = false
 z_index = 1
 position = Vector2(370, 344)
 scale = Vector2(0.0400389, 0.0539459)
-texture = ExtResource("3_wnulq")
 skip = true
 
 [node name="Present1" parent="Present" instance=ExtResource("4_owjww")]
