@@ -228,18 +228,18 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fljcm")
 
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.956863, 1, 1, 1)
+modulate = Color(0.37, 0.37, 0.37, 1)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_vnmyr")
 animation = &"walk_cycle"
-frame_progress = 0.124562
+frame_progress = 0.0994614
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.249997, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
-frame_progress = 0.647346
+frame_progress = 0.898435
 
 [node name="Distortion" type="ColorRect" parent="SpriteOutline"]
 material = SubResource("ShaderMaterial_6dxa1")

@@ -27,6 +27,7 @@ item_pickup = ExtResource("4_mbne4")
 z_index = 1
 position = Vector2(543, 381)
 scale = Vector2(1.8, 1.8)
+speed = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
 position = Vector2(32.4138, -153.793)
