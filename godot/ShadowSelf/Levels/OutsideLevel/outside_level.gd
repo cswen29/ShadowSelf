@@ -11,51 +11,44 @@ signal prompt
 @onready var letter =  $CollegeLetter
 @onready var icecream = $IceCream
 
-func _on_door_area_area_entered(_area)-> void:
-	var tween : Tween = create_tween()
-	tween.tween_property($".", "modulate", Color.TRANSPARENT, 3)
-	await tween.finished
-	
-	goInside.emit(false)
-
 func _on_flower_2d_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and flower.isColliding:
 			if "Flower" not in GlobalVariables.inventory:
 				prompt.emit("pickup flower?", "flower")
 
 func _on_bridge_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and bridge.isColliding:
 			if "BridgePebbles" not in GlobalVariables.inventory:
 				prompt.emit("look at bridge?", "bridge")
 
 func _on_tree_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and tree.isColliding:
 			if "Tree" not in GlobalVariables.inventory:
 				prompt.emit("look at tree?", "tree")
 
 func _on_watch_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and watch.isColliding:
 			if "Watch" not in GlobalVariables.inventory:
 				prompt.emit("pickup watch?", "watch")
 
 func _on_gameboy_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and gameboy.isColliding:
 			if "Gameboy" not in GlobalVariables.inventory:
 				prompt.emit("pickup gameboy?", "gameboy")
 
 func _on_letter_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and letter.isColliding:
 			if "CollegeLetter" not in GlobalVariables.inventory:
 				prompt.emit("pickup letter?", "letter")
 
 func _on_icecream_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
-		if event is InputEventMouseButton:
+		if event is InputEventMouseButton and icecream.isColliding:
 			if "IceCream" not in GlobalVariables.inventory:
 				prompt.emit("buy an incecream?", "icecream")

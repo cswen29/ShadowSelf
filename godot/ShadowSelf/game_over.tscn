@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://doxh3766e3uvi"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_x2h25"]
+[ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_80ssg"]
+[ext_resource type="Texture2D" uid="uid://dqsjpv107yb02" path="res://assets/ui/resume_game.png" id="3_u1iwh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_seg8v"]
+texture = ExtResource("3_u1iwh")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjexe"]
+texture = ExtResource("3_u1iwh")
+expand_margin_left = 150.0
+expand_margin_top = 150.0
+expand_margin_right = 150.0
+expand_margin_bottom = 150.0
+modulate_color = Color(1, 0, 0.458824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ovda8"]
+texture = ExtResource("3_u1iwh")
+expand_margin_left = 50.0
+expand_margin_top = 55.0
+expand_margin_right = 60.0
+expand_margin_bottom = 60.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kn2y4"]
+texture = ExtResource("3_u1iwh")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2h25")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -243.0
+offset_top = -140.0
+offset_right = 1677.0
+offset_bottom = 940.0
+texture = ExtResource("2_80ssg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 223.0
+offset_right = 608.0
+offset_bottom = 246.0
+scale = Vector2(4.11943, 5.46634)
+text = "Game Over"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 523.5
+offset_right = 372.0
+offset_bottom = 546.5
+scale = Vector2(3.75699, 3.48507)
+text = "Your darkness consumes you."
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 0
+offset_left = 547.5
+offset_top = 660.5
+offset_right = 619.5
+offset_bottom = 691.5
+scale = Vector2(3.93048, 2.94199)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_seg8v")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bjexe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ovda8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kn2y4")
+text = "Retry"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailExtension.gd" id="4_x1i1o"]
 [ext_resource type="PackedScene" uid="uid://b5bjsidrxt43g" path="res://Blink/Blink.tscn" id="5_i6oja"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rgew0"]
-radius = 189.214
+[sub_resource type="CircleShape2D" id="CircleShape2D_un6x8"]
+radius = 4.59901
 
 [node name="Shadow" type="CharacterBody2D"]
 top_level = true
@@ -16,20 +16,26 @@ script = ExtResource("1_fbo1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.99998, -7)
-scale = Vector2(0.690217, 0.677174)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tbokp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-26, -16)
-shape = SubResource("CircleShape2D_rgew0")
-
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
+visible = false
 top_level = true
+scale = Vector2(0.682504, -9.45959)
 width = 30.0
 script = ExtResource("4_x1i1o")
 max_length = 30
 
 [node name="Blink" parent="." instance=ExtResource("5_i6oja")]
 position = Vector2(0, -2)
+
+[node name="ShadowArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowArea"]
+scale = Vector2(15.9091, 12.9106)
+shape = SubResource("CircleShape2D_un6x8")
+
+[connection signal="body_entered" from="ShadowArea" to="." method="_on_area_2d_body_entered"]
 
 [editable path="Blink"]
