@@ -1,12 +1,187 @@
-[gd_scene load_steps=5 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=14 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
 [ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="2_jlh0i"]
+[ext_resource type="Texture2D" uid="uid://crf83fhqi4d2p" path="res://assets/ui/alchemt_quit.png" id="3_8r4cp"]
 [ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="3_p2v7i"]
+[ext_resource type="Texture2D" uid="uid://cj2lso7uvr8j5" path="res://assets/ui/alchemy_reset.png" id="4_bjk4t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_q1bi3"]
-font_size = 19
-font_color = Color(1, 0, 1, 1)
+[sub_resource type="FontFile" id="FontFile_jjpc7"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/1/0/ascent = 0.0
+cache/0/1/0/descent = 0.0
+cache/0/1/0/underline_position = 0.0
+cache/0/1/0/underline_thickness = 0.0
+cache/0/1/0/scale = 1.0
+cache/0/1/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/1/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/2/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/3/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/10/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/500/0/ascent = 0.0
+cache/0/500/0/descent = 0.0
+cache/0/500/0/underline_position = 0.0
+cache/0/500/0/underline_thickness = 0.0
+cache/0/500/0/scale = 1.0
+cache/0/500/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/500/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/300/0/ascent = 0.0
+cache/0/300/0/descent = 0.0
+cache/0/300/0/underline_position = 0.0
+cache/0/300/0/underline_thickness = 0.0
+cache/0/300/0/scale = 1.0
+cache/0/300/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/300/0/kerning_overrides/200/0 = Vector2(0, 0)
+cache/0/200/0/ascent = 0.0
+cache/0/200/0/descent = 0.0
+cache/0/200/0/underline_position = 0.0
+cache/0/200/0/underline_thickness = 0.0
+cache/0/200/0/scale = 1.0
+cache/0/200/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/1/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/500/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/300/0 = Vector2(0, 0)
+cache/0/200/0/kerning_overrides/200/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_4lvlq"]
+default_font = SubResource("FontFile_jjpc7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0pca"]
+texture = ExtResource("3_8r4cp")
+expand_margin_left = 2048.0
+expand_margin_top = 1845.0
+expand_margin_right = 2048.0
+expand_margin_bottom = 1940.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v7xn"]
+texture = ExtResource("3_8r4cp")
+expand_margin_left = 1753.0
+expand_margin_top = 2048.0
+expand_margin_right = 1768.0
+expand_margin_bottom = 2048.0
+modulate_color = Color(1, 0.105882, 0.568627, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g18uj"]
+texture = ExtResource("3_8r4cp")
+expand_margin_left = 2048.0
+expand_margin_top = 1845.0
+expand_margin_right = 2048.0
+expand_margin_bottom = 1940.0
+modulate_color = Color(0, 0.584314, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v7a1"]
+texture = ExtResource("4_bjk4t")
+expand_margin_left = 700.0
+expand_margin_top = 700.0
+expand_margin_right = 700.0
+expand_margin_bottom = 700.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4bqk"]
+texture = ExtResource("4_bjk4t")
+expand_margin_left = 790.0
+expand_margin_top = 785.0
+expand_margin_right = 780.0
+expand_margin_bottom = 780.0
+modulate_color = Color(1, 0, 0.6, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1wys8"]
+texture = ExtResource("4_bjk4t")
+expand_margin_left = 700.0
+expand_margin_top = 700.0
+expand_margin_right = 700.0
+expand_margin_bottom = 700.0
+modulate_color = Color(0, 1, 1, 1)
 
 [node name="Alchemy" type="Control"]
 layout_mode = 3
@@ -25,16 +200,11 @@ script = ExtResource("1_5ve35")
 
 [node name="Inventory" parent="." instance=ExtResource("2_jlh0i")]
 layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 468.944
-offset_top = -105.824
-offset_right = 468.944
-offset_bottom = -105.824
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.62773, 0.50308)
+offset_left = 356.544
+offset_top = -39.0734
+offset_right = 2276.54
+offset_bottom = 1040.93
+scale = Vector2(0.359614, 0.282697)
 mouse_filter = 2
 
 [node name="PhoneCall" parent="Inventory/Future" index="0"]
@@ -109,7 +279,8 @@ occupied = false
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_direction = 1
 layout_mode = 0
-offset_right = 40.0
+offset_left = -5.22791
+offset_right = 34.7721
 offset_bottom = 40.0
 scale = Vector2(11.1368, 5.73404)
 mouse_filter = 2
@@ -117,101 +288,83 @@ color = Color(1, 1, 0, 1)
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 322.562
-offset_top = 194.39
-offset_right = 433.562
-offset_bottom = 225.39
+offset_left = 309.492
+offset_top = 196.344
+offset_right = 1552.49
+offset_bottom = 1126.34
+scale = Vector2(0.0944184, 0.0316674)
+theme = SubResource("Theme_4lvlq")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6v7xn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g18uj")
 text = "Quit alchemy"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Refresh" type="Button" parent="."]
 layout_mode = 0
-offset_left = 170.953
-offset_top = 193.739
-offset_right = 307.953
-offset_bottom = 224.739
-scale = Vector2(0.961561, 1.04733)
+offset_left = 318.903
+offset_top = 155.968
+offset_right = 731.902
+offset_bottom = 394.968
+scale = Vector2(0.242621, 0.0940055)
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
 text = "Refresh"
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 16.2065
-offset_top = 36.7942
-offset_right = 191.206
-offset_bottom = 63.7942
-scale = Vector2(2.41025, 1.06829)
-text = "_____ + ______ = ?????"
-label_settings = SubResource("LabelSettings_q1bi3")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 85.0
-offset_right = 280.0
-offset_bottom = 112.0
-scale = Vector2(1.54781, 1.09902)
-text = "_____ + ______ + _________ = ?????"
-label_settings = SubResource("LabelSettings_q1bi3")
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 9.41021
-offset_top = 145.223
-offset_right = 359.41
-offset_bottom = 172.223
-scale = Vector2(1.18418, 0.981157)
-text = "_____ + ______ + ________ + _________= ?????"
-label_settings = SubResource("LabelSettings_q1bi3")
-
 [node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(38.1637, 19.5367)
+position = Vector2(26.1396, 14.3269)
 scale = Vector2(1.22637, 0.74054)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(195.524, 22.1416)
+position = Vector2(156.315, 14.0013)
 scale = Vector2(1.02593, 0.751083)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(14.6381, 75.2164)
+position = Vector2(16.7293, 67.0761)
 scale = Vector2(1.204, 0.756503)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(118.673, 77.17)
+position = Vector2(134.357, 69.681)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(243.098, 71.9602)
+position = Vector2(244.143, 69.3553)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(18.2976, 133.827)
+position = Vector2(19.3433, 119.174)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(103.513, 134.152)
+position = Vector2(104.559, 119.499)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(188.205, 141.641)
+position = Vector2(198.138, 120.802)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(299.036, 134.803)
+position = Vector2(300.082, 120.15)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128

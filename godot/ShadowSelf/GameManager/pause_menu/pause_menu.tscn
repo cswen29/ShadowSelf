@@ -1,8 +1,128 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxsqgdawdvfeg"]
+[gd_scene load_steps=25 format=3 uid="uid://dxsqgdawdvfeg"]
 
 [ext_resource type="Script" path="res://GameManager/pause_menu/pause_menu.gd" id="1_hmed1"]
+[ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_nqfkw"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="2_qxi2j"]
+[ext_resource type="Texture2D" uid="uid://dqsjpv107yb02" path="res://assets/ui/resume_game.png" id="3_kcroj"]
 [ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="3_nd36e"]
+[ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="4_h0o80"]
+[ext_resource type="Texture2D" uid="uid://svngy4f5rstn" path="res://assets/ui/inventory.png" id="5_gld0m"]
+[ext_resource type="Texture2D" uid="uid://c5q5pyewfbcl" path="res://assets/ui/settings_main.png" id="6_kiesu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khbgb"]
+texture = ExtResource("3_kcroj")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ejxx"]
+texture = ExtResource("3_kcroj")
+expand_margin_left = 150.0
+expand_margin_top = 150.0
+expand_margin_right = 150.0
+expand_margin_bottom = 150.0
+modulate_color = Color(1, 0, 0.458824, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_767go"]
+texture = ExtResource("3_kcroj")
+expand_margin_left = 50.0
+expand_margin_top = 55.0
+expand_margin_right = 60.0
+expand_margin_bottom = 60.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxe6w"]
+texture = ExtResource("3_kcroj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sl60i"]
+texture = ExtResource("4_h0o80")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1yqw"]
+texture = ExtResource("4_h0o80")
+expand_margin_left = 165.0
+expand_margin_top = 160.0
+expand_margin_right = 170.0
+expand_margin_bottom = 175.0
+modulate_color = Color(1, 0, 0.352941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srrs5"]
+texture = ExtResource("4_h0o80")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tai3w"]
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apjim"]
+texture = ExtResource("5_gld0m")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cbpwr"]
+texture = ExtResource("5_gld0m")
+expand_margin_left = 150.0
+expand_margin_top = 150.0
+expand_margin_right = 155.0
+expand_margin_bottom = 155.0
+modulate_color = Color(1, 0, 0.392157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3so0u"]
+texture = ExtResource("5_gld0m")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qn45q"]
+texture = ExtResource("5_gld0m")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb858"]
+texture = ExtResource("6_kiesu")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u08uo"]
+texture = ExtResource("6_kiesu")
+expand_margin_left = 150.0
+expand_margin_top = 145.0
+expand_margin_right = 140.0
+expand_margin_bottom = 130.0
+modulate_color = Color(1, 0, 0.372549, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2pkqm"]
+texture = ExtResource("6_kiesu")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8gu0"]
+texture = ExtResource("6_kiesu")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
 
 [node name="PauseMenu" type="Control"]
 top_level = true
@@ -21,48 +141,69 @@ scale = Vector2(-15.6275, 16.0015)
 mouse_filter = 1
 color = Color(0, 0, 0, 0.654902)
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.52588e-05
-offset_top = -3.24589
-offset_right = 275.0
-offset_bottom = 281.754
-scale = Vector2(0.852447, 1)
-mouse_filter = 1
-color = Color(0.32549, 1, 1, 0.286275)
+offset_left = -44.8342
+offset_top = -70.5973
+offset_right = 1875.17
+offset_bottom = 1009.4
+scale = Vector2(0.186316, 0.519985)
+texture = ExtResource("2_nqfkw")
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 11.9435
-offset_top = 222.345
-offset_right = 83.9435
-offset_bottom = 253.345
+offset_left = 31.384
+offset_top = 342.283
+offset_right = 103.384
+offset_bottom = 373.283
+scale = Vector2(1.31927, 1.47703)
+theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_khbgb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6ejxx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_767go")
+theme_override_styles/focus = SubResource("StyleBoxTexture_bxe6w")
 text = "RESUME"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 151.284
-offset_top = 220.722
-offset_right = 198.284
-offset_bottom = 251.722
+offset_left = 170.724
+offset_top = 340.66
+offset_right = 217.724
+offset_bottom = 371.66
+theme_override_colors/font_color = Color(0, 0.890196, 0.690196, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_sl60i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f1yqw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_srrs5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_tai3w")
 text = "QUIT"
 
 [node name="InventoryButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 73.6516
-offset_top = 17.8526
-offset_right = 186.652
-offset_bottom = 48.8526
-scale = Vector2(0.628924, 2.02754)
+offset_left = 78.4599
+offset_top = 71.7179
+offset_right = 191.46
+offset_bottom = 102.718
+scale = Vector2(0.985218, 1.63953)
+theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_apjim")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cbpwr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3so0u")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qn45q")
 text = "Inventory"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 74.6469
-offset_top = 128.214
-offset_right = 187.647
-offset_bottom = 159.214
-scale = Vector2(0.628924, 2.02754)
+offset_left = 97.1408
+offset_top = 186.579
+offset_right = 210.141
+offset_bottom = 217.579
+scale = Vector2(0.649574, 1.47142)
+theme_override_colors/font_color = Color(0.909804, 0.533333, 0.596078, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_rb858")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u08uo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2pkqm")
+theme_override_styles/focus = SubResource("StyleBoxTexture_g8gu0")
 text = "Settings"
 
 [node name="Settings" parent="." instance=ExtResource("2_qxi2j")]
@@ -70,22 +211,17 @@ visible = false
 layout_mode = 1
 offset_top = -1.62294
 offset_bottom = -1.62294
-scale = Vector2(0.790479, 1)
+scale = Vector2(0.903033, 1.47149)
 
 [node name="Inventory" parent="." instance=ExtResource("3_nd36e")]
 visible = false
 layout_direction = 0
 layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -40.1017
-offset_top = -156.323
-offset_right = -40.1017
-offset_bottom = -156.323
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.36372, 0.660203)
+offset_left = -47.8232
+offset_top = -80.1224
+offset_right = 1872.18
+offset_bottom = 999.878
+scale = Vector2(0.18879, 0.530763)
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

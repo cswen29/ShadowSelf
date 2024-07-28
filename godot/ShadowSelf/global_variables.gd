@@ -1,7 +1,7 @@
 extends Node
 
 var character_pos : Vector2
-var inventory: Array = ["Gameboy"]
+var inventory: Array = []
 var trees_unlocked: Array = []
 var paused : bool = false
 var isDragging: bool = false
@@ -19,11 +19,4 @@ var itemAttr : Dictionary = {
 	"PictureOfFamily": ["Old family photo. No longer here.", "I remember spending more time with my sister when we were younger.",  "Present"],
 	"Flower": ["Just an ordinary wilting flower.", "Just needs some water.",  "Present"],
 	"RealityMemory": ["", "Time to face reality.",  "Present"]
-	}
-
-var dialog: Dictionary = {
-	1: "Hey this is your uncle!",
-	2: "",
-	3: "",
-	4: "",
 	}

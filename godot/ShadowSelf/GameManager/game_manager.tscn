@@ -102,11 +102,11 @@ layer = 5
 visible = false
 layout_direction = 1
 anchors_preset = -1
-offset_left = 390.0
-offset_top = 139.0
-offset_right = 390.0
-offset_bottom = 139.0
-scale = Vector2(5.11785, 1.97353)
+offset_left = 415.0
+offset_top = 83.0
+offset_right = 415.0
+offset_bottom = 83.0
+scale = Vector2(4.17354, 1.99256)
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
@@ -119,13 +119,12 @@ offset_right = 600.0
 offset_bottom = 67.0
 
 [node name="Prompt" parent="MainCharacter/CanvasLayer" instance=ExtResource("6_qehf4")]
-visible = false
 top_level = true
 z_index = 0
-offset_left = 774.0
-offset_top = 328.0
-offset_right = -1059.0
-offset_bottom = -692.0
+offset_left = 689.0
+offset_top = 201.0
+offset_right = -1144.0
+offset_bottom = -819.0
 scale = Vector2(1.89519, 1.77594)
 mouse_filter = 2
 
@@ -170,6 +169,7 @@ speed_scale = 0.2
 layer = 6
 
 [node name="BlackBackground" type="ColorRect" parent="Transition/CanvasLayer"]
+visible = false
 top_level = true
 z_index = 1
 offset_left = -41927.0

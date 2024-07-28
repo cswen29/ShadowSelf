@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dbcmtdjt8wf8a"]
+
+[ext_resource type="Texture2D" uid="uid://crf83fhqi4d2p" path="res://assets/ui/alchemt_quit.png" id="1_88va4"]
+
+[resource]
+texture = ExtResource("1_88va4")
+expand_margin_left = 2048.0
+expand_margin_top = 1845.0
+expand_margin_right = 2048.0
+expand_margin_bottom = 1940.0
+modulate_color = Color(1, 0.105882, 0.568627, 1)
