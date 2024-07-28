@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://byq4kxyqqrm8p"]
+[gd_scene load_steps=8 format=3 uid="uid://doxh3766e3uvi"]
 
 [ext_resource type="Script" path="res://GameOver.gd" id="1_x2h25"]
 [ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_80ssg"]
@@ -66,6 +66,7 @@ scale = Vector2(3.75699, 3.48507)
 text = "Your darkness consumes you."
 
 [node name="Retry" type="Button" parent="."]
+layout_mode = 0
 offset_left = 547.5
 offset_top = 660.5
 offset_right = 619.5
