@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=15 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Texture2D" uid="uid://080vamn6u8gs" path="res://assets/temp_art.png" id="1_c1uk2"]
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
 [ext_resource type="Texture2D" uid="uid://ctb4go2bmpagr" path="res://icon.svg" id="3_bon13"]
+[ext_resource type="Texture2D" uid="uid://b4r5mm6ee5yn8" path="res://assets/outside/sky.PNG" id="4_kho2s"]
+[ext_resource type="Texture2D" uid="uid://cpds3o5n01nof" path="res://assets/outside/road.PNG" id="5_5ff0t"]
+[ext_resource type="Texture2D" uid="uid://cvfpnh46qa6kq" path="res://assets/outside/pavement.PNG" id="6_8elsh"]
+[ext_resource type="Texture2D" uid="uid://5gp8d3hjcn26" path="res://assets/outside/grass_front.PNG" id="7_1yp58"]
+[ext_resource type="Texture2D" uid="uid://dflkfeimw8uuq" path="res://assets/outside/tree_1.png" id="8_6ijey"]
+[ext_resource type="Texture2D" uid="uid://ce1t67dsfgk0n" path="res://assets/outside/tree_3.png" id="9_bu3xb"]
+[ext_resource type="Texture2D" uid="uid://cr75gw8121ji0" path="res://assets/outside/bush_1.png" id="10_61x83"]
+[ext_resource type="Texture2D" uid="uid://bgdfpcn5npbpj" path="res://assets/outside/bush_2.png" id="11_mpigc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ujwod"]
 texture = ExtResource("1_c1uk2")
@@ -14506,6 +14514,7 @@ position = Vector2(-1474, -719)
 script = ExtResource("1_of5mx")
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 position = Vector2(1260, 49)
 tile_set = SubResource("TileSet_7vvau")
 format = 2
@@ -14523,5 +14532,92 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToInside/DoorArea"]
 shape = SubResource("CircleShape2D_8xo5q")
+
+[node name="Layers" type="Sprite2D" parent="."]
+
+[node name="-3" type="CanvasLayer" parent="Layers"]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.5
+
+[node name="Sky" type="Sprite2D" parent="Layers/-3"]
+texture_repeat = 2
+position = Vector2(-458, -734)
+scale = Vector2(4, 4)
+texture = ExtResource("4_kho2s")
+region_enabled = true
+region_rect = Rect2(0, 0, 8269.69, 1080)
+
+[node name="-1" type="CanvasLayer" parent="Layers"]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Grass2" type="Sprite2D" parent="Layers/-1"]
+z_index = -1
+texture_repeat = 2
+position = Vector2(-1250, 724.444)
+texture = ExtResource("7_1yp58")
+region_enabled = true
+region_rect = Rect2(0, 0, 20000, 300)
+
+[node name="0" type="CanvasLayer" parent="Layers"]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="Road" type="Sprite2D" parent="Layers/0"]
+texture_repeat = 2
+position = Vector2(-713, 833)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5ff0t")
+region_enabled = true
+region_rect = Rect2(0, 0, 20706.3, 350)
+
+[node name="1" type="CanvasLayer" parent="Layers"]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.1
+
+[node name="Pavement" type="Sprite2D" parent="Layers/1"]
+texture_repeat = 2
+position = Vector2(1808, 1057)
+scale = Vector2(2, 2)
+texture = ExtResource("6_8elsh")
+region_enabled = true
+region_rect = Rect2(0, 68.8275, 25758.9, 281.173)
+
+[node name="Grass" type="Sprite2D" parent="Layers/1"]
+z_index = -1
+texture_repeat = 2
+position = Vector2(12, 894)
+texture = ExtResource("7_1yp58")
+region_enabled = true
+region_rect = Rect2(0, 0, 20000, 300)
+
+[node name="2" type="CanvasLayer" parent="Layers"]
+layer = 2
+follow_viewport_enabled = true
+follow_viewport_scale = 1.2
+
+[node name="Trees" type="Sprite2D" parent="Layers/2"]
+modulate = Color(1, 1, 1, 0.541176)
+position = Vector2(-263.333, -357.5)
+scale = Vector2(2, 2)
+texture = ExtResource("8_6ijey")
+
+[node name="Tree" type="Sprite2D" parent="Layers/2/Trees"]
+position = Vector2(2645.45, -51.8182)
+texture = ExtResource("9_bu3xb")
+
+[node name="Bushes" type="Sprite2D" parent="Layers/2"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Layers/2/Bushes"]
+position = Vector2(-2175, 141.667)
+texture = ExtResource("10_61x83")
+
+[node name="Sprite2D" type="Sprite2D" parent="Layers/2/Bushes"]
+position = Vector2(211.667, 932.5)
+texture = ExtResource("11_mpigc")
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="Layers"]
 
 [connection signal="area_entered" from="DoorToInside/DoorArea" to="." method="_on_door_area_area_entered"]
