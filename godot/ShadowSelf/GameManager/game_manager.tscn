@@ -135,10 +135,6 @@ skip = false
 position = Vector2(601.345, 104.173)
 scale = Vector2(1.8, 1.8)
 zoom = Vector2(0.5, 0.5)
-limit_left = -350
-limit_top = -680
-limit_right = 2770
-limit_bottom = 1015
 limit_smoothed = true
 editor_draw_limits = true
 
