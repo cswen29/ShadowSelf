@@ -1,0 +1,252 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsum04ea77i7d"]
+
+[ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
+[ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
+[ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
+[ext_resource type="PackedScene" uid="uid://bk8fg6y11obqq" path="res://GameManager/Pickup/item_pick_up.tscn" id="4_mbne4"]
+[ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu/pause_menu.tscn" id="5_8j6s4"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter/main_character.tscn" id="5_m7k3r"]
+[ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://GameManager/Prompt/prompt.tscn" id="6_qehf4"]
+[ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://Alchemy/alchemy.tscn" id="8_53y7i"]
+[ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="10_qyoch"]
+[ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="11_40fuj"]
+
+[sub_resource type="Gradient" id="Gradient_kmujt"]
+offsets = PackedFloat32Array(0, 0.553333, 1)
+colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098)
+
+[sub_resource type="Animation" id="Animation_4bbl1"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/CanvasLayer/BlackBackground:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/CanvasLayer/BlackBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4xbvt"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/CanvasLayer/BlackBackground:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/CanvasLayer/BlackBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xrgrh"]
+_data = {
+"fade_in": SubResource("Animation_4xbvt"),
+"fade_out": SubResource("Animation_4bbl1")
+}
+
+[node name="GameManager" type="Node2D"]
+top_level = true
+script = ExtResource("1_dtxwn")
+room_level_scene = ExtResource("2_o2qej")
+outside_level_scene = ExtResource("3_302gr")
+item_pickup = ExtResource("4_mbne4")
+
+[node name="MainCharacter" parent="." instance=ExtResource("5_m7k3r")]
+z_index = 1
+position = Vector2(543, 381)
+scale = Vector2(1.8, 1.8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="MainCharacter"]
+position = Vector2(32.4138, -153.793)
+remote_path = NodePath("../../Camera2D")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainCharacter"]
+layer = 5
+
+[node name="PauseMenu" parent="MainCharacter/CanvasLayer" instance=ExtResource("5_8j6s4")]
+visible = false
+layout_direction = 1
+anchors_preset = -1
+offset_left = 450.0
+offset_top = -40.0
+offset_right = 450.0
+offset_bottom = -40.0
+scale = Vector2(3.25002, 2.48389)
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+
+[node name="ItemPickUp" parent="MainCharacter/CanvasLayer" instance=ExtResource("4_mbne4")]
+visible = false
+z_index = 1
+offset_left = 600.0
+offset_top = 67.0
+offset_right = 600.0
+offset_bottom = 67.0
+
+[node name="Prompt" parent="MainCharacter/CanvasLayer" instance=ExtResource("6_qehf4")]
+visible = false
+top_level = true
+z_index = 0
+offset_left = 774.0
+offset_top = 328.0
+offset_right = -1059.0
+offset_bottom = -692.0
+scale = Vector2(1.89519, 1.77594)
+mouse_filter = 2
+
+[node name="Alchemy" parent="MainCharacter/CanvasLayer" instance=ExtResource("8_53y7i")]
+top_level = true
+z_index = -1
+offset_left = 123.0
+offset_top = 19.0
+offset_right = -1355.0
+offset_bottom = -823.0
+scale = Vector2(1.67603, 2.71988)
+
+[node name="Inventory" parent="MainCharacter/CanvasLayer/Alchemy" index="0"]
+z_index = -1
+z_as_relative = false
+offset_left = 868.0
+offset_top = 24.0
+offset_right = 868.0
+offset_bottom = 24.0
+scale = Vector2(1.43277, 1.44884)
+
+[node name="PhoneCall" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Future" index="0"]
+skip = false
+
+[node name="Watch" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Future" index="1"]
+skip = false
+
+[node name="ResponsabilityMemory" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Future" index="2"]
+skip = false
+
+[node name="Gameboy" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Past" index="0"]
+skip = false
+
+[node name="Bridge" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Past" index="1"]
+skip = false
+
+[node name="Tree" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Past" index="2"]
+skip = false
+
+[node name="NostalgicMemory" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Past" index="3"]
+skip = false
+
+[node name="IceCream" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Present" index="0"]
+skip = false
+
+[node name="CollegeLetter" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Present" index="1"]
+skip = false
+
+[node name="PictureOfFamily" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Present" index="2"]
+skip = false
+
+[node name="Flower" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Present" index="3"]
+skip = false
+
+[node name="RealityMemory" parent="MainCharacter/CanvasLayer/Alchemy/Inventory/Present" index="4"]
+skip = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(601.345, 104.173)
+scale = Vector2(1.8, 1.8)
+zoom = Vector2(0.5, 0.5)
+limit_left = -350
+limit_top = -680
+limit_right = 2770
+limit_bottom = 1015
+limit_smoothed = true
+editor_draw_limits = true
+
+[node name="Shadow" parent="." instance=ExtResource("10_qyoch")]
+visibility_layer = 2
+z_index = 4
+position = Vector2(945, -220)
+scale = Vector2(0.317686, 0.265829)
+motion_mode = 1
+
+[node name="ShadowLink" type="Line2D" parent="."]
+top_level = true
+gradient = SubResource("Gradient_kmujt")
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("11_40fuj")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xrgrh")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Transition"]
+layer = 6
+
+[node name="BlackBackground" type="ColorRect" parent="Transition/CanvasLayer"]
+visible = false
+top_level = true
+z_index = 1
+offset_left = -41927.0
+offset_top = -20418.0
+offset_right = 42694.0
+offset_bottom = 22238.0
+color = Color(0, 0, 0, 1)
+
+[node name="Darken" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Darken"]
+visible = false
+top_level = true
+z_index = 500
+offset_left = -8838.0
+offset_top = -4869.0
+offset_right = -8830.0
+offset_bottom = -4861.0
+scale = Vector2(2454.16, 1196.89)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="resume" from="MainCharacter/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_resume"]
+[connection signal="closePickUp" from="MainCharacter/CanvasLayer/ItemPickUp" to="." method="closePickUpFunc"]
+[connection signal="no" from="MainCharacter/CanvasLayer/Prompt" to="." method="_on_prompt_no"]
+[connection signal="yes" from="MainCharacter/CanvasLayer/Prompt" to="." method="_on_prompt_yes"]
+[connection signal="giveNostalgia" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_give_nostalgia"]
+[connection signal="giveReality" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_give_reality"]
+[connection signal="giveResponsability" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_give_responsability"]
+[connection signal="quit" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_quit"]
+[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
+
+[editable path="MainCharacter/CanvasLayer/Prompt"]
+[editable path="MainCharacter/CanvasLayer/Alchemy"]
+[editable path="MainCharacter/CanvasLayer/Alchemy/Inventory"]
+[editable path="MainCharacter/CanvasLayer/Alchemy/Past3"]

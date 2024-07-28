@@ -13,21 +13,17 @@ extends Node2D
 @onready var prompt_yes = $MainCharacter/CanvasLayer/Prompt/Yes
 @onready var prompt_no = $MainCharacter/CanvasLayer/Prompt/No
 @onready var prompt_label = $MainCharacter/CanvasLayer/Prompt/Label
-@onready var inventory = $MainCharacter/CanvasLayer/Inventory
 @onready var fade_to_black = $Darken/ColorRect
 var paused: bool = false
 var alchemyToggled: bool = false
+@onready var transition = $Transition
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
 	changeLevelToRoom(true)
 	#changeLevelToOutside()
 	prompt.hide()	
-
-func _process(_delta)-> void:
-	if Input.is_action_just_pressed("pause") and !alchemyToggled:
-		pauseMenu()
-
+	
 #region spawn/despawn minigames
 func spawnMinigame(minigame_scene: PackedScene)-> void:
 	mainCharacter.canMove = false
@@ -66,28 +62,11 @@ func animateDespawn()-> void:
 	
 #endregion
 
-func fadeToBlack():
-	var tween : Tween = create_tween()
-	
-	fade_to_black.modulate = Color.BLACK
-	tween.tween_property(fade_to_black, "color", Color.BLACK, 2)
-	await tween.finished
-	
-func fadeIn():
-	var tween : Tween = create_tween()
-	await get_tree().create_timer(1.0).timeout
-	tween = create_tween()
-	tween.tween_property(fade_to_black, "color", Color.TRANSPARENT, 4)
-	
-	await get_tree().create_timer(1).timeout
-	
 #region change levels
 func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
 	mainCharacter.global_position = Vector2(200, 500)
 	camera.zoom = Vector2(0.5, 0.5)
-	
-	await fadeToBlack()
 	
 	var level = outside_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
@@ -100,10 +79,7 @@ func changeLevelToOutside()-> void:
 			idx.queue_free()	
 
 	mainCharacter.canMove = true
-	await fadeIn()
-	#TODO
-	#center screen
-	#make character smaller
+	transition.play("fade_in")
 	
 func changeLevelToRoom(firstTime: bool)-> void:
 	mainCharacter.canMove = false
@@ -118,125 +94,93 @@ func changeLevelToRoom(firstTime: bool)-> void:
 	level.findItem.connect($".".itemPickedUp.bind())
 	add_child(level)
 	
-	await fadeToBlack()
 	for idx in self.get_children():
 		if idx is OutsideLevel:
 			idx.queue_free()	
-	
-	await fadeIn()
+
 	mainCharacter.canMove = true
+	transition.play("fade_in")
+	await transition.animation_finished
 #endregion
 
-func pauseMenu():
-	if GlobalVariables.paused:
-		pause_menu.hide()
-		Engine.time_scale = 1
-	else:
-		pause_menu.show()
-		Engine.time_scale = 0
-		
-	paused = !paused
-	GlobalVariables.paused = paused
-	inventory.hide()
-
-func _on_pause_menu_resume(): 
-	pauseMenu()
-
-
-func _on_pause_menu_quit():
-	get_tree().quit()
-
+#alchemy and prompts
 func spawnPrompt(stri : String, object: String):
 	if mainCharacter.canMove:
-		GlobalVariables.paused = true
-		prompt.name = object
-		if prompt.name  == "door":
-			prompt_no.hide()
-			prompt_yes.text = "Ok"
-		else:
-			prompt_no.show()
-			prompt_yes.text = "Yes"
-		
-		prompt_label.text = stri 
-		prompt.show()
-		Engine.time_scale = 0.0
-		
-func _on_prompt_yes():
-	prompt.hide()
-	GlobalVariables.paused = false
-	Engine.time_scale = 1.0
+		prompt.spawn(stri, object)
 
+func _on_prompt_yes():
 	if prompt.name == "mirror":
-		alchemyToggle()
+		spawnAlchemyMenu()
 	
 	if prompt.name == "outside":
+		transition.play("fade_out")
+		$SFX/DoorSlide.play()
+		await transition.animation_finished
 		changeLevelToOutside()
-
-func _on_prompt_no():
-	if prompt.visible:
-		prompt.hide()
-		GlobalVariables.paused = false
-		Engine.time_scale = 1
-
-func alchemyToggle():
-	if alchemyToggled:
-		alchemy.hide()
-		shadow.show()
-		mainCharacter.canMove = true
-		Engine.time_scale = 1
-		GlobalVariables.paused = false
-	else:
-		mainCharacter.canMove = false
-		spawnAlchemyMenu()
-		GlobalVariables.paused = true
 		
-	alchemyToggled = !alchemyToggled
+	if prompt.name == "shelf":
+		itemPickedUp("PictureOfFamily")
 
 func _on_alchemy_quit():
-	alchemyToggle()
+	mainCharacter.canMove = true
+	shadow.show()
 
 func spawnAlchemyMenu():
-	alchemy.modulate = Color.TRANSPARENT
-	alchemy.show()
-	alchemy.update_sprites()
+	mainCharacter.canMove = false	
+	alchemy.spawn()
 	shadow.hide()
-	var tween : Tween = create_tween()
-	tween.tween_property(alchemy, "modulate", Color.WHITE, 2)
-	await tween.finished
+	
+#endregion
 
+#region item pick up
 func itemPickedUp(item: String):
 	if item not in GlobalVariables.inventory:
-		GlobalVariables.inventory.push_front(item)
-	
-	pickup.itemName = item
-	pickup.set_sprite()
-	pickup.show()
-	Engine.time_scale = 0.0
-
-func closePickUpFunc():
-	pickup.hide()
-	Engine.time_scale = 1.0
-
-func _on_pause_menu_show_inventory():
-	toggleInventory()
-	
-func toggleInventory():
-	if !inventory.visible:
-		inventory.update_sprites()
-		inventory.show()
-	else:
-		inventory.hide()
-
-
-func _on_alchemy_give_nostalgia():
-	itemPickedUp("NostalgicMemory")
-	GlobalVariables.trees_unlocked.push_back("Past")
-
-func _on_alchemy_give_reality():	
-	itemPickedUp("RealityMemory")
-	GlobalVariables.trees_unlocked.push_back("Present")
+		pickup.pickedUpItem(item)
 
 func _on_alchemy_give_responsability():	
-	itemPickedUp("ResponsabilityMemory")
-	GlobalVariables.trees_unlocked.push_back("Future")
+	if "Future" not in GlobalVariables.trees_unlocked:
+		itemPickedUp("ResponsabilityMemory")
+		GlobalVariables.trees_unlocked.push_back("Future")
+		mainCharacter.updateSprite()
+		for i in 8:
+			await get_tree().create_timer(1).timeout
+			$Music/Layer2.volume_db += db_to_linear(10)
+		
+func _on_alchemy_give_nostalgia():
+	if "Past" not in GlobalVariables.trees_unlocked:
+		itemPickedUp("NostalgicMemory")
+		GlobalVariables.trees_unlocked.push_back("Past")
+		mainCharacter.updateSprite()
+		animateFadeIntesity()
+		for i in 8:
+			await get_tree().create_timer(1).timeout
+			$Music/Layer3.volume_db += db_to_linear(10)
 
+func _on_alchemy_give_reality():	
+	if "Present" not in GlobalVariables.trees_unlocked:
+		itemPickedUp("RealityMemory")
+		GlobalVariables.trees_unlocked.push_back("Present")
+		mainCharacter.updateSprite()
+		animateFadeIntesity()
+		$Music/Layer2.volume_db += db_to_linear(10)
+		$Music/Layer3.volume_db += db_to_linear(10)
+
+#region screen fade according to memories found	
+func animateFadeIntesity():
+	var tween = create_tween()
+	tween.tween_property(fade_to_black, "color", Color(getFadeIntensity()), 2)
+	
+func getFadeIntensity() -> String:
+	var numberOfTrees := GlobalVariables.trees_unlocked.size()
+	var color = ""
+	match (numberOfTrees):
+		0: 
+			color = "0000008e"
+		1:
+			color = "00000041"
+		2:
+			color = "00000020"
+		3:
+			color = "00000000"
+	return color
+#endregion

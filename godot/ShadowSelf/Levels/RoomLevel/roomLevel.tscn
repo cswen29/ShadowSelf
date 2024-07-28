@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=20 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://diwjxp5u51d6i" path="res://assets/bedroom/shelf_v2.PNG" id="6_wsnoc"]
 [ext_resource type="Texture2D" uid="uid://crbnayq1r1m7j" path="res://assets/bedroom/hamper_v2.PNG" id="7_rxb18"]
 [ext_resource type="Texture2D" uid="uid://rcwutehgj73m" path="res://assets/bedroom/bg_v1.PNG" id="7_wgpti"]
-[ext_resource type="Texture2D" uid="uid://bjllvkj41h8d6" path="res://assets/bedroom/mirror.PNG" id="7_x3egs"]
 [ext_resource type="Texture2D" uid="uid://cmtpi57o1c2pw" path="res://assets/bedroom/door.PNG" id="8_dtxq7"]
 [ext_resource type="Texture2D" uid="uid://b16lglqip6l5m" path="res://assets/bedroom/bed_v2.PNG" id="9_08rgn"]
 [ext_resource type="Texture2D" uid="uid://dlabo8y5ket1m" path="res://assets/bedroom/bookshelf_v2.PNG" id="10_0m5an"]
 [ext_resource type="Texture2D" uid="uid://b8hxos7vpq4mr" path="res://assets/bedroom/floor_v1.PNG" id="11_5kcwy"]
+[ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="15_1nxm1"]
 [ext_resource type="Texture2D" uid="uid://db1cy7v76exqt" path="res://assets/bedroom/mirror_v2.PNG" id="15_2jcub"]
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="15_cw4hq"]
 
@@ -23,19 +23,14 @@ shader_parameter/amount = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_fc7b0"]
 radius = 74.8501
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6780j"]
-size = Vector2(199, 660)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uo2f"]
+radius = 16.393
+height = 32.786
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hc8fs"]
-radius = 306.0
-height = 1373.04
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_xfoct"]
-a = Vector2(-0.81543, 234.814)
-b = Vector2(4.07788, -216.576)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2qx"]
+size = Vector2(67.8551, 20)
 
 [node name="RoomLevel" type="Node2D"]
-position = Vector2(41, 7)
 script = ExtResource("1_tt24w")
 minigame_scene = ExtResource("2_sdi77")
 
@@ -68,119 +63,95 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item/ItemArea"]
 shape = SubResource("CircleShape2D_fc7b0")
 
-[node name="Layers" type="Sprite2D" parent="."]
-position = Vector2(-41, -7)
-
-[node name="-2" type="CanvasLayer" parent="Layers"]
-layer = -2
-follow_viewport_enabled = true
-follow_viewport_scale = 0.95
-
-[node name="Window" type="Sprite2D" parent="Layers/-2"]
-position = Vector2(1010.53, 114.737)
-texture = ExtResource("5_5nnxx")
-
-[node name="Shelf" type="Sprite2D" parent="Layers/-2"]
-position = Vector2(1531.58, 70.5263)
-texture = ExtResource("6_wsnoc")
-
-[node name="-1" type="CanvasLayer" parent="Layers"]
-layer = -1
-follow_viewport_enabled = true
-follow_viewport_scale = 0.9
-
-[node name="Hamper" type="Sprite2D" parent="Layers/-1"]
-position = Vector2(1305.56, 277.778)
-texture = ExtResource("7_rxb18")
-
-[node name="Mirror" type="Sprite2D" parent="Layers/-1"]
-visible = false
-position = Vector2(896.111, 275)
-scale = Vector2(1.10155, 1.10133)
-texture = ExtResource("7_x3egs")
-
-[node name="Bed" type="Sprite2D" parent="Layers/-1"]
-position = Vector2(1508.89, 284.444)
-texture = ExtResource("9_08rgn")
-
-[node name="1" type="CanvasLayer" parent="Layers"]
-follow_viewport_enabled = true
-follow_viewport_scale = 1.3
-
-[node name="Bookshelf" type="Sprite2D" parent="Layers/1"]
-position = Vector2(1123.08, 156.154)
-texture = ExtResource("10_0m5an")
-
-[node name="Door" type="Sprite2D" parent="Layers/1"]
-visible = false
-position = Vector2(2236.92, 290)
-texture = ExtResource("8_dtxq7")
-
-[node name="Backgrounds" type="CanvasLayer" parent="."]
-layer = -3
-follow_viewport_enabled = true
-
-[node name="Wall" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(1213, -155)
-scale = Vector2(1.25, 1.425)
-texture = ExtResource("7_wgpti")
-
-[node name="Floor" type="Sprite2D" parent="Backgrounds"]
-position = Vector2(1214, 327)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("11_5kcwy")
-
-[node name="Borders" type="ColorRect" parent="."]
-visible = false
-z_index = -1
-offset_left = -3698.0
-offset_top = 1368.0
-offset_right = -3633.0
-offset_bottom = 1430.0
-scale = Vector2(133.218, 62.8239)
-color = Color(0, 0, 0, 1)
-
-[node name="Mirror" parent="." instance=ExtResource("15_cw4hq")]
-position = Vector2(1386, 195)
-texture = ExtResource("15_2jcub")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror/Area2D" index="0"]
-position = Vector2(-418, 61)
-shape = SubResource("RectangleShape2D_6780j")
-
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
-modulate = Color(0.8799, 0.874454, 0.846633, 1)
-top_level = true
-z_index = 2
-position = Vector2(2587, 209)
+modulate = Color(0.878431, 0.87451, 0.847059, 0.501961)
+z_index = 16
+position = Vector2(2694, 289)
 scale = Vector2(1.22616, 1.31593)
 texture = ExtResource("8_dtxq7")
 
-[node name="Area2D" parent="Door" index="0"]
-position = Vector2(-179.231, 0)
+[node name="CollisionShape2D" parent="Door/Area2D" index="0"]
+position = Vector2(20.3889, -10.6389)
+scale = Vector2(11.5468, 26.5541)
+shape = SubResource("CapsuleShape2D_3uo2f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" index="0"]
-position = Vector2(220.008, 7.59915)
-scale = Vector2(0.594823, 0.651971)
-shape = SubResource("CapsuleShape2D_hc8fs")
+[node name="Background" type="ParallaxBackground" parent="."]
+layer = -1
 
-[node name="Area2D2" type="Area2D" parent="Door"]
+[node name="-2" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.7, 0.7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D2"]
-position = Vector2(-848.173, 136.785)
-shape = SubResource("SegmentShape2D_xfoct")
+[node name="Wall" type="Sprite2D" parent="Background/-2"]
+position = Vector2(1217, -54)
+scale = Vector2(1.25, 1.425)
+texture = ExtResource("7_wgpti")
 
-[node name="Area2D3" type="Area2D" parent="Door"]
+[node name="Window" type="Sprite2D" parent="Background/-2"]
+position = Vector2(1010.53, 114.737)
+texture = ExtResource("5_5nnxx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D3"]
-position = Vector2(-1154.82, 136.785)
-shape = SubResource("SegmentShape2D_xfoct")
+[node name="Shelf" parent="Background/-2" instance=ExtResource("15_cw4hq")]
+position = Vector2(1531, 69)
+texture = ExtResource("6_wsnoc")
+
+[node name="CollisionShape2D" parent="Background/-2/Shelf/Area2D" index="0"]
+position = Vector2(155.5, -104)
+scale = Vector2(9.47608, 23.617)
+shape = SubResource("RectangleShape2D_jj2qx")
+
+[node name="Mirror" parent="Background/-2" instance=ExtResource("15_cw4hq")]
+position = Vector2(1442, 327)
+texture = ExtResource("15_2jcub")
+
+[node name="CollisionShape2D" parent="Background/-2/Mirror/Area2D" index="0"]
+position = Vector2(-417, 20.415)
+scale = Vector2(9.47608, 23.617)
+
+[node name="-1" type="ParallaxLayer" parent="Background"]
+position = Vector2(18, -31)
+
+[node name="Floor" type="Sprite2D" parent="Background/-1"]
+position = Vector2(1187, 310)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("11_5kcwy")
+
+[node name="Bed" type="Sprite2D" parent="Background/-1"]
+z_index = 3
+position = Vector2(1508.89, 284.444)
+texture = ExtResource("9_08rgn")
+
+[node name="Hamper" type="Sprite2D" parent="Background/-1"]
+position = Vector2(1322, 308)
+texture = ExtResource("7_rxb18")
+
+[node name="Foreground" type="ParallaxBackground" parent="."]
+layer = 1
+
+[node name="1" type="ParallaxLayer" parent="Foreground"]
+z_index = 22
+position = Vector2(4, 255)
+motion_scale = Vector2(1.5, 1.5)
+
+[node name="Bookshelf" type="Sprite2D" parent="Foreground/1"]
+modulate = Color(1, 1, 1, 0.713726)
+z_index = 16
+position = Vector2(1315, -396)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_0m5an")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("15_1nxm1")
+volume_db = 5.0
+autoplay = true
+bus = &"sfx"
 
 [connection signal="area_entered" from="Item/ItemArea" to="." method="_on_item_area_area_entered"]
-[connection signal="input_event" from="Mirror/Area2D" to="." method="_on_mirror_input_event"]
 [connection signal="input_event" from="Door/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="area_entered" from="Door/Area2D2" to="." method="_on_area_2d_2_area_entered"]
-[connection signal="area_entered" from="Door/Area2D3" to="." method="_on_middle_area_entered"]
+[connection signal="input_event" from="Background/-2/Shelf/Area2D" to="." method="_on_shelf_input_event"]
+[connection signal="input_event" from="Background/-2/Mirror/Area2D" to="." method="_on_mirror_input_event"]
 
-[editable path="Mirror"]
 [editable path="Door"]
+[editable path="Background/-2/Shelf"]
+[editable path="Background/-2/Mirror"]

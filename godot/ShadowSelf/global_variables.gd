@@ -1,10 +1,7 @@
 extends Node
 
 var character_pos : Vector2
-var volume_music : float = 0.5
-var volume_effects: float = 0.5
-
-var inventory: Array = ["Watch", "PhoneCall", "Gameboy"]
+var inventory: Array = ["Gameboy"]
 var trees_unlocked: Array = []
 var paused : bool = false
 var isDragging: bool = false

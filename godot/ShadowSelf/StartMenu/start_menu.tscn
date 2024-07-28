@@ -1,53 +1,141 @@
-[gd_scene load_steps=5 format=3 uid="uid://cefn6enxkfjgd"]
+[gd_scene load_steps=7 format=3 uid="uid://cefn6enxkfjgd"]
 
 [ext_resource type="Script" path="res://StartMenu/start_menu.gd" id="1_r4q08"]
-[ext_resource type="PackedScene" uid="uid://bsum04ea77i7d" path="res://GameManager/game_manager.tscn" id="2_3oj04"]
 [ext_resource type="AudioStream" uid="uid://cecb0snemuq33" path="res://assets/audio/mx_layer1_draft1.wav" id="3_g105t"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="4_tamdd"]
 
+[sub_resource type="Animation" id="Animation_fytxp"]
+resource_name = "fade_in"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/BlackBackground:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/BlackBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4lqg4"]
+resource_name = "fade_out"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/BlackBackground:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/BlackBackground:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1, 0),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.523599]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhgen"]
+_data = {
+"fade_in": SubResource("Animation_fytxp"),
+"fade_out": SubResource("Animation_4lqg4")
+}
+
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_r4q08")
-game_scene = ExtResource("2_3oj04")
 
 [node name="Background" type="ColorRect" parent="."]
-offset_left = -424.0
-offset_top = -165.0
-offset_right = 2050.0
-offset_bottom = 1192.0
+offset_left = -508.0
+offset_top = -918.0
+offset_right = 2054.0
+offset_bottom = 1188.0
+color = Color(1, 0.27451, 1, 1)
+
+[node name="Tutorial" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -25.0
+offset_top = -8.0
+offset_right = 1211.0
+offset_bottom = 595.0
+color = Color(0.0313726, 1, 1, 1)
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 418.0
-offset_top = 725.0
-offset_right = 579.0
-offset_bottom = 805.0
+offset_left = 436.0
+offset_top = 795.0
+offset_right = 597.0
+offset_bottom = 875.0
 text = "Start Game!"
 
 [node name="TutorialButton" type="Button" parent="."]
-offset_left = 1062.0
-offset_top = 768.0
-offset_right = 1187.0
-offset_bottom = 807.0
+offset_left = 866.0
+offset_top = 823.0
+offset_right = 991.0
+offset_bottom = 862.0
 text = "Tutorial
 "
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 1062.0
-offset_top = 768.0
-offset_right = 1187.0
-offset_bottom = 807.0
+offset_left = 1166.0
+offset_top = 822.0
+offset_right = 1291.0
+offset_bottom = 861.0
 text = "Settings
 "
 
-[node name="Tutorial" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 167.0
-offset_top = 74.0
-offset_right = 1403.0
-offset_bottom = 677.0
-color = Color(0.231373, 1, 1, 1)
-
 [node name="Layer1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_g105t")
+volume_db = 7.429
+autoplay = true
+bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -60,6 +148,21 @@ offset_right = 296.0
 offset_bottom = 55.0
 scale = Vector2(3.34526, 2.89017)
 
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qhgen")
+}
+speed_scale = 0.5
+
+[node name="BlackBackground" type="ColorRect" parent="Transition"]
+visible = false
+offset_left = -448.0
+offset_top = -245.0
+offset_right = 2026.0
+offset_bottom = 1112.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
