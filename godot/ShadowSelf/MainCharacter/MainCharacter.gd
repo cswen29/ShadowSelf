@@ -3,6 +3,8 @@ class_name Player extends CharacterBody2D
 @export var speed : float = 60.0
 var playerHasSelectedDirection : bool = false
 var canMove : bool = true
+var health = 10
+signal playerHit
 
 func _ready() -> void:
 	updateSprite()
@@ -91,3 +93,8 @@ func updateSprite() -> void:
 
 	var tween = create_tween()
 	tween.tween_property($SpriteColor, "modulate", Color(color), 5)
+
+func _on_area_2d_body_entered(body):
+	if body is Thoughts:
+		health -= 1
+		playerHit.emit(health)

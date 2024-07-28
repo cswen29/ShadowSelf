@@ -3,6 +3,7 @@ extends Node2D
 @export var room_level_scene : PackedScene
 @export var outside_level_scene : PackedScene
 @export var item_pickup : PackedScene
+@export var gameOver_scene : PackedScene
 @onready var mainCharacter = $MainCharacter as Player
 @onready var camera = $Camera2D
 @onready var pause_menu = $MainCharacter/CanvasLayer/PauseMenu
@@ -20,9 +21,11 @@ var alchemyToggled: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
-	#changeLevelToRoom(true)
-	changeLevelToOutside()
+	Engine.time_scale = 1.0
+	changeLevelToRoom(true)
+	#changeLevelToOutside()
 	prompt.hide()	
+	$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 	
 #region spawn/despawn minigames
 func spawnMinigame(minigame_scene: PackedScene)-> void:
@@ -72,7 +75,6 @@ func changeLevelToOutside()-> void:
 	camera.limit_top = -10000000
 	camera.limit_left = -10000000
 	var level = outside_level_scene.instantiate()
-	level.goInside.connect($".".changeLevelToRoom.bind())
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
 	
@@ -84,6 +86,7 @@ func changeLevelToOutside()-> void:
 	transition.play("fade_in")
 	
 func changeLevelToRoom(firstTime: bool)-> void:
+	transition.play("fade_in")
 	mainCharacter.canMove = false
 	camera.zoom = Vector2(0.8, 0.8)
 	camera.limit_bottom = 1015
@@ -94,10 +97,7 @@ func changeLevelToRoom(firstTime: bool)-> void:
 		mainCharacter.global_position = Vector2(2157.151, 381)
 		
 	var level = room_level_scene.instantiate()
-	level.spawnMinigame.connect($".".spawnMinigame.bind())
-	level.goOutside.connect($".".changeLevelToOutside.bind())
 	level.prompt.connect($".".spawnPrompt.bind())
-	level.findItem.connect($".".itemPickedUp.bind())
 	add_child(level)
 	
 	for idx in self.get_children():
@@ -105,8 +105,7 @@ func changeLevelToRoom(firstTime: bool)-> void:
 			idx.queue_free()	
 
 	mainCharacter.canMove = true
-	transition.play("fade_in")
-	await transition.animation_finished
+	
 #endregion
 
 #alchemy and prompts
@@ -163,6 +162,8 @@ func spawnAlchemyMenu():
 #region item pick up
 func itemPickedUp(item: String):
 	if item not in GlobalVariables.inventory:
+		$MainCharacter.health = 10
+		$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 		pickup.pickedUpItem(item)
 
 func _on_alchemy_give_responsability():	
@@ -170,6 +171,8 @@ func _on_alchemy_give_responsability():
 		itemPickedUp("ResponsabilityMemory")
 		GlobalVariables.trees_unlocked.push_back("Future")
 		mainCharacter.updateSprite()
+		animateFadeIntesity()
+		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		for i in 8:
 			await get_tree().create_timer(1).timeout
 			$Music/Layer2.volume_db += db_to_linear(10)
@@ -180,6 +183,7 @@ func _on_alchemy_give_nostalgia():
 		GlobalVariables.trees_unlocked.push_back("Past")
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
+		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		for i in 8:
 			await get_tree().create_timer(1).timeout
 			$Music/Layer3.volume_db += db_to_linear(10)
@@ -190,13 +194,14 @@ func _on_alchemy_give_reality():
 		GlobalVariables.trees_unlocked.push_back("Present")
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
+		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		$Music/Layer2.volume_db += db_to_linear(10)
 		$Music/Layer3.volume_db += db_to_linear(10)
 
 #region screen fade according to memories found	
 func animateFadeIntesity():
 	var tween = create_tween()
-	tween.tween_property(fade_to_black, "color", Color(getFadeIntensity()), 2)
+	tween.tween_property(fade_to_black, "color", Color(getFadeIntensity()), 0.5)
 	
 func getFadeIntensity() -> String:
 	var numberOfTrees := GlobalVariables.trees_unlocked.size()
@@ -212,3 +217,26 @@ func getFadeIntensity() -> String:
 			color = "00000000"
 	return color
 #endregion
+
+func _on_main_character_player_hit(hp):
+	if (hp == 0):
+		gameOver("You negative thoughts were too strong.")
+	
+	$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(4 * hp, 40)
+	
+func _on_shadow_shadow_eat():
+	shadow.scale = shadow.scale + Vector2(0.02, 0.02)
+	if shadow.scale > Vector2(2, 2):
+		gameOver("Your shadow grew too big and consumed you.")
+	
+func gameOver(text):
+	Engine.time_scale = 0.0
+	GlobalVariables.paused = true
+	$MainCharacter/CanvasLayer/GameOver/Label2.text = text
+	$MainCharacter/CanvasLayer/GameOver.show()
+	
+func on_game_over_retry():
+	Engine.time_scale = 1.0
+	$MainCharacter/CanvasLayer/GameOver.hide()
+	GlobalVariables.paused = false
+	get_tree().reload_current_scene()

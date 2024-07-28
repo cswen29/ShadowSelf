@@ -1,7 +1,7 @@
 extends Node
 
-var character_pos : Vector2
-var inventory: Array = []
+var character_pos : Vector2 = Vector2(500,500)
+var inventory: Array = ["PhoneCall", "Watch"]
 var trees_unlocked: Array = []
 var paused : bool = false
 var isDragging: bool = false
