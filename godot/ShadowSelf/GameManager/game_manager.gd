@@ -121,6 +121,7 @@ func _on_prompt_yes():
 	
 	if prompt.name == "outside":
 		transition.play("fade_out")
+		mainCharacter.canMove = false
 		$SFX/DoorSlide.play()
 		await transition.animation_finished
 		changeLevelToOutside()

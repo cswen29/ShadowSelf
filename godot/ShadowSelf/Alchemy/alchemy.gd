@@ -5,13 +5,13 @@ signal giveResponsability
 signal giveNostalgia
 signal giveReality
 
-func _ready():
-	await get_tree().create_timer(15).timeout
-	giveResponsability.emit()
-	await get_tree().create_timer(15).timeout
-	giveNostalgia.emit()
-	await get_tree().create_timer(15).timeout
-	giveReality.emit()
+#func _ready():
+	#await get_tree().create_timer(15).timeout
+	#giveResponsability.emit()
+	#await get_tree().create_timer(15).timeout
+	#giveNostalgia.emit()
+	#await get_tree().create_timer(15).timeout
+	#giveReality.emit()
 	
 func spawn():
 	GlobalVariables.paused = true
