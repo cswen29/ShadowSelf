@@ -6,9 +6,7 @@ class_name RoomLevel extends Node2D
 @onready var shelf = $"Background/-2/Shelf"
 var minigameObj: Minigame
 
-signal prompt 
-signal spawnMinigame
-signal goOutside
+signal prompt
 signal findItem
 
 func _ready():
@@ -16,7 +14,7 @@ func _ready():
 	$SFX/Ambience.play()
 	
 func _on_item_area_area_entered(_area):
-	findItem.emit("Gameboy")
+	findItem.emit("PhoneCall")
 
 # click on door
 func _on_area_2d_input_event(_viewport, event, _shape_idx):

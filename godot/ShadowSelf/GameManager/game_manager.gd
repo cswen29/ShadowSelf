@@ -12,7 +12,7 @@ extends Node2D
 @onready var prompt = $MainCharacter/CanvasLayer/Prompt
 @onready var prompt_yes = $MainCharacter/CanvasLayer/Prompt/Yes
 @onready var prompt_no = $MainCharacter/CanvasLayer/Prompt/No
-@onready var prompt_label = $MainCharacter/CanvasLayer/Prompt/Label
+@onready var prompt_label = $MainCharacter/CanvasLayer/Prompt/Background/Label
 @onready var fade_to_black = $Darken/ColorRect
 var paused: bool = false
 var alchemyToggled: bool = false
@@ -20,8 +20,8 @@ var alchemyToggled: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
-	changeLevelToRoom(true)
-	#changeLevelToOutside()
+	#changeLevelToRoom(true)
+	changeLevelToOutside()
 	prompt.hide()	
 	
 #region spawn/despawn minigames
@@ -72,7 +72,6 @@ func changeLevelToOutside()-> void:
 	camera.limit_top = -10000000
 	camera.limit_left = -10000000
 	var level = outside_level_scene.instantiate()
-	level.spawnMinigame.connect($".".spawnMinigame.bind())
 	level.goInside.connect($".".changeLevelToRoom.bind())
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
@@ -128,6 +127,27 @@ func _on_prompt_yes():
 		
 	if prompt.name == "shelf":
 		itemPickedUp("PictureOfFamily")
+		
+	if prompt.name == "tree":
+		itemPickedUp("Tree")
+	
+	if prompt.name == "bridge":
+		itemPickedUp("BridgePebbles")
+	
+	if prompt.name == "watch":
+		itemPickedUp("Watch")
+	
+	if prompt.name == "letter":
+		itemPickedUp("CollegeLetter")
+	
+	if prompt.name == "icecream":
+		itemPickedUp("IceCream")
+	
+	if prompt.name == "flower":
+		itemPickedUp("Flower")
+		
+	if prompt.name == "gameboy":
+		itemPickedUp("Gameboy")
 
 func _on_alchemy_quit():
 	mainCharacter.canMove = true

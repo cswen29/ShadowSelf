@@ -5,7 +5,6 @@ signal resume
 @onready var settings = $Settings
 
 func _ready() -> void:
-	$Resume.grab_focus()
 	inventory.update_sprites()
 	settings.hide()
 	inventory.hide()

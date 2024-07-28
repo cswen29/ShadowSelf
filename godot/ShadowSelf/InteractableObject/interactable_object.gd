@@ -12,6 +12,7 @@ func _on_area_2d_mouse_exited():
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
+		print(self.name)
 		isColliding = true
 
 func _on_area_2d_body_exited(body):

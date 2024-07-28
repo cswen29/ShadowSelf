@@ -12,7 +12,7 @@ func spawn(stri, object):
 		$No.show()
 		$Yes.text = "Yes"
 	
-	$Label.text = stri 
+	$Background/Label.text = stri 
 	show()
 	Engine.time_scale = 0.0
 
