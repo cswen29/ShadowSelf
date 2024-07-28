@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdis8kcd0sfdd"]
+[gd_scene load_steps=5 format=3 uid="uid://bdis8kcd0sfdd"]
 
 [ext_resource type="Script" path="res://StartMenu/settings.gd" id="1_b87l4"]
+[ext_resource type="PackedScene" uid="uid://bjf6c8bdumrgb" path="res://h_slider.tscn" id="2_oue4v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utq1q"]
 font_color = Color(1, 0, 1, 1)
@@ -24,44 +25,53 @@ offset_bottom = 285.0
 mouse_filter = 1
 color = Color(0.32549, 1, 1, 1)
 
+[node name="Master" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -61.0
+offset_right = -1.0
+offset_bottom = -61.0
+
+[node name="Master" type="Label" parent="Master"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 98.0
+offset_right = 165.0
+offset_bottom = 121.0
+text = "Master
+"
+label_settings = SubResource("LabelSettings_utq1q")
+
+[node name="HSlider" parent="Master" instance=ExtResource("2_oue4v")]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 130.0
+offset_right = 197.0
+offset_bottom = 146.0
+bus_name = "Master"
+
 [node name="Music" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Music" type="Label" parent="Music"]
 layout_mode = 0
-offset_left = 116.0
-offset_top = 46.0
-offset_right = 162.0
-offset_bottom = 69.0
+offset_left = 119.0
+offset_top = 98.0
+offset_right = 165.0
+offset_bottom = 121.0
 text = "Music
 "
 label_settings = SubResource("LabelSettings_utq1q")
 
-[node name="SliderMusic" type="ColorRect" parent="Music"]
+[node name="HSlider" parent="Music" instance=ExtResource("2_oue4v")]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 76.0
-offset_right = 205.0
-offset_bottom = 105.0
-color = Color(0.678431, 1, 1, 1)
-
-[node name="MoreVolumeMusic" type="Button" parent="Music"]
-layout_mode = 0
-offset_left = 238.0
-offset_top = 77.0
-offset_right = 287.0
-offset_bottom = 108.0
-text = "More
-"
-
-[node name="LessVolumeMusic" type="Button" parent="Music"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 76.0
-offset_right = 51.0
-offset_bottom = 107.0
-text = "Less"
+offset_left = 86.0
+offset_top = 130.0
+offset_right = 197.0
+offset_bottom = 146.0
+bus_name = "music"
 
 [node name="Effects" type="Control" parent="."]
 layout_mode = 3
@@ -69,54 +79,28 @@ anchors_preset = 0
 
 [node name="Effects" type="Label" parent="Effects"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 134.0
-offset_right = 164.0
-offset_bottom = 157.0
+offset_left = 115.0
+offset_top = 157.0
+offset_right = 167.0
+offset_bottom = 180.0
 text = "Effects
 "
 label_settings = SubResource("LabelSettings_wr6g6")
 
-[node name="SliderEffects" type="ColorRect" parent="Effects"]
+[node name="HSlider" parent="Effects" instance=ExtResource("2_oue4v")]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 162.0
-offset_right = 206.0
-offset_bottom = 191.0
-color = Color(0.85098, 1, 1, 1)
-
-[node name="LessVolumeEffects" type="Button" parent="Effects"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 163.0
-offset_right = 48.0
-offset_bottom = 194.0
-text = "Less
-"
-
-[node name="MoreVolumeEffects" type="Button" parent="Effects"]
-layout_mode = 0
-offset_left = 236.0
-offset_top = 161.0
-offset_right = 285.0
-offset_bottom = 192.0
-text = "More
-"
+offset_left = 86.0
+offset_top = 189.0
+offset_right = 197.0
+offset_bottom = 205.0
+bus_name = "sfx"
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 233.0
-offset_right = 119.0
-offset_bottom = 264.0
-text = "RESUME"
+offset_left = 103.0
+offset_top = 235.0
+offset_right = 175.0
+offset_bottom = 266.0
+text = "Close"
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 233.0
-offset_right = 218.0
-offset_bottom = 264.0
-text = "QUIT"
-
-[connection signal="pressed" from="Music/MoreVolumeMusic" to="." method="_on_more_volume_music_pressed"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

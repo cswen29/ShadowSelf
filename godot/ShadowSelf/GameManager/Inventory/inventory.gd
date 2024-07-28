@@ -4,6 +4,8 @@ var list = []
 signal checkCombinatio
 
 func _ready() -> void:
+	if get_parent().name == "Alchemy":
+		$Close.hide()
 	update_sprites()
 	
 func update_sprites():
@@ -12,12 +14,12 @@ func update_sprites():
 		var node_parent = GlobalVariables.itemAttr[node_name][2]
 		var path = str(node_parent + "/" + node_name)
 		var sprite = get_node(path) as Item
-		sprite.update()
 		if sprite != null:
+			sprite.update()
 			sprite.show()
 	#	
 func refreshSprites():
-	var tween = create_tween().set_parallel()
+	var tween = create_tween().set_parallel(true)
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
@@ -34,3 +36,6 @@ func refreshSprites():
 
 func check_combinations():
 	checkCombinatio.emit()
+
+func _on_close_pressed():
+	self.hide()

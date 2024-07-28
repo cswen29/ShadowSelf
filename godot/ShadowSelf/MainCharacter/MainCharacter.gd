@@ -5,12 +5,11 @@ var playerHasSelectedDirection : bool = false
 var canMove : bool = true
 
 func _ready() -> void:
+	updateSprite()
 	playIdle()
 		
 func _process(_delta)-> void:
-	GlobalVariables.character_pos = global_position
-	$SpriteColor.modulate = Color("5e5e5e")
-	print(global_position)
+	GlobalVariables.character_pos = global_position	
 	
 func _input(event)-> void:
 	if (event is InputEventMouseButton) and !playerHasSelectedDirection and canMove:
@@ -76,3 +75,19 @@ func playWalkCycle()-> void:
 func flipSprites(val: bool)-> void:
 	$SpriteOutline.flip_h = val
 	$SpriteColor.flip_h = val
+
+func updateSprite() -> void:
+	var numberOfTrees := GlobalVariables.trees_unlocked.size()
+	var color = "5e5e5e"
+	match (numberOfTrees):
+		0: 
+			color = "292929"
+		1: 
+			color = "5e5e5e"
+		2:
+			color = "8c8c8c"
+		3:
+			color = "ffffff"
+
+	var tween = create_tween()
+	tween.tween_property($SpriteColor, "modulate", Color(color), 5)

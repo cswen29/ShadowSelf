@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=36 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter/MainCharacter.gd" id="1_kimwa"]
 [ext_resource type="Texture2D" uid="uid://d17sv652d8p78" path="res://assets/human/walk_cycle.PNG" id="2_fux7m"]
@@ -209,15 +209,21 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_6o3xu"]
 font_size = 30
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qj5ut"]
+radius = 114.0
+height = 468.0
+
 [node name="MainCharacter" type="CharacterBody2D"]
 top_level = true
 script = ExtResource("1_kimwa")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0)
+scale = Vector2(2.55494, 2.46941)
 shape = SubResource("RectangleShape2D_fljcm")
 
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
@@ -225,6 +231,7 @@ position = Vector2(-0.249997, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
+frame_progress = 0.0201132
 
 [node name="Distortion" type="ColorRect" parent="SpriteColor"]
 material = SubResource("ShaderMaterial_6dxa1")
@@ -240,6 +247,7 @@ self_modulate = Color(1, 1, 1, 0.945098)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sphv2")
 animation = &"walk_cycle"
+frame_progress = 0.0799469
 
 [node name="Wander" type="Timer" parent="."]
 wait_time = 4.0
@@ -263,5 +271,8 @@ offset_right = 51.0
 offset_bottom = -218.0
 text = "..."
 label_settings = SubResource("LabelSettings_6o3xu")
+
+[node name="InteractableArea" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qj5ut")
 
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]

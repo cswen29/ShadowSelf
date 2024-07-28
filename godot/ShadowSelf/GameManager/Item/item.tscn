@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr2lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5i7iy"]
-font_size = 200
+font_size = 281
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jgap"]
 font_size = 100
@@ -17,17 +17,19 @@ script = ExtResource("1_b5jvv")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(0.151316, 0.100091)
+collision_layer = 129
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(31.3613, 48.6748)
 shape = SubResource("RectangleShape2D_kr2lv")
 
 [node name="Name" type="Label" parent="."]
-offset_left = -47.3684
-offset_top = 78.9474
-offset_right = 7348.63
-offset_bottom = 5526.95
-scale = Vector2(0.122507, 0.121382)
+offset_left = -71.0526
+offset_top = 92.1053
+offset_right = 7324.95
+offset_bottom = 5540.11
+scale = Vector2(0.160333, 0.170298)
 label_settings = SubResource("LabelSettings_5i7iy")
 
 [node name="Description" type="Label" parent="."]

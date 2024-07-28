@@ -13,10 +13,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.00006
-offset_top = 2.0
-offset_right = 3.0
-offset_bottom = 2.0
+offset_left = 57.0
+offset_top = 91.0
+offset_right = 57.0
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.91281, 3.07114)
@@ -28,14 +28,83 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 879.0
-offset_top = -5.0
-offset_right = 879.0
-offset_bottom = -5.0
+offset_left = 468.944
+offset_top = -105.824
+offset_right = 468.944
+offset_bottom = -105.824
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(1.65955, 1.53952)
+scale = Vector2(0.62773, 0.50308)
 mouse_filter = 2
+
+[node name="PhoneCall" parent="Inventory/Future" index="0"]
+skip = false
+
+[node name="Watch" parent="Inventory/Future" index="1"]
+skip = false
+
+[node name="ResponsabilityMemory" parent="Inventory/Future" index="2"]
+skip = false
+
+[node name="Future1" parent="Inventory/Future" index="3"]
+occupied = false
+
+[node name="Future2" parent="Inventory/Future" index="4"]
+occupied = false
+
+[node name="Gameboy" parent="Inventory/Past" index="0"]
+skip = false
+
+[node name="Bridge" parent="Inventory/Past" index="1"]
+skip = false
+
+[node name="Tree" parent="Inventory/Past" index="2"]
+skip = false
+
+[node name="NostalgicMemory" parent="Inventory/Past" index="3"]
+skip = false
+
+[node name="Past1" parent="Inventory/Past" index="4"]
+occupied = false
+
+[node name="Past2" parent="Inventory/Past" index="5"]
+occupied = false
+
+[node name="Past3" parent="Inventory/Past" index="6"]
+occupied = false
+
+[node name="Past4" parent="Inventory/Past" index="7"]
+occupied = false
+
+[node name="IceCream" parent="Inventory/Present" index="0"]
+skip = false
+
+[node name="CollegeLetter" parent="Inventory/Present" index="1"]
+skip = false
+
+[node name="PictureOfFamily" parent="Inventory/Present" index="2"]
+skip = false
+
+[node name="Flower" parent="Inventory/Present" index="3"]
+skip = false
+
+[node name="RealityMemory" parent="Inventory/Present" index="4"]
+skip = false
+
+[node name="Present1" parent="Inventory/Present" index="5"]
+occupied = false
+
+[node name="Present2" parent="Inventory/Present" index="6"]
+occupied = false
+
+[node name="Present3" parent="Inventory/Present" index="7"]
+occupied = false
+
+[node name="Present4" parent="Inventory/Present" index="8"]
+occupied = false
+
+[node name="Present5" parent="Inventory/Present" index="9"]
+occupied = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_direction = 1
@@ -96,39 +165,59 @@ label_settings = SubResource("LabelSettings_q1bi3")
 [node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(38.1637, 19.5367)
 scale = Vector2(1.22637, 0.74054)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(195.524, 22.1416)
 scale = Vector2(1.02593, 0.751083)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(14.6381, 75.2164)
 scale = Vector2(1.204, 0.756503)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(118.673, 77.17)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(243.098, 71.9602)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(18.2976, 133.827)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(103.513, 134.152)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(188.205, 141.641)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(299.036, 134.803)
 scale = Vector2(1.0651, 0.682085)
+collision_layer = 128
+collision_mask = 128
 
 [connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
+
+[editable path="Inventory"]

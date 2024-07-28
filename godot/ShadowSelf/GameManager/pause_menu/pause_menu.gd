@@ -1,50 +1,37 @@
 extends Control
 
 signal resume 
-signal quit
-signal showInventory
-@onready var sliderMusic = $Music/SliderMusic
-@onready var sliderEffects = $Effects/SliderEffects
+@onready var inventory = $Inventory
+@onready var settings = $Settings
 
 func _ready() -> void:
-	fillSliders()
 	$Resume.grab_focus()
-	
+	inventory.update_sprites()
+	settings.hide()
+	inventory.hide()
+
+func _process(_delta)-> void:
+	if Input.is_action_just_pressed("pause"):
+		if !GlobalVariables.paused:
+			show()
+			inventory.hide()
+			Engine.time_scale = 0
+			GlobalVariables.paused = true
+		else:
+			_on_resume_pressed()
+			
 func _on_resume_pressed() -> void:
-	resume.emit()
+	inventory.hide()
+	self.hide()
+	Engine.time_scale = 1
+	GlobalVariables.paused = false
 
 func _on_quit_pressed() -> void:
-	quit.emit()
-
-func _on_more_volume_music_pressed() -> void:
-
-	if GlobalVariables.volume_music < 1.0:
-		GlobalVariables.volume_music += 0.2
-	fillSliders()
-	
-func _on_less_volume_music_pressed() -> void:
-
-		if GlobalVariables.volume_music > 0.0:
-			GlobalVariables.volume_music -= 0.2
-		fillSliders()
-	
-func _on_more_volume_effects_pressed() -> void:
-	
-
-		if GlobalVariables.volume_effects < 1.0:
-			GlobalVariables.volume_effects += 0.2
-		fillSliders()
-	
-func _on_less_volume_effects_pressed() -> void:
-
-		if GlobalVariables.volume_effects > 0.0:
-			GlobalVariables.volume_effects -= 0.2
-		fillSliders()
-	
-func fillSliders() -> void:
-	sliderMusic.size.x = GlobalVariables.volume_music * 135
-	sliderEffects.size.x = GlobalVariables.volume_effects * 135
+	get_tree().quit()
 
 func _on_inventory_button_pressed() -> void:
-	showInventory.emit()
-	
+	inventory.update_sprites()
+	inventory.show()
+
+func _on_settings_button_pressed():
+	settings.show()
