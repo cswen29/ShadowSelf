@@ -67,7 +67,10 @@ func changeLevelToOutside()-> void:
 	mainCharacter.canMove = false
 	mainCharacter.global_position = Vector2(200, 500)
 	camera.zoom = Vector2(0.5, 0.5)
-	
+	camera.limit_bottom = 10000000
+	camera.limit_right = 10000000
+	camera.limit_top = -10000000
+	camera.limit_left = -10000000
 	var level = outside_level_scene.instantiate()
 	level.spawnMinigame.connect($".".spawnMinigame.bind())
 	level.goInside.connect($".".changeLevelToRoom.bind())
@@ -84,6 +87,10 @@ func changeLevelToOutside()-> void:
 func changeLevelToRoom(firstTime: bool)-> void:
 	mainCharacter.canMove = false
 	camera.zoom = Vector2(0.8, 0.8)
+	camera.limit_bottom = 1015
+	camera.limit_right = 2770
+	camera.limit_top = -680
+	camera.limit_left = -350
 	if (!firstTime):
 		mainCharacter.global_position = Vector2(2157.151, 381)
 		
