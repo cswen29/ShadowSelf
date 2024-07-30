@@ -16,7 +16,7 @@ func _ready():
 	actual_initialPos = global_position
 	update()
 
-func _process(delta):
+func _process(_delta):
 	if draggable and !skip:
 		if Input.is_action_just_pressed("leftclick"):
 			initialPos = global_position

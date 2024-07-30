@@ -168,6 +168,7 @@ texture = ExtResource("3_8r4cp")
 expand_margin_left = 1845.0
 expand_margin_top = 1845.0
 expand_margin_right = 1845.0
+expand_margin_bottom = 1845.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v7a1"]
 texture = ExtResource("4_bjk4t")

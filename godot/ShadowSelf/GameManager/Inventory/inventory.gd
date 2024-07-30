@@ -45,10 +45,13 @@ func _on_close_pressed():
 func _on_close_mouse_entered():
 	$ButtonHover.play()
 
-
 func _on_fix_rotation_timeout():
 	var tween = create_tween()
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
-				tween.tween_property(grandChild, "rotation", 0, 1 )
+				if grandChild.rotation > 10 or grandChild.rotation < -10:
+					grandChild.hideName()
+					tween.tween_property(grandChild, "rotation", 0, 0.2)
+					await tween.finished
+					grandChild.showName()

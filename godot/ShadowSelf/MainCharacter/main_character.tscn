@@ -262,7 +262,7 @@ animation = &"walk_cycle"
 frame_progress = 0.0799469
 
 [node name="Wander" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 6.0
 autostart = true
 
 [node name="Label" type="Label" parent="."]

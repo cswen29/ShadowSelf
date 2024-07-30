@@ -55,3 +55,20 @@ func _on_icecream_input_event(_viewport, event, _shape_idx):
 		if event is InputEventMouseButton and icecream.isColliding:
 			if "IceCream" not in GlobalVariables.inventory:
 				prompt.emit("buy an incecream?", "icecream")
+
+
+func _on_right_limit_area_entered(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsRight = true
+
+func _on_right_limit_area_exited(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsRight = false
+		
+func _on_left_limit_area_entered(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsLeft = true
+
+func _on_left_limit_area_exited(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsLeft = false

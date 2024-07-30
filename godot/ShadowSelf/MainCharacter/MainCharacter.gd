@@ -17,31 +17,42 @@ func _process(_delta)-> void:
 	GlobalVariables.character_pos = global_position	
 		
 func _input(event)-> void:
-	if (event is InputEventMouseButton) and canMove:
-		$Label.show()
-		$IdleText.hide()
-		playerHasSelectedDirection = true
-		
-		var tween = create_tween()
-		var pos = Vector2(get_global_mouse_position().x, self.position.y)
-		if pos.x < self.position.x:
-			flipSprites(true) # flip the sprite
-		else:
-			flipSprites(false) # dont flip the sprite
-		
-		playWalkCycle()
-		tween.tween_property(self, "position", pos, 3).set_ease(Tween.EASE_IN_OUT)
-		await tween.finished
-		playIdle()
-		playerHasSelectedDirection = false
-		$Label.hide()
+		if (event is InputEventMouseButton) and canMove:
+			$Label.show()
+			$IdleText.hide()
+			playerHasSelectedDirection = true
+			
+			var pos = Vector2(get_global_mouse_position().x, self.position.y)
+			if pos.x < self.position.x:
+				flipSprites(true) # flip the sprite
+			else:
+				flipSprites(false) # dont flip the sprite
+			
+			playWalkCycle()
+			if GlobalVariables.playerOffLimitsRight:
+				if pos.x > self.position.x:
+					playerHasSelectedDirection = false
+					$Label.hide()
+					return
+					
+			if GlobalVariables.playerOffLimitsLeft:
+				if pos.x < self.position.x:
+					playerHasSelectedDirection = false
+					$Label.hide()
+					return
+					
+			var tween = create_tween()
+			tween.tween_property(self, "position", pos, 3).set_ease(Tween.EASE_IN_OUT)
+			await tween.finished
+			playIdle()
+			playerHasSelectedDirection = false
+			$Label.hide()
 
 # every 5 seconds, character will start wandering around
 func _on_wander_timeout()-> void:
+	if !GlobalVariables.playerOffLimitsRight or !GlobalVariables.playerOffLimitsLeft:
 		if !playerHasSelectedDirection and canMove:
 			$IdleText.show()
-			#create tween
-			var tween : Tween= create_tween()
 			
 			#choose a random direction everytime the timer ends
 			var randomDirection = randi() % 2
@@ -51,6 +62,9 @@ func _on_wander_timeout()-> void:
 			
 			#current position of the character scene
 			var pos : Vector2 = self.position
+			
+			#create tween
+			var tween : Tween= create_tween()
 			
 			match(randomDirection):
 				0: # left
@@ -105,7 +119,6 @@ func _on_area_2d_body_entered(body):
 		playerHit.emit(health)
 		$SFX/PlayerHit.play()
 
-
 func changeFootstepsToOutside():
 	isOutside = true
 	
@@ -123,5 +136,4 @@ func _on_footsteps_timer_timeout():
 			stri = str(stri, "Inside", sound)
 		
 		var node = get_node(stri) as AudioStreamPlayer
-		node.play()
-		
+		node.play()		

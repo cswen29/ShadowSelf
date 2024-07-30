@@ -2,9 +2,11 @@ extends Node
 
 var character_pos : Vector2 = Vector2(500,500)
 var inventory: Array = ["PhoneCall", "Watch", "Gameboy"]
-var trees_unlocked: Array = ["Future"]
+var trees_unlocked: Array = ["Past", "Present"]
 var paused : bool = false
 var isDragging: bool = false
+var playerOffLimitsRight: bool = false
+var playerOffLimitsLeft: bool = false
 
 var itemAttr : Dictionary = {
 	"Gameboy": ["These things are so outdated now.", "So many fond memories growing up with this.", "Past"],

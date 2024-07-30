@@ -3,9 +3,8 @@ extends Node2D
 var thought_scene = preload("res://thoughts.tscn")
 @onready var path = $Path2D/PathFollow2D
 
-func _process(delta):
+func _process(_delta):
 	$Timer.paused = GlobalVariables.paused
-	
 	if $Timer.paused:
 		for idx in self.get_children():
 			if idx is Thoughts:

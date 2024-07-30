@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=16 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
 [ext_resource type="Texture2D" uid="uid://b4r5mm6ee5yn8" path="res://assets/outside/sky.PNG" id="4_kho2s"]
@@ -15,6 +15,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0awhx"]
 radius = 372.47
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7oj4"]
+size = Vector2(122.823, 37.4617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o0m3"]
+size = Vector2(335.377, 24.2935)
 
 [node name="OutsideLevel" type="Node2D"]
 position = Vector2(-1474, -719)
@@ -171,6 +177,26 @@ volume_db = 5.0
 autoplay = true
 bus = &"sfx"
 
+[node name="RightLimit" type="Area2D" parent="."]
+position = Vector2(13454, 834)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
+position = Vector2(3224.5, -170.5)
+scale = Vector2(13.7515, 63.5583)
+shape = SubResource("RectangleShape2D_e7oj4")
+
+[node name="LeftLimit" type="Area2D" parent="."]
+position = Vector2(-13804, 511)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+position = Vector2(-708.5, -212.969)
+scale = Vector2(5.81733, -99.2061)
+shape = SubResource("RectangleShape2D_4o0m3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -16945
+editor_draw_limits = true
+
 [connection signal="input_event" from="Flower/Area2D" to="." method="_on_flower_2d_input_event"]
 [connection signal="input_event" from="NostalgicTree/Area2D" to="." method="_on_tree_input_event"]
 [connection signal="input_event" from="NostalgicBridge/Area2D" to="." method="_on_bridge_input_event"]
@@ -178,6 +204,10 @@ bus = &"sfx"
 [connection signal="input_event" from="Gameboy/Area2D" to="." method="_on_gameboy_input_event"]
 [connection signal="input_event" from="CollegeLetter/Area2D" to="." method="_on_letter_input_event"]
 [connection signal="input_event" from="IceCream/Area2D" to="." method="_on_icecream_input_event"]
+[connection signal="area_entered" from="RightLimit" to="." method="_on_right_limit_area_entered"]
+[connection signal="area_exited" from="RightLimit" to="." method="_on_right_limit_area_exited"]
+[connection signal="area_entered" from="LeftLimit" to="." method="_on_left_limit_area_entered"]
+[connection signal="area_exited" from="LeftLimit" to="." method="_on_left_limit_area_exited"]
 
 [editable path="Flower"]
 [editable path="NostalgicTree"]

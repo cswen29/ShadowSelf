@@ -12,7 +12,7 @@ func _on_start_button_pressed()-> void:
 	$ButtonClick.play()
 	transition.play("fade_out")
 	
-func _on_transition_animation_finished(anim_name):
+func _on_transition_animation_finished(_anim_name):
 	get_tree().change_scene_to_packed(simultaneous_scene)
 	
 func _on_tutorial_button_pressed()-> void:

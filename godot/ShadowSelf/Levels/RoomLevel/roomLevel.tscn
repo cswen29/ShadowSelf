@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=20 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
@@ -25,6 +25,12 @@ height = 32.786
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2qx"]
 size = Vector2(67.8551, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5neiv"]
+size = Vector2(122.823, 37.4617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4jsx"]
+size = Vector2(335.377, 24.2935)
 
 [node name="RoomLevel" type="Node2D"]
 script = ExtResource("1_tt24w")
@@ -130,9 +136,27 @@ volume_db = 5.0
 autoplay = true
 bus = &"sfx"
 
+[node name="RightLimit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
+position = Vector2(3224.5, -170.5)
+scale = Vector2(13.7515, 63.5583)
+shape = SubResource("RectangleShape2D_5neiv")
+
+[node name="LeftLimit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+position = Vector2(-708.5, -212.969)
+scale = Vector2(5.81733, -99.2061)
+shape = SubResource("RectangleShape2D_q4jsx")
+
 [connection signal="input_event" from="Door/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Shelf/Area2D" to="." method="_on_shelf_input_event"]
 [connection signal="input_event" from="Mirror/Area2D" to="." method="_on_mirror_input_event"]
+[connection signal="area_entered" from="RightLimit" to="." method="_on_right_limit_area_entered"]
+[connection signal="area_exited" from="RightLimit" to="." method="_on_right_limit_area_exited"]
+[connection signal="area_entered" from="LeftLimit" to="." method="_on_left_limit_area_entered"]
+[connection signal="area_exited" from="LeftLimit" to="." method="_on_left_limit_area_exited"]
 
 [editable path="Door"]
 [editable path="Shelf"]

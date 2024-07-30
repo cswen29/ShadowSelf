@@ -9,6 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8d684"]
 
 [node name="Thoughts" type="CharacterBody2D"]
+scale = Vector2(2.085, 2.085)
 collision_mask = 0
 script = ExtResource("1_62108")
 

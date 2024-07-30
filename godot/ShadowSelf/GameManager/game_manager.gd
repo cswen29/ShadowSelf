@@ -4,6 +4,7 @@ extends Node2D
 @export var outside_level_scene : PackedScene
 @export var item_pickup : PackedScene
 @export var gameOver_scene : PackedScene
+@onready var simultaneous_scene = preload("res://ending_story.tscn")
 @onready var mainCharacter = $MainCharacter as Player
 @onready var camera = $Camera2D
 @onready var pause_menu = $MainCharacter/CanvasLayer/PauseMenu
@@ -23,8 +24,8 @@ var alchemyToggled: bool = false
 func _ready()-> void:
 	Engine.time_scale = 1.0
 	$Transition/CanvasLayer/BlackBackground.visible = true
-	changeLevelToRoom(true)
-	#changeLevelToOutside()
+	#changeLevelToRoom(true)
+	changeLevelToOutside()
 	prompt.hide()	
 	$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 	
@@ -73,9 +74,9 @@ func changeLevelToOutside()-> void:
 	mainCharacter.global_position = Vector2(200, 500)
 	camera.zoom = Vector2(0.5, 0.5)
 	camera.limit_bottom = 10000000
-	camera.limit_right = 10000000
+	camera.limit_right = 16000
 	camera.limit_top = -10000000
-	camera.limit_left = -10000000
+	camera.limit_left = -16945
 	var level = outside_level_scene.instantiate()
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
@@ -190,6 +191,8 @@ func _on_alchemy_give_nostalgia():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
+		if GlobalVariables.trees_unlocked.size() == 3:
+			win()
 		#for i in 8:
 		#	await get_tree().create_timer(1).timeout
 			#$Music/Layer3.volume_db += db_to_linear(10)
@@ -201,9 +204,16 @@ func _on_alchemy_give_reality():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
+		if GlobalVariables.trees_unlocked.size() == 3:
+			win()
 		#$Music/Layer2.volume_db += db_to_linear(10)
 		#$Music/Layer3.volume_db += db_to_linear(10)
-	
+
+func win():
+	await get_tree().create_timer(20).timeout
+	transition.play("fade_out")
+	await get_tree().create_timer(4).timeout
+	get_tree().change_scene_to_packed(simultaneous_scene)
 #region screen fade according to memories found	
 func animateFadeIntesity():
 	var tween = create_tween()
