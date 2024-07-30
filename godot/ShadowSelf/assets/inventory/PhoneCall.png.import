@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dopdg0pr3u1nw"
-path="res://.godot/imported/PhoneCall.png-4d6e40be52db90163dc21beed14755bb.ctex"
+uid="uid://dwa4774eyrnj1"
+path="res://.godot/imported/PhoneCall.PNG-5a0037c67ce6728cca2c8e0d5bb2d3b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/PhoneCall.png"
-dest_files=["res://.godot/imported/PhoneCall.png-4d6e40be52db90163dc21beed14755bb.ctex"]
+source_file="res://assets/inventory/PhoneCall.PNG"
+dest_files=["res://.godot/imported/PhoneCall.PNG-5a0037c67ce6728cca2c8e0d5bb2d3b4.ctex"]
 
 [params]
 

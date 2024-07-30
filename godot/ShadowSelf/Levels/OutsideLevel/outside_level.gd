@@ -6,10 +6,10 @@ signal prompt
 @onready var flower = $Flower
 @onready var tree =  $NostalgicTree
 @onready var bridge = $NostalgicBridge
-@onready var watch =  $Watch
 @onready var gameboy = $Gameboy
 @onready var letter =  $CollegeLetter
 @onready var icecream = $IceCream
+@onready var playersHouse = $playersHouse
 
 func _ready():
 	$SFX/Ambience.play()
@@ -32,12 +32,6 @@ func _on_tree_input_event(_viewport, event, _shape_idx):
 			if "Tree" not in GlobalVariables.inventory:
 				prompt.emit("look at tree?", "tree")
 
-func _on_watch_input_event(_viewport, event, _shape_idx):
-	if !GlobalVariables.paused:
-		if event is InputEventMouseButton and watch.isColliding:
-			if "Watch" not in GlobalVariables.inventory:
-				prompt.emit("pickup watch?", "watch")
-
 func _on_gameboy_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton and gameboy.isColliding:
@@ -56,7 +50,6 @@ func _on_icecream_input_event(_viewport, event, _shape_idx):
 			if "IceCream" not in GlobalVariables.inventory:
 				prompt.emit("buy an incecream?", "icecream")
 
-
 func _on_right_limit_area_entered(area):
 	if area.name == "PlayerArea":
 		GlobalVariables.playerOffLimitsRight = true
@@ -72,3 +65,8 @@ func _on_left_limit_area_entered(area):
 func _on_left_limit_area_exited(area):
 	if area.name == "PlayerArea":
 		GlobalVariables.playerOffLimitsLeft = false
+
+func _on_area_2d_input_event(viewport, event, shape_idx):
+	if !GlobalVariables.paused:
+		if event is InputEventMouseButton and playersHouse.isColliding:
+			prompt.emit("Go Inside your house?", "inside")

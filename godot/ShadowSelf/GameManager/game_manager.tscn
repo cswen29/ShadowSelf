@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=22 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu/pause_menu.tscn" id="5_8j6s4"]
 [ext_resource type="PackedScene" uid="uid://doxh3766e3uvi" path="res://game_over.tscn" id="5_681fh"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter/main_character.tscn" id="5_m7k3r"]
+[ext_resource type="PackedScene" uid="uid://cqbf2c3ju44tm" path="res://ending_story.tscn" id="6_1a3l5"]
 [ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://GameManager/Prompt/prompt.tscn" id="6_qehf4"]
 [ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://Alchemy/alchemy.tscn" id="8_53y7i"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="10_qyoch"]
@@ -15,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bo1pvvn1mcfsf" path="res://assets/audio/mx/mx_layer2_draft1.wav" id="12_3fqs7"]
 [ext_resource type="AudioStream" uid="uid://bufx0ndobaon7" path="res://assets/audio/mx/mx_layer3_draft1.wav" id="13_8mbtk"]
 [ext_resource type="PackedScene" uid="uid://sr3sv2cjq61x" path="res://thought_spawner.tscn" id="15_sb44d"]
-[ext_resource type="AudioStream" uid="uid://wa0g1jrkt3ge" path="res://assets/audio/sfx/sfx_door.wav" id="16_a5f08"]
+[ext_resource type="AudioStream" uid="uid://wa0g1jrkt3ge" path="res://assets/audio/sfx/sfx_door.wav" id="16_qpre6"]
 
 [sub_resource type="Gradient" id="Gradient_kmujt"]
 offsets = PackedFloat32Array(0, 0.553333, 1)
@@ -88,10 +89,7 @@ room_level_scene = ExtResource("2_o2qej")
 outside_level_scene = ExtResource("3_302gr")
 item_pickup = ExtResource("4_mbne4")
 gameOver_scene = ExtResource("5_681fh")
-
-[node name="ThoughtSpawner" parent="." instance=ExtResource("15_sb44d")]
-position = Vector2(-4850, -4849)
-scale = Vector2(7.205, 1)
+ending = ExtResource("6_1a3l5")
 
 [node name="MainCharacter" parent="." instance=ExtResource("5_m7k3r")]
 z_index = 10
@@ -162,6 +160,10 @@ offset_right = 304.0
 offset_bottom = 19.0
 scale = Vector2(0.887902, 0.941381)
 
+[node name="ThoughtSpawner" parent="MainCharacter" instance=ExtResource("15_sb44d")]
+position = Vector2(-301.667, -211.667)
+scale = Vector2(0.555556, 0.555556)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(601.345, 104.173)
 scale = Vector2(1.8, 1.8)
@@ -218,19 +220,19 @@ color = Color(0, 0, 0, 1)
 
 [node name="Music" type="Node" parent="."]
 
-[node name="Layer1" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Layer1" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("11_6u4iq")
 volume_db = 10.0
 autoplay = true
 bus = &"music"
 
-[node name="Layer2" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Layer2" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("12_3fqs7")
 volume_db = -80.0
 autoplay = true
 bus = &"music"
 
-[node name="Layer3" type="AudioStreamPlayer2D" parent="Music"]
+[node name="Layer3" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("13_8mbtk")
 volume_db = -80.0
 autoplay = true
@@ -238,9 +240,8 @@ bus = &"music"
 
 [node name="SFX" type="Node" parent="."]
 
-[node name="DoorSlide" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("16_a5f08")
-volume_db = 6.695
+[node name="DoorSlide" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_qpre6")
 
 [connection signal="playerHit" from="MainCharacter" to="." method="_on_main_character_player_hit"]
 [connection signal="resume" from="MainCharacter/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_resume"]

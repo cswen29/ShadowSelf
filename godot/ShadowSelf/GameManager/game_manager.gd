@@ -4,7 +4,7 @@ extends Node2D
 @export var outside_level_scene : PackedScene
 @export var item_pickup : PackedScene
 @export var gameOver_scene : PackedScene
-@onready var simultaneous_scene = preload("res://ending_story.tscn")
+@export var ending : PackedScene
 @onready var mainCharacter = $MainCharacter as Player
 @onready var camera = $Camera2D
 @onready var pause_menu = $MainCharacter/CanvasLayer/PauseMenu
@@ -24,8 +24,8 @@ var alchemyToggled: bool = false
 func _ready()-> void:
 	Engine.time_scale = 1.0
 	$Transition/CanvasLayer/BlackBackground.visible = true
-	#changeLevelToRoom(true)
-	changeLevelToOutside()
+	changeLevelToRoom(true)
+	#changeLevelToOutside()
 	prompt.hide()	
 	$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 	
@@ -71,12 +71,12 @@ func animateDespawn()-> void:
 func changeLevelToOutside()-> void:
 	mainCharacter.changeFootstepsToOutside()
 	mainCharacter.canMove = false
-	mainCharacter.global_position = Vector2(200, 500)
+	mainCharacter.global_position = Vector2(-7340.433, 500)
 	camera.zoom = Vector2(0.5, 0.5)
 	camera.limit_bottom = 10000000
-	camera.limit_right = 16000
+	camera.limit_right = 22075
 	camera.limit_top = -10000000
-	camera.limit_left = -16945
+	camera.limit_left = -17000
 	var level = outside_level_scene.instantiate()
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
@@ -104,8 +104,6 @@ func changeLevelToRoom(firstTime: bool)-> void:
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
 	
-
-
 	mainCharacter.canMove = true
 	
 #endregion
@@ -149,6 +147,9 @@ func _on_prompt_yes():
 		
 	if prompt.name == "gameboy":
 		itemPickedUp("Gameboy")
+		
+	if prompt.name == "inside":
+		get_tree().reload_current_scene()
 
 func _on_alchemy_quit():
 	mainCharacter.canMove = true
@@ -213,7 +214,8 @@ func win():
 	await get_tree().create_timer(20).timeout
 	transition.play("fade_out")
 	await get_tree().create_timer(4).timeout
-	get_tree().change_scene_to_packed(simultaneous_scene)
+	get_tree().change_scene_to_packed(ending)
+	
 #region screen fade according to memories found	
 func animateFadeIntesity():
 	var tween = create_tween()

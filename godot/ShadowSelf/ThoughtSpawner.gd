@@ -14,4 +14,4 @@ func _on_timer_timeout():
 	var thought = thought_scene.instantiate()	
 	path.progress_ratio = randf()
 	thought.position = path.position
-	add_child(thought)
+	get_parent().get_parent().add_child(thought)
