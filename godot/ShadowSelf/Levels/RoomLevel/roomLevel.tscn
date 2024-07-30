@@ -47,7 +47,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
-modulate = Color(0.878431, 0.87451, 0.847059, 0.501961)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
 z_index = 16
 position = Vector2(2694, 289)
 scale = Vector2(1.22616, 1.31593)

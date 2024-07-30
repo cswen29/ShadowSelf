@@ -163,6 +163,11 @@ func spawnAlchemyMenu():
 #region item pick up
 func itemPickedUp(item: String):
 	if item not in GlobalVariables.inventory:
+		if GlobalVariables.inventory.size() > 6:
+			$Music/Layer3.volume_db += db_to_linear(12.5)
+		else: 
+			$Music/Layer2.volume_db += db_to_linear(12.5)
+			
 		$MainCharacter.health = 10
 		$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 		pickup.pickedUpItem(item)
@@ -174,9 +179,9 @@ func _on_alchemy_give_responsability():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		for i in 8:
-			await get_tree().create_timer(1).timeout
-			$Music/Layer2.volume_db += db_to_linear(10)
+		#for i in 8:
+		#	await get_tree().create_timer(1).timeout
+			#$Music/Layer2.volume_db += db_to_linear(10)
 		
 func _on_alchemy_give_nostalgia():
 	if "Past" not in GlobalVariables.trees_unlocked:
@@ -185,9 +190,9 @@ func _on_alchemy_give_nostalgia():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		for i in 8:
-			await get_tree().create_timer(1).timeout
-			$Music/Layer3.volume_db += db_to_linear(10)
+		#for i in 8:
+		#	await get_tree().create_timer(1).timeout
+			#$Music/Layer3.volume_db += db_to_linear(10)
 
 func _on_alchemy_give_reality():	
 	if "Present" not in GlobalVariables.trees_unlocked:
@@ -196,9 +201,9 @@ func _on_alchemy_give_reality():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		$Music/Layer2.volume_db += db_to_linear(10)
-		$Music/Layer3.volume_db += db_to_linear(10)
-
+		#$Music/Layer2.volume_db += db_to_linear(10)
+		#$Music/Layer3.volume_db += db_to_linear(10)
+	
 #region screen fade according to memories found	
 func animateFadeIntesity():
 	var tween = create_tween()

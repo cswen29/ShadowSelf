@@ -236,6 +236,9 @@ bus = &"sfx"
 stream = ExtResource("13_31t5s")
 bus = &"sfx"
 
+[node name="FixRotation" type="Timer" parent="."]
+autostart = true
+
 [connection signal="checkCombinations" from="Future/PhoneCall" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Future/Watch" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Future/ResponsabilityMemory" to="." method="check_combinations"]
@@ -250,3 +253,4 @@ bus = &"sfx"
 [connection signal="checkCombinations" from="Present/RealityMemory" to="." method="check_combinations"]
 [connection signal="mouse_entered" from="Close" to="." method="_on_close_mouse_entered"]
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="timeout" from="FixRotation" to="." method="_on_fix_rotation_timeout"]

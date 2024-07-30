@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var volume: float = 0.5
-var simultaneous_scene = preload("res://GameManager/game_manager.tscn")
+var simultaneous_scene = preload("res://beginning_story.tscn")
 
 @onready var transition = $Transition
 
@@ -37,3 +37,7 @@ func _on_tutorial_button_mouse_entered():
 
 func _on_settings_button_mouse_entered():
 	$ButtonHover.play()
+
+func _on_quit_pressed():
+	$ButtonClick.play()
+	get_tree().quit()

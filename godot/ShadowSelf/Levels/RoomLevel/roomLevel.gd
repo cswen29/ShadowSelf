@@ -9,7 +9,6 @@ var minigameObj: Minigame
 signal prompt
 
 func _ready():
-	door.modulate = Color("e0dfd8")
 	$SFX/Ambience.play()
 	
 # click on door
