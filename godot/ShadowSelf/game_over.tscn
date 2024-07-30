@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://doxh3766e3uvi"]
+[gd_scene load_steps=10 format=3 uid="uid://doxh3766e3uvi"]
 
 [ext_resource type="Script" path="res://GameOver.gd" id="1_x2h25"]
 [ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_80ssg"]
 [ext_resource type="Texture2D" uid="uid://dqsjpv107yb02" path="res://assets/ui/resume_game.png" id="3_u1iwh"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_lenma"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_lsfqc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_seg8v"]
 texture = ExtResource("3_u1iwh")
@@ -80,4 +82,13 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ovda8")
 theme_override_styles/focus = SubResource("StyleBoxTexture_kn2y4")
 text = "Retry"
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lenma")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lsfqc")
+bus = &"sfx"
+
+[connection signal="mouse_entered" from="Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

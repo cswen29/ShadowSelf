@@ -22,6 +22,7 @@ var alchemyToggled: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
 	Engine.time_scale = 1.0
+	$Transition/CanvasLayer/BlackBackground.visible = true
 	changeLevelToRoom(true)
 	#changeLevelToOutside()
 	prompt.hide()	
@@ -67,6 +68,7 @@ func animateDespawn()-> void:
 
 #region change levels
 func changeLevelToOutside()-> void:
+	mainCharacter.changeFootstepsToOutside()
 	mainCharacter.canMove = false
 	mainCharacter.global_position = Vector2(200, 500)
 	camera.zoom = Vector2(0.5, 0.5)
@@ -86,6 +88,7 @@ func changeLevelToOutside()-> void:
 	transition.play("fade_in")
 	
 func changeLevelToRoom(firstTime: bool)-> void:
+	mainCharacter.changeFootstepsToRoom()
 	transition.play("fade_in")
 	mainCharacter.canMove = false
 	camera.zoom = Vector2(0.8, 0.8)
@@ -100,9 +103,7 @@ func changeLevelToRoom(firstTime: bool)-> void:
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
 	
-	for idx in self.get_children():
-		if idx is OutsideLevel:
-			idx.queue_free()	
+
 
 	mainCharacter.canMove = true
 	
@@ -240,3 +241,4 @@ func on_game_over_retry():
 	$MainCharacter/CanvasLayer/GameOver.hide()
 	GlobalVariables.paused = false
 	get_tree().reload_current_scene()
+

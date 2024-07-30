@@ -11,6 +11,9 @@ signal prompt
 @onready var letter =  $CollegeLetter
 @onready var icecream = $IceCream
 
+func _ready():
+	$SFX/Ambience.play()
+	
 func _on_flower_2d_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton and flower.isColliding:

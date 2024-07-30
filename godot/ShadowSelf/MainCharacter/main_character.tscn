@@ -1,9 +1,21 @@
-[gd_scene load_steps=36 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=48 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter/MainCharacter.gd" id="1_kimwa"]
 [ext_resource type="Texture2D" uid="uid://d17sv652d8p78" path="res://assets/human/walk_cycle.PNG" id="2_fux7m"]
 [ext_resource type="Texture2D" uid="uid://b5kbvuovpb56d" path="res://assets/human/walk_cycle_background.PNG" id="3_luih8"]
 [ext_resource type="Shader" path="res://MainCharacter/headache.gdshader" id="4_hp7jk"]
+[ext_resource type="AudioStream" uid="uid://c7odc526tno74" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_1.wav" id="5_3f4kj"]
+[ext_resource type="AudioStream" uid="uid://4yo26kxntqf6" path="res://assets/audio/sfx/footsteps/untitled.mp3" id="5_127r2"]
+[ext_resource type="AudioStream" uid="uid://b4y2mqi4m4c1b" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_2.wav" id="6_em5i2"]
+[ext_resource type="AudioStream" uid="uid://hfhp5txl3pqk" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_3.wav" id="7_vsrca"]
+[ext_resource type="AudioStream" uid="uid://chjbefuxtngj2" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_4.wav" id="8_cl8vl"]
+[ext_resource type="AudioStream" uid="uid://b4ne0w7t6j7mg" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_5.wav" id="9_tqvug"]
+[ext_resource type="AudioStream" uid="uid://klha3qkixgbp" path="res://assets/audio/sfx/footsteps/sfx_footstep_outside_1.wav" id="10_gr2uy"]
+[ext_resource type="AudioStream" uid="uid://c7wdyrbekec4n" path="res://assets/audio/sfx/footsteps/sfx_footstep_outside_2.wav" id="11_u28uj"]
+[ext_resource type="AudioStream" uid="uid://bdicjqj0cd5vn" path="res://assets/audio/sfx/footsteps/sfx_footstep_outside_3.wav" id="12_23edx"]
+[ext_resource type="AudioStream" uid="uid://dwothmlrug0ab" path="res://assets/audio/sfx/footsteps/sfx_footstep_outside_4.wav" id="13_ult7o"]
+[ext_resource type="AudioStream" uid="uid://c556mynpoaduw" path="res://assets/audio/sfx/footsteps/sfx_footstep_outside_5.wav" id="14_v450a"]
+[ext_resource type="AudioStream" uid="uid://d4jtvm0yjl84o" path="res://assets/audio/sfx/object interaction - ui/sfx_menu_button_click.wav" id="16_qwxso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fljcm"]
 size = Vector2(53, 174)
@@ -276,5 +288,59 @@ label_settings = SubResource("LabelSettings_6o3xu")
 visible = false
 shape = SubResource("CapsuleShape2D_qj5ut")
 
+[node name="SFX" type="Node" parent="."]
+
+[node name="Silence" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_127r2")
+bus = &"sfx"
+
+[node name="FootstepsInside1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_3f4kj")
+bus = &"sfx"
+
+[node name="FootstepsInside2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_em5i2")
+bus = &"sfx"
+
+[node name="FootstepsInside3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_vsrca")
+bus = &"sfx"
+
+[node name="FootstepsInside4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_cl8vl")
+bus = &"sfx"
+
+[node name="FootstepsInside5" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("9_tqvug")
+bus = &"sfx"
+
+[node name="FootstepsOutside1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("10_gr2uy")
+bus = &"sfx"
+
+[node name="FootstepsOutside2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_u28uj")
+bus = &"sfx"
+
+[node name="FootstepsOutside3" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_23edx")
+bus = &"sfx"
+
+[node name="FootstepsOutside4" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_ult7o")
+bus = &"sfx"
+
+[node name="FootstepsOutside5" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_v450a")
+bus = &"sfx"
+
+[node name="PlayerHit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_qwxso")
+bus = &"sfx"
+
+[node name="FootstepsTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Wander" to="." method="_on_wander_timeout"]
+[connection signal="timeout" from="FootstepsTimer" to="." method="_on_footsteps_timer_timeout"]

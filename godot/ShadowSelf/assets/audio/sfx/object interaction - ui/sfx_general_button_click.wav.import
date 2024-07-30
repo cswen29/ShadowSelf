@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1rnv64vfb826"
+path="res://.godot/imported/sfx_general_button_click.wav-456061cd867879daab8e279ac224ce9c.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav"
+dest_files=["res://.godot/imported/sfx_general_button_click.wav-456061cd867879daab8e279ac224ce9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdis8kcd0sfdd"]
+[gd_scene load_steps=7 format=3 uid="uid://bdis8kcd0sfdd"]
 
 [ext_resource type="Script" path="res://StartMenu/settings.gd" id="1_b87l4"]
 [ext_resource type="PackedScene" uid="uid://bjf6c8bdumrgb" path="res://h_slider.tscn" id="2_oue4v"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="3_t7h27"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="4_kcenr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utq1q"]
 font_color = Color(1, 0, 1, 1)
@@ -103,4 +105,13 @@ offset_right = 175.0
 offset_bottom = 266.0
 text = "Close"
 
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t7h27")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kcenr")
+bus = &"sfx"
+
+[connection signal="mouse_entered" from="Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]

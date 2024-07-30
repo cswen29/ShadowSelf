@@ -29,6 +29,7 @@ func refreshSprites():
 				tween.tween_property(grandChild, "rotation", grandChild.rotation + deg_to_rad(360.0), 1 )
 	
 	await tween.finished
+	
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
@@ -38,4 +39,8 @@ func check_combinations():
 	checkCombinatio.emit()
 
 func _on_close_pressed():
+	$ButtonClick.play()
 	self.hide()
+
+func _on_close_mouse_entered():
+	$ButtonHover.play()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://vkm6x83mdcjd"]
+[gd_scene load_steps=6 format=3 uid="uid://vkm6x83mdcjd"]
 
 [ext_resource type="Script" path="res://Thoughts.gd" id="1_62108"]
 [ext_resource type="Texture2D" uid="uid://bxnj5a4uk4qa6" path="res://assets/inventory/Gameboy.png" id="2_8iryc"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="3_tijua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s8cn"]
 
@@ -12,6 +13,7 @@ collision_mask = 0
 script = ExtResource("1_62108")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 texture = ExtResource("2_8iryc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -23,5 +25,8 @@ shape = SubResource("CircleShape2D_3s8cn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(7.02406, -4.71166)
 shape = SubResource("CircleShape2D_8d684")
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tijua")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

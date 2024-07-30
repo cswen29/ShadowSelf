@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://tp4ehyw7smy8"]
+[gd_scene load_steps=18 format=3 uid="uid://tp4ehyw7smy8"]
 
 [ext_resource type="Texture2D" uid="uid://dy1taqc2j7qnh" path="res://assets/ui/inventory_menu.png" id="1_0axke"]
 [ext_resource type="Script" path="res://GameManager/Inventory/inventory.gd" id="1_algll"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dyshy1s8nrspp" path="res://assets/inventory/PictureOfFamily.png" id="8_w2mmj"]
 [ext_resource type="Texture2D" uid="uid://bwa5uay46y3sg" path="res://assets/inventory/Flower.png" id="9_aknkq"]
 [ext_resource type="Texture2D" uid="uid://svngy4f5rstn" path="res://assets/ui/inventory.png" id="11_uv45j"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="12_a1lnj"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="13_31t5s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5lkk"]
 texture = ExtResource("11_uv45j")
@@ -226,6 +228,14 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_sr3df")
 theme_override_styles/focus = SubResource("StyleBoxTexture_mwuvi")
 text = "Close"
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_a1lnj")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_31t5s")
+bus = &"sfx"
+
 [connection signal="checkCombinations" from="Future/PhoneCall" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Future/Watch" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Future/ResponsabilityMemory" to="." method="check_combinations"]
@@ -238,4 +248,5 @@ text = "Close"
 [connection signal="checkCombinations" from="Present/PictureOfFamily" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Present/Flower" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Present/RealityMemory" to="." method="check_combinations"]
+[connection signal="mouse_entered" from="Close" to="." method="_on_close_mouse_entered"]
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
