@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
 [ext_resource type="PackedScene" uid="uid://bk8fg6y11obqq" path="res://GameManager/Pickup/item_pick_up.tscn" id="4_mbne4"]
 [ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu/pause_menu.tscn" id="5_8j6s4"]
-[ext_resource type="PackedScene" uid="uid://byq4kxyqqrm8p" path="res://game_over.tscn" id="5_681fh"]
+[ext_resource type="PackedScene" uid="uid://doxh3766e3uvi" path="res://game_over.tscn" id="5_681fh"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter/main_character.tscn" id="5_m7k3r"]
 [ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://GameManager/Prompt/prompt.tscn" id="6_qehf4"]
 [ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://Alchemy/alchemy.tscn" id="8_53y7i"]

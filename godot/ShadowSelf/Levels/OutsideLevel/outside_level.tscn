@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cpds3o5n01nof" path="res://assets/outside/road.PNG" id="5_5ff0t"]
 [ext_resource type="Texture2D" uid="uid://cvfpnh46qa6kq" path="res://assets/outside/pavement.PNG" id="6_8elsh"]
 [ext_resource type="Texture2D" uid="uid://5gp8d3hjcn26" path="res://assets/outside/grass_front.PNG" id="7_1yp58"]
-[ext_resource type="Texture2D" uid="uid://dflkfeimw8uuq" path="res://assets/outside/tree_1.png" id="8_6ijey"]
+[ext_resource type="Texture2D" uid="uid://dflkfeimw8uuq" path="res://assets/outside/tree_1.PNG" id="8_6ijey"]
 [ext_resource type="Texture2D" uid="uid://ce1t67dsfgk0n" path="res://assets/outside/tree_3.png" id="9_bu3xb"]
 [ext_resource type="Texture2D" uid="uid://cr75gw8121ji0" path="res://assets/outside/bush_1.png" id="10_61x83"]
 [ext_resource type="Texture2D" uid="uid://bgdfpcn5npbpj" path="res://assets/outside/bush_2.png" id="11_mpigc"]
