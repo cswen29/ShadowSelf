@@ -19,16 +19,17 @@ func update_sprites():
 			sprite.show()
 	#	
 func refreshSprites():
-	var tween = create_tween().set_parallel(true)
+	
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
 				grandChild.skip = false
 				grandChild.hideName()
+				var tween = create_tween().set_parallel(true)
 				tween.tween_property(grandChild, "global_position", grandChild.actual_initialPos, 1 )
 				tween.tween_property(grandChild, "rotation", grandChild.rotation + deg_to_rad(360.0), 1 )
-	
-	await tween.finished
+				
+	await get_tree().create_timer(1).timeout
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
@@ -38,4 +39,19 @@ func check_combinations():
 	checkCombinatio.emit()
 
 func _on_close_pressed():
+	$ButtonClick.play()
 	self.hide()
+
+func _on_close_mouse_entered():
+	$ButtonHover.play()
+
+func _on_fix_rotation_timeout():
+	for child in self.get_children():
+		for grandChild in child.get_children():
+			if grandChild is Item:
+				if grandChild.rotation > 10 or grandChild.rotation < -10:
+					grandChild.hideName()
+					var tween = create_tween()
+					tween.tween_property(grandChild, "rotation", 0, 0.2)
+					await tween.finished
+					grandChild.showName()

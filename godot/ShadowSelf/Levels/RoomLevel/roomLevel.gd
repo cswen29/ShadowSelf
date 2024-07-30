@@ -4,12 +4,12 @@ class_name RoomLevel extends Node2D
 @onready var door = $Door
 @onready var mirror = $"Mirror"
 @onready var shelf = $"Shelf"
+@onready var watch = $"Watch"
 var minigameObj: Minigame
 
 signal prompt
 
 func _ready():
-	door.modulate = Color("e0dfd8")
 	$SFX/Ambience.play()
 	
 # click on door
@@ -29,9 +29,30 @@ func _on_mirror_input_event(_viewport, event, _shape_idx):
 			if mirror.isColliding:
 				prompt.emit("look at your self?", "mirror")
 
-
-func _on_shelf_input_event(viewport, event, shape_idx):
+func _on_shelf_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton:
 			if shelf.isColliding:
 				prompt.emit("look at shelf?", "shelf")
+				
+func _on_watch_input_event(_viewport, event, _shape_idx):
+	if !GlobalVariables.paused:
+		if event is InputEventMouseButton and watch.isColliding:
+			if "Watch" not in GlobalVariables.inventory:
+				prompt.emit("pickup watch?", "watch")	
+							
+func _on_right_limit_area_entered(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsRight = true
+
+func _on_right_limit_area_exited(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsRight = false
+		
+func _on_left_limit_area_entered(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsLeft = true
+
+func _on_left_limit_area_exited(area):
+	if area.name == "PlayerArea":
+		GlobalVariables.playerOffLimitsLeft = false

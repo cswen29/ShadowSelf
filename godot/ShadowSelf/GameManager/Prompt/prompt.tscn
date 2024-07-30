@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqj65qhuqg01"]
+[gd_scene load_steps=15 format=3 uid="uid://cqj65qhuqg01"]
 
 [ext_resource type="Script" path="res://GameManager/Prompt/prompt.gd" id="1_i0roy"]
 [ext_resource type="Texture2D" uid="uid://cbcbjr5rxtjur" path="res://assets/ui/text_box.png" id="2_strjd"]
 [ext_resource type="Texture2D" uid="uid://t5igdvsmptu3" path="res://assets/ui/less_volume.png" id="3_smeel"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_ahv0l"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_2vteu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jcggd"]
 font_color = Color(0.270588, 1, 1, 1)
@@ -87,11 +89,11 @@ texture = ExtResource("2_strjd")
 
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
-offset_left = 533.886
-offset_top = 180.466
-offset_right = 633.886
-offset_bottom = 203.466
-scale = Vector2(7.76713, 15.5246)
+offset_left = 513.815
+offset_top = 263.18
+offset_right = 613.815
+offset_bottom = 286.18
+scale = Vector2(4.2879, 10.1272)
 text = "Go outside?"
 label_settings = SubResource("LabelSettings_jcggd")
 autowrap_mode = 3
@@ -122,5 +124,15 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_kx1k5")
 theme_override_styles/focus = SubResource("StyleBoxTexture_gf3vn")
 text = "Yes"
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ahv0l")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2vteu")
+bus = &"sfx"
+
+[connection signal="mouse_entered" from="No" to="." method="_on_no_mouse_entered"]
 [connection signal="pressed" from="No" to="." method="_on_no_pressed"]
+[connection signal="mouse_entered" from="Yes" to="." method="_on_yes_mouse_entered"]
 [connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]

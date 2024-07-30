@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=22 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
@@ -29,6 +29,12 @@ size = Vector2(67.8551, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1hqu1"]
 radius = 372.47
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux4fk"]
+size = Vector2(122.823, 37.4617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h86qb"]
+size = Vector2(335.377, 24.2935)
 
 [node name="RoomLevel" type="Node2D"]
 script = ExtResource("1_tt24w")
@@ -128,7 +134,7 @@ texture = ExtResource("10_0m5an")
 
 [node name="SFX" type="Node" parent="."]
 
-[node name="Ambience" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("15_1nxm1")
 volume_db = 5.0
 autoplay = true
@@ -142,9 +148,30 @@ texture = ExtResource("15_wegw3")
 [node name="CollisionShape2D" parent="Watch/Area2D" index="0"]
 shape = SubResource("CircleShape2D_1hqu1")
 
+[node name="RightLimit" type="Area2D" parent="."]
+position = Vector2(13454, 834)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
+position = Vector2(3224.5, -170.5)
+scale = Vector2(13.7515, 63.5583)
+shape = SubResource("RectangleShape2D_ux4fk")
+
+[node name="LeftLimit" type="Area2D" parent="."]
+position = Vector2(-13804, 511)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+position = Vector2(-708.5, -212.969)
+scale = Vector2(5.81733, -99.2061)
+shape = SubResource("RectangleShape2D_h86qb")
+
 [connection signal="input_event" from="Door/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Shelf/Area2D" to="." method="_on_shelf_input_event"]
 [connection signal="input_event" from="Mirror/Area2D" to="." method="_on_mirror_input_event"]
+[connection signal="input_event" from="Watch/Area2D" to="." method="_on_watch_input_event"]
+[connection signal="area_entered" from="RightLimit" to="." method="_on_right_limit_area_entered"]
+[connection signal="area_exited" from="RightLimit" to="." method="_on_right_limit_area_exited"]
+[connection signal="area_entered" from="LeftLimit" to="." method="_on_left_limit_area_entered"]
+[connection signal="area_exited" from="LeftLimit" to="." method="_on_left_limit_area_exited"]
 
 [editable path="Door"]
 [editable path="Shelf"]

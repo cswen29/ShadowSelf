@@ -7,7 +7,7 @@ var itemCategory
 func _ready():
 	modulate = Color(Color.WHITE, 1)
 
-func _process(delta):
+func _process(_delta):
 	if GlobalVariables.isDragging:
 		modulate = Color(Color.MEDIUM_PURPLE, 0.5)
 	else:

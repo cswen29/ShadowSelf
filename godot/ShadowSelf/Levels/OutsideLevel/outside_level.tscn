@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=31 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
 [ext_resource type="Texture2D" uid="uid://dovcfrvcerf1n" path="res://assets/outside/house_1.png" id="3_qmb6e"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b6212f0px8qma" path="res://assets/outside/fence_1.PNG" id="11_xu180"]
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="12_by6t7"]
 [ext_resource type="Texture2D" uid="uid://chp7kglmcq8vc" path="res://assets/outside/fence_2.PNG" id="12_m0b7u"]
+[ext_resource type="AudioStream" uid="uid://buwwtbp6xxsjk" path="res://assets/audio/sfx/ambience/sfx_ambience_outside.wav" id="12_thsts"]
 [ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/circle-clipart-black.png" id="13_gs8gt"]
 [ext_resource type="Texture2D" uid="uid://55v00bpvn587" path="res://assets/outside/lake_ground.png" id="15_86vg7"]
 [ext_resource type="Texture2D" uid="uid://yhxns7js4iwg" path="res://assets/outside/bush_3.png" id="18_xpqgu"]
@@ -29,6 +30,12 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0awhx"]
 radius = 372.47
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7oj4"]
+size = Vector2(122.823, 37.4617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4o0m3"]
+size = Vector2(335.377, 24.2935)
 
 [node name="OutsideLevel" type="Node2D"]
 position = Vector2(-1474, -719)
@@ -100,6 +107,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_nafbo")
 
 [node name="House4" type="Sprite2D" parent="Layers/-3/Houses"]
+visible = false
 position = Vector2(-3208.89, -1437.04)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("6_sc3o6")
@@ -299,12 +307,54 @@ texture = ExtResource("25_d05mt")
 [node name="CollisionShape2D" parent="IceCream/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
+[node name="SFX" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_thsts")
+volume_db = 5.0
+autoplay = true
+bus = &"sfx"
+
+[node name="RightLimit" type="Area2D" parent="."]
+position = Vector2(17544, 672)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
+position = Vector2(3224.5, -170.5)
+scale = Vector2(13.7515, 63.5583)
+shape = SubResource("RectangleShape2D_e7oj4")
+
+[node name="LeftLimit" type="Area2D" parent="."]
+position = Vector2(-13791, 538)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLimit"]
+position = Vector2(-708.5, -212.969)
+scale = Vector2(5.81733, -99.2061)
+shape = SubResource("RectangleShape2D_4o0m3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -17000
+limit_right = 22075
+editor_draw_limits = true
+
+[node name="playersHouse" parent="." instance=ExtResource("12_by6t7")]
+position = Vector2(-5398, 172)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_sc3o6")
+
+[node name="Area2D" parent="playersHouse" index="0"]
+scale = Vector2(-129.496, 107.19)
+
 [connection signal="input_event" from="Flower/Area2D" to="." method="_on_flower_2d_input_event"]
 [connection signal="input_event" from="NostalgicTree/Area2D" to="." method="_on_tree_input_event"]
 [connection signal="input_event" from="NostalgicBridge/Area2D" to="." method="_on_bridge_input_event"]
 [connection signal="input_event" from="Gameboy/Area2D" to="." method="_on_gameboy_input_event"]
 [connection signal="input_event" from="CollegeLetter/Area2D" to="." method="_on_letter_input_event"]
 [connection signal="input_event" from="IceCream/Area2D" to="." method="_on_icecream_input_event"]
+[connection signal="area_entered" from="RightLimit" to="." method="_on_right_limit_area_entered"]
+[connection signal="area_exited" from="RightLimit" to="." method="_on_right_limit_area_exited"]
+[connection signal="area_entered" from="LeftLimit" to="." method="_on_left_limit_area_entered"]
+[connection signal="area_exited" from="LeftLimit" to="." method="_on_left_limit_area_exited"]
+[connection signal="input_event" from="playersHouse/Area2D" to="." method="_on_area_2d_input_event"]
 
 [editable path="Flower"]
 [editable path="NostalgicTree"]
@@ -312,3 +362,4 @@ shape = SubResource("CircleShape2D_0awhx")
 [editable path="Gameboy"]
 [editable path="CollegeLetter"]
 [editable path="IceCream"]
+[editable path="playersHouse"]

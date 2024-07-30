@@ -1,8 +1,128 @@
-[gd_scene load_steps=7 format=3 uid="uid://cefn6enxkfjgd"]
+[gd_scene load_steps=28 format=3 uid="uid://cefn6enxkfjgd"]
 
 [ext_resource type="Script" path="res://StartMenu/start_menu.gd" id="1_r4q08"]
+[ext_resource type="Texture2D" uid="uid://o8jpqhpp68t5" path="res://assets/ui/quit_menu.png" id="2_dp5xc"]
 [ext_resource type="AudioStream" uid="uid://cecb0snemuq33" path="res://assets/audio/mx_layer1_draft1.wav" id="3_g105t"]
+[ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="3_nojrx"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="4_tamdd"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_vrobe"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_d4etj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1cj3"]
+font_size = 95
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxgwl"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fmp3p"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 200.0
+expand_margin_top = 220.0
+expand_margin_right = 210.0
+expand_margin_bottom = 200.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_im40v"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwn2k"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 40.0
+expand_margin_top = 60.0
+expand_margin_right = 50.0
+expand_margin_bottom = 75.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6fd"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftc4u"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 140.0
+expand_margin_top = 155.0
+expand_margin_right = 130.0
+expand_margin_bottom = 160.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytyjb"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 70.0
+expand_margin_top = 65.0
+expand_margin_right = 75.0
+expand_margin_bottom = 70.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjept"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 70.0
+expand_margin_top = 60.0
+expand_margin_right = 70.0
+expand_margin_bottom = 70.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj2uh"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtaxb"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 125.0
+expand_margin_top = 140.0
+expand_margin_right = 130.0
+expand_margin_bottom = 130.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4dva3"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 55.0
+expand_margin_top = 60.0
+expand_margin_right = 65.0
+expand_margin_bottom = 75.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_573td"]
+texture = ExtResource("2_dp5xc")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsvsy"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bn1fx"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 165.0
+expand_margin_top = 160.0
+expand_margin_right = 170.0
+expand_margin_bottom = 175.0
+modulate_color = Color(1, 0, 0.352941, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ue8pc"]
+texture = ExtResource("3_nojrx")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldkk5"]
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
 
 [sub_resource type="Animation" id="Animation_fytxp"]
 resource_name = "fade_in"
@@ -90,17 +210,41 @@ color = Color(1, 0.27451, 1, 1)
 
 [node name="Tutorial" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -25.0
-offset_top = -8.0
-offset_right = 1211.0
-offset_bottom = 595.0
-color = Color(0.0313726, 1, 1, 1)
+offset_left = 309.0
+offset_top = 95.0
+offset_right = 1545.0
+offset_bottom = 698.0
+color = Color(0.972549, 0.564706, 0.8, 1)
+
+[node name="Label" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 46.0
+offset_right = 2333.0
+offset_bottom = 841.0
+scale = Vector2(0.457676, 0.426669)
+text = "Control your shadow with your mouse.
+Lose hp when hit. 
+Shadow gets bigger as it protects you from thoughts.
+Shadow too big and it consumes you, you lose.
+
+
+Find and combine memories and items to form new
+positive memories and free yourself
+from your shadow.
+"
+label_settings = SubResource("LabelSettings_b1cj3")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 436.0
-offset_top = 795.0
-offset_right = 597.0
-offset_bottom = 875.0
+offset_left = 514.0
+offset_top = 807.0
+offset_right = 675.0
+offset_bottom = 887.0
+scale = Vector2(1.30337, 1.19473)
+theme_override_styles/normal = SubResource("StyleBoxTexture_kxgwl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fmp3p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_im40v")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xwn2k")
 text = "Start Game!"
 
 [node name="TutorialButton" type="Button" parent="."]
@@ -108,6 +252,10 @@ offset_left = 866.0
 offset_top = 823.0
 offset_right = 991.0
 offset_bottom = 862.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ey6fd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ftc4u")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ytyjb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xjept")
 text = "Tutorial
 "
 
@@ -116,8 +264,24 @@ offset_left = 1166.0
 offset_top = 822.0
 offset_right = 1291.0
 offset_bottom = 861.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_uj2uh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dtaxb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4dva3")
+theme_override_styles/focus = SubResource("StyleBoxTexture_573td")
 text = "Settings
 "
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1393.0
+offset_top = 830.0
+offset_right = 1440.0
+offset_bottom = 861.0
+theme_override_colors/font_color = Color(0, 0.890196, 0.690196, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_jsvsy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bn1fx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ue8pc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ldkk5")
+text = "QUIT"
 
 [node name="Layer1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_g105t")
@@ -130,10 +294,10 @@ layer = 2
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("4_tamdd")]
 visible = false
-offset_left = 296.0
-offset_top = 55.0
-offset_right = 296.0
-offset_bottom = 55.0
+offset_left = 513.0
+offset_top = 97.0
+offset_right = 513.0
+offset_bottom = 97.0
 scale = Vector2(3.34526, 2.89017)
 
 [node name="Transition" type="AnimationPlayer" parent="."]
@@ -150,7 +314,19 @@ offset_right = 2026.0
 offset_bottom = 1112.0
 color = Color(0, 0, 0, 1)
 
+[node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vrobe")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d4etj")
+bus = &"sfx"
+
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="TutorialButton" to="." method="_on_tutorial_button_mouse_entered"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]

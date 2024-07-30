@@ -4,6 +4,7 @@ extends Node2D
 @export var outside_level_scene : PackedScene
 @export var item_pickup : PackedScene
 @export var gameOver_scene : PackedScene
+@export var ending : PackedScene
 @onready var mainCharacter = $MainCharacter as Player
 @onready var camera = $Camera2D
 @onready var pause_menu = $MainCharacter/CanvasLayer/PauseMenu
@@ -22,6 +23,7 @@ var alchemyToggled: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
 	Engine.time_scale = 1.0
+	$Transition/CanvasLayer/BlackBackground.visible = true
 	changeLevelToRoom(true)
 	#changeLevelToOutside()
 	prompt.hide()	
@@ -67,13 +69,14 @@ func animateDespawn()-> void:
 
 #region change levels
 func changeLevelToOutside()-> void:
+	mainCharacter.changeFootstepsToOutside()
 	mainCharacter.canMove = false
-	mainCharacter.global_position = Vector2(200, 500)
+	mainCharacter.global_position = Vector2(-7340.433, 500)
 	camera.zoom = Vector2(0.5, 0.5)
 	camera.limit_bottom = 10000000
-	camera.limit_right = 10000000
+	camera.limit_right = 22075
 	camera.limit_top = -10000000
-	camera.limit_left = -10000000
+	camera.limit_left = -17000
 	var level = outside_level_scene.instantiate()
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
@@ -86,6 +89,7 @@ func changeLevelToOutside()-> void:
 	transition.play("fade_in")
 	
 func changeLevelToRoom(firstTime: bool)-> void:
+	mainCharacter.changeFootstepsToRoom()
 	transition.play("fade_in")
 	mainCharacter.canMove = false
 	camera.zoom = Vector2(0.8, 0.8)
@@ -100,10 +104,6 @@ func changeLevelToRoom(firstTime: bool)-> void:
 	level.prompt.connect($".".spawnPrompt.bind())
 	add_child(level)
 	
-	for idx in self.get_children():
-		if idx is OutsideLevel:
-			idx.queue_free()	
-
 	mainCharacter.canMove = true
 	
 #endregion
@@ -147,6 +147,9 @@ func _on_prompt_yes():
 		
 	if prompt.name == "gameboy":
 		itemPickedUp("Gameboy")
+		
+	if prompt.name == "inside":
+		get_tree().reload_current_scene()
 
 func _on_alchemy_quit():
 	mainCharacter.canMove = true
@@ -162,6 +165,11 @@ func spawnAlchemyMenu():
 #region item pick up
 func itemPickedUp(item: String):
 	if item not in GlobalVariables.inventory:
+		if GlobalVariables.inventory.size() > 6:
+			$Music/Layer3.volume_db += db_to_linear(12.5)
+		else: 
+			$Music/Layer2.volume_db += db_to_linear(12.5)
+			
 		$MainCharacter.health = 10
 		$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
 		pickup.pickedUpItem(item)
@@ -173,9 +181,9 @@ func _on_alchemy_give_responsability():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		for i in 8:
-			await get_tree().create_timer(1).timeout
-			$Music/Layer2.volume_db += db_to_linear(10)
+		#for i in 8:
+		#	await get_tree().create_timer(1).timeout
+			#$Music/Layer2.volume_db += db_to_linear(10)
 		
 func _on_alchemy_give_nostalgia():
 	if "Past" not in GlobalVariables.trees_unlocked:
@@ -184,9 +192,11 @@ func _on_alchemy_give_nostalgia():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		for i in 8:
-			await get_tree().create_timer(1).timeout
-			$Music/Layer3.volume_db += db_to_linear(10)
+		if GlobalVariables.trees_unlocked.size() == 3:
+			win()
+		#for i in 8:
+		#	await get_tree().create_timer(1).timeout
+			#$Music/Layer3.volume_db += db_to_linear(10)
 
 func _on_alchemy_give_reality():	
 	if "Present" not in GlobalVariables.trees_unlocked:
@@ -195,9 +205,17 @@ func _on_alchemy_give_reality():
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		$Music/Layer2.volume_db += db_to_linear(10)
-		$Music/Layer3.volume_db += db_to_linear(10)
+		if GlobalVariables.trees_unlocked.size() == 3:
+			win()
+		#$Music/Layer2.volume_db += db_to_linear(10)
+		#$Music/Layer3.volume_db += db_to_linear(10)
 
+func win():
+	await get_tree().create_timer(20).timeout
+	transition.play("fade_out")
+	await get_tree().create_timer(4).timeout
+	get_tree().change_scene_to_packed(ending)
+	
 #region screen fade according to memories found	
 func animateFadeIntesity():
 	var tween = create_tween()
@@ -240,3 +258,4 @@ func on_game_over_retry():
 	$MainCharacter/CanvasLayer/GameOver.hide()
 	GlobalVariables.paused = false
 	get_tree().reload_current_scene()
+

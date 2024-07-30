@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=19 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
 [ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="2_jlh0i"]
 [ext_resource type="Texture2D" uid="uid://crf83fhqi4d2p" path="res://assets/ui/alchemt_quit.png" id="3_8r4cp"]
 [ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="3_p2v7i"]
 [ext_resource type="Texture2D" uid="uid://cj2lso7uvr8j5" path="res://assets/ui/alchemy_reset.png" id="4_bjk4t"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="6_21alt"]
+[ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="7_t375t"]
+[ext_resource type="AudioStream" uid="uid://cxvjabjqcuqtk" path="res://assets/audio/sfx/object interaction - ui/sfx_kill_bad_memory.wav" id="8_lt53v"]
 
 [sub_resource type="FontFile" id="FontFile_jjpc7"]
 cache/0/16/0/ascent = 0.0
@@ -160,6 +163,13 @@ expand_margin_right = 2048.0
 expand_margin_bottom = 1940.0
 modulate_color = Color(0, 0.584314, 1, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewcqb"]
+texture = ExtResource("3_8r4cp")
+expand_margin_left = 1845.0
+expand_margin_top = 1845.0
+expand_margin_right = 1845.0
+expand_margin_bottom = 1845.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v7a1"]
 texture = ExtResource("4_bjk4t")
 expand_margin_left = 700.0
@@ -182,6 +192,13 @@ expand_margin_top = 700.0
 expand_margin_right = 700.0
 expand_margin_bottom = 700.0
 modulate_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvphx"]
+texture = ExtResource("4_bjk4t")
+expand_margin_left = 600.0
+expand_margin_top = 600.0
+expand_margin_right = 600.0
+expand_margin_bottom = 600.0
 
 [node name="Alchemy" type="Control"]
 layout_mode = 3
@@ -298,6 +315,7 @@ theme_override_font_sizes/font_size = 200
 theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6v7xn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_g18uj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_ewcqb")
 text = "Quit alchemy"
 icon_alignment = 1
 expand_icon = true
@@ -313,6 +331,7 @@ theme_override_font_sizes/font_size = 66
 theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qvphx")
 text = "Refresh"
 
 [node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
@@ -369,8 +388,25 @@ scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_21alt")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_t375t")
+bus = &"sfx"
+
+[node name="ButtonClickRefresh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_t375t")
+bus = &"sfx"
+
+[node name="Memory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_lt53v")
+
 [connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Refresh" to="." method="_on_refresh_mouse_entered"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
 
 [editable path="Inventory"]

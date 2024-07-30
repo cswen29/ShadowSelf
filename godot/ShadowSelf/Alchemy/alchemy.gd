@@ -23,6 +23,7 @@ func spawn():
 	await tween.finished
 	
 func _on_quit_pressed():
+	$ButtonClick.play()
 	GlobalVariables.paused = false
 	Engine.time_scale = 1
 
@@ -37,6 +38,7 @@ func update_sprites():
 	$Inventory.refreshSprites()
 
 func _on_refresh_pressed():
+	$ButtonClickRefresh.play()
 	update_sprites()
 	for child in self.get_children(true):
 		if child is AlchemySpot:
@@ -47,11 +49,20 @@ func _on_inventory_check_combinatio():
 	if $Future1.occupied and $Future2.occupied:
 		if $Future1.itemCategory == "Future" and $Future2.itemCategory == "Future":
 			giveResponsability.emit()
+			$Memory.play()
 			
 	if $Past1.occupied and $Past2.occupied and $Past3.occupied:
 		if $Past1.itemCategory == "Past" and $Past2.itemCategory == "Past" and $Past3.itemCategory == "Past":
 			giveNostalgia.emit()
+			$Memory.play()
 			
 	if $Present1.occupied and $Present2.occupied and $Present3.occupied and $Present4.occupied:
 		if $Present1.itemCategory == "Present" and $Present2.itemCategory == "Present" and $Present3.itemCategory == "Present" and $Present4.itemCategory == "Present":
 			giveReality.emit()
+			$Memory.play()
+
+func _on_quit_mouse_entered():
+	$ButtonHover.play()
+
+func _on_refresh_mouse_entered():
+	$ButtonHover.play()

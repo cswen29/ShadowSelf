@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dxsqgdawdvfeg"]
+[gd_scene load_steps=27 format=3 uid="uid://dxsqgdawdvfeg"]
 
 [ext_resource type="Script" path="res://GameManager/pause_menu/pause_menu.gd" id="1_hmed1"]
 [ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_nqfkw"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="4_h0o80"]
 [ext_resource type="Texture2D" uid="uid://svngy4f5rstn" path="res://assets/ui/inventory.png" id="5_gld0m"]
 [ext_resource type="Texture2D" uid="uid://c5q5pyewfbcl" path="res://assets/ui/settings_main.png" id="6_kiesu"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="9_lbphn"]
+[ext_resource type="AudioStream" uid="uid://d4jtvm0yjl84o" path="res://assets/audio/sfx/object interaction - ui/sfx_menu_button_click.wav" id="10_5u2vj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khbgb"]
 texture = ExtResource("3_kcroj")
@@ -223,7 +225,19 @@ offset_right = 1872.18
 offset_bottom = 999.878
 scale = Vector2(0.18879, 0.530763)
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lbphn")
+bus = &"sfx"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5u2vj")
+bus = &"sfx"
+
+[connection signal="mouse_entered" from="Resume" to="." method="_on_resume_mouse_entered"]
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="InventoryButton" to="." method="_on_inventory_button_mouse_entered"]
 [connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="mouse_entered" from="SettingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
