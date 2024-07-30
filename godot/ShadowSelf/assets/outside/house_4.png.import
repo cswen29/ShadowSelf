@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8nvrps6mla8"
-path="res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"
+uid="uid://cd8v2rteo66b1"
+path="res://.godot/imported/house_4.png-108ce455c79808cc04e3bcd42dd03faf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/icecream.png"
-dest_files=["res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"]
+source_file="res://assets/outside/house_4.png"
+dest_files=["res://.godot/imported/house_4.png-108ce455c79808cc04e3bcd42dd03faf.ctex"]
 
 [params]
 

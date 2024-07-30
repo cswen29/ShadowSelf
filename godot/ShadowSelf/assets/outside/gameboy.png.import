@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8nvrps6mla8"
-path="res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"
+uid="uid://cfcp12ygfu6ar"
+path="res://.godot/imported/gameboy.png-8b0e74c9e72b2605f237e8edd1a15a35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/icecream.png"
-dest_files=["res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"]
+source_file="res://assets/outside/gameboy.png"
+dest_files=["res://.godot/imported/gameboy.png-8b0e74c9e72b2605f237e8edd1a15a35.ctex"]
 
 [params]
 

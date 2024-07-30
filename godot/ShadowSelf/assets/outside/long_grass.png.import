@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq8nvrps6mla8"
-path="res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"
+uid="uid://b5afipuh8bcm8"
+path="res://.godot/imported/long_grass.png-7e7de349ba1ca2508a9e6f397a613bee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/inventory/icecream.png"
-dest_files=["res://.godot/imported/icecream.png-0f456242485941755d7c1b739c7da0a4.ctex"]
+source_file="res://assets/outside/long_grass.png"
+dest_files=["res://.godot/imported/long_grass.png-7e7de349ba1ca2508a9e6f397a613bee.ctex"]
 
 [params]
 

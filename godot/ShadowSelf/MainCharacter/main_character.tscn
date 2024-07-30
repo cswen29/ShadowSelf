@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://MainCharacter/MainCharacter.gd" id="1_kimwa"]
 [ext_resource type="Texture2D" uid="uid://d17sv652d8p78" path="res://assets/human/walk_cycle.PNG" id="2_fux7m"]
 [ext_resource type="Texture2D" uid="uid://b5kbvuovpb56d" path="res://assets/human/walk_cycle_background.PNG" id="3_luih8"]
+[ext_resource type="Texture2D" uid="uid://d0b0tft3a5y07" path="res://assets/human/idle_1.png" id="4_g47cf"]
 [ext_resource type="Shader" path="res://MainCharacter/headache.gdshader" id="4_hp7jk"]
 [ext_resource type="AudioStream" uid="uid://c7odc526tno74" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_1.wav" id="5_3f4kj"]
 [ext_resource type="AudioStream" uid="uid://4yo26kxntqf6" path="res://assets/audio/sfx/footsteps/untitled.mp3" id="5_127r2"]
@@ -132,14 +133,6 @@ shader_parameter/scroll_down = Vector2(4, -2)
 shader_parameter/distortion_strength = 0.00200005
 shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qh0v4"]
-atlas = ExtResource("2_fux7m")
-region = Rect2(0, 0, 990, 1790)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5g2f4"]
-atlas = ExtResource("2_fux7m")
-region = Rect2(1980, 1790, 990, 1790)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx1oi"]
 atlas = ExtResource("2_fux7m")
 region = Rect2(0, 0, 990, 1790)
@@ -176,14 +169,14 @@ region = Rect2(2970, 1790, 990, 1790)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qh0v4")
+"texture": ExtResource("4_g47cf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5g2f4")
+"texture": ExtResource("5_gohj5")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -256,10 +249,11 @@ mouse_filter = 2
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.37, 0.37, 0.37, 1)
 self_modulate = Color(1, 1, 1, 0.945098)
+position = Vector2(-3, -2)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sphv2")
-animation = &"walk_cycle"
-frame_progress = 0.0799469
+animation = &"idle"
+frame_progress = 0.00721624
 
 [node name="Wander" type="Timer" parent="."]
 wait_time = 6.0

@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="15_1nxm1"]
 [ext_resource type="Texture2D" uid="uid://db1cy7v76exqt" path="res://assets/bedroom/mirror_v2.PNG" id="15_2jcub"]
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="15_cw4hq"]
+[ext_resource type="Texture2D" uid="uid://bfr4poq7pso8d" path="res://assets/bedroom/watch_box.PNG" id="15_wegw3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7imr"]
 shader = ExtResource("1_ghnme")
@@ -55,7 +56,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
 modulate = Color(0.490196, 0.490196, 0.490196, 1)
 z_index = 16
-position = Vector2(2694, 289)
+position = Vector2(2657, 193)
 scale = Vector2(1.22616, 1.31593)
 texture = ExtResource("8_dtxq7")
 
@@ -65,7 +66,7 @@ scale = Vector2(11.5468, 26.5541)
 shape = SubResource("CapsuleShape2D_3uo2f")
 
 [node name="Shelf" parent="." instance=ExtResource("15_cw4hq")]
-position = Vector2(1550, -113)
+position = Vector2(1706, -18)
 texture = ExtResource("6_wsnoc")
 
 [node name="CollisionShape2D" parent="Shelf/Area2D" index="0"]
@@ -74,7 +75,7 @@ scale = Vector2(9.47608, 23.617)
 shape = SubResource("RectangleShape2D_jj2qx")
 
 [node name="Mirror" parent="." instance=ExtResource("15_cw4hq")]
-position = Vector2(1461, 145)
+position = Vector2(1464, 161)
 texture = ExtResource("15_2jcub")
 
 [node name="CollisionShape2D" parent="Mirror/Area2D" index="0"]
@@ -85,7 +86,7 @@ scale = Vector2(9.47608, 23.617)
 layer = -1
 
 [node name="-2" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0.7, 0.7)
+motion_scale = Vector2(0.9, 0.9)
 
 [node name="Wall" type="Sprite2D" parent="Background/-2"]
 position = Vector2(1217, -54)
@@ -106,11 +107,11 @@ texture = ExtResource("11_5kcwy")
 
 [node name="Bed" type="Sprite2D" parent="Background/-1"]
 z_index = 3
-position = Vector2(1508.89, 284.444)
+position = Vector2(1461, 187)
 texture = ExtResource("9_08rgn")
 
 [node name="Hamper" type="Sprite2D" parent="Background/-1"]
-position = Vector2(1322, 308)
+position = Vector2(1394, 181)
 texture = ExtResource("7_rxb18")
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
@@ -149,6 +150,13 @@ shape = SubResource("RectangleShape2D_5neiv")
 position = Vector2(-708.5, -212.969)
 scale = Vector2(5.81733, -99.2061)
 shape = SubResource("RectangleShape2D_q4jsx")
+[node name="Watch" parent="." instance=ExtResource("15_cw4hq")]
+position = Vector2(-105, -119)
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("15_wegw3")
+
+[node name="CollisionShape2D" parent="Watch/Area2D" index="0"]
+shape = SubResource("CircleShape2D_1hqu1")
 
 [connection signal="input_event" from="Door/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Shelf/Area2D" to="." method="_on_shelf_input_event"]
@@ -161,3 +169,4 @@ shape = SubResource("RectangleShape2D_q4jsx")
 [editable path="Door"]
 [editable path="Shelf"]
 [editable path="Mirror"]
+[editable path="Watch"]
