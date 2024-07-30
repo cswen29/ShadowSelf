@@ -1,16 +1,31 @@
-[gd_scene load_steps=13 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=28 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
+[ext_resource type="Texture2D" uid="uid://dovcfrvcerf1n" path="res://assets/outside/house_1.png" id="3_qmb6e"]
 [ext_resource type="Texture2D" uid="uid://b4r5mm6ee5yn8" path="res://assets/outside/sky.PNG" id="4_kho2s"]
+[ext_resource type="Texture2D" uid="uid://dpll3vudidvd6" path="res://assets/outside/house_2.png" id="4_mx6pq"]
 [ext_resource type="Texture2D" uid="uid://cpds3o5n01nof" path="res://assets/outside/road.PNG" id="5_5ff0t"]
+[ext_resource type="Texture2D" uid="uid://bwcotcy60blhg" path="res://assets/outside/house_3.png" id="5_nafbo"]
 [ext_resource type="Texture2D" uid="uid://cvfpnh46qa6kq" path="res://assets/outside/pavement.PNG" id="6_8elsh"]
+[ext_resource type="Texture2D" uid="uid://cd8v2rteo66b1" path="res://assets/outside/house_4.png" id="6_sc3o6"]
 [ext_resource type="Texture2D" uid="uid://5gp8d3hjcn26" path="res://assets/outside/grass_front.PNG" id="7_1yp58"]
-[ext_resource type="Texture2D" uid="uid://dflkfeimw8uuq" path="res://assets/outside/tree_1.PNG" id="8_6ijey"]
+[ext_resource type="Texture2D" uid="uid://dflkfeimw8uuq" path="res://assets/outside/tree_1.png" id="8_6ijey"]
+[ext_resource type="Texture2D" uid="uid://bx1vjdnefvv2q" path="res://assets/outside/tree_2.png" id="8_65vow"]
 [ext_resource type="Texture2D" uid="uid://ce1t67dsfgk0n" path="res://assets/outside/tree_3.png" id="9_bu3xb"]
+[ext_resource type="Texture2D" uid="uid://c3i2rlav5av1p" path="res://assets/outside/tree_4.png" id="10_02b6r"]
 [ext_resource type="Texture2D" uid="uid://cr75gw8121ji0" path="res://assets/outside/bush_1.png" id="10_61x83"]
 [ext_resource type="Texture2D" uid="uid://bgdfpcn5npbpj" path="res://assets/outside/bush_2.png" id="11_mpigc"]
+[ext_resource type="Texture2D" uid="uid://b6212f0px8qma" path="res://assets/outside/fence_1.PNG" id="11_xu180"]
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="12_by6t7"]
+[ext_resource type="Texture2D" uid="uid://chp7kglmcq8vc" path="res://assets/outside/fence_2.PNG" id="12_m0b7u"]
 [ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/circle-clipart-black.png" id="13_gs8gt"]
+[ext_resource type="Texture2D" uid="uid://55v00bpvn587" path="res://assets/outside/lake_ground.png" id="15_86vg7"]
+[ext_resource type="Texture2D" uid="uid://yhxns7js4iwg" path="res://assets/outside/bush_3.png" id="18_xpqgu"]
+[ext_resource type="Texture2D" uid="uid://3nfysn8scate" path="res://assets/outside/flowers_item.png" id="20_bnhhp"]
+[ext_resource type="Texture2D" uid="uid://b2pwfi12nvlfo" path="res://assets/outside/memory_tree.PNG" id="21_nxtwj"]
+[ext_resource type="Texture2D" uid="uid://cfcp12ygfu6ar" path="res://assets/outside/gameboy.png" id="23_be4mq"]
+[ext_resource type="Texture2D" uid="uid://c67tx52o0ls6b" path="res://assets/outside/mailbox.PNG" id="24_uup81"]
+[ext_resource type="Texture2D" uid="uid://bdk2ltnkwk0q8" path="res://assets/outside/ice_cream_cart.PNG" id="25_d05mt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0awhx"]
 radius = 372.47
@@ -21,18 +36,112 @@ script = ExtResource("1_of5mx")
 
 [node name="Layers" type="Sprite2D" parent="."]
 
-[node name="-3" type="CanvasLayer" parent="Layers"]
-layer = -3
+[node name="-4" type="CanvasLayer" parent="Layers"]
+layer = -10
 follow_viewport_enabled = true
 follow_viewport_scale = 0.5
 
-[node name="Sky" type="Sprite2D" parent="Layers/-3"]
+[node name="Sky" type="Sprite2D" parent="Layers/-4"]
 texture_repeat = 2
-position = Vector2(-458, -734)
+position = Vector2(672, -188)
 scale = Vector2(4, 4)
 texture = ExtResource("4_kho2s")
 region_enabled = true
-region_rect = Rect2(0, 0, 8269.69, 1080)
+region_rect = Rect2(0, 0, 11500, 1080)
+
+[node name="-3" type="CanvasLayer" parent="Layers"]
+layer = -3
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Houses" type="Sprite2D" parent="Layers/-3"]
+position = Vector2(-4396.67, 266.667)
+scale = Vector2(0.75, 0.75)
+
+[node name="House1" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(-15403, -515.556)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_qmb6e")
+
+[node name="House12" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(8980.74, -628.148)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_qmb6e")
+
+[node name="House13" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(20168.9, -628.148)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_qmb6e")
+
+[node name="House2" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(-12494.4, -1100)
+texture = ExtResource("4_mx6pq")
+
+[node name="House22" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(862.225, -1125.93)
+texture = ExtResource("4_mx6pq")
+
+[node name="House23" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(-12494.4, -1100)
+texture = ExtResource("4_mx6pq")
+
+[node name="House24" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(16850.4, -1004.44)
+texture = ExtResource("4_mx6pq")
+
+[node name="House3" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(-8097.78, -1705.19)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_nafbo")
+
+[node name="House32" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(5179.26, -1705.19)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_nafbo")
+
+[node name="House4" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(-3208.89, -1437.04)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_sc3o6")
+
+[node name="House42" type="Sprite2D" parent="Layers/-3/Houses"]
+position = Vector2(12577.8, -1437.04)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("6_sc3o6")
+
+[node name="-2" type="CanvasLayer" parent="Layers"]
+layer = -1
+visible = false
+follow_viewport_enabled = true
+follow_viewport_scale = 0.9
+
+[node name="Trees" type="Sprite2D" parent="Layers/-2"]
+position = Vector2(-7152.22, -1062.22)
+scale = Vector2(2, 2)
+
+[node name="Tree" type="Sprite2D" parent="Layers/-2/Trees"]
+position = Vector2(2125.42, -5.00002)
+texture = ExtResource("8_6ijey")
+
+[node name="Tree2" type="Sprite2D" parent="Layers/-2/Trees"]
+position = Vector2(-587.917, 1.66665)
+texture = ExtResource("8_65vow")
+
+[node name="Tree3" type="Sprite2D" parent="Layers/-2/Trees"]
+position = Vector2(-1894.58, -51.6667)
+texture = ExtResource("9_bu3xb")
+
+[node name="Tree4" type="Sprite2D" parent="Layers/-2/Trees"]
+position = Vector2(-3525.42, -876.25)
+texture = ExtResource("10_02b6r")
+
+[node name="Fences" type="Sprite2D" parent="Layers/-2"]
+
+[node name="Fence1" type="Sprite2D" parent="Layers/-2/Fences"]
+texture = ExtResource("11_xu180")
+
+[node name="Fence2" type="Sprite2D" parent="Layers/-2/Fences"]
+texture = ExtResource("12_m0b7u")
 
 [node name="-1" type="CanvasLayer" parent="Layers"]
 layer = -1
@@ -53,11 +162,16 @@ follow_viewport_enabled = true
 
 [node name="Road" type="Sprite2D" parent="Layers/0"]
 texture_repeat = 2
-position = Vector2(-713, 833)
-scale = Vector2(2, 2)
+position = Vector2(-2014, 892)
+scale = Vector2(2.3, 2.3)
 texture = ExtResource("5_5ff0t")
 region_enabled = true
-region_rect = Rect2(0, 0, 20706.3, 350)
+region_rect = Rect2(0, 0, 15000, 350)
+
+[node name="Lake" type="Sprite2D" parent="Layers/0"]
+position = Vector2(17101, 897)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("15_86vg7")
 
 [node name="1" type="CanvasLayer" parent="Layers"]
 follow_viewport_enabled = true
@@ -65,11 +179,11 @@ follow_viewport_scale = 1.1
 
 [node name="Pavement" type="Sprite2D" parent="Layers/1"]
 texture_repeat = 2
-position = Vector2(1808, 1057)
+position = Vector2(-2095.45, 1024.55)
 scale = Vector2(2, 2)
 texture = ExtResource("6_8elsh")
 region_enabled = true
-region_rect = Rect2(0, 68.8275, 25758.9, 281.173)
+region_rect = Rect2(0, 68.827, 14925, 281.173)
 
 [node name="Grass" type="Sprite2D" parent="Layers/1"]
 z_index = -1
@@ -81,48 +195,76 @@ region_rect = Rect2(0, 0, 20000, 300)
 
 [node name="2" type="CanvasLayer" parent="Layers"]
 layer = 2
+visible = false
 follow_viewport_enabled = true
 follow_viewport_scale = 1.2
 
 [node name="Trees" type="Sprite2D" parent="Layers/2"]
 modulate = Color(1, 1, 1, 0.541176)
-position = Vector2(-263.333, -357.5)
+position = Vector2(516.667, -407.5)
 scale = Vector2(2, 2)
-texture = ExtResource("8_6ijey")
 
 [node name="Tree" type="Sprite2D" parent="Layers/2/Trees"]
-position = Vector2(2645.45, -51.8182)
+position = Vector2(2125.42, -5.00002)
+texture = ExtResource("8_6ijey")
+
+[node name="Tree2" type="Sprite2D" parent="Layers/2/Trees"]
+position = Vector2(-587.917, 1.66665)
+texture = ExtResource("8_65vow")
+
+[node name="Tree3" type="Sprite2D" parent="Layers/2/Trees"]
+position = Vector2(-1894.58, -51.6667)
 texture = ExtResource("9_bu3xb")
+
+[node name="Tree4" type="Sprite2D" parent="Layers/2/Trees"]
+position = Vector2(-3525.42, -876.25)
+texture = ExtResource("10_02b6r")
 
 [node name="Bushes" type="Sprite2D" parent="Layers/2"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Layers/2/Bushes"]
-position = Vector2(-2175, 141.667)
+[node name="Bush1" type="Sprite2D" parent="Layers/2/Bushes"]
+position = Vector2(-2820.83, 237.5)
 texture = ExtResource("10_61x83")
 
-[node name="Sprite2D" type="Sprite2D" parent="Layers/2/Bushes"]
+[node name="Bush2" type="Sprite2D" parent="Layers/2/Bushes"]
 position = Vector2(211.667, 932.5)
 texture = ExtResource("11_mpigc")
+
+[node name="Bush3" type="Sprite2D" parent="Layers/2/Bushes"]
+position = Vector2(-920.833, 491.667)
+texture = ExtResource("18_xpqgu")
+
+[node name="Fences" type="Sprite2D" parent="Layers/2"]
+position = Vector2(-3951.67, 340)
+
+[node name="Fence1" type="Sprite2D" parent="Layers/2/Fences"]
+texture = ExtResource("11_xu180")
+
+[node name="Fence2" type="Sprite2D" parent="Layers/2/Fences"]
+texture = ExtResource("12_m0b7u")
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="Layers"]
 
 [node name="Flower" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(-4053, 997)
+visible = false
+position = Vector2(-3766, 1088)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+texture = ExtResource("20_bnhhp")
 
 [node name="CollisionShape2D" parent="Flower/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="NostalgicTree" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(5.99976, 965)
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+visible = false
+position = Vector2(1803, -379)
+scale = Vector2(1.39639, 1.422)
+texture = ExtResource("21_nxtwj")
 
 [node name="CollisionShape2D" parent="NostalgicTree/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="NostalgicBridge" parent="." instance=ExtResource("12_by6t7")]
+visible = false
 position = Vector2(-8539, 987)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("13_gs8gt")
@@ -130,34 +272,29 @@ texture = ExtResource("13_gs8gt")
 [node name="CollisionShape2D" parent="NostalgicBridge/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
-[node name="Watch" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(4171, 1027)
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
-
-[node name="CollisionShape2D" parent="Watch/Area2D" index="0"]
-shape = SubResource("CircleShape2D_0awhx")
-
 [node name="Gameboy" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(7250, 1103)
+visible = false
+position = Vector2(-7384, 1043)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+texture = ExtResource("23_be4mq")
 
 [node name="CollisionShape2D" parent="Gameboy/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="CollegeLetter" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(10408, 1179)
+visible = false
+position = Vector2(-13379, 1148)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+texture = ExtResource("24_uup81")
 
 [node name="CollisionShape2D" parent="CollegeLetter/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="IceCream" parent="." instance=ExtResource("12_by6t7")]
+visible = false
 position = Vector2(12844, 1103)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+texture = ExtResource("25_d05mt")
 
 [node name="CollisionShape2D" parent="IceCream/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")
@@ -165,7 +302,6 @@ shape = SubResource("CircleShape2D_0awhx")
 [connection signal="input_event" from="Flower/Area2D" to="." method="_on_flower_2d_input_event"]
 [connection signal="input_event" from="NostalgicTree/Area2D" to="." method="_on_tree_input_event"]
 [connection signal="input_event" from="NostalgicBridge/Area2D" to="." method="_on_bridge_input_event"]
-[connection signal="input_event" from="Watch/Area2D" to="." method="_on_watch_input_event"]
 [connection signal="input_event" from="Gameboy/Area2D" to="." method="_on_gameboy_input_event"]
 [connection signal="input_event" from="CollegeLetter/Area2D" to="." method="_on_letter_input_event"]
 [connection signal="input_event" from="IceCream/Area2D" to="." method="_on_icecream_input_event"]
@@ -173,7 +309,6 @@ shape = SubResource("CircleShape2D_0awhx")
 [editable path="Flower"]
 [editable path="NostalgicTree"]
 [editable path="NostalgicBridge"]
-[editable path="Watch"]
 [editable path="Gameboy"]
 [editable path="CollegeLetter"]
 [editable path="IceCream"]
