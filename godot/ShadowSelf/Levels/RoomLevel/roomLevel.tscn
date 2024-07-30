@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
 [ext_resource type="PackedScene" uid="uid://bni8htn0chjok" path="res://Minigames/1st/minigame.tscn" id="2_sdi77"]
 [ext_resource type="Texture2D" uid="uid://bcwtnmefl06lj" path="res://assets/bedroom/window_v2.PNG" id="5_5nnxx"]
+[ext_resource type="Texture2D" uid="uid://cxskp0qy28yy7" path="res://assets/bedroom/door_v2.PNG" id="5_bj1s2"]
 [ext_resource type="Texture2D" uid="uid://diwjxp5u51d6i" path="res://assets/bedroom/shelf_v2.PNG" id="6_wsnoc"]
 [ext_resource type="Texture2D" uid="uid://crbnayq1r1m7j" path="res://assets/bedroom/hamper_v2.PNG" id="7_rxb18"]
 [ext_resource type="Texture2D" uid="uid://rcwutehgj73m" path="res://assets/bedroom/bg_v1.PNG" id="7_wgpti"]
-[ext_resource type="Texture2D" uid="uid://cmtpi57o1c2pw" path="res://assets/bedroom/door.PNG" id="8_dtxq7"]
 [ext_resource type="Texture2D" uid="uid://b16lglqip6l5m" path="res://assets/bedroom/bed_v2.PNG" id="9_08rgn"]
 [ext_resource type="Texture2D" uid="uid://dlabo8y5ket1m" path="res://assets/bedroom/bookshelf_v2.PNG" id="10_0m5an"]
 [ext_resource type="Texture2D" uid="uid://b8hxos7vpq4mr" path="res://assets/bedroom/floor_v1.PNG" id="11_5kcwy"]
@@ -59,9 +59,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
 modulate = Color(0.878431, 0.87451, 0.847059, 0.501961)
 z_index = 16
-position = Vector2(2657, 193)
+position = Vector2(1322, 236)
 scale = Vector2(1.22616, 1.31593)
-texture = ExtResource("8_dtxq7")
+texture = ExtResource("5_bj1s2")
+
+[node name="Area2D" parent="Door" index="0"]
+position = Vector2(946.043, 66.8729)
 
 [node name="CollisionShape2D" parent="Door/Area2D" index="0"]
 position = Vector2(20.3889, -10.6389)

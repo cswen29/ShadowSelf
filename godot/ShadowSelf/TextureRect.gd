@@ -40,10 +40,10 @@ func _ready():
 	
 	await get_tree().create_timer(3).timeout
 	tween = create_tween().set_parallel(true)
-	tween.tween_property($Label, "text", "", 2)
-	tween.tween_property($Label2, "text", "", 2)
-	tween.tween_property($Label3, "text", "", 2)
-	tween.tween_property($Label4, "text", "", 2)
+	tween.tween_property($Label, "text", "", 1)
+	tween.tween_property($Label2, "text", "", 1)
+	tween.tween_property($Label3, "text", "", 1)
+	tween.tween_property($Label4, "text", "", 1)
 	
 	await tween.finished
 
@@ -69,10 +69,10 @@ func _ready():
 	
 	await get_tree().create_timer(3).timeout
 	tween = create_tween().set_parallel(true)
-	tween.tween_property($TextureRect/Label, "text", "", 2)
-	tween.tween_property($TextureRect/Label2, "text", "", 2)
-	tween.tween_property($TextureRect/Label3, "text", "", 2)
-	tween.tween_property($TextureRect/Label4, "text", "", 2)
+	tween.tween_property($TextureRect/Label, "text", "", 1)
+	tween.tween_property($TextureRect/Label2, "text", "", 1)
+	tween.tween_property($TextureRect/Label3, "text", "", 1)
+	tween.tween_property($TextureRect/Label4, "text", "", 1)
 	
 	await tween.finished
 

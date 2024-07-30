@@ -1,10 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://cma0bkevj2j4y"]
+[gd_scene load_steps=43 format=3 uid="uid://cma0bkevj2j4y"]
 
 [ext_resource type="Script" path="res://MainCharacter/MainCharacter.gd" id="1_kimwa"]
 [ext_resource type="Texture2D" uid="uid://d17sv652d8p78" path="res://assets/human/walk_cycle.PNG" id="2_fux7m"]
 [ext_resource type="Texture2D" uid="uid://b5kbvuovpb56d" path="res://assets/human/walk_cycle_background.PNG" id="3_luih8"]
 [ext_resource type="Texture2D" uid="uid://d0b0tft3a5y07" path="res://assets/human/idle_1.png" id="4_g47cf"]
-[ext_resource type="Shader" path="res://MainCharacter/headache.gdshader" id="4_hp7jk"]
 [ext_resource type="Texture2D" uid="uid://dbi3vjofylpqo" path="res://assets/human/idle_2.png" id="5_gohj5"]
 [ext_resource type="AudioStream" uid="uid://d4jtvm0yjl84o" path="res://assets/audio/sfx/object interaction - ui/sfx_menu_button_click.wav" id="7_vmebr"]
 [ext_resource type="AudioStream" uid="uid://c7odc526tno74" path="res://assets/audio/sfx/footsteps/sfx_footsteps_inside_1.wav" id="8_3pt4b"]
@@ -118,21 +117,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t0oep"]
-seed = 3
-frequency = 0.0158
-offset = Vector3(974.36, 0, 0)
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wyqw2"]
-noise = SubResource("FastNoiseLite_t0oep")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dxa1"]
-shader = ExtResource("4_hp7jk")
-shader_parameter/scroll_up = Vector2(-4, 2)
-shader_parameter/scroll_down = Vector2(4, -2)
-shader_parameter/distortion_strength = 0.00200005
-shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wyqw2")
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx1oi"]
 atlas = ExtResource("2_fux7m")
 region = Rect2(0, 0, 990, 1790)
@@ -237,14 +221,6 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
 animation = &"walk_cycle"
 frame_progress = 0.0201132
-
-[node name="Distortion" type="ColorRect" parent="SpriteColor"]
-material = SubResource("ShaderMaterial_6dxa1")
-offset_left = -545.0
-offset_top = -860.0
-offset_right = 560.0
-offset_bottom = 880.0
-mouse_filter = 2
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.37, 0.37, 0.37, 1)

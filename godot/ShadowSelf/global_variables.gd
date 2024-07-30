@@ -1,8 +1,8 @@
 extends Node
 
 var character_pos : Vector2 = Vector2(500,500)
-var inventory: Array = ["PhoneCall", "Watch", "Gameboy"]
-var trees_unlocked: Array = ["Past", "Present"]
+var inventory: Array = ["Watch"]
+var trees_unlocked: Array = []
 var paused : bool = false
 var isDragging: bool = false
 var playerOffLimitsRight: bool = false
@@ -13,7 +13,7 @@ var itemAttr : Dictionary = {
 	"BridgePebbles": ["An old rusty bridge.", "We used to throw rocks here.\nDad could make the rocks skip 7 times in the water.", "Past"],
 	"Tree": ["A tree with a swing.", "We used to play here.\nIt was like flying.",  "Past"],
 	"NostalgicMemory": ["", "I miss them.", "Past"],
-	"PhoneCall": ["My uncle is complaining about my younger sister again.", "TAKE RESPONSIBILITY.",  "Future"],
+	"PhoneCall": ["My uncle called me complaining about my younger sister again.", "TAKE RESPONSIBILITY.",  "Future"],
 	"Watch": [ "Grandpa's old watch.", "Never waste time, not even a second.",  "Future"],
 	"ResponsabilityMemory": ["", "I have so many things to do.",  "Future"],
 	"IceCream": [ "It's too cold out for an ice cream now.", "Tastes as good as ever.",  "Present"],

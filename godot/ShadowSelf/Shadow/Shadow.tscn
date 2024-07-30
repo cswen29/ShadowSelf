@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bl5tn3x1pkq82"]
 
 [ext_resource type="Script" path="res://Shadow/Shadow.gd" id="1_fbo1d"]
-[ext_resource type="Texture2D" uid="uid://c4yk0muq1l5mx" path="res://assets/circle-clipart-black.png" id="2_tbokp"]
+[ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/shadow.png" id="2_tw8r4"]
 [ext_resource type="PackedScene" uid="uid://d2b1q67cphll2" path="res://ShadowTrail/ShadowTrailScene.tscn" id="3_45t55"]
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailExtension.gd" id="4_x1i1o"]
 [ext_resource type="PackedScene" uid="uid://b5bjsidrxt43g" path="res://Blink/Blink.tscn" id="5_i6oja"]
@@ -17,7 +17,7 @@ script = ExtResource("1_fbo1d")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.99998, -7)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tbokp")
+texture = ExtResource("2_tw8r4")
 
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
 visible = false
@@ -29,6 +29,9 @@ max_length = 30
 
 [node name="Blink" parent="." instance=ExtResource("5_i6oja")]
 position = Vector2(0, -2)
+
+[node name="AnimatedSprite2D" parent="Blink" index="0"]
+frame_progress = 0.0
 
 [node name="ShadowArea" type="Area2D" parent="."]
 

@@ -73,7 +73,7 @@ label_settings = SubResource("LabelSettings_ex86t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(285, 148)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="ItemName" type="Label" parent="."]
 layout_mode = 0

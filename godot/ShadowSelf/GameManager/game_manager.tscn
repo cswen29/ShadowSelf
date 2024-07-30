@@ -195,6 +195,7 @@ speed_scale = 0.2
 layer = 6
 
 [node name="BlackBackground" type="ColorRect" parent="Transition/CanvasLayer"]
+visible = false
 top_level = true
 z_index = 1
 offset_left = -41927.0

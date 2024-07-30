@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=32 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
 [ext_resource type="Texture2D" uid="uid://dovcfrvcerf1n" path="res://assets/outside/house_1.png" id="3_qmb6e"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="12_by6t7"]
 [ext_resource type="Texture2D" uid="uid://chp7kglmcq8vc" path="res://assets/outside/fence_2.PNG" id="12_m0b7u"]
 [ext_resource type="AudioStream" uid="uid://buwwtbp6xxsjk" path="res://assets/audio/sfx/ambience/sfx_ambience_outside.wav" id="12_thsts"]
-[ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/circle-clipart-black.png" id="13_gs8gt"]
+[ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/shadow.png" id="13_gs8gt"]
 [ext_resource type="Texture2D" uid="uid://55v00bpvn587" path="res://assets/outside/lake_ground.png" id="15_86vg7"]
 [ext_resource type="Texture2D" uid="uid://yhxns7js4iwg" path="res://assets/outside/bush_3.png" id="18_xpqgu"]
 [ext_resource type="Texture2D" uid="uid://3nfysn8scate" path="res://assets/outside/flowers_item.png" id="20_bnhhp"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cfcp12ygfu6ar" path="res://assets/outside/gameboy.png" id="23_be4mq"]
 [ext_resource type="Texture2D" uid="uid://c67tx52o0ls6b" path="res://assets/outside/mailbox.PNG" id="24_uup81"]
 [ext_resource type="Texture2D" uid="uid://bdk2ltnkwk0q8" path="res://assets/outside/ice_cream_cart.PNG" id="25_d05mt"]
+[ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter/main_character.tscn" id="28_bkn5s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0awhx"]
 radius = 372.47
@@ -194,7 +195,6 @@ region_enabled = true
 region_rect = Rect2(0, 68.827, 14925, 281.173)
 
 [node name="Grass" type="Sprite2D" parent="Layers/1"]
-z_index = -1
 texture_repeat = 2
 position = Vector2(12, 894)
 texture = ExtResource("7_1yp58")
@@ -314,6 +314,9 @@ stream = ExtResource("12_thsts")
 volume_db = 5.0
 autoplay = true
 bus = &"sfx"
+
+[node name="MainCharacter" parent="SFX/Ambience" instance=ExtResource("28_bkn5s")]
+position = Vector2(-68, 691)
 
 [node name="RightLimit" type="Area2D" parent="."]
 position = Vector2(17544, 672)
