@@ -206,7 +206,7 @@ offset_left = -508.0
 offset_top = -918.0
 offset_right = 2054.0
 offset_bottom = 1188.0
-color = Color(1, 0.27451, 1, 1)
+color = Color(0.875215, 0.493938, 0.831127, 0.701961)
 
 [node name="Tutorial" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -307,7 +307,6 @@ libraries = {
 speed_scale = 0.5
 
 [node name="BlackBackground" type="ColorRect" parent="Transition"]
-visible = false
 offset_left = -448.0
 offset_top = -245.0
 offset_right = 2026.0
