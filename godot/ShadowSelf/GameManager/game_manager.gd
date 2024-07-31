@@ -211,7 +211,7 @@ func _on_alchemy_give_reality():
 		#$Music/Layer3.volume_db += db_to_linear(10)
 
 func win():
-	await get_tree().create_timer(20).timeout
+	await get_tree().create_timer(10).timeout
 	transition.play("fade_out")
 	await get_tree().create_timer(4).timeout
 	get_tree().change_scene_to_packed(ending)

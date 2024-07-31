@@ -83,8 +83,8 @@ text = "You picked up: "
 label_settings = SubResource("LabelSettings_ex86t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(285, 148)
-scale = Vector2(1.6, 1.6)
+position = Vector2(253, 183)
+scale = Vector2(1.015, 1.015)
 
 [node name="ItemName" type="Label" parent="."]
 layout_mode = 0

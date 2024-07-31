@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://GameManager/Inventory/inventory.gd" id="1_algll"]
 [ext_resource type="PackedScene" uid="uid://dqdi6djivahcu" path="res://GameManager/Item/item.tscn" id="2_nrd52"]
 [ext_resource type="PackedScene" uid="uid://csxc1qnwe173s" path="res://GameManager/Inventory/inventory_spot.tscn" id="3_3ca6m"]
-[ext_resource type="Texture2D" uid="uid://dwa4774eyrnj1" path="res://assets/inventory/PhoneCall.PNG" id="4_edrs1"]
+[ext_resource type="Texture2D" uid="uid://dwa4774eyrnj1" path="res://assets/inventory/PhoneCall.png" id="4_340g4"]
 [ext_resource type="Texture2D" uid="uid://bxnj5a4uk4qa6" path="res://assets/inventory/Gameboy.png" id="4_fwe6x"]
 [ext_resource type="Texture2D" uid="uid://c4clnbw4p61u7" path="res://assets/inventory/BridgePebbles.png" id="5_b41et"]
 [ext_resource type="Texture2D" uid="uid://cxu2v035cpoko" path="res://assets/inventory/Watch.png" id="5_ik3wg"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ckw25ixpjta2h" path="res://assets/inventory/CollegeLetter.png" id="7_wgv6i"]
 [ext_resource type="Texture2D" uid="uid://dyshy1s8nrspp" path="res://assets/inventory/PictureOfFamily.png" id="8_w2mmj"]
 [ext_resource type="Texture2D" uid="uid://bwa5uay46y3sg" path="res://assets/inventory/Flower.png" id="9_aknkq"]
-[ext_resource type="Texture2D" uid="uid://c4rc8jpro2jx3" path="res://assets/inventory/Tree.PNG" id="10_nutvl"]
+[ext_resource type="Texture2D" uid="uid://c4rc8jpro2jx3" path="res://assets/inventory/Tree.png" id="10_g57iv"]
 [ext_resource type="Texture2D" uid="uid://bqb3pke4gatnw" path="res://assets/inventory/NostalgicMemory.png" id="11_n5sqb"]
 [ext_resource type="Texture2D" uid="uid://svngy4f5rstn" path="res://assets/ui/inventory.png" id="11_uv45j"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="12_a1lnj"]
@@ -70,7 +70,7 @@ visible = false
 z_index = 1
 position = Vector2(359.008, 274.655)
 scale = Vector2(0.395, 0.395)
-texture = ExtResource("4_edrs1")
+texture = ExtResource("4_340g4")
 skip = true
 
 [node name="Watch" parent="Future" instance=ExtResource("2_nrd52")]
@@ -128,7 +128,7 @@ visible = false
 z_index = 1
 position = Vector2(42.1579, 186.637)
 scale = Vector2(0.395, 0.395)
-texture = ExtResource("10_nutvl")
+texture = ExtResource("10_g57iv")
 skip = true
 
 [node name="NostalgicMemory" parent="Past" instance=ExtResource("2_nrd52")]
