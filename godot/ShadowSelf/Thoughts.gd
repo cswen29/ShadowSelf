@@ -15,6 +15,6 @@ func _physics_process(_delta):
 
 func _on_area_2d_area_entered(area):
 	if (area.name == "PlayerArea") || (area.name == "ShadowArea"):
-		await get_tree().create_timer(0.01).timeout
+		await get_tree().create_timer(0.1).timeout
 		self.queue_free()
 		$Die.play()
