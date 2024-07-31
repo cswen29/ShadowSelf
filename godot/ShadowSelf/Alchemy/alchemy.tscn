@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=26 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
 [ext_resource type="Texture2D" uid="uid://dvcef8rdt02pp" path="res://assets/ui/alchemy_menu.png" id="2_a2ugk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bqb3pke4gatnw" path="res://assets/inventory/NostalgicMemory.png" id="6_hnvwo"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="7_t375t"]
 [ext_resource type="Texture2D" uid="uid://bghtptm6gk3y2" path="res://assets/inventory/RealityMemory.png" id="7_wqai7"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="8_2pktc"]
 [ext_resource type="AudioStream" uid="uid://cxvjabjqcuqtk" path="res://assets/audio/sfx/object interaction - ui/sfx_kill_bad_memory.wav" id="8_lt53v"]
 [ext_resource type="AudioStream" uid="uid://c8d1qfugun7if" path="res://assets/audio/sfx/object interaction - ui/sfx_refresh.wav" id="13_eothv"]
 
@@ -292,12 +293,11 @@ skip = false
 
 [node name="Name" parent="Inventory/Past/Gameboy" index="1"]
 modulate = Color(0, 0.658824, 0, 0.678431)
+text = "
+"
 
-[node name="Bridge" parent="Inventory/Past" index="1"]
-skip = false
-
-[node name="Name" parent="Inventory/Past/Bridge" index="1"]
-modulate = Color(0, 0.658824, 0, 0.678431)
+[node name="Name" parent="Inventory/Past/BridgePebbles" index="1"]
+modulate = Color(0, 0.466667, 0, 1)
 
 [node name="Tree" parent="Inventory/Past" index="2"]
 skip = false
@@ -466,6 +466,7 @@ offset_right = 1880.28
 offset_bottom = 1121.13
 scale = Vector2(0.0944184, 0.0316674)
 theme = SubResource("Theme_4lvlq")
+theme_override_fonts/font = ExtResource("8_2pktc")
 theme_override_font_sizes/font_size = 200
 theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6v7xn")
@@ -481,8 +482,9 @@ offset_left = 4.18237
 offset_top = 198.949
 offset_right = 417.181
 offset_bottom = 437.949
-scale = Vector2(0.280008, 0.0950586)
-theme_override_font_sizes/font_size = 82
+scale = Vector2(0.270031, 0.0973131)
+theme_override_fonts/font = ExtResource("8_2pktc")
+theme_override_font_sizes/font_size = 119
 theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
@@ -662,7 +664,7 @@ stream = ExtResource("8_lt53v")
 [editable path="Inventory/Future/ResponsabilityMemory3"]
 [editable path="Inventory/Future/ResponsabilityMemory4"]
 [editable path="Inventory/Past/Gameboy"]
-[editable path="Inventory/Past/Bridge"]
+[editable path="Inventory/Past/BridgePebbles"]
 [editable path="Inventory/Past/Tree"]
 [editable path="Inventory/Past/NostalgicMemory"]
 [editable path="Inventory/Past/NostalgicMemory2"]

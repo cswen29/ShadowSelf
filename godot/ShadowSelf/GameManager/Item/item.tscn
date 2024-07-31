@@ -1,15 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqdi6djivahcu"]
+[gd_scene load_steps=6 format=3 uid="uid://dqdi6djivahcu"]
 
 [ext_resource type="Script" path="res://GameManager/Item/Item.gd" id="1_b5jvv"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="2_e61b6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr2lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5i7iy"]
-font_size = 281
+font = ExtResource("2_e61b6")
+font_size = 266
+outline_size = 210
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0.478431, 0.364706, 0.803922)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1jgap"]
+font = ExtResource("2_e61b6")
 font_size = 100
 font_color = Color(1, 0.552941, 1, 1)
+outline_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_size = 256
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Item" type="Sprite2D"]
 scale = Vector2(0.38, 0.38)

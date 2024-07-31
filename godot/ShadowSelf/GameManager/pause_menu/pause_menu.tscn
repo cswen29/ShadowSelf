@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dxsqgdawdvfeg"]
+[gd_scene load_steps=28 format=3 uid="uid://dxsqgdawdvfeg"]
 
 [ext_resource type="Script" path="res://GameManager/pause_menu/pause_menu.gd" id="1_hmed1"]
 [ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_nqfkw"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="2_qxi2j"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="3_73xfg"]
 [ext_resource type="Texture2D" uid="uid://dqsjpv107yb02" path="res://assets/ui/resume_game.png" id="3_kcroj"]
 [ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="3_nd36e"]
 [ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="4_h0o80"]
@@ -154,12 +155,13 @@ texture = ExtResource("2_nqfkw")
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 31.384
-offset_top = 342.283
-offset_right = 103.384
-offset_bottom = 373.283
+offset_left = 25.6551
+offset_top = 318.809
+offset_right = 97.6551
+offset_bottom = 349.809
 scale = Vector2(1.31927, 1.47703)
-theme_override_colors/font_color = Color(0, 0.839216, 0, 1)
+theme_override_colors/font_color = Color(0.741176, 0.352941, 1, 1)
+theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_khbgb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6ejxx")
@@ -169,11 +171,12 @@ text = "RESUME"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 170.724
-offset_top = 340.66
-offset_right = 217.724
-offset_bottom = 371.66
-theme_override_colors/font_color = Color(0, 0.890196, 0.690196, 1)
+offset_left = 167.381
+offset_top = 324.412
+offset_right = 214.381
+offset_bottom = 355.412
+theme_override_colors/font_color = Color(0.298304, 0.506877, 0.995394, 1)
+theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_sl60i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f1yqw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_srrs5")
@@ -183,11 +186,12 @@ text = "QUIT"
 [node name="InventoryButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 78.4599
-offset_top = 71.7179
+offset_top = 90.2077
 offset_right = 191.46
-offset_bottom = 102.718
+offset_bottom = 121.208
 scale = Vector2(0.985218, 1.63953)
-theme_override_colors/font_color = Color(1, 0.6, 0, 1)
+theme_override_colors/font_color = Color(0.678431, 0, 0.333333, 1)
+theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_apjim")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cbpwr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3so0u")
@@ -196,12 +200,13 @@ text = "Inventory"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 97.1408
-offset_top = 186.579
-offset_right = 210.141
-offset_bottom = 217.579
+offset_left = 95.3973
+offset_top = 230.842
+offset_right = 208.397
+offset_bottom = 261.842
 scale = Vector2(0.649574, 1.47142)
 theme_override_colors/font_color = Color(0.909804, 0.533333, 0.596078, 1)
+theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rb858")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u08uo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2pkqm")

@@ -190,6 +190,7 @@ func _on_alchemy_give_nostalgia():
 		itemPickedUp("NostalgicMemory")
 		GlobalVariables.trees_unlocked.push_back("Past")
 		animateFadeIntesity()
+		mainCharacter.updateSprite()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		if GlobalVariables.trees_unlocked.size() == 3:
 			win()
@@ -200,7 +201,6 @@ func _on_alchemy_give_nostalgia():
 func _on_alchemy_give_reality():	
 	if "Present" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("RealityMemory")
-		alchemy.refreshSprites()
 		GlobalVariables.trees_unlocked.push_back("Present")
 		mainCharacter.updateSprite()
 		animateFadeIntesity()

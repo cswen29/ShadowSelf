@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdo02ctlh2fn7"]
+[gd_scene load_steps=6 format=3 uid="uid://bdo02ctlh2fn7"]
 
 [ext_resource type="Texture2D" uid="uid://pgkxaow1edtq" path="res://assets/ui/black-square.png" id="1_ihleb"]
 [ext_resource type="Script" path="res://TextureRect.gd" id="2_e40fr"]
 [ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="3_6dwqi"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_vet18"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boktc"]
+font = ExtResource("3_vet18")
 font_size = 200
 
 [node name="BeginningStory" type="TextureRect"]

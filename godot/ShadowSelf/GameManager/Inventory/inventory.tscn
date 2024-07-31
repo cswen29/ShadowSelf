@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://tp4ehyw7smy8"]
+[gd_scene load_steps=25 format=3 uid="uid://tp4ehyw7smy8"]
 
 [ext_resource type="Texture2D" uid="uid://dy1taqc2j7qnh" path="res://assets/ui/inventory_menu.png" id="1_0axke"]
 [ext_resource type="Script" path="res://GameManager/Inventory/inventory.gd" id="1_algll"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="12_a1lnj"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="13_31t5s"]
 [ext_resource type="Texture2D" uid="uid://bghtptm6gk3y2" path="res://assets/inventory/RealityMemory.png" id="16_naxhb"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="17_hbj44"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5lkk"]
 texture = ExtResource("11_uv45j")
@@ -114,7 +115,7 @@ scale = Vector2(0.395, 0.395)
 texture = ExtResource("4_fwe6x")
 skip = true
 
-[node name="Bridge" parent="Past" instance=ExtResource("2_nrd52")]
+[node name="BridgePebbles" parent="Past" instance=ExtResource("2_nrd52")]
 visible = false
 z_index = 1
 position = Vector2(181.603, 192.756)
@@ -229,11 +230,12 @@ occupied = true
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
-offset_left = 797.118
-offset_top = 826.609
-offset_right = 858.118
-offset_bottom = 862.609
-scale = Vector2(4.60081, 2.521)
+offset_left = 718.661
+offset_top = 828.825
+offset_right = 779.661
+offset_bottom = 864.825
+scale = Vector2(6.23796, 2.521)
+theme_override_fonts/font = ExtResource("17_hbj44")
 theme_override_styles/normal = SubResource("StyleBoxTexture_j5lkk")
 theme_override_styles/hover = SubResource("StyleBoxTexture_riet3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sr3df")
@@ -256,7 +258,7 @@ autostart = true
 [connection signal="checkCombinations" from="Future/Watch" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Future/ResponsabilityMemory" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Past/Gameboy" to="." method="check_combinations"]
-[connection signal="checkCombinations" from="Past/Bridge" to="." method="check_combinations"]
+[connection signal="checkCombinations" from="Past/BridgePebbles" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Past/Tree" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Past/NostalgicMemory" to="." method="check_combinations"]
 [connection signal="checkCombinations" from="Present/IceCream" to="." method="check_combinations"]

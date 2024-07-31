@@ -97,8 +97,4 @@ func _on_fix_rotation_timeout():
 		for grandChild in child.get_children():
 			if grandChild is Item:
 				if grandChild.rotation > 10 or grandChild.rotation < -10:
-					grandChild.hideName()
-					var tween = create_tween()
-					tween.tween_property(grandChild, "rotation", 0, 0.1)
-					await tween.finished
-					grandChild.showName()
+					grandChild.rotation = 0

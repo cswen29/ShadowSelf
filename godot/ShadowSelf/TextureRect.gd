@@ -92,8 +92,6 @@ func _ready():
 	
 	await tween.finished
 	
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	
-	get_tree().change_scene_to_packed(simultaneous_scene)
-	return
-	
+	get_tree().change_scene_to_packed(simultaneous_scene)	

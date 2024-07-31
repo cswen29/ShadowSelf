@@ -1,13 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqj65qhuqg01"]
+[gd_scene load_steps=17 format=3 uid="uid://cqj65qhuqg01"]
 
 [ext_resource type="Script" path="res://GameManager/Prompt/prompt.gd" id="1_i0roy"]
 [ext_resource type="Texture2D" uid="uid://cbcbjr5rxtjur" path="res://assets/ui/text_box.png" id="2_strjd"]
 [ext_resource type="Texture2D" uid="uid://t5igdvsmptu3" path="res://assets/ui/less_volume.png" id="3_smeel"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_uuyav"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="4_6mwew"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_ahv0l"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_2vteu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jcggd"]
-font_size = 12
+font = ExtResource("3_uuyav")
+font_size = 15
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5eu8"]
 texture = ExtResource("3_smeel")
@@ -89,11 +92,11 @@ texture = ExtResource("2_strjd")
 
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
-offset_left = 513.815
-offset_top = 263.18
-offset_right = 613.815
-offset_bottom = 286.18
-scale = Vector2(9.59616, 13.4174)
+offset_left = 718.538
+offset_top = 225.583
+offset_right = 818.538
+offset_bottom = 284.583
+scale = Vector2(3.84342, 5.34746)
 text = "Go outside?"
 label_settings = SubResource("LabelSettings_jcggd")
 autowrap_mode = 3
@@ -105,6 +108,7 @@ offset_top = 61.0
 offset_right = 49.0
 offset_bottom = 92.0
 scale = Vector2(0.764347, 0.484506)
+theme_override_fonts/font = ExtResource("4_6mwew")
 theme_override_styles/normal = SubResource("StyleBoxTexture_h5eu8")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6cas")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1l65p")
@@ -118,6 +122,7 @@ offset_top = 63.0
 offset_right = 219.0
 offset_bottom = 96.0
 scale = Vector2(0.610018, 0.471725)
+theme_override_fonts/font = ExtResource("4_6mwew")
 theme_override_styles/normal = SubResource("StyleBoxTexture_qljnb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s6hv1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kx1k5")
