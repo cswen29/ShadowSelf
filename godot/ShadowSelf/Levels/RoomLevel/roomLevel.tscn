@@ -139,7 +139,7 @@ texture = ExtResource("10_0m5an")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("15_1nxm1")
-volume_db = 5.0
+volume_db = 3.0
 autoplay = true
 bus = &"sfx"
 
@@ -149,7 +149,7 @@ scale = Vector2(0.525, 0.525)
 texture = ExtResource("15_wegw3")
 
 [node name="CollisionShape2D" parent="Watch/Area2D" index="0"]
-scale = Vector2(1, 11.5905)
+scale = Vector2(0.844689, 1.33431)
 shape = SubResource("CircleShape2D_1hqu1")
 
 [node name="RightLimit" type="Area2D" parent="."]

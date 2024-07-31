@@ -99,8 +99,8 @@ func _ready():
 	
 	Programmer: Mellow
 	Artist: Anne
-	Audio Designer: Wen
-	Composer: Liam", 2)
+	Producer: Wen
+	Composer and Sound Designer: Liam", 2)
 	
 	await tween2.finished
 	

@@ -39,7 +39,7 @@ offset_left = -71.0526
 offset_top = 92.1053
 offset_right = 7324.95
 offset_bottom = 5540.11
-scale = Vector2(0.160333, 0.170298)
+scale = Vector2(0.212744, 0.222156)
 label_settings = SubResource("LabelSettings_5i7iy")
 
 [node name="Description" type="Label" parent="."]
@@ -47,7 +47,7 @@ offset_left = -107.895
 offset_top = -152.632
 offset_right = 3396.11
 offset_bottom = 1209.37
-scale = Vector2(0.424434, 0.460665)
+scale = Vector2(0.598572, 0.580144)
 label_settings = SubResource("LabelSettings_1jgap")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
