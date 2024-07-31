@@ -11,22 +11,22 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_utq1q"]
 font = ExtResource("3_msjtf")
-font_color = Color(0.678431, 0.219608, 0.611765, 0.972549)
+font_color = Color(0.915946, 0.627067, 0.856902, 0.972549)
 
 [sub_resource type="LabelSettings" id="LabelSettings_f8u0w"]
 font = ExtResource("3_msjtf")
-font_color = Color(1, 0.376471, 0.0862745, 1)
+font_color = Color(1, 0.727103, 0.630511, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wr6g6"]
 font = ExtResource("3_msjtf")
-font_color = Color(1, 0.752941, 0.796078, 1)
+font_color = Color(1, 0.768803, 0.808578, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bgffl"]
 texture = ExtResource("6_vhecx")
-expand_margin_left = 100.0
-expand_margin_top = 100.0
-expand_margin_right = 100.0
-expand_margin_bottom = 100.0
+expand_margin_left = 95.0
+expand_margin_top = 85.0
+expand_margin_right = 95.0
+expand_margin_bottom = 85.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpidi"]
 texture = ExtResource("6_vhecx")
