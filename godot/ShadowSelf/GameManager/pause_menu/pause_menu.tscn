@@ -14,9 +14,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khbgb"]
 texture = ExtResource("3_kcroj")
-expand_margin_left = 100.0
+expand_margin_left = 80.0
 expand_margin_top = 100.0
-expand_margin_right = 100.0
+expand_margin_right = 80.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ejxx"]
@@ -99,9 +99,9 @@ expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb858"]
 texture = ExtResource("6_kiesu")
-expand_margin_left = 100.0
+expand_margin_left = 120.0
 expand_margin_top = 100.0
-expand_margin_right = 100.0
+expand_margin_right = 125.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u08uo"]
@@ -146,21 +146,21 @@ color = Color(0, 0, 0, 0.654902)
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -44.8342
-offset_top = -70.5973
-offset_right = 1875.17
-offset_bottom = 1009.4
+offset_left = -45.3324
+offset_top = -69.4767
+offset_right = 1874.67
+offset_bottom = 1010.52
 scale = Vector2(0.186316, 0.519985)
 texture = ExtResource("2_nqfkw")
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
 offset_left = 25.6551
-offset_top = 318.809
+offset_top = 299.759
 offset_right = 97.6551
-offset_bottom = 349.809
+offset_bottom = 330.759
 scale = Vector2(1.31927, 1.47703)
-theme_override_colors/font_color = Color(0.741176, 0.352941, 1, 1)
+theme_override_colors/font_color = Color(0.884087, 0.749823, 1, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxTexture_khbgb")
@@ -171,11 +171,11 @@ text = "RESUME"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 167.381
-offset_top = 324.412
-offset_right = 214.381
-offset_bottom = 355.412
-theme_override_colors/font_color = Color(0.298304, 0.506877, 0.995394, 1)
+offset_left = 178.839
+offset_top = 308.163
+offset_right = 225.839
+offset_bottom = 339.163
+theme_override_colors/font_color = Color(0.68518, 0.788876, 0.998816, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_sl60i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f1yqw")
@@ -185,12 +185,12 @@ text = "QUIT"
 
 [node name="InventoryButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 78.4599
-offset_top = 90.2077
-offset_right = 191.46
-offset_bottom = 121.208
+offset_left = 79.7053
+offset_top = 108.697
+offset_right = 192.705
+offset_bottom = 139.698
 scale = Vector2(0.985218, 1.63953)
-theme_override_colors/font_color = Color(0.678431, 0, 0.333333, 1)
+theme_override_colors/font_color = Color(1, 0.606025, 0.715447, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_apjim")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cbpwr")
@@ -200,12 +200,12 @@ text = "Inventory"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 95.3973
-offset_top = 230.842
-offset_right = 208.397
-offset_bottom = 261.842
-scale = Vector2(0.649574, 1.47142)
-theme_override_colors/font_color = Color(0.909804, 0.533333, 0.596078, 1)
+offset_left = 84.4378
+offset_top = 207.31
+offset_right = 197.437
+offset_bottom = 238.31
+scale = Vector2(0.889764, 1.47142)
+theme_override_colors/font_color = Color(0.935932, 0.632383, 0.677388, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_rb858")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u08uo")
