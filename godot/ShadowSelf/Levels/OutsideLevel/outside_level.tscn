@@ -19,11 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="12_by6t7"]
 [ext_resource type="Texture2D" uid="uid://chp7kglmcq8vc" path="res://assets/outside/fence_2.PNG" id="12_m0b7u"]
 [ext_resource type="AudioStream" uid="uid://buwwtbp6xxsjk" path="res://assets/audio/sfx/ambience/sfx_ambience_outside.wav" id="12_thsts"]
-[ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/circle-clipart-black.png" id="13_gs8gt"]
 [ext_resource type="Texture2D" uid="uid://55v00bpvn587" path="res://assets/outside/lake_ground.png" id="15_86vg7"]
 [ext_resource type="Texture2D" uid="uid://yhxns7js4iwg" path="res://assets/outside/bush_3.png" id="18_xpqgu"]
 [ext_resource type="Texture2D" uid="uid://3nfysn8scate" path="res://assets/outside/flowers_item.png" id="20_bnhhp"]
 [ext_resource type="Texture2D" uid="uid://b2pwfi12nvlfo" path="res://assets/outside/memory_tree.PNG" id="21_nxtwj"]
+[ext_resource type="Texture2D" uid="uid://by5fekoajq1qt" path="res://assets/shadow/shadow.png" id="23_3hpq4"]
 [ext_resource type="Texture2D" uid="uid://cfcp12ygfu6ar" path="res://assets/outside/gameboy.png" id="23_be4mq"]
 [ext_resource type="Texture2D" uid="uid://c67tx52o0ls6b" path="res://assets/outside/mailbox.PNG" id="24_uup81"]
 [ext_resource type="Texture2D" uid="uid://bdk2ltnkwk0q8" path="res://assets/outside/ice_cream_cart.PNG" id="25_d05mt"]
@@ -194,7 +194,6 @@ region_enabled = true
 region_rect = Rect2(0, 68.827, 14925, 281.173)
 
 [node name="Grass" type="Sprite2D" parent="Layers/1"]
-z_index = -1
 texture_repeat = 2
 position = Vector2(12, 894)
 texture = ExtResource("7_1yp58")
@@ -275,7 +274,7 @@ shape = SubResource("CircleShape2D_0awhx")
 visible = false
 position = Vector2(-8539, 987)
 scale = Vector2(0.525, 0.525)
-texture = ExtResource("13_gs8gt")
+texture = ExtResource("23_3hpq4")
 
 [node name="CollisionShape2D" parent="NostalgicBridge/Area2D" index="0"]
 shape = SubResource("CircleShape2D_0awhx")

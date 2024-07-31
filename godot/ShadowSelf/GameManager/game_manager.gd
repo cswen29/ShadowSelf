@@ -177,6 +177,7 @@ func itemPickedUp(item: String):
 func _on_alchemy_give_responsability():	
 	if "Future" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("ResponsabilityMemory")
+		
 		GlobalVariables.trees_unlocked.push_back("Future")
 		mainCharacter.updateSprite()
 		animateFadeIntesity()

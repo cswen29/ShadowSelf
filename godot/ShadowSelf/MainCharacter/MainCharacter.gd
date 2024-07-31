@@ -84,8 +84,8 @@ func _on_wander_timeout()-> void:
 func playIdle()-> void:
 	walking = false
 	await get_tree().create_timer(0.3).timeout
-	$SpriteOutline.play("idle")
-	$SpriteColor.play("idle")	
+	$SpriteOutline.play("walk_cycle")
+	$SpriteColor.play("walk_cycle")	
 
 func playWalkCycle()-> void:				
 	walking = true

@@ -73,7 +73,7 @@ label_settings = SubResource("LabelSettings_ex86t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(285, 148)
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 
 [node name="ItemName" type="Label" parent="."]
 layout_mode = 0
@@ -84,6 +84,7 @@ offset_bottom = 306.0
 scale = Vector2(3.37337, 1.80423)
 
 [node name="Close" type="Button" parent="."]
+layout_mode = 0
 offset_left = 232.0
 offset_top = 384.0
 offset_right = 293.0

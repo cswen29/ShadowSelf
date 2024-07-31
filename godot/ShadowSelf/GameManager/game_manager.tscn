@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=21 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
@@ -11,10 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://GameManager/Prompt/prompt.tscn" id="6_qehf4"]
 [ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://Alchemy/alchemy.tscn" id="8_53y7i"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="10_qyoch"]
-[ext_resource type="AudioStream" uid="uid://cai3krj6fl4cx" path="res://assets/audio/mx/mx_layer1_draft1.wav" id="11_6u4iq"]
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="11_40fuj"]
-[ext_resource type="AudioStream" uid="uid://bo1pvvn1mcfsf" path="res://assets/audio/mx/mx_layer2_draft1.wav" id="12_3fqs7"]
-[ext_resource type="AudioStream" uid="uid://bufx0ndobaon7" path="res://assets/audio/mx/mx_layer3_draft1.wav" id="13_8mbtk"]
+[ext_resource type="AudioStream" uid="uid://br0cs2cy5vaic" path="res://assets/audio/mx/mx_layer_1.wav" id="14_8bpeq"]
+[ext_resource type="AudioStream" uid="uid://dcdcqwkh726b5" path="res://assets/audio/mx/mx_layer_3.wav" id="15_4ai2v"]
 [ext_resource type="PackedScene" uid="uid://sr3sv2cjq61x" path="res://thought_spawner.tscn" id="15_sb44d"]
 [ext_resource type="AudioStream" uid="uid://wa0g1jrkt3ge" path="res://assets/audio/sfx/sfx_door.wav" id="16_qpre6"]
 
@@ -195,6 +194,7 @@ speed_scale = 0.2
 layer = 6
 
 [node name="BlackBackground" type="ColorRect" parent="Transition/CanvasLayer"]
+visible = false
 top_level = true
 z_index = 1
 offset_left = -41927.0
@@ -221,19 +221,19 @@ color = Color(0, 0, 0, 1)
 [node name="Music" type="Node" parent="."]
 
 [node name="Layer1" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("11_6u4iq")
+stream = ExtResource("14_8bpeq")
 volume_db = 10.0
 autoplay = true
 bus = &"music"
 
 [node name="Layer2" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("12_3fqs7")
+stream = ExtResource("14_8bpeq")
 volume_db = -80.0
 autoplay = true
 bus = &"music"
 
 [node name="Layer3" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("13_8mbtk")
+stream = ExtResource("15_4ai2v")
 volume_db = -80.0
 autoplay = true
 bus = &"music"

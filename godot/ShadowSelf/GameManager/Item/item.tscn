@@ -21,7 +21,7 @@ collision_layer = 129
 collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(31.3613, 48.6748)
+scale = Vector2(21.5334, 35.4196)
 shape = SubResource("RectangleShape2D_kr2lv")
 
 [node name="Name" type="Label" parent="."]

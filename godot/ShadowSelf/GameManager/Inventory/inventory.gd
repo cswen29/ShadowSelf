@@ -10,13 +10,22 @@ func _ready() -> void:
 	
 func update_sprites():
 	list = GlobalVariables.inventory
+		
 	for node_name in list:
 		var node_parent = GlobalVariables.itemAttr[node_name][2]
 		var path = str(node_parent + "/" + node_name)
+		
 		var sprite = get_node(path) as Item
 		if sprite != null:
 			sprite.update()
 			sprite.show()
+
+		if node_name == "ResponsabilityMemory" or  node_name == "NostalgicMemory" or  node_name ==  "RealityMemory":
+			path = str(path + "2")
+			sprite = get_node(path) as Item
+			if sprite != null:
+				sprite.update()
+				sprite.show()
 	#	
 func refreshSprites():
 	

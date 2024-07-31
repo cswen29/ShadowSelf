@@ -1,13 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=25 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
+[ext_resource type="Texture2D" uid="uid://dvcef8rdt02pp" path="res://assets/ui/alchemy_menu.png" id="2_a2ugk"]
 [ext_resource type="PackedScene" uid="uid://tp4ehyw7smy8" path="res://GameManager/Inventory/inventory.tscn" id="2_jlh0i"]
 [ext_resource type="Texture2D" uid="uid://crf83fhqi4d2p" path="res://assets/ui/alchemt_quit.png" id="3_8r4cp"]
 [ext_resource type="PackedScene" uid="uid://blvv353p8jyyl" path="res://Alchemy/alchemy_spot.tscn" id="3_p2v7i"]
 [ext_resource type="Texture2D" uid="uid://cj2lso7uvr8j5" path="res://assets/ui/alchemy_reset.png" id="4_bjk4t"]
+[ext_resource type="PackedScene" uid="uid://dqdi6djivahcu" path="res://GameManager/Item/item.tscn" id="4_qy26g"]
+[ext_resource type="Texture2D" uid="uid://b837k2nynwhpg" path="res://assets/inventory/ResponsabilityMemory.png" id="5_o44xh"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="6_21alt"]
+[ext_resource type="Texture2D" uid="uid://bqb3pke4gatnw" path="res://assets/inventory/NostalgicMemory.png" id="6_hnvwo"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="7_t375t"]
+[ext_resource type="Texture2D" uid="uid://bghtptm6gk3y2" path="res://assets/inventory/RealityMemory.png" id="7_wqai7"]
 [ext_resource type="AudioStream" uid="uid://cxvjabjqcuqtk" path="res://assets/audio/sfx/object interaction - ui/sfx_kill_bad_memory.wav" id="8_lt53v"]
+[ext_resource type="AudioStream" uid="uid://c8d1qfugun7if" path="res://assets/audio/sfx/object interaction - ui/sfx_refresh.wav" id="13_eothv"]
 
 [sub_resource type="FontFile" id="FontFile_jjpc7"]
 cache/0/16/0/ascent = 0.0
@@ -205,15 +211,25 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 57.0
-offset_top = 91.0
-offset_right = 57.0
-offset_bottom = 91.0
+offset_left = 13.0
+offset_top = 101.0
+offset_right = 13.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.91281, 3.07114)
+scale = Vector2(1.9866, 3.48127)
 mouse_filter = 2
 script = ExtResource("1_5ve35")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_direction = 1
+layout_mode = 0
+offset_left = -5.22791
+offset_right = 1914.77
+offset_bottom = 1080.0
+scale = Vector2(0.500484, 0.210893)
+mouse_filter = 2
+texture = ExtResource("2_a2ugk")
 
 [node name="Inventory" parent="." instance=ExtResource("2_jlh0i")]
 layout_mode = 0
@@ -233,10 +249,17 @@ skip = false
 [node name="ResponsabilityMemory" parent="Inventory/Future" index="2"]
 skip = false
 
-[node name="Future1" parent="Inventory/Future" index="3"]
+[node name="ResponsabilityMemory2" parent="Inventory/Future" index="3" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-783.094, 157.446)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("5_o44xh")
+
+[node name="Future1" parent="Inventory/Future" index="4"]
 occupied = false
 
-[node name="Future2" parent="Inventory/Future" index="4"]
+[node name="Future2" parent="Inventory/Future" index="5"]
 occupied = false
 
 [node name="Gameboy" parent="Inventory/Past" index="0"]
@@ -251,16 +274,23 @@ skip = false
 [node name="NostalgicMemory" parent="Inventory/Past" index="3"]
 skip = false
 
-[node name="Past1" parent="Inventory/Past" index="4"]
+[node name="NostalgicMemory2" parent="Inventory/Past" index="4" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-139.827, 65.8348)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("6_hnvwo")
+
+[node name="Past1" parent="Inventory/Past" index="5"]
 occupied = false
 
-[node name="Past2" parent="Inventory/Past" index="5"]
+[node name="Past2" parent="Inventory/Past" index="6"]
 occupied = false
 
-[node name="Past3" parent="Inventory/Past" index="6"]
+[node name="Past3" parent="Inventory/Past" index="7"]
 occupied = false
 
-[node name="Past4" parent="Inventory/Past" index="7"]
+[node name="Past4" parent="Inventory/Past" index="8"]
 occupied = false
 
 [node name="IceCream" parent="Inventory/Present" index="0"]
@@ -278,37 +308,34 @@ skip = false
 [node name="RealityMemory" parent="Inventory/Present" index="4"]
 skip = false
 
-[node name="Present1" parent="Inventory/Present" index="5"]
+[node name="RealityMemory2" parent="Inventory/Present" index="5" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-391.218, 394.834)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wqai7")
+
+[node name="Present1" parent="Inventory/Present" index="6"]
 occupied = false
 
-[node name="Present2" parent="Inventory/Present" index="6"]
+[node name="Present2" parent="Inventory/Present" index="7"]
 occupied = false
 
-[node name="Present3" parent="Inventory/Present" index="7"]
+[node name="Present3" parent="Inventory/Present" index="8"]
 occupied = false
 
-[node name="Present4" parent="Inventory/Present" index="8"]
+[node name="Present4" parent="Inventory/Present" index="9"]
 occupied = false
 
-[node name="Present5" parent="Inventory/Present" index="9"]
+[node name="Present5" parent="Inventory/Present" index="10"]
 occupied = false
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_direction = 1
-layout_mode = 0
-offset_left = -5.22791
-offset_right = 34.7721
-offset_bottom = 40.0
-scale = Vector2(11.1368, 5.73404)
-mouse_filter = 2
-color = Color(1, 1, 0, 1)
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 309.492
-offset_top = 196.344
-offset_right = 1552.49
-offset_bottom = 1126.34
+offset_left = 637.282
+offset_top = 191.134
+offset_right = 1880.28
+offset_bottom = 1121.13
 scale = Vector2(0.0944184, 0.0316674)
 theme = SubResource("Theme_4lvlq")
 theme_override_font_sizes/font_size = 200
@@ -322,12 +349,12 @@ expand_icon = true
 
 [node name="Refresh" type="Button" parent="."]
 layout_mode = 0
-offset_left = 318.903
-offset_top = 155.968
-offset_right = 731.902
-offset_bottom = 394.968
-scale = Vector2(0.242621, 0.0940055)
-theme_override_font_sizes/font_size = 66
+offset_left = 4.18237
+offset_top = 198.949
+offset_right = 417.181
+offset_bottom = 437.949
+scale = Vector2(0.280008, 0.0950586)
+theme_override_font_sizes/font_size = 82
 theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
@@ -335,55 +362,55 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_qvphx")
 text = "Refresh"
 
 [node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(26.1396, 14.3269)
+position = Vector2(117.789, 96.2292)
 scale = Vector2(1.22637, 0.74054)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(156.315, 14.0013)
+position = Vector2(170.644, 62.0463)
 scale = Vector2(1.02593, 0.751083)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(16.7293, 67.0761)
+position = Vector2(239.102, 53.716)
 scale = Vector2(1.204, 0.756503)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(134.357, 69.681)
+position = Vector2(276.352, 84.7392)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(244.143, 69.3553)
+position = Vector2(326.689, 105.134)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(19.3433, 119.174)
+position = Vector2(87.0836, 130.987)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(104.559, 119.499)
+position = Vector2(179.704, 120.646)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(198.138, 120.802)
+position = Vector2(251.687, 119.497)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
 [node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(300.082, 120.15)
+position = Vector2(328.703, 132.997)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
@@ -397,13 +424,17 @@ stream = ExtResource("7_t375t")
 bus = &"sfx"
 
 [node name="ButtonClickRefresh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_t375t")
+stream = ExtResource("13_eothv")
+volume_db = 0.707
 bus = &"sfx"
 
 [node name="Memory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_lt53v")
 
 [connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
+[connection signal="checkCombinations" from="Inventory/Future/ResponsabilityMemory2" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Past/NostalgicMemory2" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Present/RealityMemory2" to="Inventory" method="check_combinations"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="Refresh" to="." method="_on_refresh_mouse_entered"]

@@ -13,7 +13,7 @@ script = ExtResource("1_icwpq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(19.25, 18.25)
-scale = Vector2(0.842328, 0.827207)
+scale = Vector2(0.490686, 0.367337)
 shape = SubResource("CircleShape2D_fh8h6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
