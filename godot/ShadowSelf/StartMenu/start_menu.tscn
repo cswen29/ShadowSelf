@@ -45,9 +45,9 @@ expand_margin_bottom = 75.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ey6fd"]
 texture = ExtResource("3_nojrx")
-expand_margin_left = 100.0
+expand_margin_left = 140.0
 expand_margin_top = 100.0
-expand_margin_right = 100.0
+expand_margin_right = 150.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftc4u"]
@@ -73,9 +73,9 @@ expand_margin_bottom = 70.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uj2uh"]
 texture = ExtResource("2_dp5xc")
-expand_margin_left = 100.0
+expand_margin_left = 140.0
 expand_margin_top = 100.0
-expand_margin_right = 100.0
+expand_margin_right = 140.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtaxb"]
@@ -101,9 +101,9 @@ expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsvsy"]
 texture = ExtResource("3_nojrx")
-expand_margin_left = 100.0
+expand_margin_left = 105.0
 expand_margin_top = 100.0
-expand_margin_right = 100.0
+expand_margin_right = 110.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bn1fx"]
@@ -244,10 +244,10 @@ from your shadow.
 label_settings = SubResource("LabelSettings_b1cj3")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 1549.0
-offset_top = 191.0
-offset_right = 1710.0
-offset_bottom = 271.0
+offset_left = 1536.0
+offset_top = 73.0
+offset_right = 1697.0
+offset_bottom = 153.0
 scale = Vector2(2.982, 2.75798)
 theme_override_colors/font_color = Color(0.902099, 0.776061, 0.940116, 1)
 theme_override_fonts/font = ExtResource("3_0l823")
@@ -255,13 +255,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_kxgwl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fmp3p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_im40v")
 theme_override_styles/focus = SubResource("StyleBoxTexture_xwn2k")
-text = "Play !"
+text = "Play"
 
 [node name="TutorialButton" type="Button" parent="."]
-offset_left = 1621.0
-offset_top = 436.0
-offset_right = 1746.0
-offset_bottom = 475.0
+offset_left = 1608.0
+offset_top = 348.0
+offset_right = 1733.0
+offset_bottom = 387.0
 scale = Vector2(2.82317, 2.79382)
 theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ey6fd")
@@ -272,10 +272,10 @@ text = "Tutorial
 "
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 1604.0
-offset_top = 602.0
-offset_right = 1729.0
-offset_bottom = 641.0
+offset_left = 1594.0
+offset_top = 549.0
+offset_right = 1719.0
+offset_bottom = 588.0
 scale = Vector2(2.93816, 3.23915)
 theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_uj2uh")
@@ -286,10 +286,10 @@ text = "Settings
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 1718.0
-offset_top = 932.0
-offset_right = 1765.0
-offset_bottom = 963.0
+offset_left = 1699.0
+offset_top = 834.0
+offset_right = 1746.0
+offset_bottom = 865.0
 scale = Vector2(3.54488, 2.75131)
 theme_override_colors/font_color = Color(0.756863, 0.384314, 0.690196, 1)
 theme_override_fonts/font = ExtResource("3_0l823")
@@ -339,10 +339,10 @@ stream = ExtResource("5_d4etj")
 bus = &"sfx"
 
 [node name="Title" type="Label" parent="."]
-offset_left = 18.0
-offset_top = 6.0
-offset_right = 496.0
-offset_bottom = 359.0
+offset_left = 119.0
+offset_top = 72.0
+offset_right = 597.0
+offset_bottom = 425.0
 text = "Shadow
 Self"
 label_settings = SubResource("LabelSettings_3tqe0")
