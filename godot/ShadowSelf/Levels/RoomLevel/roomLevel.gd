@@ -32,8 +32,9 @@ func _on_mirror_input_event(_viewport, event, _shape_idx):
 func _on_shelf_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton:
-			if shelf.isColliding:
-				prompt.emit("look at shelf?", "shelf")
+			if "PictureOfFamily" not in GlobalVariables.inventory:
+				if shelf.isColliding:
+					prompt.emit("look at shelf?", "shelf")
 				
 func _on_watch_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:

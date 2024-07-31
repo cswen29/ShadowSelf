@@ -1,53 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqbf2c3ju44tm"]
+[gd_scene load_steps=5 format=3 uid="uid://cqbf2c3ju44tm"]
 
-[ext_resource type="Texture2D" uid="uid://8fohdjkfsy2j" path="res://assets/ui/black-square-png-2.png" id="1_p1hv4"]
+[ext_resource type="Texture2D" uid="uid://d2v63053gi4te" path="res://assets/ui/ending.png" id="1_ls64j"]
 [ext_resource type="Script" path="res://ending_story.gd" id="2_ob6i7"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_2mvxg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boktc"]
+font = ExtResource("3_2mvxg")
 font_size = 200
 
 [node name="EndingStory" type="TextureRect"]
-offset_left = -258.0
-offset_top = -159.0
-offset_right = 7301.0
-offset_bottom = 7331.0
-scale = Vector2(0.324548, 0.186754)
-texture = ExtResource("1_p1hv4")
+offset_left = -0.999985
+offset_top = 2.0
+offset_right = 7558.0
+offset_bottom = 7492.0
+scale = Vector2(0.259976, 0.142717)
+texture = ExtResource("1_ls64j")
 script = ExtResource("2_ob6i7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 2453.67
+offset_top = 847.833
+offset_right = 2823.67
+offset_bottom = 1120.83
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 2429.99
+offset_top = 2212.14
+offset_right = 3168.99
+offset_bottom = 2758.14
+scale = Vector2(0.818632, 0.937344)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 2410.25
+offset_top = 3272.74
+offset_right = 3149.25
+offset_bottom = 3818.74
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label4" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 5095.67
-offset_right = 1887.56
-offset_bottom = 5641.67
+offset_left = 2410.25
+offset_top = 4719.0
+offset_right = 3149.25
+offset_bottom = 5265.0
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
@@ -58,37 +64,41 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 2453.67
+offset_top = 847.833
+offset_right = 2823.67
+offset_bottom = 1120.83
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 2429.99
+offset_top = 2212.14
+offset_right = 3168.99
+offset_bottom = 2758.14
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 2410.25
+offset_top = 3272.74
+offset_right = 3149.25
+offset_bottom = 3818.74
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label4" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 5095.67
-offset_right = 1887.56
-offset_bottom = 5641.67
+offset_left = 2410.25
+offset_top = 4719.0
+offset_right = 3149.25
+offset_bottom = 5265.0
+scale = Vector2(0.753788, 0.825222)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
@@ -99,36 +109,55 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 2453.67
+offset_top = 847.833
+offset_right = 2823.67
+offset_bottom = 1120.83
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 2429.99
+offset_top = 2212.14
+offset_right = 3168.99
+offset_bottom = 2758.14
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 2410.25
+offset_top = 3272.74
+offset_right = 3149.25
+offset_bottom = 3818.74
+scale = Vector2(0.925, 0.925)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label4" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 5095.67
-offset_right = 1887.56
-offset_bottom = 5641.67
+offset_left = 2410.25
+offset_top = 4719.0
+offset_right = 3149.25
+offset_bottom = 5265.0
+scale = Vector2(0.679512, 0.753297)
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(189.54, 188.834)
+color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.11221, 0.170662)
+text = "aa"

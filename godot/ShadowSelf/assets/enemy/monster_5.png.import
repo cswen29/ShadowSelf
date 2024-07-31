@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by5fekoajq1qt"
-path="res://.godot/imported/shadow.png-90a28d42125beaf6bfc66debb7d265bc.ctex"
+uid="uid://bhuho8lnum3je"
+path="res://.godot/imported/monster_5.png-f83ab4770d4ada502479335da832280f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/shadow/shadow.png"
-dest_files=["res://.godot/imported/shadow.png-90a28d42125beaf6bfc66debb7d265bc.ctex"]
+source_file="res://assets/enemy/monster_5.png"
+dest_files=["res://.godot/imported/monster_5.png-f83ab4770d4ada502479335da832280f.ctex"]
 
 [params]
 

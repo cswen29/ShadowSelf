@@ -24,7 +24,7 @@ func _on_bridge_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton and bridge.isColliding:
 			if "BridgePebbles" not in GlobalVariables.inventory:
-				prompt.emit("look at bridge?", "bridge")
+				prompt.emit("look at lake?", "bridge")
 
 func _on_tree_input_event(_viewport, event, _shape_idx):
 	if !GlobalVariables.paused:
@@ -69,4 +69,4 @@ func _on_left_limit_area_exited(area):
 func _on_area_2d_input_event(viewport, event, shape_idx):
 	if !GlobalVariables.paused:
 		if event is InputEventMouseButton and playersHouse.isColliding:
-			prompt.emit("Go Inside your house?", "inside")
+			prompt.emit("Go Inside?", "inside")

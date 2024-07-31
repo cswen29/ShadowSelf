@@ -177,7 +177,6 @@ func itemPickedUp(item: String):
 func _on_alchemy_give_responsability():	
 	if "Future" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("ResponsabilityMemory")
-		
 		GlobalVariables.trees_unlocked.push_back("Future")
 		mainCharacter.updateSprite()
 		animateFadeIntesity()
@@ -190,8 +189,8 @@ func _on_alchemy_give_nostalgia():
 	if "Past" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("NostalgicMemory")
 		GlobalVariables.trees_unlocked.push_back("Past")
-		mainCharacter.updateSprite()
 		animateFadeIntesity()
+		mainCharacter.updateSprite()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		if GlobalVariables.trees_unlocked.size() == 3:
 			win()

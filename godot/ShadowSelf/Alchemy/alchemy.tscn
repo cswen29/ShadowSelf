@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=26 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
 [ext_resource type="Texture2D" uid="uid://dvcef8rdt02pp" path="res://assets/ui/alchemy_menu.png" id="2_a2ugk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bqb3pke4gatnw" path="res://assets/inventory/NostalgicMemory.png" id="6_hnvwo"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="7_t375t"]
 [ext_resource type="Texture2D" uid="uid://bghtptm6gk3y2" path="res://assets/inventory/RealityMemory.png" id="7_wqai7"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="8_2pktc"]
 [ext_resource type="AudioStream" uid="uid://cxvjabjqcuqtk" path="res://assets/audio/sfx/object interaction - ui/sfx_kill_bad_memory.wav" id="8_lt53v"]
 [ext_resource type="AudioStream" uid="uid://c8d1qfugun7if" path="res://assets/audio/sfx/object interaction - ui/sfx_refresh.wav" id="13_eothv"]
 
@@ -243,11 +244,20 @@ mouse_filter = 2
 [node name="PhoneCall" parent="Inventory/Future" index="0"]
 skip = false
 
+[node name="Name" parent="Inventory/Future/PhoneCall" index="1"]
+modulate = Color(1, 0.0588235, 0.309804, 0.792157)
+
 [node name="Watch" parent="Inventory/Future" index="1"]
 skip = false
 
+[node name="Name" parent="Inventory/Future/Watch" index="1"]
+modulate = Color(1, 0.0588235, 0.309804, 0.792157)
+
 [node name="ResponsabilityMemory" parent="Inventory/Future" index="2"]
 skip = false
+
+[node name="Name" parent="Inventory/Future/ResponsabilityMemory" index="1"]
+modulate = Color(1, 0.0588235, 0.309804, 0.792157)
 
 [node name="ResponsabilityMemory2" parent="Inventory/Future" index="3" instance=ExtResource("4_qy26g")]
 visible = false
@@ -256,23 +266,50 @@ position = Vector2(-783.094, 157.446)
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("5_o44xh")
 
-[node name="Future1" parent="Inventory/Future" index="4"]
+[node name="ResponsabilityMemory3" parent="Inventory/Future" index="4" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-573.265, 179.145)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("5_o44xh")
+
+[node name="ResponsabilityMemory4" parent="Inventory/Future" index="5" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-647.991, 240.619)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("5_o44xh")
+
+[node name="Future1" parent="Inventory/Future" index="6"]
+position = Vector2(329.554, 262.105)
+scale = Vector2(1.55539, 1.56884)
 occupied = false
 
-[node name="Future2" parent="Inventory/Future" index="5"]
+[node name="Future2" parent="Inventory/Future" index="7"]
 occupied = false
 
 [node name="Gameboy" parent="Inventory/Past" index="0"]
 skip = false
 
-[node name="Bridge" parent="Inventory/Past" index="1"]
-skip = false
+[node name="Name" parent="Inventory/Past/Gameboy" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+text = "
+"
+
+[node name="Name" parent="Inventory/Past/BridgePebbles" index="1"]
+modulate = Color(0, 0.466667, 0, 1)
 
 [node name="Tree" parent="Inventory/Past" index="2"]
 skip = false
 
+[node name="Name" parent="Inventory/Past/Tree" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+
 [node name="NostalgicMemory" parent="Inventory/Past" index="3"]
 skip = false
+
+[node name="Name" parent="Inventory/Past/NostalgicMemory" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
 
 [node name="NostalgicMemory2" parent="Inventory/Past" index="4" instance=ExtResource("4_qy26g")]
 visible = false
@@ -281,32 +318,80 @@ position = Vector2(-139.827, 65.8348)
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("6_hnvwo")
 
-[node name="Past1" parent="Inventory/Past" index="5"]
+[node name="Name" parent="Inventory/Past/NostalgicMemory2" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+
+[node name="NostalgicMemory3" parent="Inventory/Past" index="5" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-345.007, 65.7102)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("6_hnvwo")
+
+[node name="Name" parent="Inventory/Past/NostalgicMemory3" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+
+[node name="NostalgicMemory4" parent="Inventory/Past" index="6" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-300.891, 128.138)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("6_hnvwo")
+
+[node name="Name" parent="Inventory/Past/NostalgicMemory4" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+
+[node name="NostalgicMemory5" parent="Inventory/Past" index="7" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-230.015, 180.044)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("6_hnvwo")
+
+[node name="Name" parent="Inventory/Past/NostalgicMemory5" index="1"]
+modulate = Color(0, 0.658824, 0, 0.678431)
+
+[node name="Past1" parent="Inventory/Past" index="8"]
 occupied = false
 
-[node name="Past2" parent="Inventory/Past" index="6"]
+[node name="Past2" parent="Inventory/Past" index="9"]
 occupied = false
 
-[node name="Past3" parent="Inventory/Past" index="7"]
+[node name="Past3" parent="Inventory/Past" index="10"]
 occupied = false
 
-[node name="Past4" parent="Inventory/Past" index="8"]
+[node name="Past4" parent="Inventory/Past" index="11"]
 occupied = false
 
 [node name="IceCream" parent="Inventory/Present" index="0"]
 skip = false
 
+[node name="Name" parent="Inventory/Present/IceCream" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
 [node name="CollegeLetter" parent="Inventory/Present" index="1"]
 skip = false
+
+[node name="Name" parent="Inventory/Present/CollegeLetter" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
 
 [node name="PictureOfFamily" parent="Inventory/Present" index="2"]
 skip = false
 
+[node name="Name" parent="Inventory/Present/PictureOfFamily" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
 [node name="Flower" parent="Inventory/Present" index="3"]
 skip = false
 
+[node name="Name" parent="Inventory/Present/Flower" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
 [node name="RealityMemory" parent="Inventory/Present" index="4"]
 skip = false
+
+[node name="Name" parent="Inventory/Present/RealityMemory" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
 
 [node name="RealityMemory2" parent="Inventory/Present" index="5" instance=ExtResource("4_qy26g")]
 visible = false
@@ -315,19 +400,62 @@ position = Vector2(-391.218, 394.834)
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("7_wqai7")
 
-[node name="Present1" parent="Inventory/Present" index="6"]
+[node name="Name" parent="Inventory/Present/RealityMemory2" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
+[node name="RealityMemory3" parent="Inventory/Present" index="6" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-573.236, 256.097)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wqai7")
+
+[node name="Name" parent="Inventory/Present/RealityMemory3" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
+[node name="RealityMemory4" parent="Inventory/Present" index="7" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-453.012, 224.891)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wqai7")
+
+[node name="Name" parent="Inventory/Present/RealityMemory4" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
+[node name="RealityMemory5" parent="Inventory/Present" index="8" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-340.754, 223.405)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wqai7")
+
+[node name="Name" parent="Inventory/Present/RealityMemory5" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
+[node name="RealityMemory6" parent="Inventory/Present" index="9" instance=ExtResource("4_qy26g")]
+visible = false
+z_index = 1
+position = Vector2(-228.496, 255.354)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_wqai7")
+
+[node name="Name" parent="Inventory/Present/RealityMemory6" index="1"]
+modulate = Color(0.219608, 1, 1, 0.627451)
+
+[node name="Present1" parent="Inventory/Present" index="10"]
 occupied = false
 
-[node name="Present2" parent="Inventory/Present" index="7"]
+[node name="Present2" parent="Inventory/Present" index="11"]
 occupied = false
 
-[node name="Present3" parent="Inventory/Present" index="8"]
+[node name="Present3" parent="Inventory/Present" index="12"]
 occupied = false
 
-[node name="Present4" parent="Inventory/Present" index="9"]
+[node name="Present4" parent="Inventory/Present" index="13"]
 occupied = false
 
-[node name="Present5" parent="Inventory/Present" index="10"]
+[node name="Present5" parent="Inventory/Present" index="14"]
 occupied = false
 
 [node name="Quit" type="Button" parent="."]
@@ -338,6 +466,7 @@ offset_right = 1880.28
 offset_bottom = 1121.13
 scale = Vector2(0.0944184, 0.0316674)
 theme = SubResource("Theme_4lvlq")
+theme_override_fonts/font = ExtResource("8_2pktc")
 theme_override_font_sizes/font_size = 200
 theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6v7xn")
@@ -353,8 +482,9 @@ offset_left = 4.18237
 offset_top = 198.949
 offset_right = 417.181
 offset_bottom = 437.949
-scale = Vector2(0.280008, 0.0950586)
-theme_override_font_sizes/font_size = 82
+scale = Vector2(0.270031, 0.0973131)
+theme_override_fonts/font = ExtResource("8_2pktc")
+theme_override_font_sizes/font_size = 119
 theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
@@ -367,11 +497,27 @@ scale = Vector2(1.22637, 0.74054)
 collision_layer = 128
 collision_mask = 128
 
+[node name="CollisionShape2D" parent="Future1" index="0"]
+scale = Vector2(0.551112, 0.483313)
+
+[node name="Sprite2D" parent="Future1" index="1"]
+modulate = Color(1, 0, 0, 0.282353)
+position = Vector2(22.5753, 17.8432)
+scale = Vector2(0.034, 0.02)
+
 [node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
-position = Vector2(170.644, 62.0463)
+position = Vector2(172.657, 65.2061)
 scale = Vector2(1.02593, 0.751083)
 collision_layer = 128
 collision_mask = 128
+
+[node name="CollisionShape2D" parent="Future2" index="0"]
+scale = Vector2(0.711632, 0.422666)
+
+[node name="Sprite2D" parent="Future2" index="1"]
+self_modulate = Color(1, 0, 0, 0.745098)
+position = Vector2(22.0786, 19.505)
+scale = Vector2(0.034, 0.02)
 
 [node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(239.102, 53.716)
@@ -379,11 +525,28 @@ scale = Vector2(1.204, 0.756503)
 collision_layer = 128
 collision_mask = 128
 
+[node name="CollisionShape2D" parent="Past1" index="0"]
+scale = Vector2(0.570822, 0.407321)
+
+[node name="Sprite2D" parent="Past1" index="1"]
+modulate = Color(0, 1, 0, 0.231373)
+position = Vector2(20.068, 19.3652)
+scale = Vector2(0.034, 0.02)
+
 [node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(276.352, 84.7392)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
+
+[node name="CollisionShape2D" parent="Past2" index="0"]
+position = Vector2(17.0134, 16.0032)
+scale = Vector2(0.561695, 0.481979)
+
+[node name="Sprite2D" parent="Past2" index="1"]
+self_modulate = Color(0, 1, 0, 0.407843)
+position = Vector2(18.9038, 13.8975)
+scale = Vector2(0.034, 0.02)
 
 [node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(326.689, 105.134)
@@ -391,11 +554,28 @@ scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
+[node name="CollisionShape2D" parent="Past3" index="0"]
+position = Vector2(12.7602, 16.0033)
+scale = Vector2(0.675343, 0.436088)
+
+[node name="Sprite2D" parent="Past3" index="1"]
+self_modulate = Color(0, 1, 0, 0.407843)
+position = Vector2(13.7054, 16.4244)
+scale = Vector2(0.034, 0.02)
+
 [node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(87.0836, 130.987)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
+
+[node name="CollisionShape2D" parent="Present1" index="0"]
+scale = Vector2(0.629734, 0.579964)
+
+[node name="Sprite2D" parent="Present1" index="1"]
+self_modulate = Color(0.47451, 1, 1, 0.572549)
+position = Vector2(22.6849, 15.1605)
+scale = Vector2(0.034, 0.02)
 
 [node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(179.704, 120.646)
@@ -403,17 +583,44 @@ scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
+[node name="CollisionShape2D" parent="Present2" index="0"]
+position = Vector2(15.1234, 12.2124)
+scale = Vector2(0.668497, 0.512627)
+
+[node name="Sprite2D" parent="Present2" index="1"]
+self_modulate = Color(0.47451, 1, 1, 0.572549)
+position = Vector2(14.6508, 13.897)
+scale = Vector2(0.034, 0.02)
+
 [node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(251.687, 119.497)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
 
+[node name="CollisionShape2D" parent="Present3" index="0"]
+position = Vector2(15.1227, 14.7392)
+scale = Vector2(0.710204, 0.515213)
+
+[node name="Sprite2D" parent="Present3" index="1"]
+self_modulate = Color(0.47451, 1, 1, 0.572549)
+position = Vector2(17.4858, 15.5815)
+scale = Vector2(0.034, 0.02)
+
 [node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(328.703, 132.997)
 scale = Vector2(1.0651, 0.682085)
 collision_layer = 128
 collision_mask = 128
+
+[node name="CollisionShape2D" parent="Present4" index="0"]
+position = Vector2(17.9584, 18.1096)
+scale = Vector2(0.468181, 0.450802)
+
+[node name="Sprite2D" parent="Present4" index="1"]
+self_modulate = Color(0.47451, 1, 1, 0.572549)
+position = Vector2(19.8488, 11.3714)
+scale = Vector2(0.034, 0.02)
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_21alt")
@@ -433,11 +640,53 @@ stream = ExtResource("8_lt53v")
 
 [connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
 [connection signal="checkCombinations" from="Inventory/Future/ResponsabilityMemory2" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Future/ResponsabilityMemory3" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Future/ResponsabilityMemory4" to="Inventory" method="check_combinations"]
 [connection signal="checkCombinations" from="Inventory/Past/NostalgicMemory2" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Past/NostalgicMemory3" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Past/NostalgicMemory4" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Past/NostalgicMemory5" to="Inventory" method="check_combinations"]
 [connection signal="checkCombinations" from="Inventory/Present/RealityMemory2" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Present/RealityMemory3" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Present/RealityMemory4" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Present/RealityMemory5" to="Inventory" method="check_combinations"]
+[connection signal="checkCombinations" from="Inventory/Present/RealityMemory6" to="Inventory" method="check_combinations"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="Refresh" to="." method="_on_refresh_mouse_entered"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
 
 [editable path="Inventory"]
+[editable path="Inventory/Future/PhoneCall"]
+[editable path="Inventory/Future/Watch"]
+[editable path="Inventory/Future/ResponsabilityMemory"]
+[editable path="Inventory/Future/ResponsabilityMemory2"]
+[editable path="Inventory/Future/ResponsabilityMemory3"]
+[editable path="Inventory/Future/ResponsabilityMemory4"]
+[editable path="Inventory/Past/Gameboy"]
+[editable path="Inventory/Past/BridgePebbles"]
+[editable path="Inventory/Past/Tree"]
+[editable path="Inventory/Past/NostalgicMemory"]
+[editable path="Inventory/Past/NostalgicMemory2"]
+[editable path="Inventory/Past/NostalgicMemory3"]
+[editable path="Inventory/Past/NostalgicMemory4"]
+[editable path="Inventory/Past/NostalgicMemory5"]
+[editable path="Inventory/Present/IceCream"]
+[editable path="Inventory/Present/CollegeLetter"]
+[editable path="Inventory/Present/PictureOfFamily"]
+[editable path="Inventory/Present/Flower"]
+[editable path="Inventory/Present/RealityMemory"]
+[editable path="Inventory/Present/RealityMemory2"]
+[editable path="Inventory/Present/RealityMemory3"]
+[editable path="Inventory/Present/RealityMemory4"]
+[editable path="Inventory/Present/RealityMemory5"]
+[editable path="Inventory/Present/RealityMemory6"]
+[editable path="Future1"]
+[editable path="Future2"]
+[editable path="Past1"]
+[editable path="Past2"]
+[editable path="Past3"]
+[editable path="Present1"]
+[editable path="Present2"]
+[editable path="Present3"]
+[editable path="Present4"]

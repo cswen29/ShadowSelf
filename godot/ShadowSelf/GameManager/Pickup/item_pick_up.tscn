@@ -1,12 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk8fg6y11obqq"]
+[gd_scene load_steps=14 format=3 uid="uid://bk8fg6y11obqq"]
 
 [ext_resource type="Script" path="res://GameManager/Pickup/item_pick_up.gd" id="1_knkpy"]
+[ext_resource type="Texture2D" uid="uid://dy1taqc2j7qnh" path="res://assets/ui/inventory_menu.png" id="2_hafjr"]
 [ext_resource type="Texture2D" uid="uid://svngy4f5rstn" path="res://assets/ui/inventory.png" id="2_j5xnj"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_b3kud"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="3_dsgdp"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="4_3c8wb"]
+[ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="4_rtp4c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ex86t"]
-font_color = Color(0.282353, 0, 1, 1)
+font = ExtResource("3_b3kud")
+font_color = Color(0.282353, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ucuo"]
+font = ExtResource("3_b3kud")
+font_color = Color(0.607843, 0.756863, 1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65kgq"]
 texture = ExtResource("2_j5xnj")
@@ -54,42 +62,47 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_knkpy")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 602.0
-offset_bottom = 437.0
+offset_left = -115.0
+offset_top = -92.0
+offset_right = 1805.0
+offset_bottom = 988.0
+scale = Vector2(0.416826, 0.610457)
 mouse_filter = 2
-color = Color(0.251834, 0.403289, 0.520738, 1)
+texture = ExtResource("2_hafjr")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 29.0
-offset_right = 342.0
-offset_bottom = 52.0
-scale = Vector2(1.17045, 1.33333)
+offset_left = 200.0
+offset_top = 23.0
+offset_right = 318.0
+offset_bottom = 46.0
+scale = Vector2(1.43501, 1.36812)
 text = "You picked up: "
 label_settings = SubResource("LabelSettings_ex86t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(285, 148)
-scale = Vector2(2, 2)
+scale = Vector2(1.6, 1.6)
 
 [node name="ItemName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 218.0
-offset_top = 283.0
-offset_right = 258.0
-offset_bottom = 306.0
-scale = Vector2(3.37337, 1.80423)
+offset_left = 215.0
+offset_top = 297.0
+offset_right = 261.0
+offset_bottom = 320.0
+scale = Vector2(2.74626, 1.88686)
+label_settings = SubResource("LabelSettings_7ucuo")
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
-offset_left = 232.0
-offset_top = 384.0
-offset_right = 293.0
-offset_bottom = 420.0
+offset_left = 221.0
+offset_top = 388.0
+offset_right = 282.0
+offset_bottom = 424.0
 scale = Vector2(2.05376, 1.2186)
+theme_override_fonts/font = ExtResource("4_rtp4c")
 theme_override_styles/normal = SubResource("StyleBoxTexture_65kgq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_82t3s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_8ggjc")

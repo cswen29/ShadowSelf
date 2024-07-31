@@ -9,6 +9,7 @@ func _ready() -> void:
 	update_sprites()
 	
 func update_sprites():
+
 	list = GlobalVariables.inventory
 		
 	for node_name in list:
@@ -19,13 +20,50 @@ func update_sprites():
 		if sprite != null:
 			sprite.update()
 			sprite.show()
-
-		if node_name == "ResponsabilityMemory" or  node_name == "NostalgicMemory" or  node_name ==  "RealityMemory":
-			path = str(path + "2")
-			sprite = get_node(path) as Item
+			
+	if get_parent().name == "Alchemy":
+		$Close.hide()
+		for node_name in list:
+			var node_parent = GlobalVariables.itemAttr[node_name][2]
+			var path = str(node_parent + "/" + node_name)
+			
+			var sprite = get_node(path) as Item
 			if sprite != null:
 				sprite.update()
 				sprite.show()
+			if node_name == "ResponsabilityMemory" or  node_name == "NostalgicMemory" or  node_name ==  "RealityMemory":
+				path = str(path + "2")
+				sprite = get_node(path) as Item
+				if sprite != null:
+					sprite.update()
+					sprite.show()
+				
+				path = str(path.replace("2", "3"))
+				sprite = get_node(path) as Item
+				if sprite != null:
+					sprite.update()
+					sprite.show()
+					
+				
+				path = str(path.replace("3", "4"))
+				sprite = get_node(path) as Item
+				if sprite != null:
+					sprite.update()
+					sprite.show()
+				
+				if node_name == "NostalgicMemory" or node_name == "RealityMemory":
+					path = str(path.replace("4", "5"))
+					sprite = get_node(path) as Item
+					if sprite != null:
+						sprite.update()
+						sprite.show()
+						
+					if node_name == "RealityMemory"	:
+						path = str(path.replace("5", "6"))
+						sprite = get_node(path) as Item
+						if sprite != null:
+							sprite.update()
+							sprite.show()
 	#	
 func refreshSprites():
 	
@@ -38,7 +76,7 @@ func refreshSprites():
 				tween.tween_property(grandChild, "global_position", grandChild.actual_initialPos, 1 )
 				tween.tween_property(grandChild, "rotation", grandChild.rotation + deg_to_rad(360.0), 1 )
 				
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	for child in self.get_children():
 		for grandChild in child.get_children():
 			if grandChild is Item:
@@ -59,8 +97,4 @@ func _on_fix_rotation_timeout():
 		for grandChild in child.get_children():
 			if grandChild is Item:
 				if grandChild.rotation > 10 or grandChild.rotation < -10:
-					grandChild.hideName()
-					var tween = create_tween()
-					tween.tween_property(grandChild, "rotation", 0, 0.2)
-					await tween.finished
-					grandChild.showName()
+					grandChild.rotation = 0

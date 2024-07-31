@@ -2,6 +2,7 @@ extends TextureRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$ColorRect.visible = false
 	
 	$Label.text = ""  
 	$Label2.text =  ""  
@@ -22,7 +23,7 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($Label2, "text", "You walk slowly pass the bridge you used to play with your dad.", 2.5)
+	tween.tween_property($Label2, "text", "You walk slowly pass the tree you used to play with your dad.", 2.5)
 	
 	await tween.finished
 	
@@ -52,7 +53,7 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label2, "text", "For the first time you accept what happened", 2)
+	tween.tween_property($TextureRect/Label2, "text", "For the first time you accept what happened.", 2)
 	
 	await tween.finished
 	
@@ -62,7 +63,7 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label4, "text", "You forgive youself and her.", 2)
+	tween.tween_property($TextureRect/Label4, "text", "You forgive yourself and her.", 2)
 	
 	await tween.finished
 	
@@ -91,3 +92,22 @@ func _ready():
 	await tween.finished
 	
 	await get_tree().create_timer(5).timeout
+	
+	$ColorRect.visible = true
+	var tween2 = create_tween()
+	tween2.tween_property($ColorRect/Credits, "text", "Credits
+	
+	Programmer: Mellow
+	Artist: Anne
+	Audio Designer: Wen
+	Composer: Liam", 2)
+	
+	await tween2.finished
+	
+	await get_tree().create_timer(2).timeout
+	tween2 = create_tween()
+	tween2.tween_property($ColorRect/Credits, "position", Vector2(0, - 100), 10)
+	
+	await tween2.finished
+	await get_tree().create_timer(10).timeout
+	get_tree().quit()

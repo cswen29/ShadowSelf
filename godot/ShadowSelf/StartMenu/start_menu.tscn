@@ -1,14 +1,18 @@
-[gd_scene load_steps=28 format=3 uid="uid://cefn6enxkfjgd"]
+[gd_scene load_steps=32 format=3 uid="uid://cefn6enxkfjgd"]
 
 [ext_resource type="Script" path="res://StartMenu/start_menu.gd" id="1_r4q08"]
 [ext_resource type="Texture2D" uid="uid://o8jpqhpp68t5" path="res://assets/ui/quit_menu.png" id="2_dp5xc"]
+[ext_resource type="Texture2D" uid="uid://chptjjr330ct" path="res://assets/ui/title_screen.jpg" id="2_ncceg"]
+[ext_resource type="FontFile" uid="uid://dx782tka6asb4" path="res://assets/fonts/SuperFuggy-z8Zw4.ttf" id="3_0l823"]
 [ext_resource type="AudioStream" uid="uid://cecb0snemuq33" path="res://assets/audio/mx_layer1_draft1.wav" id="3_g105t"]
 [ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="3_nojrx"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_twc4k"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="4_tamdd"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_vrobe"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_d4etj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1cj3"]
+font = ExtResource("3_twc4k")
 font_size = 95
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kxgwl"]
@@ -198,15 +202,19 @@ _data = {
 "fade_out": SubResource("Animation_4lqg4")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_3tqe0"]
+font = ExtResource("3_0l823")
+font_size = 121
+
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_r4q08")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_left = -508.0
-offset_top = -918.0
-offset_right = 2054.0
-offset_bottom = 1188.0
-color = Color(0.875215, 0.493938, 0.831127, 0.701961)
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_right = 2564.0
+offset_bottom = 2106.0
+scale = Vector2(0.776495, 0.514267)
+texture = ExtResource("2_ncceg")
 
 [node name="Tutorial" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -236,22 +244,26 @@ from your shadow.
 label_settings = SubResource("LabelSettings_b1cj3")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 514.0
-offset_top = 807.0
-offset_right = 675.0
-offset_bottom = 887.0
-scale = Vector2(1.30337, 1.19473)
+offset_left = 1549.0
+offset_top = 191.0
+offset_right = 1710.0
+offset_bottom = 271.0
+scale = Vector2(2.982, 2.75798)
+theme_override_colors/font_color = Color(0.902099, 0.776061, 0.940116, 1)
+theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kxgwl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fmp3p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_im40v")
 theme_override_styles/focus = SubResource("StyleBoxTexture_xwn2k")
-text = "Start Game!"
+text = "Play !"
 
 [node name="TutorialButton" type="Button" parent="."]
-offset_left = 866.0
-offset_top = 823.0
-offset_right = 991.0
-offset_bottom = 862.0
+offset_left = 1621.0
+offset_top = 436.0
+offset_right = 1746.0
+offset_bottom = 475.0
+scale = Vector2(2.82317, 2.79382)
+theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ey6fd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ftc4u")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ytyjb")
@@ -260,10 +272,12 @@ text = "Tutorial
 "
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 1166.0
-offset_top = 822.0
-offset_right = 1291.0
-offset_bottom = 861.0
+offset_left = 1604.0
+offset_top = 602.0
+offset_right = 1729.0
+offset_bottom = 641.0
+scale = Vector2(2.93816, 3.23915)
+theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_uj2uh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dtaxb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4dva3")
@@ -272,11 +286,13 @@ text = "Settings
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 1393.0
-offset_top = 830.0
-offset_right = 1440.0
-offset_bottom = 861.0
-theme_override_colors/font_color = Color(0, 0.890196, 0.690196, 1)
+offset_left = 1718.0
+offset_top = 932.0
+offset_right = 1765.0
+offset_bottom = 963.0
+scale = Vector2(3.54488, 2.75131)
+theme_override_colors/font_color = Color(0.756863, 0.384314, 0.690196, 1)
+theme_override_fonts/font = ExtResource("3_0l823")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jsvsy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bn1fx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ue8pc")
@@ -307,6 +323,7 @@ libraries = {
 speed_scale = 0.5
 
 [node name="BlackBackground" type="ColorRect" parent="Transition"]
+visible = false
 offset_left = -448.0
 offset_top = -245.0
 offset_right = 2026.0
@@ -320,6 +337,15 @@ bus = &"sfx"
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_d4etj")
 bus = &"sfx"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 496.0
+offset_bottom = 359.0
+text = "Shadow
+Self"
+label_settings = SubResource("LabelSettings_3tqe0")
 
 [connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
