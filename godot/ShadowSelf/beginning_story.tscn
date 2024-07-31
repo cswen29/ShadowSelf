@@ -140,6 +140,5 @@ label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("3_6dwqi")
-volume_db = 5.0
 autoplay = true
 bus = &"sfx"

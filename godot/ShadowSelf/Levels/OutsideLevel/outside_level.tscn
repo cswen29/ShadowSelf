@@ -323,7 +323,7 @@ shape = SubResource("CircleShape2D_0awhx")
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("12_thsts")
-volume_db = 5.0
+volume_db = 3.0
 autoplay = true
 bus = &"sfx"
 
