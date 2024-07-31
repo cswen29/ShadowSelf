@@ -1,44 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdo02ctlh2fn7"]
+[gd_scene load_steps=5 format=3 uid="uid://bdo02ctlh2fn7"]
 
-[ext_resource type="Texture2D" uid="uid://8fohdjkfsy2j" path="res://assets/ui/black-square-png-2.png" id="1_on1q3"]
+[ext_resource type="Texture2D" uid="uid://pgkxaow1edtq" path="res://assets/ui/black-square.png" id="1_ihleb"]
 [ext_resource type="Script" path="res://TextureRect.gd" id="2_e40fr"]
+[ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="3_6dwqi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boktc"]
 font_size = 200
 
 [node name="BeginningStory" type="TextureRect"]
-offset_left = -258.0
-offset_top = -159.0
-offset_right = 7301.0
-offset_bottom = 7331.0
-scale = Vector2(0.324548, 0.186754)
-texture = ExtResource("1_on1q3")
+offset_left = -150.0
+offset_top = -478.0
+offset_right = 7409.0
+offset_bottom = 7012.0
+scale = Vector2(0.308568, 0.272536)
+texture = ExtResource("1_ihleb")
 script = ExtResource("2_e40fr")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 1158.59
+offset_top = 1966.71
+offset_right = 1528.59
+offset_bottom = 2239.71
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 1110.46
+offset_top = 3045.47
+offset_right = 1849.46
+offset_bottom = 3591.47
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 1069.21
+offset_top = 4080.19
+offset_right = 1808.21
+offset_bottom = 4626.19
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
@@ -58,28 +59,28 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 1158.59
+offset_top = 1966.71
+offset_right = 1528.59
+offset_bottom = 2239.71
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 1110.46
+offset_top = 3045.47
+offset_right = 1849.46
+offset_bottom = 3591.47
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="TextureRect"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 1069.21
+offset_top = 4080.19
+offset_right = 1808.21
+offset_bottom = 4626.19
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
@@ -99,28 +100,28 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1191.98
-offset_top = 1224.5
-offset_right = 1231.98
-offset_bottom = 1247.5
+offset_left = 1158.59
+offset_top = 1966.71
+offset_right = 1528.59
+offset_bottom = 2239.71
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label2" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1168.3
-offset_top = 2588.81
-offset_right = 1907.3
-offset_bottom = 3134.81
+offset_left = 1110.46
+offset_top = 3045.47
+offset_right = 1849.46
+offset_bottom = 3591.47
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
 [node name="Label3" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 1148.56
-offset_top = 3649.41
-offset_right = 1887.56
-offset_bottom = 4195.41
+offset_left = 1069.21
+offset_top = 4080.19
+offset_right = 1808.21
+offset_bottom = 4626.19
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
 
@@ -132,3 +133,11 @@ offset_right = 1887.56
 offset_bottom = 5641.67
 text = "test"
 label_settings = SubResource("LabelSettings_boktc")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_6dwqi")
+volume_db = 5.0
+autoplay = true
+bus = &"sfx"

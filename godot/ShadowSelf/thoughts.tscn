@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://vkm6x83mdcjd"]
 
 [ext_resource type="Script" path="res://Thoughts.gd" id="1_62108"]
-[ext_resource type="Texture2D" uid="uid://bxnj5a4uk4qa6" path="res://assets/inventory/Gameboy.png" id="2_8iryc"]
+[ext_resource type="Texture2D" uid="uid://s518kuughjor" path="res://assets/enemy/monster_1.png" id="2_e1vjf"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="3_tijua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3s8cn"]
@@ -14,8 +14,8 @@ collision_mask = 0
 script = ExtResource("1_62108")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("2_8iryc")
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("2_e1vjf")
 
 [node name="Area2D" type="Area2D" parent="."]
 

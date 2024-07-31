@@ -144,7 +144,7 @@ autoplay = true
 bus = &"sfx"
 
 [node name="Watch" parent="." instance=ExtResource("15_cw4hq")]
-position = Vector2(-105, -119)
+position = Vector2(-66, 172)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("15_wegw3")
 

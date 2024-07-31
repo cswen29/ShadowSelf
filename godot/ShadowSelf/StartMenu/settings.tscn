@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdis8kcd0sfdd"]
+[gd_scene load_steps=9 format=3 uid="uid://bdis8kcd0sfdd"]
 
 [ext_resource type="Script" path="res://StartMenu/settings.gd" id="1_b87l4"]
+[ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_mjqwy"]
 [ext_resource type="PackedScene" uid="uid://bjf6c8bdumrgb" path="res://h_slider.tscn" id="2_oue4v"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="3_t7h27"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="4_kcenr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_utq1q"]
-font_color = Color(1, 0, 1, 1)
+font_color = Color(0.678431, 0.219608, 0.611765, 0.972549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8u0w"]
+font_color = Color(1, 0.227451, 0.0862745, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wr6g6"]
-font_color = Color(0.0313726, 0.686275, 0.372549, 1)
+font_color = Color(1, 0.752941, 0.796078, 1)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -20,12 +24,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b87l4")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 296.0
-offset_bottom = 285.0
-mouse_filter = 1
-color = Color(0.32549, 1, 1, 1)
+offset_left = -50.0
+offset_top = -56.0
+offset_right = 1870.0
+offset_bottom = 1024.0
+scale = Vector2(0.200327, 0.384778)
+texture = ExtResource("2_mjqwy")
 
 [node name="Master" type="Control" parent="."]
 layout_mode = 3
@@ -65,7 +71,7 @@ offset_right = 165.0
 offset_bottom = 121.0
 text = "Music
 "
-label_settings = SubResource("LabelSettings_utq1q")
+label_settings = SubResource("LabelSettings_f8u0w")
 
 [node name="HSlider" parent="Music" instance=ExtResource("2_oue4v")]
 layout_mode = 0

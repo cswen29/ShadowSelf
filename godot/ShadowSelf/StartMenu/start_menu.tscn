@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cefn6enxkfjgd"]
+[gd_scene load_steps=29 format=3 uid="uid://cefn6enxkfjgd"]
 
 [ext_resource type="Script" path="res://StartMenu/start_menu.gd" id="1_r4q08"]
 [ext_resource type="Texture2D" uid="uid://o8jpqhpp68t5" path="res://assets/ui/quit_menu.png" id="2_dp5xc"]
+[ext_resource type="Texture2D" uid="uid://chptjjr330ct" path="res://assets/ui/title_screen.jpg" id="2_ncceg"]
 [ext_resource type="AudioStream" uid="uid://cecb0snemuq33" path="res://assets/audio/mx_layer1_draft1.wav" id="3_g105t"]
 [ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="3_nojrx"]
 [ext_resource type="PackedScene" uid="uid://bdis8kcd0sfdd" path="res://StartMenu/settings.tscn" id="4_tamdd"]
@@ -201,12 +202,12 @@ _data = {
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_r4q08")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_left = -508.0
-offset_top = -918.0
-offset_right = 2054.0
-offset_bottom = 1188.0
-color = Color(0.875215, 0.493938, 0.831127, 0.701961)
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_right = 2564.0
+offset_bottom = 2106.0
+scale = Vector2(0.776495, 0.514267)
+texture = ExtResource("2_ncceg")
 
 [node name="Tutorial" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -236,10 +237,10 @@ from your shadow.
 label_settings = SubResource("LabelSettings_b1cj3")
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 514.0
-offset_top = 807.0
-offset_right = 675.0
-offset_bottom = 887.0
+offset_left = 1668.0
+offset_top = 157.0
+offset_right = 1829.0
+offset_bottom = 237.0
 scale = Vector2(1.30337, 1.19473)
 theme_override_styles/normal = SubResource("StyleBoxTexture_kxgwl")
 theme_override_styles/hover = SubResource("StyleBoxTexture_fmp3p")
@@ -248,10 +249,10 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_xwn2k")
 text = "Start Game!"
 
 [node name="TutorialButton" type="Button" parent="."]
-offset_left = 866.0
-offset_top = 823.0
-offset_right = 991.0
-offset_bottom = 862.0
+offset_left = 1712.0
+offset_top = 398.0
+offset_right = 1837.0
+offset_bottom = 437.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_ey6fd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ftc4u")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ytyjb")
@@ -260,10 +261,10 @@ text = "Tutorial
 "
 
 [node name="SettingsButton" type="Button" parent="."]
-offset_left = 1166.0
-offset_top = 822.0
-offset_right = 1291.0
-offset_bottom = 861.0
+offset_left = 1706.0
+offset_top = 513.0
+offset_right = 1831.0
+offset_bottom = 552.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_uj2uh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dtaxb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_4dva3")
@@ -272,10 +273,10 @@ text = "Settings
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 1393.0
-offset_top = 830.0
-offset_right = 1440.0
-offset_bottom = 861.0
+offset_left = 1746.0
+offset_top = 710.0
+offset_right = 1793.0
+offset_bottom = 741.0
 theme_override_colors/font_color = Color(0, 0.890196, 0.690196, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_jsvsy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bn1fx")
@@ -307,6 +308,7 @@ libraries = {
 speed_scale = 0.5
 
 [node name="BlackBackground" type="ColorRect" parent="Transition"]
+visible = false
 offset_left = -448.0
 offset_top = -245.0
 offset_right = 2026.0

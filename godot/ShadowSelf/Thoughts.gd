@@ -4,8 +4,12 @@ signal shadowHit
 signal playerHit
 const SPEED = 300.0
 var direction 
+var sprites = [1,2,3,4,5]
 
 func _ready():
+	var rand = sprites.pick_random()
+	var spritePath = str("assets/enemy/monster_", rand, ".png")
+	$Sprite2D.texture = load(spritePath)
 	look_at(GlobalVariables.character_pos)
 	direction = (GlobalVariables.character_pos - global_position).normalized()
 	

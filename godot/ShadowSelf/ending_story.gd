@@ -52,7 +52,7 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label2, "text", "For the first time you accept what happened", 2)
+	tween.tween_property($TextureRect/Label2, "text", "For the first time you accept what happened.", 2)
 	
 	await tween.finished
 	

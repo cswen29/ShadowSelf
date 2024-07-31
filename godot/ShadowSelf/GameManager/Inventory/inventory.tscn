@@ -249,7 +249,7 @@ stream = ExtResource("13_31t5s")
 bus = &"sfx"
 
 [node name="FixRotation" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="checkCombinations" from="Future/PhoneCall" to="." method="check_combinations"]

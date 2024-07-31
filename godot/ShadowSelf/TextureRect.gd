@@ -4,6 +4,7 @@ var simultaneous_scene = preload("res://GameManager/game_manager.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$SFX/Ambience.play()
 	$Label.text = ""  
 	$Label2.text =  ""  
 	$Label3.text =  ""  
@@ -23,12 +24,12 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($Label2, "text", "Negative Thoughts and regrets are all you have.", 2.5)
+	tween.tween_property($Label2, "text", "Negative thoughts and regrets are all you have.", 2.5)
 	
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($Label3, "text", "Despite that, some special items bring relief to your pain.", 2.5)
+	tween.tween_property($Label3, "text", "Despite that, some old items bring relief to your pain.", 2.5)
 	
 	await tween.finished
 	
@@ -63,7 +64,7 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label4, "text", "If you shadow gets too big, you get closer to giving up.", 2)
+	tween.tween_property($TextureRect/Label4, "text", "If your shadow gets too big, you get closer to giving up.", 2)
 	
 	await tween.finished
 	

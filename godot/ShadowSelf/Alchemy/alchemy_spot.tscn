@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://blvv353p8jyyl"]
+[gd_scene load_steps=4 format=3 uid="uid://blvv353p8jyyl"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy_spot.gd" id="1_icwpq"]
+[ext_resource type="Texture2D" uid="uid://dsswverad23xn" path="res://assets/ui/whitecircle.png" id="2_mhx3d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fh8h6"]
 radius = 22.7624
@@ -17,5 +18,7 @@ scale = Vector2(0.490686, 0.367337)
 shape = SubResource("CircleShape2D_fh8h6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(19, 18)
-scale = Vector2(0.2, 0.2)
+modulate = Color(1, 1, 1, 0.443137)
+position = Vector2(18.5, 18.5)
+scale = Vector2(0.0135629, 0.0102906)
+texture = ExtResource("2_mhx3d")
