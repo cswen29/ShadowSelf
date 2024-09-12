@@ -1,32 +1,28 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdis8kcd0sfdd"]
+[gd_scene load_steps=14 format=3 uid="uid://bdis8kcd0sfdd"]
 
 [ext_resource type="Script" path="res://StartMenu/settings.gd" id="1_b87l4"]
 [ext_resource type="Texture2D" uid="uid://b8s4wd1dy2ltg" path="res://assets/ui/menu.png" id="2_mjqwy"]
-[ext_resource type="PackedScene" uid="uid://bjf6c8bdumrgb" path="res://h_slider.tscn" id="2_oue4v"]
+[ext_resource type="PackedScene" uid="uid://bjf6c8bdumrgb" path="res://Slider/h_slider.tscn" id="2_oue4v"]
 [ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_msjtf"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="3_t7h27"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="4_kcenr"]
 [ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="5_ss3gf"]
 [ext_resource type="Texture2D" uid="uid://cjiun77puqeov" path="res://assets/ui/quit_main.png" id="6_vhecx"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_utq1q"]
+[sub_resource type="LabelSettings" id="LabelSettings_4wouj"]
 font = ExtResource("3_msjtf")
-font_color = Color(0.915946, 0.627067, 0.856902, 0.972549)
+font_size = 17
+font_color = Color(1, 0.631373, 1, 1)
+outline_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_f8u0w"]
-font = ExtResource("3_msjtf")
-font_color = Color(1, 0.727103, 0.630511, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_wr6g6"]
-font = ExtResource("3_msjtf")
-font_color = Color(1, 0.768803, 0.808578, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bgffl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6t0p"]
 texture = ExtResource("6_vhecx")
-expand_margin_left = 95.0
-expand_margin_top = 85.0
-expand_margin_right = 95.0
-expand_margin_bottom = 85.0
+expand_margin_left = 55.0
+expand_margin_top = 75.0
+expand_margin_right = 75.0
+expand_margin_bottom = 65.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpidi"]
 texture = ExtResource("6_vhecx")
@@ -44,12 +40,12 @@ expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 modulate_color = Color(0.713726, 0.32549, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6t0p"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bgffl"]
 texture = ExtResource("6_vhecx")
-expand_margin_left = 55.0
-expand_margin_top = 75.0
-expand_margin_right = 75.0
-expand_margin_bottom = 65.0
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -66,7 +62,7 @@ offset_left = -50.0
 offset_top = -56.0
 offset_right = 1870.0
 offset_bottom = 1024.0
-scale = Vector2(0.200327, 0.384778)
+scale = Vector2(0.199726, 0.384778)
 texture = ExtResource("2_mjqwy")
 
 [node name="Master" type="Control" parent="."]
@@ -85,7 +81,7 @@ offset_right = 165.0
 offset_bottom = 121.0
 text = "Master
 "
-label_settings = SubResource("LabelSettings_utq1q")
+label_settings = SubResource("LabelSettings_4wouj")
 
 [node name="HSlider" parent="Master" instance=ExtResource("2_oue4v")]
 layout_mode = 0
@@ -107,7 +103,7 @@ offset_right = 165.0
 offset_bottom = 121.0
 text = "Music
 "
-label_settings = SubResource("LabelSettings_f8u0w")
+label_settings = SubResource("LabelSettings_4wouj")
 
 [node name="HSlider" parent="Music" instance=ExtResource("2_oue4v")]
 layout_mode = 0
@@ -129,7 +125,7 @@ offset_right = 167.0
 offset_bottom = 180.0
 text = "Effects
 "
-label_settings = SubResource("LabelSettings_wr6g6")
+label_settings = SubResource("LabelSettings_4wouj")
 
 [node name="HSlider" parent="Effects" instance=ExtResource("2_oue4v")]
 layout_mode = 0
@@ -140,16 +136,19 @@ offset_bottom = 205.0
 bus_name = "sfx"
 
 [node name="Resume" type="Button" parent="."]
+modulate = Color(1, 0.337255, 1, 1)
 layout_mode = 0
-offset_left = 103.0
-offset_top = 238.0
-offset_right = 175.0
-offset_bottom = 269.0
+offset_left = 91.0
+offset_top = 256.0
+offset_right = 178.0
+offset_bottom = 298.0
+scale = Vector2(1.17033, 0.758404)
 theme_override_fonts/font = ExtResource("5_ss3gf")
-theme_override_styles/normal = SubResource("StyleBoxTexture_bgffl")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxTexture_x6t0p")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qpidi")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kcws7")
-theme_override_styles/focus = SubResource("StyleBoxTexture_x6t0p")
+theme_override_styles/normal = SubResource("StyleBoxTexture_bgffl")
 text = "Close"
 
 [node name="ButtonHover" type="AudioStreamPlayer2D" parent="."]

@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bghtptm6gk3y2" path="res://assets/inventory/RealityMemory.png" id="16_naxhb"]
 [ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="17_hbj44"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5lkk"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwuvi"]
 texture = ExtResource("11_uv45j")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
@@ -44,7 +44,7 @@ expand_margin_right = 55.0
 expand_margin_bottom = 40.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwuvi"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5lkk"]
 texture = ExtResource("11_uv45j")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
@@ -236,10 +236,10 @@ offset_right = 779.661
 offset_bottom = 864.825
 scale = Vector2(6.23796, 2.521)
 theme_override_fonts/font = ExtResource("17_hbj44")
-theme_override_styles/normal = SubResource("StyleBoxTexture_j5lkk")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mwuvi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_riet3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sr3df")
-theme_override_styles/focus = SubResource("StyleBoxTexture_mwuvi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_j5lkk")
 text = "Close"
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]

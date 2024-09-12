@@ -1,6 +1,5 @@
 extends Control
 
-signal resume 
 @onready var inventory = $Inventory
 @onready var settings = $Settings
 

@@ -10,14 +10,14 @@ var isOutside
 var walking = false
 
 func _ready() -> void:
-	updateSprite()
+	updateSprite(0)
 	playIdle()
 		
 func _process(_delta)-> void:
 	GlobalVariables.character_pos = global_position	
-		
+	
 func _input(event)-> void:
-		if (event is InputEventMouseButton) and canMove:
+		if (event is InputEventMouseButton) and canMove and !playerHasSelectedDirection:
 			$Label.show()
 			$IdleText.hide()
 			playerHasSelectedDirection = true
@@ -78,29 +78,32 @@ func _on_wander_timeout()-> void:
 			
 			playWalkCycle()
 			await tween.finished
-			playIdle()
+			#playIdle()
 			$IdleText.hide()
 
 func playIdle()-> void:
-	walking = false
-	await get_tree().create_timer(0.3).timeout
-	$SpriteOutline.play("walk_cycle")
-	$SpriteColor.play("walk_cycle")	
+		walking = false
+		$SpriteOutline.play("idle")
+		if ($SpriteOutline.flip_h):
+			$SpriteOutline.position =  Vector2(-50,0)
+		else: 
+			$SpriteOutline.position =  Vector2(50,0)
+			
+		$SpriteColor.play("idle")	
 
 func playWalkCycle()-> void:				
 	walking = true
-	await get_tree().create_timer(0.3).timeout
 	$SpriteOutline.play("walk_cycle")
+	$SpriteOutline.position =  Vector2(0,0)
 	$SpriteColor.play("walk_cycle")	
 	
 func flipSprites(val: bool)-> void:
 	$SpriteOutline.flip_h = val
 	$SpriteColor.flip_h = val
 
-func updateSprite() -> void:
-	var numberOfTrees := GlobalVariables.trees_unlocked.size()
+func updateSprite(number : int) -> void:
 	var color = "5e5e5e"
-	match (numberOfTrees):
+	match (number):
 		0: 
 			color = "292929"
 		1: 

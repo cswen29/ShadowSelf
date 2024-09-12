@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bdnu2omi74jo7"]
+
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="1_di305"]
+
+[resource]
+font = ExtResource("1_di305")
+font_size = 108
+font_color = Color(1, 0.552941, 1, 1)
+outline_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_size = 66
+shadow_color = Color(0, 0, 0, 1)

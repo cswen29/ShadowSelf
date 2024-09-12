@@ -1,11 +1,9 @@
 class_name RoomLevel extends Node2D
 
-@export var minigame_scene : PackedScene
 @onready var door = $Door
 @onready var mirror = $"Mirror"
 @onready var shelf = $"Shelf"
 @onready var watch = $"Watch"
-var minigameObj: Minigame
 
 signal prompt
 
@@ -41,6 +39,7 @@ func _on_watch_input_event(_viewport, event, _shape_idx):
 		if event is InputEventMouseButton and watch.isColliding:
 			if "Watch" not in GlobalVariables.inventory:
 				prompt.emit("pickup watch?", "watch")	
+				$Watch.hide()
 							
 func _on_right_limit_area_entered(area):
 	if area.name == "PlayerArea":

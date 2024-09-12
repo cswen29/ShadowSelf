@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var volume: float = 0.5
-var simultaneous_scene = preload("res://beginning_story.tscn")
+var simultaneous_scene = preload("res://Story/beginning_story.tscn")
 
 @onready var transition = $Transition
 
@@ -22,8 +22,10 @@ func _on_tutorial_button_pressed()-> void:
 	
 	if transparent:
 		tween.tween_property($Tutorial, "modulate", Color.WHITE, 1)
+		$CloseTutorial.show()
 	else:
 		tween.tween_property($Tutorial, "modulate", Color.TRANSPARENT, 1)
+		$CloseTutorial.hide()
 
 func _on_settings_button_pressed():
 	$ButtonClick.play()
@@ -41,3 +43,6 @@ func _on_settings_button_mouse_entered():
 func _on_quit_pressed():
 	$ButtonClick.play()
 	get_tree().quit()
+
+func _on_close_tutorial_pressed():
+	_on_tutorial_button_pressed()

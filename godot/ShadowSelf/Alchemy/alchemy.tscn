@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://baedkoi5gumm8"]
+[gd_scene load_steps=28 format=3 uid="uid://baedkoi5gumm8"]
 
 [ext_resource type="Script" path="res://Alchemy/alchemy.gd" id="1_5ve35"]
 [ext_resource type="Texture2D" uid="uid://dvcef8rdt02pp" path="res://assets/ui/alchemy_menu.png" id="2_a2ugk"]
@@ -15,8 +15,12 @@
 [ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="8_2pktc"]
 [ext_resource type="AudioStream" uid="uid://cxvjabjqcuqtk" path="res://assets/audio/sfx/object interaction - ui/sfx_kill_bad_memory.wav" id="8_lt53v"]
 [ext_resource type="AudioStream" uid="uid://c8d1qfugun7if" path="res://assets/audio/sfx/object interaction - ui/sfx_refresh.wav" id="13_eothv"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="16_8y71e"]
 
 [sub_resource type="FontFile" id="FontFile_jjpc7"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -147,12 +151,12 @@ cache/0/200/0/kerning_overrides/200/0 = Vector2(0, 0)
 [sub_resource type="Theme" id="Theme_4lvlq"]
 default_font = SubResource("FontFile_jjpc7")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0pca"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewcqb"]
 texture = ExtResource("3_8r4cp")
-expand_margin_left = 2048.0
+expand_margin_left = 1845.0
 expand_margin_top = 1845.0
-expand_margin_right = 2048.0
-expand_margin_bottom = 1940.0
+expand_margin_right = 1845.0
+expand_margin_bottom = 1845.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6v7xn"]
 texture = ExtResource("3_8r4cp")
@@ -170,19 +174,19 @@ expand_margin_right = 2048.0
 expand_margin_bottom = 1940.0
 modulate_color = Color(0, 0.584314, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewcqb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0pca"]
 texture = ExtResource("3_8r4cp")
-expand_margin_left = 1845.0
+expand_margin_left = 2048.0
 expand_margin_top = 1845.0
-expand_margin_right = 1845.0
-expand_margin_bottom = 1845.0
+expand_margin_right = 2048.0
+expand_margin_bottom = 1940.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v7a1"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvphx"]
 texture = ExtResource("4_bjk4t")
-expand_margin_left = 700.0
-expand_margin_top = 700.0
-expand_margin_right = 700.0
-expand_margin_bottom = 700.0
+expand_margin_left = 600.0
+expand_margin_top = 600.0
+expand_margin_right = 600.0
+expand_margin_bottom = 600.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4bqk"]
 texture = ExtResource("4_bjk4t")
@@ -200,12 +204,20 @@ expand_margin_right = 700.0
 expand_margin_bottom = 700.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvphx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3v7a1"]
 texture = ExtResource("4_bjk4t")
-expand_margin_left = 600.0
-expand_margin_top = 600.0
-expand_margin_right = 600.0
-expand_margin_bottom = 600.0
+expand_margin_left = 700.0
+expand_margin_top = 700.0
+expand_margin_right = 700.0
+expand_margin_bottom = 700.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_meccs"]
+font = ExtResource("16_8y71e")
+font_size = 100
+font_color = Color(0, 0.6, 1, 1)
+outline_color = Color(0.151276, 0.151276, 0.151276, 1)
+shadow_size = 121
+shadow_color = Color(0, 0, 0.678431, 1)
 
 [node name="Alchemy" type="Control"]
 layout_mode = 3
@@ -242,22 +254,48 @@ scale = Vector2(0.359614, 0.282697)
 mouse_filter = 2
 
 [node name="PhoneCall" parent="Inventory/Future" index="0"]
+position = Vector2(350.142, 285.978)
 skip = false
 
 [node name="Name" parent="Inventory/Future/PhoneCall" index="1"]
 modulate = Color(1, 0.0588235, 0.309804, 0.792157)
 
+[node name="Description" parent="Inventory/Future/PhoneCall" index="2"]
+offset_left = -235.511
+offset_top = -108.79
+offset_right = 919.489
+offset_bottom = 1253.21
+
 [node name="Watch" parent="Inventory/Future" index="1"]
+position = Vector2(229.665, 223.907)
 skip = false
 
 [node name="Name" parent="Inventory/Future/Watch" index="1"]
 modulate = Color(1, 0.0588235, 0.309804, 0.792157)
+offset_left = -75.2864
+offset_top = 117.856
+offset_right = 3672.71
+offset_bottom = 5565.86
+
+[node name="Description" parent="Inventory/Future/Watch" index="2"]
+offset_left = -264.467
+offset_top = -205.492
+offset_right = 890.533
+offset_bottom = 1156.51
 
 [node name="ResponsabilityMemory" parent="Inventory/Future" index="2"]
+position = Vector2(495.02, 136.769)
 skip = false
 
 [node name="Name" parent="Inventory/Future/ResponsabilityMemory" index="1"]
 modulate = Color(1, 0.0588235, 0.309804, 0.792157)
+offset_left = -202.694
+offset_top = 102.746
+offset_right = 1903.31
+offset_bottom = 5550.75
+
+[node name="Description" parent="Inventory/Future/ResponsabilityMemory" index="2"]
+offset_right = 694.0
 
 [node name="ResponsabilityMemory2" parent="Inventory/Future" index="3" instance=ExtResource("4_qy26g")]
 visible = false
@@ -281,14 +319,21 @@ scale = Vector2(0.395, 0.395)
 texture = ExtResource("5_o44xh")
 
 [node name="Future1" parent="Inventory/Future" index="6"]
+modulate = Color(0.929412, 0, 0, 1)
 position = Vector2(329.554, 262.105)
 scale = Vector2(1.55539, 1.56884)
 occupied = false
 
 [node name="Future2" parent="Inventory/Future" index="7"]
+modulate = Color(0.929412, 0, 0, 1)
 occupied = false
 
+[node name="Future3" parent="Inventory/Future" index="8"]
+modulate = Color(0.929412, 0, 0, 1)
+position = Vector2(466.044, 110.509)
+
 [node name="Gameboy" parent="Inventory/Past" index="0"]
+position = Vector2(-2.20185, -31.0877)
 skip = false
 
 [node name="Name" parent="Inventory/Past/Gameboy" index="1"]
@@ -296,20 +341,55 @@ modulate = Color(0, 0.658824, 0, 0.678431)
 text = "
 "
 
+[node name="Description" parent="Inventory/Past/Gameboy" index="2"]
+offset_left = -498.013
+offset_top = -166.923
+offset_right = 656.987
+offset_bottom = 1195.08
+
+[node name="BridgePebbles" parent="Inventory/Past" index="1"]
+position = Vector2(255.987, 298.586)
+
 [node name="Name" parent="Inventory/Past/BridgePebbles" index="1"]
 modulate = Color(0, 0.466667, 0, 1)
+offset_left = -173.938
+offset_top = 108.323
+offset_right = 3574.06
+offset_bottom = 5556.33
+
+[node name="Description" parent="Inventory/Past/BridgePebbles" index="2"]
+offset_left = -358.862
+offset_top = -211.318
+offset_right = 1070.14
+offset_bottom = 1150.68
 
 [node name="Tree" parent="Inventory/Past" index="2"]
+position = Vector2(-12.3269, 226.338)
 skip = false
 
 [node name="Name" parent="Inventory/Past/Tree" index="1"]
 modulate = Color(0, 0.658824, 0, 0.678431)
+offset_left = -62.2516
+offset_top = 104.771
+offset_right = 3685.74
+offset_bottom = 5552.77
+
+[node name="Description" parent="Inventory/Past/Tree" index="2"]
+offset_left = -166.615
+offset_top = 71.0312
+offset_right = 988.385
+offset_bottom = 1433.03
 
 [node name="NostalgicMemory" parent="Inventory/Past" index="3"]
+position = Vector2(581.434, 236.159)
 skip = false
 
 [node name="Name" parent="Inventory/Past/NostalgicMemory" index="1"]
 modulate = Color(0, 0.658824, 0, 0.678431)
+offset_left = -106.194
+offset_top = 108.323
+offset_right = 1274.81
+offset_bottom = 5556.32
 
 [node name="NostalgicMemory2" parent="Inventory/Past" index="4" instance=ExtResource("4_qy26g")]
 visible = false
@@ -352,46 +432,101 @@ texture = ExtResource("6_hnvwo")
 modulate = Color(0, 0.658824, 0, 0.678431)
 
 [node name="Past1" parent="Inventory/Past" index="8"]
+modulate = Color(0.156863, 1, 0.152941, 1)
+position = Vector2(-31.8538, -57.0407)
 occupied = false
 
 [node name="Past2" parent="Inventory/Past" index="9"]
+modulate = Color(0.156863, 1, 0.152941, 1)
+position = Vector2(221.995, 273.335)
 occupied = false
 
 [node name="Past3" parent="Inventory/Past" index="10"]
+modulate = Color(0.156863, 1, 0.152941, 1)
+position = Vector2(-40.5324, 196.177)
 occupied = false
 
 [node name="Past4" parent="Inventory/Past" index="11"]
+modulate = Color(0.156863, 1, 0.152941, 1)
+position = Vector2(553.952, 210.206)
 occupied = false
 
 [node name="IceCream" parent="Inventory/Present" index="0"]
+position = Vector2(40.9219, 110.469)
 skip = false
 
 [node name="Name" parent="Inventory/Present/IceCream" index="1"]
 modulate = Color(0.219608, 1, 1, 0.627451)
 
+[node name="Description" parent="Inventory/Present/IceCream" index="2"]
+offset_left = -170.518
+offset_top = -127.909
+offset_right = 984.482
+offset_bottom = 1234.09
+
 [node name="CollegeLetter" parent="Inventory/Present" index="1"]
+position = Vector2(187.943, -25.4999)
 skip = false
 
 [node name="Name" parent="Inventory/Present/CollegeLetter" index="1"]
 modulate = Color(0.219608, 1, 1, 0.627451)
 
+[node name="Description" parent="Inventory/Present/CollegeLetter" index="2"]
+offset_left = -299.0
+offset_top = 66.0
+offset_right = 942.0
+offset_bottom = 1428.0
+
 [node name="PictureOfFamily" parent="Inventory/Present" index="2"]
+position = Vector2(372.625, -8.41092)
 skip = false
 
 [node name="Name" parent="Inventory/Present/PictureOfFamily" index="1"]
 modulate = Color(0.219608, 1, 1, 0.627451)
+offset_left = -181.519
+offset_top = -161.767
+offset_right = 3566.48
+offset_bottom = 5286.24
+
+[node name="Description" parent="Inventory/Present/PictureOfFamily" index="2"]
+offset_left = -344.703
+offset_top = -255.817
+offset_right = 1104.3
+offset_bottom = 1106.18
 
 [node name="Flower" parent="Inventory/Present" index="3"]
+position = Vector2(-10.4993, 400.239)
 skip = false
 
 [node name="Name" parent="Inventory/Present/Flower" index="1"]
 modulate = Color(0.219608, 1, 1, 0.627451)
+offset_left = -86.1759
+offset_top = 95.9315
+offset_right = 3661.82
+offset_bottom = 5543.94
+
+[node name="Description" parent="Inventory/Present/Flower" index="2"]
+offset_left = -205.355
+offset_top = 95.9315
+offset_right = 949.645
+offset_bottom = 1457.93
 
 [node name="RealityMemory" parent="Inventory/Present" index="4"]
+position = Vector2(564.549, 419.557)
 skip = false
 
 [node name="Name" parent="Inventory/Present/RealityMemory" index="1"]
 modulate = Color(0.219608, 1, 1, 0.627451)
+offset_left = -203.521
+offset_top = 80.8835
+offset_right = 1804.48
+offset_bottom = 5528.88
+
+[node name="Description" parent="Inventory/Present/RealityMemory" index="2"]
+offset_left = -220.023
+offset_top = 37.6202
+offset_right = 934.977
+offset_bottom = 1399.62
 
 [node name="RealityMemory2" parent="Inventory/Present" index="5" instance=ExtResource("4_qy26g")]
 visible = false
@@ -444,34 +579,48 @@ texture = ExtResource("7_wqai7")
 modulate = Color(0.219608, 1, 1, 0.627451)
 
 [node name="Present1" parent="Inventory/Present" index="10"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(162.595, -47.7899)
 occupied = false
 
 [node name="Present2" parent="Inventory/Present" index="11"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(344.38, -36.6449)
 occupied = false
 
 [node name="Present3" parent="Inventory/Present" index="12"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(12.6765, 97.838)
 occupied = false
 
 [node name="Present4" parent="Inventory/Present" index="13"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-40.9175, 370.519)
 occupied = false
 
 [node name="Present5" parent="Inventory/Present" index="14"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(537.028, 396.524)
 occupied = false
+
+[node name="FixRotation" parent="Inventory" index="6"]
+wait_time = 4096.0
+autostart = false
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 637.282
-offset_top = 191.134
-offset_right = 1880.28
-offset_bottom = 1121.13
+offset_left = 662.942
+offset_top = 188.437
+offset_right = 2075.94
+offset_bottom = 1249.44
 scale = Vector2(0.0944184, 0.0316674)
 theme = SubResource("Theme_4lvlq")
 theme_override_fonts/font = ExtResource("8_2pktc")
-theme_override_font_sizes/font_size = 200
-theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
+theme_override_font_sizes/font_size = 245
+theme_override_styles/focus = SubResource("StyleBoxTexture_ewcqb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6v7xn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_g18uj")
-theme_override_styles/focus = SubResource("StyleBoxTexture_ewcqb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_f0pca")
 text = "Quit alchemy"
 icon_alignment = 1
 expand_icon = true
@@ -485,10 +634,10 @@ offset_bottom = 437.949
 scale = Vector2(0.270031, 0.0973131)
 theme_override_fonts/font = ExtResource("8_2pktc")
 theme_override_font_sizes/font_size = 119
-theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qvphx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w4bqk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1wys8")
-theme_override_styles/focus = SubResource("StyleBoxTexture_qvphx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3v7a1")
 text = "Refresh"
 
 [node name="Future1" parent="." instance=ExtResource("3_p2v7i")]
@@ -501,9 +650,9 @@ collision_mask = 128
 scale = Vector2(0.551112, 0.483313)
 
 [node name="Sprite2D" parent="Future1" index="1"]
-modulate = Color(1, 0, 0, 0.282353)
-position = Vector2(22.5753, 17.8432)
-scale = Vector2(0.034, 0.02)
+modulate = Color(1, 0, 0, 1)
+position = Vector2(21.7544, 16.2916)
+scale = Vector2(0.0291425, 0.02)
 
 [node name="Future2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(172.657, 65.2061)
@@ -515,9 +664,9 @@ collision_mask = 128
 scale = Vector2(0.711632, 0.422666)
 
 [node name="Sprite2D" parent="Future2" index="1"]
-self_modulate = Color(1, 0, 0, 0.745098)
-position = Vector2(22.0786, 19.505)
-scale = Vector2(0.034, 0.02)
+modulate = Color(1, 0, 0, 1)
+position = Vector2(17.3453, 17.9751)
+scale = Vector2(0.035154, 0.02)
 
 [node name="Past1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(239.102, 53.716)
@@ -529,9 +678,9 @@ collision_mask = 128
 scale = Vector2(0.570822, 0.407321)
 
 [node name="Sprite2D" parent="Past1" index="1"]
-modulate = Color(0, 1, 0, 0.231373)
-position = Vector2(20.068, 19.3652)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0, 1, 0, 0.741176)
+position = Vector2(17.4919, 19.3652)
+scale = Vector2(0.0314239, 0.02)
 
 [node name="Past2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(276.352, 84.7392)
@@ -544,9 +693,9 @@ position = Vector2(17.0134, 16.0032)
 scale = Vector2(0.561695, 0.481979)
 
 [node name="Sprite2D" parent="Past2" index="1"]
-self_modulate = Color(0, 1, 0, 0.407843)
-position = Vector2(18.9038, 13.8975)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0, 1, 0, 0.741176)
+position = Vector2(16.5408, 13.2658)
+scale = Vector2(0.0345002, 0.0225308)
 
 [node name="Past3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(326.689, 105.134)
@@ -559,9 +708,9 @@ position = Vector2(12.7602, 16.0033)
 scale = Vector2(0.675343, 0.436088)
 
 [node name="Sprite2D" parent="Past3" index="1"]
-self_modulate = Color(0, 1, 0, 0.407843)
-position = Vector2(13.7054, 16.4244)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0, 1, 0, 0.741176)
+position = Vector2(11.0922, 16.0033)
+scale = Vector2(0.0366132, 0.0218992)
 
 [node name="Present1" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(87.0836, 130.987)
@@ -573,9 +722,9 @@ collision_mask = 128
 scale = Vector2(0.629734, 0.579964)
 
 [node name="Sprite2D" parent="Present1" index="1"]
-self_modulate = Color(0.47451, 1, 1, 0.572549)
-position = Vector2(22.6849, 15.1605)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0.47451, 1, 1, 0.811765)
+position = Vector2(21.5172, 14.3182)
+scale = Vector2(0.0328323, 0.021478)
 
 [node name="Present2" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(179.704, 120.646)
@@ -588,9 +737,9 @@ position = Vector2(15.1234, 12.2124)
 scale = Vector2(0.668497, 0.512627)
 
 [node name="Sprite2D" parent="Present2" index="1"]
-self_modulate = Color(0.47451, 1, 1, 0.572549)
-position = Vector2(14.6508, 13.897)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0.47451, 1, 1, 0.811765)
+position = Vector2(12.2878, 10.949)
+scale = Vector2(0.034, 0.021478)
 
 [node name="Present3" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(251.687, 119.497)
@@ -603,9 +752,9 @@ position = Vector2(15.1227, 14.7392)
 scale = Vector2(0.710204, 0.515213)
 
 [node name="Sprite2D" parent="Present3" index="1"]
-self_modulate = Color(0.47451, 1, 1, 0.572549)
-position = Vector2(17.4858, 15.5815)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0.47451, 1, 1, 0.811765)
+position = Vector2(16.1792, 12.3714)
+scale = Vector2(0.0346115, 0.0217402)
 
 [node name="Present4" parent="." instance=ExtResource("3_p2v7i")]
 position = Vector2(328.703, 132.997)
@@ -618,9 +767,9 @@ position = Vector2(17.9584, 18.1096)
 scale = Vector2(0.468181, 0.450802)
 
 [node name="Sprite2D" parent="Present4" index="1"]
-self_modulate = Color(0.47451, 1, 1, 0.572549)
-position = Vector2(19.8488, 11.3714)
-scale = Vector2(0.034, 0.02)
+modulate = Color(0.47451, 1, 1, 0.811765)
+position = Vector2(17.0132, 12.0031)
+scale = Vector2(0.034, 0.0225309)
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_21alt")
@@ -637,6 +786,20 @@ bus = &"sfx"
 
 [node name="Memory" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_lt53v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 661.432
+offset_top = 7.18129
+offset_right = 905.432
+offset_bottom = 135.181
+scale = Vector2(0.327566, 0.104678)
+text = "Drag!"
+label_settings = SubResource("LabelSettings_meccs")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
 
 [connection signal="checkCombinatio" from="Inventory" to="." method="_on_inventory_check_combinatio"]
 [connection signal="checkCombinations" from="Inventory/Future/ResponsabilityMemory2" to="Inventory" method="check_combinations"]
@@ -655,6 +818,7 @@ stream = ExtResource("8_lt53v")
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="Refresh" to="." method="_on_refresh_mouse_entered"]
 [connection signal="pressed" from="Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="Inventory"]
 [editable path="Inventory/Future/PhoneCall"]

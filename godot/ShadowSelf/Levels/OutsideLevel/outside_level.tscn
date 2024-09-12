@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://2p1w3m6ug36n"]
+[gd_scene load_steps=30 format=3 uid="uid://2p1w3m6ug36n"]
 
 [ext_resource type="Script" path="res://Levels/OutsideLevel/outside_level.gd" id="1_of5mx"]
 [ext_resource type="Texture2D" uid="uid://dovcfrvcerf1n" path="res://assets/outside/house_1.png" id="3_qmb6e"]
@@ -24,12 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://3nfysn8scate" path="res://assets/outside/flowers_item.png" id="20_bnhhp"]
 [ext_resource type="Texture2D" uid="uid://b2pwfi12nvlfo" path="res://assets/outside/memory_tree.PNG" id="21_nxtwj"]
 [ext_resource type="Texture2D" uid="uid://cfcp12ygfu6ar" path="res://assets/outside/gameboy.png" id="23_be4mq"]
-[ext_resource type="Texture2D" uid="uid://c4clnbw4p61u7" path="res://assets/inventory/BridgePebbles.png" id="23_pgiub"]
 [ext_resource type="Texture2D" uid="uid://c67tx52o0ls6b" path="res://assets/outside/mailbox.PNG" id="24_uup81"]
 [ext_resource type="Texture2D" uid="uid://bdk2ltnkwk0q8" path="res://assets/outside/ice_cream_cart.PNG" id="25_d05mt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0awhx"]
-radius = 372.47
+radius = 35.2776
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7oj4"]
 size = Vector2(122.823, 37.4617)
@@ -51,7 +50,7 @@ follow_viewport_scale = 0.5
 [node name="Sky" type="Sprite2D" parent="Layers/-4"]
 texture_repeat = 2
 position = Vector2(672, -188)
-scale = Vector2(4, 4)
+scale = Vector2(4.16345, 4)
 texture = ExtResource("4_kho2s")
 region_enabled = true
 region_rect = Rect2(0, 0, 11500, 1080)
@@ -178,11 +177,6 @@ texture = ExtResource("5_5ff0t")
 region_enabled = true
 region_rect = Rect2(0, 0, 15000, 350)
 
-[node name="Lake" type="Sprite2D" parent="Layers/0"]
-position = Vector2(17101, 897)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("15_86vg7")
-
 [node name="1" type="CanvasLayer" parent="Layers"]
 follow_viewport_enabled = true
 follow_viewport_scale = 1.1
@@ -256,7 +250,7 @@ texture = ExtResource("12_m0b7u")
 [node name="CanvasLayer5" type="CanvasLayer" parent="Layers"]
 
 [node name="Flower" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(-3423, 1075)
+position = Vector2(-3429, 1063)
 scale = Vector2(0.525, 0.525)
 texture = ExtResource("20_bnhhp")
 
@@ -264,6 +258,7 @@ texture = ExtResource("20_bnhhp")
 position = Vector2(-592.381, 641.905)
 
 [node name="CollisionShape2D" parent="Flower/Area2D" index="0"]
+scale = Vector2(4.5995, 3.30788)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="NostalgicTree" parent="." instance=ExtResource("12_by6t7")]
@@ -275,18 +270,21 @@ texture = ExtResource("21_nxtwj")
 scale = Vector2(1.25749, 3.61994)
 
 [node name="CollisionShape2D" parent="NostalgicTree/Area2D" index="0"]
+position = Vector2(-72.8952, 193.49)
+scale = Vector2(3.46971, 2.73502)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="NostalgicBridge" parent="." instance=ExtResource("12_by6t7")]
-position = Vector2(22413, 1768)
-scale = Vector2(0.525, 0.525)
-texture = ExtResource("23_pgiub")
+position = Vector2(19805, 1593)
+scale = Vector2(2.152, 2.9214)
+texture = ExtResource("15_86vg7")
 
 [node name="Area2D" parent="NostalgicBridge" index="0"]
 scale = Vector2(6.83293, 1.70649)
 
 [node name="CollisionShape2D" parent="NostalgicBridge/Area2D" index="0"]
-scale = Vector2(1.80805, 3.40111)
+position = Vector2(240.403, 22.6664)
+scale = Vector2(3.18688, 6.9075)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="Gameboy" parent="." instance=ExtResource("12_by6t7")]
@@ -298,6 +296,7 @@ texture = ExtResource("23_be4mq")
 position = Vector2(-571.429, 775.238)
 
 [node name="CollisionShape2D" parent="Gameboy/Area2D" index="0"]
+scale = Vector2(2.08593, 2.01934)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="CollegeLetter" parent="." instance=ExtResource("12_by6t7")]
@@ -306,8 +305,8 @@ scale = Vector2(1.01059, 0.854026)
 texture = ExtResource("24_uup81")
 
 [node name="CollisionShape2D" parent="CollegeLetter/Area2D" index="0"]
-position = Vector2(-352.558, 161.759)
-scale = Vector2(0.882062, 1.86407)
+position = Vector2(-437.368, 268.142)
+scale = Vector2(2.95313, 7.04236)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="IceCream" parent="." instance=ExtResource("12_by6t7")]
@@ -316,22 +315,22 @@ scale = Vector2(0.525, 0.525)
 texture = ExtResource("25_d05mt")
 
 [node name="CollisionShape2D" parent="IceCream/Area2D" index="0"]
-scale = Vector2(2.52434, 2.38401)
+scale = Vector2(8.49277, 10.6854)
 shape = SubResource("CircleShape2D_0awhx")
 
 [node name="SFX" type="Node" parent="."]
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("12_thsts")
-volume_db = 3.0
+volume_db = 5.0
 autoplay = true
 bus = &"sfx"
 
 [node name="RightLimit" type="Area2D" parent="."]
-position = Vector2(17544, 672)
+position = Vector2(19939, 601)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightLimit"]
-position = Vector2(3224.5, -170.5)
+position = Vector2(2695, -198)
 scale = Vector2(13.7515, 63.5583)
 shape = SubResource("RectangleShape2D_e7oj4")
 
@@ -345,7 +344,7 @@ shape = SubResource("RectangleShape2D_4o0m3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_left = -17000
-limit_right = 22075
+limit_right = 19935
 editor_draw_limits = true
 
 [node name="playersHouse" parent="." instance=ExtResource("12_by6t7")]

@@ -20,7 +20,6 @@ scale = Vector2(1.62158, 1.49333)
 texture = ExtResource("2_4gvqa")
 
 [node name="Sprite2D2" parent="." instance=ExtResource("3_45t55")]
-visible = false
 top_level = true
 scale = Vector2(0.682504, -9.45959)
 width = 30.0
