@@ -1,6 +1,4 @@
-class_name PickUp extends Control
-
-signal closePickUp
+class_name PickUp extends Node2D
 
 func pickedUpItem(item: String) -> void:
 	GlobalVariables.inventory.push_front(item)
@@ -10,9 +8,9 @@ func pickedUpItem(item: String) -> void:
 	
 func set_sprite(item)-> void:
 	$ItemName.text = item
+	$ItemDescription.text = GlobalVariables.itemAttr[item][0]
 	if $ItemName.text != "":
 		$Sprite2D.texture = load(str("res://assets/inventory/" + item + ".png"))
-
 
 func _on_close_pressed():
 	$ButtonClick.play()

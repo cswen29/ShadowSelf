@@ -1,6 +1,6 @@
 extends TextureRect
 
-var simultaneous_scene = preload("res://GameManager/game_manager.tscn")
+@onready var simultaneous_scene = preload("res://GameManager/game_manager.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,22 +29,22 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($Label3, "text", "Despite that, some old items bring relief to your pain.", 2.5)
+	tween.tween_property($Label3, "text", "Despite that, some items bring relief to your pain.", 2.5)
 	
 	await tween.finished
 	
 	await get_tree().create_timer(1).timeout
 	tween = create_tween()
-	tween.tween_property($Label4, "text", "Find these items, cherish your memories.", 2)
+	tween.tween_property($Label4, "text", "Find these items, cherish your memories.", 1.5)
 	
 	await tween.finished
 	
 	await get_tree().create_timer(3).timeout
 	tween = create_tween().set_parallel(true)
-	tween.tween_property($Label, "text", "", 1)
-	tween.tween_property($Label2, "text", "", 1)
-	tween.tween_property($Label3, "text", "", 1)
-	tween.tween_property($Label4, "text", "", 1)
+	tween.tween_property($Label, "text", "", 0.7)
+	tween.tween_property($Label2, "text", "", 0.7)
+	tween.tween_property($Label3, "text", "", 0.7)
+	tween.tween_property($Label4, "text", "", 0.7)
 	
 	await tween.finished
 
@@ -59,12 +59,12 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label3, "text", "If your thoughts touch you, you get closer to giving up.", 2)
+	tween.tween_property($TextureRect/Label3, "text", "If your thoughts touch you, you get hurt.", 2)
 	
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect/Label4, "text", "If your shadow gets too big, you get closer to giving up.", 2)
+	tween.tween_property($TextureRect/Label4, "text", "If your shadow gets too big, you ... ...", 2)
 	
 	await tween.finished
 	
@@ -78,7 +78,7 @@ func _ready():
 	await tween.finished
 
 	tween = create_tween()
-	tween.tween_property($TextureRect2/Label, "text", "Remember who you are.", 2)
+	tween.tween_property($TextureRect2/Label, "text", "Remember who you are.", 1)
 	
 	await tween.finished
 	
@@ -88,10 +88,10 @@ func _ready():
 	await tween.finished
 	
 	tween = create_tween()
-	tween.tween_property($TextureRect2/Label4, "text", "~Transform~ those bad memories into your strength.", 2)
+	tween.tween_property($TextureRect2/Label4, "text", "~Transform~ those bad memories into your strength.", 2.5)
 	
 	await tween.finished
 	
-	await get_tree().create_timer(8).timeout
+	await get_tree().create_timer(5).timeout
 	
 	get_tree().change_scene_to_packed(simultaneous_scene)	

@@ -34,39 +34,47 @@ func _on_quit_pressed():
 	quit.emit()
 
 func update_sprites():
-	await get_tree().create_timer(1).timeout
 	$Inventory.update_sprites()
 	$Inventory.refreshSprites()
 
 func _on_refresh_pressed():
+	$Refresh.disabled = true
 	$ButtonClickRefresh.play()
 	update_sprites()
 	for child in self.get_children(true):
 		if child is AlchemySpot:
 			child.occupied = false
 			child.updateSprite()
+	await get_tree().create_timer(2).timeout
+	$Refresh.disabled = false	
 
 func _on_inventory_check_combinatio():
 	if $Future1.occupied and $Future2.occupied:
 		if $Future1.itemCategory == "Future" and $Future2.itemCategory == "Future":
 			giveResponsability.emit()
 			$Memory.play()
-			update_sprites()
-			
+			if !GlobalVariables.inventory.any(func(stri) : return stri == "ResponsabilityMemory"):
+				update_sprites()
+		
 	if $Past1.occupied and $Past2.occupied and $Past3.occupied:
 		if $Past1.itemCategory == "Past" and $Past2.itemCategory == "Past" and $Past3.itemCategory == "Past":
 			giveNostalgia.emit()
 			$Memory.play()
-			update_sprites()
+			if !GlobalVariables.inventory.any(func(stri) : return stri == "NostalgicMemory"):
+				update_sprites()
 			
 	if $Present1.occupied and $Present2.occupied and $Present3.occupied and $Present4.occupied:
 		if $Present1.itemCategory == "Present" and $Present2.itemCategory == "Present" and $Present3.itemCategory == "Present" and $Present4.itemCategory == "Present":
 			giveReality.emit()
 			$Memory.play()
-			update_sprites()
+			if !GlobalVariables.inventory.any(func(stri) : return stri == "RealityMemory"):
+				update_sprites()
 
 func _on_quit_mouse_entered():
 	$ButtonHover.play()
 
 func _on_refresh_mouse_entered():
 	$ButtonHover.play()
+
+func _on_timer_timeout():
+	$Label.hide()

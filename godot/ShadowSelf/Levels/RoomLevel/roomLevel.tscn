@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://chc8vdcv10ghi"]
+[gd_scene load_steps=21 format=3 uid="uid://chc8vdcv10ghi"]
 
 [ext_resource type="Shader" path="res://Levels/RoomLevel/blur.gdshader" id="1_ghnme"]
 [ext_resource type="Script" path="res://Levels/RoomLevel/roomLevel.gd" id="1_tt24w"]
-[ext_resource type="PackedScene" uid="uid://bni8htn0chjok" path="res://Minigames/1st/minigame.tscn" id="2_sdi77"]
 [ext_resource type="Texture2D" uid="uid://bcwtnmefl06lj" path="res://assets/bedroom/window_v2.PNG" id="5_5nnxx"]
 [ext_resource type="Texture2D" uid="uid://cxskp0qy28yy7" path="res://assets/bedroom/door_v2.PNG" id="5_bj1s2"]
 [ext_resource type="Texture2D" uid="uid://diwjxp5u51d6i" path="res://assets/bedroom/shelf_v2.PNG" id="6_wsnoc"]
@@ -11,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b16lglqip6l5m" path="res://assets/bedroom/bed_v2.PNG" id="9_08rgn"]
 [ext_resource type="Texture2D" uid="uid://dlabo8y5ket1m" path="res://assets/bedroom/bookshelf_v2.PNG" id="10_0m5an"]
 [ext_resource type="Texture2D" uid="uid://b8hxos7vpq4mr" path="res://assets/bedroom/floor_v1.PNG" id="11_5kcwy"]
-[ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="15_1nxm1"]
+[ext_resource type="AudioStream" uid="uid://co3q0ewtjuxnn" path="res://assets/audio/sfx/ambience/sfx_ambience_inside.wav" id="13_322r2"]
 [ext_resource type="Texture2D" uid="uid://db1cy7v76exqt" path="res://assets/bedroom/mirror_v2.PNG" id="15_2jcub"]
 [ext_resource type="PackedScene" uid="uid://e71waugs10q" path="res://InteractableObject/interactable_object.tscn" id="15_cw4hq"]
 [ext_resource type="Texture2D" uid="uid://bfr4poq7pso8d" path="res://assets/bedroom/watch_box.PNG" id="15_wegw3"]
@@ -21,8 +20,8 @@ shader = ExtResource("1_ghnme")
 shader_parameter/amount = 0.788
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3uo2f"]
-radius = 16.393
-height = 32.786
+radius = 27.0514
+height = 108.912
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jj2qx"]
 size = Vector2(67.8551, 20)
@@ -38,7 +37,6 @@ size = Vector2(335.377, 24.2935)
 
 [node name="RoomLevel" type="Node2D"]
 script = ExtResource("1_tt24w")
-minigame_scene = ExtResource("2_sdi77")
 
 [node name="Blur" type="ColorRect" parent="."]
 visible = false
@@ -57,7 +55,7 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Door" parent="." instance=ExtResource("15_cw4hq")]
-modulate = Color(0.878431, 0.87451, 0.847059, 0.501961)
+modulate = Color(0, 0.87451, 0.847059, 0.576471)
 z_index = 16
 position = Vector2(1382, 236)
 scale = Vector2(1.22616, 1.31593)
@@ -138,8 +136,8 @@ texture = ExtResource("10_0m5an")
 [node name="SFX" type="Node" parent="."]
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("15_1nxm1")
-volume_db = 3.0
+stream = ExtResource("13_322r2")
+volume_db = 5.0
 autoplay = true
 bus = &"sfx"
 

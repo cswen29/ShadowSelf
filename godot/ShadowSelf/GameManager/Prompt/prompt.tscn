@@ -1,19 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqj65qhuqg01"]
+[gd_scene load_steps=16 format=3 uid="uid://cqj65qhuqg01"]
 
 [ext_resource type="Script" path="res://GameManager/Prompt/prompt.gd" id="1_i0roy"]
 [ext_resource type="Texture2D" uid="uid://cbcbjr5rxtjur" path="res://assets/ui/text_box.png" id="2_strjd"]
+[ext_resource type="LabelSettings" uid="uid://bdnu2omi74jo7" path="res://GameManager/Item/item.tres" id="3_geuwt"]
 [ext_resource type="Texture2D" uid="uid://t5igdvsmptu3" path="res://assets/ui/less_volume.png" id="3_smeel"]
-[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_uuyav"]
 [ext_resource type="FontFile" uid="uid://b2u12s72y7evi" path="res://assets/fonts/SpicyWasabi-6YWvM.ttf" id="4_6mwew"]
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_ahv0l"]
 [ext_resource type="AudioStream" uid="uid://c1rnv64vfb826" path="res://assets/audio/sfx/object interaction - ui/sfx_general_button_click.wav" id="5_2vteu"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_jcggd"]
-font = ExtResource("3_uuyav")
-font_size = 15
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5eu8"]
-texture = ExtResource("3_smeel")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwwob"]
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
@@ -33,14 +28,14 @@ expand_margin_right = 65.0
 expand_margin_bottom = 55.0
 modulate_color = Color(0.411765, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwwob"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h5eu8"]
+texture = ExtResource("3_smeel")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qljnb"]
-texture = ExtResource("3_smeel")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gf3vn"]
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
@@ -60,7 +55,8 @@ expand_margin_right = 70.0
 expand_margin_bottom = 70.0
 modulate_color = Color(0.47451, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gf3vn"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qljnb"]
+texture = ExtResource("3_smeel")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
@@ -92,13 +88,14 @@ texture = ExtResource("2_strjd")
 
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
-offset_left = 718.538
-offset_top = 225.583
-offset_right = 818.538
-offset_bottom = 284.583
-scale = Vector2(5.17467, 8.73055)
+offset_left = 329.163
+offset_top = 278.219
+offset_right = 2090.16
+offset_bottom = 577.219
+scale = Vector2(0.713737, 0.953005)
 text = "Go outside?"
-label_settings = SubResource("LabelSettings_jcggd")
+label_settings = ExtResource("3_geuwt")
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="No" type="Button" parent="."]
@@ -109,24 +106,24 @@ offset_right = 49.0
 offset_bottom = 92.0
 scale = Vector2(0.764347, 0.484506)
 theme_override_fonts/font = ExtResource("4_6mwew")
-theme_override_styles/normal = SubResource("StyleBoxTexture_h5eu8")
+theme_override_styles/focus = SubResource("StyleBoxTexture_pwwob")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6cas")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1l65p")
-theme_override_styles/focus = SubResource("StyleBoxTexture_pwwob")
+theme_override_styles/normal = SubResource("StyleBoxTexture_h5eu8")
 text = "No"
 
 [node name="Yes" type="Button" parent="."]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 63.0
-offset_right = 219.0
-offset_bottom = 96.0
+offset_left = 193.0
+offset_top = 62.0
+offset_right = 233.0
+offset_bottom = 95.0
 scale = Vector2(0.610018, 0.471725)
 theme_override_fonts/font = ExtResource("4_6mwew")
-theme_override_styles/normal = SubResource("StyleBoxTexture_qljnb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gf3vn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_s6hv1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kx1k5")
-theme_override_styles/focus = SubResource("StyleBoxTexture_gf3vn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_qljnb")
 text = "Yes"
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="."]

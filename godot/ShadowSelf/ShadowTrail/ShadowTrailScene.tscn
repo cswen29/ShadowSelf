@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2b1q67cphll2"]
+[gd_scene load_steps=4 format=3 uid="uid://d2b1q67cphll2"]
 
 [ext_resource type="Script" path="res://ShadowTrail/ShadowTrailScript.gd" id="1_53mq0"]
+
+[sub_resource type="Curve" id="Curve_n1u84"]
 
 [sub_resource type="Gradient" id="Gradient_u20e1"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [node name="Sprite2D" type="Line2D"]
 z_index = -1
-width = 20.0
+width = 37.66
+width_curve = SubResource("Curve_n1u84")
 gradient = SubResource("Gradient_u20e1")
 script = ExtResource("1_53mq0")
-max_length = 40
+max_length = 595

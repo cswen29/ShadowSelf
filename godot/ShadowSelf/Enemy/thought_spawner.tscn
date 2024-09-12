@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://sr3sv2cjq61x"]
 
-[ext_resource type="Script" path="res://ThoughtSpawner.gd" id="1_xbv3j"]
+[ext_resource type="Script" path="res://Enemy/ThoughtSpawner.gd" id="1_xbv3j"]
 
 [sub_resource type="Curve2D" id="Curve2D_g3gex"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -757, 1017, 0, 0, 0, 0, -529, -212, 0, 0, 0, 0, 885, -468, 0, 0, 0, 0, 2002, -426, 0, 0, 0, 0, 2599, 763)
+"points": PackedVector2Array(0, 0, 0, 0, -1578.44, 581.907, 0, 0, 0, 0, -543.423, -761.769, 0, 0, 0, 0, 2485.16, -979.984, 0, 0, 0, 0, 3891.01, -215.901, 0, 0, 0, 0, 4415.32, 506.193)
 }
 point_count = 5
 
@@ -21,7 +21,7 @@ scale = Vector2(1.9874, 3.02454)
 curve = SubResource("Curve2D_g3gex")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-757, 1017)
-rotation = -1.38736
+position = Vector2(-1578.44, 581.907)
+rotation = -0.914435
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

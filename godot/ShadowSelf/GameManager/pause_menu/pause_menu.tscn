@@ -12,12 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="9_lbphn"]
 [ext_resource type="AudioStream" uid="uid://d4jtvm0yjl84o" path="res://assets/audio/sfx/object interaction - ui/sfx_menu_button_click.wav" id="10_5u2vj"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khbgb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxe6w"]
 texture = ExtResource("3_kcroj")
-expand_margin_left = 80.0
-expand_margin_top = 100.0
-expand_margin_right = 80.0
-expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ejxx"]
 texture = ExtResource("3_kcroj")
@@ -35,11 +31,14 @@ expand_margin_right = 60.0
 expand_margin_bottom = 60.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxe6w"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khbgb"]
 texture = ExtResource("3_kcroj")
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sl60i"]
-texture = ExtResource("4_h0o80")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tai3w"]
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
@@ -61,13 +60,14 @@ expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tai3w"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sl60i"]
+texture = ExtResource("4_h0o80")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apjim"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qn45q"]
 texture = ExtResource("5_gld0m")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
@@ -90,18 +90,18 @@ expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qn45q"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_apjim"]
 texture = ExtResource("5_gld0m")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
 expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb858"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8gu0"]
 texture = ExtResource("6_kiesu")
-expand_margin_left = 120.0
+expand_margin_left = 100.0
 expand_margin_top = 100.0
-expand_margin_right = 125.0
+expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u08uo"]
@@ -120,7 +120,7 @@ expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 modulate_color = Color(0, 1, 1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g8gu0"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb858"]
 texture = ExtResource("6_kiesu")
 expand_margin_left = 100.0
 expand_margin_top = 100.0
@@ -146,71 +146,74 @@ color = Color(0, 0, 0, 0.654902)
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -45.3324
-offset_top = -69.4767
-offset_right = 1874.67
-offset_bottom = 1010.52
+offset_left = -44.8342
+offset_top = -70.5973
+offset_right = 1875.17
+offset_bottom = 1009.4
 scale = Vector2(0.186316, 0.519985)
 texture = ExtResource("2_nqfkw")
 
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
-offset_left = 25.6551
-offset_top = 299.759
-offset_right = 97.6551
-offset_bottom = 330.759
-scale = Vector2(1.31927, 1.47703)
-theme_override_colors/font_color = Color(0.884087, 0.749823, 1, 1)
+offset_left = 26.0
+offset_top = 326.0
+offset_right = 99.0
+offset_bottom = 352.0
+scale = Vector2(0.922564, 1.42937)
+theme_override_colors/font_color = Color(0.741176, 0.352941, 1, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = SubResource("StyleBoxTexture_khbgb")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxTexture_bxe6w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6ejxx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_767go")
-theme_override_styles/focus = SubResource("StyleBoxTexture_bxe6w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_khbgb")
 text = "RESUME"
 
 [node name="Quit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 178.839
-offset_top = 308.163
-offset_right = 225.839
-offset_bottom = 339.163
-theme_override_colors/font_color = Color(0.68518, 0.788876, 0.998816, 1)
+offset_left = 167.381
+offset_top = 324.412
+offset_right = 214.381
+offset_bottom = 355.412
+scale = Vector2(1.00587, 1.28918)
+theme_override_colors/font_color = Color(0.298304, 0.506877, 0.995394, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
-theme_override_styles/normal = SubResource("StyleBoxTexture_sl60i")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/focus = SubResource("StyleBoxTexture_tai3w")
 theme_override_styles/hover = SubResource("StyleBoxTexture_f1yqw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_srrs5")
-theme_override_styles/focus = SubResource("StyleBoxTexture_tai3w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_sl60i")
 text = "QUIT"
 
 [node name="InventoryButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 79.7053
-offset_top = 108.697
-offset_right = 192.705
-offset_bottom = 139.698
-scale = Vector2(0.985218, 1.63953)
-theme_override_colors/font_color = Color(1, 0.606025, 0.715447, 1)
+offset_left = 78.4599
+offset_top = 90.2077
+offset_right = 191.46
+offset_bottom = 121.208
+scale = Vector2(1.00778, 1.72963)
+theme_override_colors/font_color = Color(1, 0.137255, 0.172549, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
-theme_override_styles/normal = SubResource("StyleBoxTexture_apjim")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qn45q")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cbpwr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3so0u")
-theme_override_styles/focus = SubResource("StyleBoxTexture_qn45q")
+theme_override_styles/normal = SubResource("StyleBoxTexture_apjim")
 text = "Inventory"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 84.4378
-offset_top = 207.31
-offset_right = 197.437
-offset_bottom = 238.31
-scale = Vector2(0.889764, 1.47142)
-theme_override_colors/font_color = Color(0.935932, 0.632383, 0.677388, 1)
+offset_left = 90.4157
+offset_top = 230.282
+offset_right = 207.416
+offset_bottom = 261.282
+scale = Vector2(0.72106, 1.40067)
+theme_override_colors/font_color = Color(1, 0.796078, 0.596078, 1)
 theme_override_fonts/font = ExtResource("3_73xfg")
-theme_override_styles/normal = SubResource("StyleBoxTexture_rb858")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxTexture_g8gu0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_u08uo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2pkqm")
-theme_override_styles/focus = SubResource("StyleBoxTexture_g8gu0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rb858")
 text = "Settings"
 
 [node name="Settings" parent="." instance=ExtResource("2_qxi2j")]

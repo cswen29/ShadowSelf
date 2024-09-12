@@ -10,13 +10,12 @@ func _ready():
 
 func _process(_delta):
 	if GlobalVariables.isDragging:
-		modulate = Color(Color.MEDIUM_PURPLE, 0.5)
+		modulate = Color(Color.WHITE, 0.5)
 	else:
-		modulate = firstModulate
-	
+		modulate = firstModulate	
 
 func updateSprite():
 	if occupied:
-		$Sprite2D.modulate = Color(Color.AQUA, 0.1)
+		$Sprite2D.modulate = Color(Color.WHITE, 0.5)
 	else:
 		$Sprite2D.modulate = modulate

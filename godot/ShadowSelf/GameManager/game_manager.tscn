@@ -1,20 +1,22 @@
-[gd_scene load_steps=21 format=3 uid="uid://bsum04ea77i7d"]
+[gd_scene load_steps=23 format=3 uid="uid://bsum04ea77i7d"]
 
 [ext_resource type="Script" path="res://GameManager/game_manager.gd" id="1_dtxwn"]
 [ext_resource type="PackedScene" uid="uid://chc8vdcv10ghi" path="res://Levels/RoomLevel/roomLevel.tscn" id="2_o2qej"]
 [ext_resource type="PackedScene" uid="uid://2p1w3m6ug36n" path="res://Levels/OutsideLevel/outside_level.tscn" id="3_302gr"]
 [ext_resource type="PackedScene" uid="uid://bk8fg6y11obqq" path="res://GameManager/Pickup/item_pick_up.tscn" id="4_mbne4"]
 [ext_resource type="PackedScene" uid="uid://dxsqgdawdvfeg" path="res://GameManager/pause_menu/pause_menu.tscn" id="5_8j6s4"]
-[ext_resource type="PackedScene" uid="uid://doxh3766e3uvi" path="res://game_over.tscn" id="5_681fh"]
+[ext_resource type="PackedScene" uid="uid://doxh3766e3uvi" path="res://GameManager/game_over.tscn" id="5_681fh"]
 [ext_resource type="PackedScene" uid="uid://cma0bkevj2j4y" path="res://MainCharacter/main_character.tscn" id="5_m7k3r"]
-[ext_resource type="PackedScene" uid="uid://cqbf2c3ju44tm" path="res://ending_story.tscn" id="6_1a3l5"]
+[ext_resource type="PackedScene" uid="uid://cqbf2c3ju44tm" path="res://Story/ending_story.tscn" id="6_1a3l5"]
 [ext_resource type="PackedScene" uid="uid://cqj65qhuqg01" path="res://GameManager/Prompt/prompt.tscn" id="6_qehf4"]
 [ext_resource type="PackedScene" uid="uid://baedkoi5gumm8" path="res://Alchemy/alchemy.tscn" id="8_53y7i"]
 [ext_resource type="PackedScene" uid="uid://bl5tn3x1pkq82" path="res://Shadow/Shadow.tscn" id="10_qyoch"]
 [ext_resource type="Script" path="res://Shadow/TetherTest.gd" id="11_40fuj"]
+[ext_resource type="Texture2D" uid="uid://c8c0se7jg5g2a" path="res://Shadow/shadow_body.PNG" id="13_muhw2"]
 [ext_resource type="AudioStream" uid="uid://br0cs2cy5vaic" path="res://assets/audio/mx/mx_layer_1.wav" id="14_8bpeq"]
 [ext_resource type="AudioStream" uid="uid://dcdcqwkh726b5" path="res://assets/audio/mx/mx_layer_3.wav" id="15_4ai2v"]
-[ext_resource type="PackedScene" uid="uid://sr3sv2cjq61x" path="res://thought_spawner.tscn" id="15_sb44d"]
+[ext_resource type="PackedScene" uid="uid://sr3sv2cjq61x" path="res://Enemy/thought_spawner.tscn" id="15_sb44d"]
+[ext_resource type="AudioStream" uid="uid://dgnkicpugui3f" path="res://assets/audio/mx/mx_layer_2.wav" id="16_7jrfs"]
 [ext_resource type="AudioStream" uid="uid://wa0g1jrkt3ge" path="res://assets/audio/sfx/sfx_door.wav" id="16_qpre6"]
 
 [sub_resource type="Gradient" id="Gradient_kmujt"]
@@ -23,6 +25,7 @@ colors = PackedColorArray(0, 0, 0, 0.835294, 0, 0, 0, 0.411765, 0, 0, 0, 0.85098
 
 [sub_resource type="Animation" id="Animation_4xbvt"]
 resource_name = "fade_in"
+length = 0.7555
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +33,7 @@ tracks/0/path = NodePath("Transition/CanvasLayer/BlackBackground:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.633333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -42,7 +45,7 @@ tracks/1/path = NodePath("Transition/CanvasLayer/BlackBackground:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.633333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -125,10 +128,6 @@ mouse_force_pass_scroll_events = false
 [node name="ItemPickUp" parent="MainCharacter/CanvasLayer" instance=ExtResource("4_mbne4")]
 visible = false
 z_index = 1
-offset_left = 600.0
-offset_top = 67.0
-offset_right = 600.0
-offset_bottom = 67.0
 
 [node name="Prompt" parent="MainCharacter/CanvasLayer" instance=ExtResource("6_qehf4")]
 visible = false
@@ -160,7 +159,7 @@ offset_bottom = 19.0
 scale = Vector2(0.887902, 0.941381)
 
 [node name="ThoughtSpawner" parent="MainCharacter" instance=ExtResource("15_sb44d")]
-position = Vector2(-301.667, -211.667)
+position = Vector2(-303.889, -213.889)
 scale = Vector2(0.555556, 0.555556)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -176,6 +175,12 @@ z_index = 4
 position = Vector2(945, -220)
 scale = Vector2(0.2, 0.2)
 motion_mode = 1
+
+[node name="Limit" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0705882)
+position = Vector2(945.8, -221.4)
+scale = Vector2(3.24636, 2.95728)
+texture = ExtResource("13_muhw2")
 
 [node name="ShadowLink" type="Line2D" parent="."]
 top_level = true
@@ -207,7 +212,6 @@ color = Color(0, 0, 0, 1)
 [node name="Darken" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Darken"]
-visible = false
 top_level = true
 z_index = 500
 offset_left = -8838.0
@@ -216,25 +220,25 @@ offset_right = -8830.0
 offset_bottom = -4861.0
 scale = Vector2(2454.16, 1196.89)
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.678431)
 
 [node name="Music" type="Node" parent="."]
 
 [node name="Layer1" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("14_8bpeq")
-volume_db = 10.0
+volume_db = -1.0
 autoplay = true
 bus = &"music"
 
 [node name="Layer2" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("14_8bpeq")
-volume_db = -80.0
+stream = ExtResource("16_7jrfs")
+volume_db = -15.0
 autoplay = true
 bus = &"music"
 
 [node name="Layer3" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("15_4ai2v")
-volume_db = -80.0
+volume_db = -15.0
 autoplay = true
 bus = &"music"
 
@@ -244,8 +248,6 @@ bus = &"music"
 stream = ExtResource("16_qpre6")
 
 [connection signal="playerHit" from="MainCharacter" to="." method="_on_main_character_player_hit"]
-[connection signal="resume" from="MainCharacter/CanvasLayer/PauseMenu" to="." method="_on_pause_menu_resume"]
-[connection signal="closePickUp" from="MainCharacter/CanvasLayer/ItemPickUp" to="." method="closePickUpFunc"]
 [connection signal="yes" from="MainCharacter/CanvasLayer/Prompt" to="." method="_on_prompt_yes"]
 [connection signal="giveNostalgia" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_give_nostalgia"]
 [connection signal="giveReality" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_give_reality"]
@@ -253,6 +255,5 @@ stream = ExtResource("16_qpre6")
 [connection signal="quit" from="MainCharacter/CanvasLayer/Alchemy" to="." method="_on_alchemy_quit"]
 [connection signal="gameOver" from="MainCharacter/CanvasLayer/GameOver" to="." method="on_game_over_retry"]
 [connection signal="shadowEat" from="Shadow" to="." method="_on_shadow_shadow_eat"]
-[connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
 
 [editable path="MainCharacter/CanvasLayer/Prompt"]

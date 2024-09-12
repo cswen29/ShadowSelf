@@ -1,6 +1,6 @@
 class_name Item extends Sprite2D
 
-@onready var item_name = $Name
+@onready var item_name : Label = $Name
 @onready var desc = $Description
 var item_category
 var draggable = false
@@ -21,6 +21,18 @@ func _process(_delta):
 		if Input.is_action_just_pressed("leftclick"):
 			initialPos = global_position
 			GlobalVariables.isDragging = true
+			if GlobalVariables.inventory.any(func(stri) : return stri == "ResponsabilityMemory"):
+				if (item_name.text == "Watch" or item_name.text == "PhoneCall"):
+					draggable = false
+					GlobalVariables.isDragging = false
+			if GlobalVariables.inventory.any(func(stri) : return stri == "NostalgicMemory"):
+				if (item_name.text == "Tree" or item_name.text == "BridgePebbles" or item_name.text == "Gameboy"):
+					draggable = false
+					GlobalVariables.isDragging = false
+			if GlobalVariables.inventory.any(func(stri) : return stri == "RealityMemory"):
+				if (item_name.text == "IceCream" or item_name.text == "PictureOfFamily" or item_name.text == "CollegeLetter" or item_name.text == "Flower"):
+					draggable = false
+					GlobalVariables.isDragging = false
 			
 		if Input.is_action_pressed("leftclick"):
 			global_position = get_global_mouse_position() 
@@ -36,7 +48,7 @@ func _process(_delta):
 				skip = true
 			else: 
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
-				
+		
 func _on_area_2d_mouse_entered():
 	if (item_name.text != ""):
 		var parent = get_parent().name
@@ -48,11 +60,28 @@ func _on_area_2d_mouse_entered():
 		desc.text = str(GlobalVariables.itemAttr[$".".name][index])
 	
 	if not GlobalVariables.isDragging:
+		$MemoryHover.play()
 		draggable = true
 		scale += Vector2(0.01, 0.01)
 		
+				
 func _on_area_2d_mouse_exited():
 	desc.text = ""
+	if GlobalVariables.inventory.any(func(stri) : return stri == "ResponsabilityMemory"):
+		if (item_name.text == "Watch" or item_name.text == "PhoneCall"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
+	if GlobalVariables.inventory.any(func(stri) : return stri == "NostalgicMemory"):
+		if (item_name.text == "Tree" or item_name.text == "BridgePebbles" or item_name.text == "Gameboy"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
+	if GlobalVariables.inventory.any(func(stri) : return stri == "RealityMemory"):
+		if (item_name.text == "IceCream" or item_name.text == "PictureOfFamily" or item_name.text == "CollegeLetter" or item_name.text == "Flower"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
 	
 	if not GlobalVariables.isDragging:
 		draggable = false
@@ -62,6 +91,22 @@ func update():
 	if GlobalVariables.inventory.any(func(stri): return stri == str($".".name)):
 		item_name.text = str($".".name)
 		item_category = GlobalVariables.itemAttr[str($".".name)][2]
+		
+	if GlobalVariables.inventory.any(func(stri) : return stri == "ResponsabilityMemory"):
+		if (item_name.text == "Watch" or item_name.text == "PhoneCall"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
+	if GlobalVariables.inventory.any(func(stri) : return stri == "NostalgicMemory"):
+		if (item_name.text == "Tree" or item_name.text == "BridgePebbles" or item_name.text == "Gameboy"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
+	if GlobalVariables.inventory.any(func(stri) : return stri == "RealityMemory"):
+		if (item_name.text == "IceCream" or item_name.text == "PictureOfFamily" or item_name.text == "CollegeLetter" or item_name.text == "Flower"):
+			desc.text = GlobalVariables.itemAttr[item_name.text][1]
+			#texture = Texture2D.new()
+			item_name.scale = Vector2(0, 0)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):		

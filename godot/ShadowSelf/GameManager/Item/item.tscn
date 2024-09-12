@@ -1,25 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqdi6djivahcu"]
+[gd_scene load_steps=7 format=3 uid="uid://dqdi6djivahcu"]
 
 [ext_resource type="Script" path="res://GameManager/Item/Item.gd" id="1_b5jvv"]
 [ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="2_e61b6"]
+[ext_resource type="LabelSettings" uid="uid://bdnu2omi74jo7" path="res://GameManager/Item/item.tres" id="3_vait8"]
+[ext_resource type="AudioStream" uid="uid://een3uaav12qb" path="res://assets/audio/sfx/object interaction - ui/sfx_button_hover.wav" id="4_guqea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr2lv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5i7iy"]
 font = ExtResource("2_e61b6")
-font_size = 266
+font_size = 276
 outline_size = 210
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0.478431, 0.364706, 0.803922)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1jgap"]
-font = ExtResource("2_e61b6")
-font_size = 100
-font_color = Color(1, 0.552941, 1, 1)
-outline_color = Color(0.151276, 0.151276, 0.151276, 1)
-shadow_size = 256
-shadow_color = Color(0, 0, 0, 1)
 
 [node name="Item" type="Sprite2D"]
 scale = Vector2(0.38, 0.38)
@@ -35,20 +29,31 @@ scale = Vector2(21.5334, 35.4196)
 shape = SubResource("RectangleShape2D_kr2lv")
 
 [node name="Name" type="Label" parent="."]
-offset_left = -71.0526
-offset_top = 92.1053
-offset_right = 7324.95
-offset_bottom = 5540.11
+offset_left = -126.316
+offset_top = 128.947
+offset_right = 3621.68
+offset_bottom = 5576.95
 scale = Vector2(0.212744, 0.222156)
 label_settings = SubResource("LabelSettings_5i7iy")
+autowrap_mode = 3
 
 [node name="Description" type="Label" parent="."]
-offset_left = -107.895
-offset_top = -152.632
-offset_right = 3396.11
-offset_bottom = 1209.37
-scale = Vector2(0.598572, 0.580144)
-label_settings = SubResource("LabelSettings_1jgap")
+z_index = 5
+offset_left = -252.632
+offset_top = -131.579
+offset_right = 902.368
+offset_bottom = 1230.42
+scale = Vector2(0.492066, 0.421577)
+text = "
+"
+label_settings = ExtResource("3_vait8")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MemoryHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_guqea")
+pitch_scale = 4.0
+bus = &"sfx"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

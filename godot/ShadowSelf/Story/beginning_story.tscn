@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdo02ctlh2fn7"]
 
-[ext_resource type="Texture2D" uid="uid://pgkxaow1edtq" path="res://assets/ui/black-square.png" id="1_ihleb"]
-[ext_resource type="Script" path="res://TextureRect.gd" id="2_e40fr"]
-[ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="3_6dwqi"]
-[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_vet18"]
+[ext_resource type="Texture2D" uid="uid://pgkxaow1edtq" path="res://assets/ui/black-square.png" id="1_f5ro8"]
+[ext_resource type="Script" path="res://Story/TextureRect.gd" id="2_8jukp"]
+[ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_06u8v"]
+[ext_resource type="AudioStream" uid="uid://cpv15h58nc6ee" path="res://assets/audio/sfx/sfx_ambience_inside.wav" id="4_ocy83"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_boktc"]
-font = ExtResource("3_vet18")
+font = ExtResource("3_06u8v")
 font_size = 200
 
 [node name="BeginningStory" type="TextureRect"]
@@ -15,8 +15,8 @@ offset_top = -478.0
 offset_right = 7409.0
 offset_bottom = 7012.0
 scale = Vector2(0.308568, 0.272536)
-texture = ExtResource("1_ihleb")
-script = ExtResource("2_e40fr")
+texture = ExtResource("1_f5ro8")
+script = ExtResource("2_8jukp")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -139,6 +139,6 @@ label_settings = SubResource("LabelSettings_boktc")
 [node name="SFX" type="Node" parent="."]
 
 [node name="Ambience" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("3_6dwqi")
+stream = ExtResource("4_ocy83")
 autoplay = true
 bus = &"sfx"

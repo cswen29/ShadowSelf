@@ -17,7 +17,7 @@ func _process(_delta)-> void:
 		add_point(point)
 
 	var tether_distance = abs(character_position.x - floaty.global_position.x) + abs(character_position.y - floaty.global_position.y)
-	if tether_distance >= 800:
+	if tether_distance >= 2000:
 		hide()
 	else:
 		show()

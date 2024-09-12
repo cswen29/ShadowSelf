@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqbf2c3ju44tm"]
+[gd_scene load_steps=6 format=3 uid="uid://cqbf2c3ju44tm"]
 
 [ext_resource type="Texture2D" uid="uid://d2v63053gi4te" path="res://assets/ui/ending.png" id="1_ls64j"]
-[ext_resource type="Script" path="res://ending_story.gd" id="2_ob6i7"]
+[ext_resource type="Script" path="res://Story/ending_story.gd" id="2_ob6i7"]
 [ext_resource type="FontFile" uid="uid://drlgsfar164db" path="res://assets/fonts/CheerfulDonuts-rgjl9.ttf" id="3_2mvxg"]
+[ext_resource type="AudioStream" uid="uid://buwwtbp6xxsjk" path="res://assets/audio/sfx/ambience/sfx_ambience_outside.wav" id="4_jknjn"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_boktc"]
+[sub_resource type="LabelSettings" id="LabelSettings_ec3sp"]
 font = ExtResource("3_2mvxg")
 font_size = 200
+font_color = Color(0.909804, 1, 1, 1)
 
 [node name="EndingStory" type="TextureRect"]
 offset_left = -0.999985
@@ -25,7 +27,7 @@ offset_right = 2823.67
 offset_bottom = 1120.83
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
@@ -35,7 +37,7 @@ offset_right = 3168.99
 offset_bottom = 2758.14
 scale = Vector2(0.818632, 0.937344)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 0
@@ -45,7 +47,7 @@ offset_right = 3149.25
 offset_bottom = 3818.74
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label4" type="Label" parent="."]
 layout_mode = 0
@@ -55,7 +57,7 @@ offset_right = 3149.25
 offset_bottom = 5265.0
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -70,7 +72,7 @@ offset_right = 2823.67
 offset_bottom = 1120.83
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label2" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -80,7 +82,7 @@ offset_right = 3168.99
 offset_bottom = 2758.14
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label3" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -90,7 +92,7 @@ offset_right = 3149.25
 offset_bottom = 3818.74
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label4" type="Label" parent="TextureRect"]
 layout_mode = 0
@@ -98,9 +100,9 @@ offset_left = 2410.25
 offset_top = 4719.0
 offset_right = 3149.25
 offset_bottom = 5265.0
-scale = Vector2(0.753788, 0.825222)
+scale = Vector2(0.933599, 0.862054)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
@@ -109,13 +111,13 @@ offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="TextureRect2"]
 layout_mode = 0
-offset_left = 2453.67
-offset_top = 847.833
-offset_right = 2823.67
-offset_bottom = 1120.83
+offset_left = 2469.46
+offset_top = 896.88
+offset_right = 2871.46
+offset_bottom = 1169.88
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label2" type="Label" parent="TextureRect2"]
 layout_mode = 0
@@ -125,7 +127,7 @@ offset_right = 3168.99
 offset_bottom = 2758.14
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label3" type="Label" parent="TextureRect2"]
 layout_mode = 0
@@ -135,7 +137,7 @@ offset_right = 3149.25
 offset_bottom = 3818.74
 scale = Vector2(0.925, 0.925)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="Label4" type="Label" parent="TextureRect2"]
 layout_mode = 0
@@ -143,9 +145,9 @@ offset_left = 2410.25
 offset_top = 4719.0
 offset_right = 3149.25
 offset_bottom = 5265.0
-scale = Vector2(0.679512, 0.753297)
+scale = Vector2(1.0156, 0.880459)
 text = "test"
-label_settings = SubResource("LabelSettings_boktc")
+label_settings = SubResource("LabelSettings_ec3sp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -161,3 +163,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 scale = Vector2(0.11221, 0.170662)
 text = "aa"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jknjn")

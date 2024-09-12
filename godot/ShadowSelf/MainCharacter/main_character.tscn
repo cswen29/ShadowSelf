@@ -216,20 +216,20 @@ scale = Vector2(2.55494, 2.46941)
 shape = SubResource("RectangleShape2D_fljcm")
 
 [node name="SpriteColor" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.249997, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.271406, 0.256706)
 sprite_frames = SubResource("SpriteFrames_lvkf5")
-animation = &"walk_cycle"
-frame_progress = 0.0201132
+animation = &"idle"
+frame_progress = 0.122785
 
 [node name="SpriteOutline" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.37, 0.37, 0.37, 1)
 self_modulate = Color(1, 1, 1, 0.945098)
-position = Vector2(-3, -2)
+position = Vector2(50, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sphv2")
-animation = &"idle"
-frame_progress = 0.00721624
+animation = &"walk_cycle"
+frame = 7
+frame_progress = 1.0
 
 [node name="Wander" type="Timer" parent="."]
 wait_time = 4.0
@@ -246,7 +246,6 @@ text = "!
 label_settings = SubResource("LabelSettings_wrw12")
 
 [node name="IdleText" type="Label" parent="."]
-visible = false
 offset_left = 11.0
 offset_top = -260.0
 offset_right = 51.0
@@ -265,35 +264,46 @@ stream = ExtResource("7_vmebr")
 
 [node name="FootstepsInside1" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("8_3pt4b")
+volume_db = -10.0
 
 [node name="FootstepsInside2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("9_4p42l")
+volume_db = -10.0
 
 [node name="FootstepsInside3" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_bmjvi")
+volume_db = -10.0
 
 [node name="FootstepsInside4" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_uh0k8")
+volume_db = -10.0
 
 [node name="FootstepsInside5" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("12_4b4pa")
+volume_db = -10.0
 
 [node name="FootstepsOutside1" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("13_hqo5p")
+volume_db = -10.0
 
 [node name="FootstepsOutside2" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("14_4fscc")
+volume_db = -10.0
 
 [node name="FootstepsOutside3" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("15_ns2o7")
+volume_db = -10.0
 
 [node name="FootstepsOutside4" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("16_pbko7")
+volume_db = -10.0
 
 [node name="FootstepsOutside5" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("17_gcgqv")
+volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
 autostart = true
 
 [connection signal="body_entered" from="PlayerArea" to="." method="_on_area_2d_body_entered"]

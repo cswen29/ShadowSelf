@@ -1,7 +1,5 @@
 class_name Thoughts extends CharacterBody2D
 
-signal shadowHit
-signal playerHit
 const SPEED = 300.0
 var direction 
 var sprites = [1,2,3,4,5]

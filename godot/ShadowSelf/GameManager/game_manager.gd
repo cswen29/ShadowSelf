@@ -19,56 +19,29 @@ extends Node2D
 var paused: bool = false
 var alchemyToggled: bool = false
 @onready var transition = $Transition
+var room_level_instance
+var outside_level_instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready()-> void:
-	Engine.time_scale = 1.0
+	room_level_instance = room_level_scene.instantiate()
+	outside_level_instance = outside_level_scene.instantiate()
+	room_level_instance.prompt.connect($".".spawnPrompt.bind())
+	outside_level_instance.prompt.connect($".".spawnPrompt.bind())
 	$Transition/CanvasLayer/BlackBackground.visible = true
 	changeLevelToRoom(true)
 	#changeLevelToOutside()
 	prompt.hide()	
 	$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
-	
-#region spawn/despawn minigames
-func spawnMinigame(minigame_scene: PackedScene)-> void:
-	mainCharacter.canMove = false
-	await animateSpawn()
-	var minigame = minigame_scene.instantiate() as Minigame
-	minigame.minigameIsFinished.connect($".".despawnMinigame.bind())
-	minigame.global_position = GlobalVariables.character_pos + Vector2(0, -800)
+	Engine.time_scale = 1.0
+	getFadeIntensity(0)
 
-	mainCharacter.add_child(minigame)
-
-func despawnMinigame()-> void:
-	mainCharacter.canMove = true
-	for idx in $MainCharacter.get_children():
-		if idx is Minigame:
-			idx.queue_free()	
-			
-	animateDespawn()
-			
-func animateSpawn()-> void:
-	$Shadow.hide()
-	$ShadowLink.hide()
-	var cameraZoom = $Camera2D.zoom
-	var tween : Tween = create_tween().set_parallel(true)
-	tween.tween_property($Camera2D, "offset", Vector2(0, -200), 4.2)
-	tween.tween_property($Camera2D, "zoom", cameraZoom - Vector2(0.1, 0.1), 4.2)
-	await tween.finished
+func _process(_delta):
+	$Limit.position = shadow.position
 	
-func animateDespawn()-> void:
-	var tween : Tween = create_tween().set_parallel(true)
-	var cameraZoom = $Camera2D.zoom
-	tween.tween_property($Camera2D, "offset", Vector2(0, 0), 1)
-	tween.tween_property($Camera2D, "zoom", cameraZoom + Vector2(0.1, 0.1), 1)
-	await tween.finished
-	$Shadow.show()
-	$ShadowLink.show()
-	
-#endregion
-
 #region change levels
 func changeLevelToOutside()-> void:
+	var shadowScale = shadow.scale
 	mainCharacter.changeFootstepsToOutside()
 	mainCharacter.canMove = false
 	mainCharacter.global_position = Vector2(-7340.433, 500)
@@ -77,34 +50,45 @@ func changeLevelToOutside()-> void:
 	camera.limit_right = 22075
 	camera.limit_top = -10000000
 	camera.limit_left = -17000
-	var level = outside_level_scene.instantiate()
-	level.prompt.connect($".".spawnPrompt.bind())
+	var level = outside_level_instance
 	add_child(level)
 	
+	for child in self.get_children(true):
+		if child is RoomLevel:
+			remove_child(child)
+			
 	for idx in self.get_children():
 		if idx is RoomLevel:
 			idx.queue_free()	
 
 	mainCharacter.canMove = true
 	transition.play("fade_in")
+	shadow.scale = shadowScale
 	
 func changeLevelToRoom(firstTime: bool)-> void:
-	mainCharacter.changeFootstepsToRoom()
-	transition.play("fade_in")
 	mainCharacter.canMove = false
+	var shadowScale = shadow.scale
+	mainCharacter.changeFootstepsToRoom()
+	
+	await get_tree().create_timer(2).timeout
+	transition.play("fade_in")
 	camera.zoom = Vector2(0.8, 0.8)
 	camera.limit_bottom = 1015
 	camera.limit_right = 2770
 	camera.limit_top = -680
 	camera.limit_left = -350
-	if (!firstTime):
-		mainCharacter.global_position = Vector2(2157.151, 381)
-		
-	var level = room_level_scene.instantiate()
-	level.prompt.connect($".".spawnPrompt.bind())
+	var level = room_level_instance
+	for child in self.get_children(true):
+		if child is OutsideLevel:
+			remove_child(child)
+	
 	add_child(level)
 	
+	if (!firstTime):
+		mainCharacter.position = Vector2(2157.151, 381)
 	mainCharacter.canMove = true
+	shadow.scale = shadowScale
+	
 	
 #endregion
 
@@ -149,7 +133,14 @@ func _on_prompt_yes():
 		itemPickedUp("Gameboy")
 		
 	if prompt.name == "inside":
-		get_tree().reload_current_scene()
+		for child in self.get_children(true):
+			if child is OutsideLevel:
+				changeLevelToRoom(false)
+				break
+			if child is RoomLevel:
+				changeLevelToOutside()
+				break
+		
 
 func _on_alchemy_quit():
 	mainCharacter.canMove = true
@@ -157,6 +148,7 @@ func _on_alchemy_quit():
 
 func spawnAlchemyMenu():
 	mainCharacter.canMove = false	
+	mainCharacter.playIdle()
 	alchemy.spawn()
 	shadow.hide()
 	
@@ -165,10 +157,17 @@ func spawnAlchemyMenu():
 #region item pick up
 func itemPickedUp(item: String):
 	if item not in GlobalVariables.inventory:
-		if GlobalVariables.inventory.size() > 6:
-			$Music/Layer3.volume_db += db_to_linear(12.5)
-		else: 
-			$Music/Layer2.volume_db += db_to_linear(12.5)
+		if GlobalVariables.inventory.size() == 3:
+			mainCharacter.updateSprite(1)
+			animateFadeIntesity(1)
+		if GlobalVariables.inventory.size() == 5:
+			$Music/Layer2.volume_db = -1
+			mainCharacter.updateSprite(2)
+			animateFadeIntesity(2)
+		if GlobalVariables.inventory.size() == 7:
+			$Music/Layer3.volume_db = -1
+			mainCharacter.updateSprite(3)
+			animateFadeIntesity(3)
 			
 		$MainCharacter.health = 10
 		$MainCharacter/CanvasLayer/PlayerHealth.size = Vector2(40,40)
@@ -178,37 +177,23 @@ func _on_alchemy_give_responsability():
 	if "Future" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("ResponsabilityMemory")
 		GlobalVariables.trees_unlocked.push_back("Future")
-		mainCharacter.updateSprite()
-		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
-		#for i in 8:
-		#	await get_tree().create_timer(1).timeout
-			#$Music/Layer2.volume_db += db_to_linear(10)
 		
 func _on_alchemy_give_nostalgia():
 	if "Past" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("NostalgicMemory")
 		GlobalVariables.trees_unlocked.push_back("Past")
-		animateFadeIntesity()
-		mainCharacter.updateSprite()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		if GlobalVariables.trees_unlocked.size() == 3:
 			win()
-		#for i in 8:
-		#	await get_tree().create_timer(1).timeout
-			#$Music/Layer3.volume_db += db_to_linear(10)
 
 func _on_alchemy_give_reality():	
 	if "Present" not in GlobalVariables.trees_unlocked:
 		itemPickedUp("RealityMemory")
 		GlobalVariables.trees_unlocked.push_back("Present")
-		mainCharacter.updateSprite()
-		animateFadeIntesity()
 		shadow.scale = shadow.scale - Vector2(0.5, 0.5)
 		if GlobalVariables.trees_unlocked.size() == 3:
 			win()
-		#$Music/Layer2.volume_db += db_to_linear(10)
-		#$Music/Layer3.volume_db += db_to_linear(10)
 
 func win():
 	await get_tree().create_timer(10).timeout
@@ -217,20 +202,19 @@ func win():
 	get_tree().change_scene_to_packed(ending)
 	
 #region screen fade according to memories found	
-func animateFadeIntesity():
+func animateFadeIntesity(num : int):
 	var tween = create_tween()
-	tween.tween_property(fade_to_black, "color", Color(getFadeIntensity()), 0.5)
+	tween.tween_property(fade_to_black, "color", Color(getFadeIntensity(num)), 0.5)
 	
-func getFadeIntensity() -> String:
-	var numberOfTrees := GlobalVariables.trees_unlocked.size()
+func getFadeIntensity(num: int) -> String:
 	var color = ""
-	match (numberOfTrees):
+	match (num):
 		0: 
-			color = "0000008e"
+			color = "000000ad"
 		1:
-			color = "00000041"
+			color = "00000072"
 		2:
-			color = "00000020"
+			color = "0000004c"
 		3:
 			color = "00000000"
 	return color
@@ -244,6 +228,16 @@ func _on_main_character_player_hit(hp):
 	
 func _on_shadow_shadow_eat():
 	shadow.scale = shadow.scale + Vector2(0.02, 0.02)
+	if shadow.scale > Vector2(1.5, 1.5):
+		var tween = create_tween()
+		tween.tween_property(shadow, "modulate", Color.YELLOW, 0.1)
+		tween.tween_property(shadow, "modulate", Color.BLACK, 0.1)
+	
+	if shadow.scale > Vector2(1.8, 1.8):
+		var tween = create_tween()
+		tween.tween_property(shadow, "modulate", Color.RED, 0.1)
+		tween.tween_property(shadow, "modulate", Color.BLACK, 0.1)
+		
 	if shadow.scale > Vector2(2, 2):
 		gameOver("Your shadow grew too big and consumed you.")
 	
@@ -258,4 +252,3 @@ func on_game_over_retry():
 	$MainCharacter/CanvasLayer/GameOver.hide()
 	GlobalVariables.paused = false
 	get_tree().reload_current_scene()
-
